@@ -1,0 +1,44 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2021-11-20T10:43:54.071Z",
+        "line": 4,
+        "name": "1 #Verifying PayRent tab for New User on EDGE Home Screen",
+        "description": "",
+        "id": "edge-home-scren;1-#verifying-payrent-tab-for-new-user-on-edge-home-screen",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 9970000000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "User is at Chrome Browser",
+            "match": {
+              "location": "StepDefinition.Test.user_is_at_chrome_browser()"
+            },
+            "keyword": "Given "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Edge"
+          },
+          {
+            "name": "@Regression"
+          }
+        ]
+      }
+    ],
+    "name": "EDGE Home Scren",
+    "description": "",
+    "id": "edge-home-scren",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/Features/Test.feature",
+    "tags": []
+  }
+]
