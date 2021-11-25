@@ -3,11 +3,11 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2021-11-25T08:10:30.319Z",
+        "start_timestamp": "2021-11-25T11:30:05.186Z",
         "before": [
           {
             "result": {
-              "duration": 2635000000,
+              "duration": 3738000000,
               "status": "passed"
             },
             "match": {
@@ -16,13 +16,13 @@
           }
         ],
         "line": 5,
-        "name": "1 #Verifying Student Portal title page",
+        "name": "1 #Verifying login via email and password for Multiple a/c holder",
         "description": "",
-        "id": "edge-home-screen;1-#verifying-student-portal-title-page",
+        "id": "student-portal-title-page;1-#verifying-login-via-email-and-password-for-multiple-a/c-holder",
         "after": [
           {
             "result": {
-              "duration": 76000000,
+              "duration": 108000000,
               "status": "passed"
             },
             "match": {
@@ -35,32 +35,103 @@
         "steps": [
           {
             "result": {
-              "duration": 2576000000,
+              "duration": 2380000000,
               "status": "passed"
             },
             "line": 7,
             "name": "User is at Student portal",
             "match": {
-              "location": "StepDefinition.Test.user_is_at_student_portal()"
+              "location": "StepDefinition.StudentTitlePage.user_is_at_student_portal()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 320000000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "User clicks on \u0027Login with Password\u0027 CTA",
+            "match": {
+              "location": "StepDefinition.StudentTitlePage.user_clicks_on_login_with_password_cta()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 92000000,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "User is at \u0027Login with Password\u0027 screen",
+            "match": {
+              "location": "StepDefinition.StudentTitlePage.user_is_at_login_with_password_screen()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 2962000000,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "User enters valid email and password",
+            "match": {
+              "location": "StepDefinition.StudentTitlePage.user_enters_valid_email_and_password(io.cucumber.datatable.DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "Email",
+                  "Password"
+                ]
+              },
+              {
+                "cells": [
+                  "jayraj.kachariya@brightchamps.com",
+                  "jayraj"
+                ]
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 144000000,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "User clicks on Sign-in CTA",
+            "match": {
+              "location": "StepDefinition.StudentTitlePage.Sign_in_CTA_click()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 4890000000,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "User is redirected to the Home Page",
+            "match": {
+              "location": "StepDefinition.StudentTitlePage.user_is_redirected_to_the_home_page()"
             },
             "keyword": "Then "
           }
         ],
         "tags": [
           {
-            "name": "@Edge"
-          },
-          {
             "name": "@Regression"
           }
         ]
       }
     ],
-    "name": "EDGE Home Screen",
+    "name": "Student Portal Title page",
     "description": "",
-    "id": "edge-home-screen",
+    "id": "student-portal-title-page",
     "keyword": "Feature",
-    "uri": "file:src/test/java/Features/Test.feature",
+    "uri": "file:src/test/java/Features/StudentTitlePage.feature",
     "tags": []
   }
 ]

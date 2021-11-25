@@ -1,13 +1,14 @@
 package Base;
 
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.lang.StringUtils;
+import org.junit.Assert;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.io.FileInputStream;
+import java.sql.Timestamp;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -16,7 +17,7 @@ public class BaseUtil {
 
     public static WebDriver driver;
     public static Properties Pro;
-    static WebDriverWait wait;
+    public static WebDriverWait wait;
 
     public String valueForTheGivenKey(String name) {
 
@@ -38,42 +39,84 @@ public class BaseUtil {
     }
 
 
-    public void waitForElementToBeVisible(String locatorType, String element) {
+    public static void _wait(String value){
 
-        switch (locatorType) {
-            case "Xpath":
-                wait = new WebDriverWait(driver, 30);
-                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(element)));
-                break;
-            case "Id":
-                wait = new WebDriverWait(driver, 30);
-                wait.until(ExpectedConditions.presenceOfElementLocated(By.id(element)));
-                break;
+        try {
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(value)));
+        }
+        catch (TimeoutException e)
+        {
+            Assert.fail();
+        }
+
+    }
+
+
+
+    public void WaitForTitleToBe(String title){
+
+        try {
+            wait.until(ExpectedConditions.titleIs(title));
+        }
+        catch (TimeoutException e)
+        {
+            Assert.fail();
+        }
+
+    }
+    public static void _WaitAbsence(String value){
+
+        try {
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(value)));
+        }
+        catch (TimeoutException e)
+        {
+            Assert.fail();
+        }
+
+
+    }
+    public static void _click(String value){
+
+        driver.findElement(By.xpath(value)).click();
+
+    }
+
+    public static String _get_text(String value) {
+
+        return driver.findElement(By.xpath(value)).getText();
+
+    }
+
+    public static boolean _is_displayed(String xpath) {
+
+        try {
+            return driver.findElement(By.xpath(xpath)).isDisplayed();
+        }
+        catch (NoSuchElementException err)
+        {
+            return false;
         }
     }
 
-    public void waitForElementToBeClickable(String locatorType, String element) {
-        switch (locatorType) {
-            case "Xpath":
-                wait = new WebDriverWait(driver, 30);
-                wait.
-                        until(ExpectedConditions.elementToBeClickable(By.xpath(element)));
-                break;
-            case "Id":
-                wait = new WebDriverWait(driver, 30);
-                wait.until(ExpectedConditions.elementToBeClickable(By.id(element)));
-                break;
-        }
+    public static int _CurrentTimeStamp(){
+
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+
+        String minute = StringUtils.substringBefore(StringUtils.substringAfter(timestamp.toString(), ":"), ":");
+
+        return Integer.parseInt(minute);
+
     }
 
     public static boolean isClickable(WebElement element) {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, 5);
             wait.until(ExpectedConditions.elementToBeClickable(element));
             return true;
         } catch (Exception e) {
             return false;
         }
+
     }
 
 }
