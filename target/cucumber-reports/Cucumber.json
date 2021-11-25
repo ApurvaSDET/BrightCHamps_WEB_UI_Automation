@@ -3,25 +3,47 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2021-11-20T10:43:54.071Z",
-        "line": 4,
-        "name": "1 #Verifying PayRent tab for New User on EDGE Home Screen",
+        "start_timestamp": "2021-11-25T08:10:30.319Z",
+        "before": [
+          {
+            "result": {
+              "duration": 2635000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDefinition.Hook.InvokeChromeBrowser(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "1 #Verifying Student Portal title page",
         "description": "",
-        "id": "edge-home-scren;1-#verifying-payrent-tab-for-new-user-on-edge-home-screen",
+        "id": "edge-home-screen;1-#verifying-student-portal-title-page",
+        "after": [
+          {
+            "result": {
+              "duration": 76000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDefinition.Hook.TearDownTest(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 9970000000,
+              "duration": 2576000000,
               "status": "passed"
             },
-            "line": 6,
-            "name": "User is at Chrome Browser",
+            "line": 7,
+            "name": "User is at Student portal",
             "match": {
-              "location": "StepDefinition.Test.user_is_at_chrome_browser()"
+              "location": "StepDefinition.Test.user_is_at_student_portal()"
             },
-            "keyword": "Given "
+            "keyword": "Then "
           }
         ],
         "tags": [
@@ -34,11 +56,11 @@
         ]
       }
     ],
-    "name": "EDGE Home Scren",
+    "name": "EDGE Home Screen",
     "description": "",
-    "id": "edge-home-scren",
+    "id": "edge-home-screen",
     "keyword": "Feature",
-    "uri": "file:src/test/resources/Features/Test.feature",
+    "uri": "file:src/test/java/Features/Test.feature",
     "tags": []
   }
 ]

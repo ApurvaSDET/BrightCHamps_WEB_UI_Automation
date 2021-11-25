@@ -59,6 +59,16 @@
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-chrome-driver:3.141.59" level="project" />
     <orderEntry type="library" name="Maven: io.cucumber:cucumber-java:6.9.1" level="project" />
     <orderEntry type="library" name="Maven: org.apiguardian:apiguardian-api:1.1.0" level="project" />
+    <orderEntry type="library" name="Maven: io.github.bonigarcia:webdrivermanager:4.4.3" level="project" />
+    <orderEntry type="library" name="Maven: commons-io:commons-io:2.8.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents.client5:httpclient5:5.0.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents.core5:httpcore5:5.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents.core5:httpcore5-h2:5.0.2" level="project" />
+    <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.13" level="project" />
+    <orderEntry type="library" name="Maven: org.rauschig:jarchivelib:1.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-compress:1.20" level="project" />
+    <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.13.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: io.cucumber:cucumber-jvm-deps:1.0.6" level="project" />
     <orderEntry type="library" name="Maven: net.masterthought:cucumber-reporting:5.4.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.10.1" level="project" />
@@ -68,9 +78,7 @@
     <orderEntry type="library" name="Maven: org.apache.velocity:velocity-engine-core:2.1" level="project" />
     <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.2.2" level="project" />
     <orderEntry type="library" name="Maven: joda-time:joda-time:2.10.5" level="project" />
-    <orderEntry type="library" name="Maven: commons-io:commons-io:2.6" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.plexus:plexus-utils:3.3.0" level="project" />
-    <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.12.1" level="project" />
     <orderEntry type="library" name="Maven: com.googlecode.owasp-java-html-sanitizer:owasp-java-html-sanitizer:20191001.1" level="project" />
     <orderEntry type="library" name="Maven: commons-configuration:commons-configuration:1.10" level="project" />
     <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />
@@ -111,12 +119,11 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.mongodb:mongodb-driver:3.3.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.mongodb:mongodb-driver-core:3.3.0" level="project" />
     <orderEntry type="library" name="Maven: com.vimalselvam:cucumber-extentsreport:3.1.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: com.aventstack:extentreports:5.0.3" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: io.reactivex.rxjava3:rxjava:3.0.4" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.reactivestreams:reactive-streams:1.0.3" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.freemarker:freemarker:2.3.30" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.projectlombok:lombok:1.18.12" level="project" />
-    <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.6" level="project" />
+    <orderEntry type="library" name="Maven: com.aventstack:extentreports:5.0.3" level="project" />
+    <orderEntry type="library" name="Maven: io.reactivex.rxjava3:rxjava:3.0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.reactivestreams:reactive-streams:1.0.3" level="project" />
+    <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.30" level="project" />
+    <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.12" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.cucumber:cucumber-core:6.9.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.cucumber:cucumber-gherkin:6.9.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.cucumber:cucumber-gherkin-messages:6.9.1" level="project" />
@@ -132,7 +139,6 @@
     <orderEntry type="library" name="Maven: io.appium:java-client:7.3.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.5.9" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.4.11" level="project" />
-    <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.11" level="project" />
     <orderEntry type="library" name="Maven: cglib:cglib:3.2.12" level="project" />
     <orderEntry type="library" name="Maven: commons-validator:commons-validator:1.6" level="project" />
     <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.9.2" level="project" />

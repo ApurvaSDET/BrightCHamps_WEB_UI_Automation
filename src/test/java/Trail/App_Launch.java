@@ -1,4 +1,4 @@
-package StepDefinition;
+package Trail;
 
 import io.appium.java_client.AppiumDriver;
 import org.apache.commons.lang.StringUtils;
@@ -29,7 +29,7 @@ public class App_Launch {
         System.setProperty("webdriver.chrome.driver", "/Users/apurvakushwaha/IdeaProjects/BrightChamps/src/test/resources/Driver/chromedriver");
 
         //Creating an object of ChromeDriver
-        WebDriver driver = new ChromeDriver();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
 
         //Deleting all the cookies
