@@ -78,14 +78,28 @@ public class BaseUtil {
     }
     public static void _click(String value){
 
-        driver.findElement(By.xpath(value)).click();
+        try {
+            driver.findElement(By.xpath(value)).click();
+        }
+        catch (NoSuchElementException e)
+        {
+            Assert.fail();
+        }
 
     }
 
     public static String _get_text(String value) {
 
-        return driver.findElement(By.xpath(value)).getText();
 
+        try {
+            driver.findElement(By.xpath(value)).getText();
+        }
+        catch (NoSuchElementException e)
+        {
+            Assert.fail();
+        }
+
+        return driver.findElement(By.xpath(value)).getText();
     }
 
     public static boolean _is_displayed(String xpath) {

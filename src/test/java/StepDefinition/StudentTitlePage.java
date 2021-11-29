@@ -14,8 +14,9 @@ import java.util.Map;
 
 public class StudentTitlePage extends BaseUtil {
 
+    //Background: User is Logged In
 
-    @Given("User is at Student portal")
+    @Given("User is at Student portal title Page")
     public void user_is_at_student_portal() {
 
         //Navigating to the Home Page of student portal
@@ -67,7 +68,7 @@ public class StudentTitlePage extends BaseUtil {
 
     }
 
-    @When("User dismiss referral modal")
+    @And("User dismiss referral modal")
     public void User_dismiss_referral_modal() {
 
         //Closing the referral modal
@@ -75,15 +76,159 @@ public class StudentTitlePage extends BaseUtil {
 
     }
 
-    @Then("User is redirected to the Home Page of single user account")
+    //Scenario: 1 #Verifying login via email and password for Single user a/c
+
+    @Then("User is at the Home Page of single user account")
     public void user_is_redirected_to_the_home_page_single_user_account() {
 
         //waiting for home page to load
-        _wait(valueForTheGivenKey("Account_Select_Page"));
+        _wait(valueForTheGivenKey("Profile_button"));
         //Asserting the Student Home Page
-        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Account_Select_Page")));
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Profile_button")));
 
     }
 
 
-}
+    // Scenario: 2 #Verifying logout after login via email and password for Single user a/c
+
+    @And("Clicks on Profile button")
+    public void Clicks_on_Profile_button() {
+
+        //clicking on profile button
+        _click(valueForTheGivenKey("Profile_button"));
+
+    }
+
+    @Then("User is at Profile screen")
+    public void user_is_at_profile_screen() {
+
+        //waiting for Profile page to load
+        _wait(valueForTheGivenKey("Edit_Profile"));
+        //Asserting the Profile pag
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Edit_Profile")));
+
+    }
+
+    @When("User clicks logout button")
+    public void user_clicks_logout_button() {
+
+        //clicking on log-out button
+        _click(valueForTheGivenKey("triple_dots"));
+        //waiting for log-out dropdown
+        _wait(valueForTheGivenKey("logout_button"));
+        //clicking on log-out button
+        _click(valueForTheGivenKey("logout_button"));
+    }
+
+    //Scenario: 3 #Verifying Re-scheduling Next Class
+
+    @When("User Clicks on three dots button")
+    public void user_clicks_on_three_dots_button() {
+
+    }
+
+    @Then("Dropdown should appear")
+    public void dropdown_should_appear() {
+
+    }
+
+    @When("User Selects Reschedule button")
+    public void user_selects_reschedule_button() {
+
+    }
+
+    @Then("User is at Reschedule screen and Next class should be pre-selected")
+    public void user_is_at_reschedule_screen_and_next_class_should_be_pre_selected() {
+
+    }
+
+    @When("User selected next class date and time")
+    public void user_selected_next_class_date_and_time() {
+
+    }
+
+    @Then("Book your Slot CTA should get enabled")
+    public void cta_should_get_enabled(String string) {
+
+    }
+
+    @When("User clicks on Book your Slot CTA")
+    public void user_clicks_on_cta(String string) {
+
+    }
+
+    @Then("User should be able to successfully Reschedule the class")
+    public void user_should_be_able_to_successfully_reschedule_the_class() {
+
+    }
+
+    @And("Reason asking for Reschedule should appear")
+    public void reason_asking_for_reschedule_should_appear() {
+
+    }
+
+    @Then("User should be able to select the reason and click on Submit CTA")
+    public void user_should_be_able_to_select_the_reason_and_click_on_submit_cta() {
+
+    }
+
+    @And("User should be redirected to dashboard screen")
+    public void user_should_be_redirected_to_dashboard_screen() {
+
+    }
+
+    //Scenario: 4 #Verifying Skip button of reschedule screen
+
+    @Given("User is at reschedule successful screen")
+    public void user_is_at_reschedule_successful_screen() {
+
+    }
+
+
+    @When("User clicks on Skip link")
+    public void user_clicks_on_skip_link() {
+
+    }
+
+    //Scenario: 5 #Verifying back button of reschedule screen
+
+    @When("User clicks on back button")
+    public void user_clicks_on_back_button() {
+
+    }
+
+
+    //Scenario: 6 #Verifying Re-scheduling All Class
+
+    @Then("User is at Reschedule screen")
+    public void user_is_at_reschedule_screen() {
+
+    }
+
+    @And("User selects All Class tab")
+    public void user_selects_all_class_tab() {
+
+    }
+
+    @Then("By default three class per week should be shown")
+    public void by_default_three_class_per_week_should_be_shown() {
+
+    }
+
+    @When("User selects classes one by one")
+    public void user_selects_classes_one_by_one() {
+
+    }
+
+    @Then("User should see the option to select date amd time based on number of classes selected")
+    public void user_should_see_the_option_to_select_date_amd_time_based_on_number_of_classes_selected() {
+
+    }
+
+    @When("User selected all four classes date and time")
+    public void user_selected_all_four_classes_date_and_time() {
+
+    }
+
+    }
+
