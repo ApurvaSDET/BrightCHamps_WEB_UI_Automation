@@ -1,11 +1,14 @@
 package Trail;
 
 import io.appium.java_client.AppiumDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.lang.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -23,21 +26,15 @@ public class App_Launch {
     static WebDriverWait wait;
     static FileInputStream fis;
     static Properties p;
+
     public static void Launch_App() throws Exception {
 
-        //Setting system properties of ChromeDriver
-        System.setProperty("webdriver.chrome.driver", "/Users/apurvakushwaha/IdeaProjects/BrightChamps/src/test/resources/Driver/chromedriver");
-
-        //Creating an object of ChromeDriver
-        driver = new ChromeDriver();
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--disable-notifications");
+        driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
-
-        //Deleting all the cookies
-        driver.manage().deleteAllCookies();
-
-        //Specifying pageLoadTimeout and Implicit wait
-        driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        wait = new WebDriverWait(driver, 10);
 
         //launching the specified URL
         driver.get("https://www.google.com/");
@@ -169,6 +166,7 @@ public class App_Launch {
     public static void main (String []args) throws Exception {
 
         Launch_App();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("ajhdjk")));
 
     }
 

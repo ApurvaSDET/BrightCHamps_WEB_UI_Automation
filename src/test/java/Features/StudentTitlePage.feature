@@ -2,7 +2,7 @@ Feature: Student Portal Title page
 
 
   @Regression
-  Scenario: 1 #Verifying login via email and password for Multiple a/c holder
+  Scenario: 1 #Verifying login via email and password for Single user a/c
 
     Given  User is at Student portal
     When   User clicks on 'Login with Password' CTA
@@ -10,7 +10,9 @@ Feature: Student Portal Title page
     When   User enters valid email and password
 
       |Email|Password|
-      |jayraj.kachariya@brightchamps.com|jayraj|
+      |apurva.kushwaha@brightchamps.com|qwerty|
 
     And    User clicks on Sign-in CTA
-    Then   User is redirected to the Home Page
+    Then   Referral Pop-up screen appears after login
+    When   User dismiss referral modal
+    Then   User is redirected to the Home Page of single user account

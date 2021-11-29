@@ -57,8 +57,26 @@ public class StudentTitlePage extends BaseUtil {
         _click(valueForTheGivenKey("Sign_in_CTA"));
     }
 
-    @Then("User is redirected to the Home Page")
-    public void user_is_redirected_to_the_home_page() {
+    @Then("Referral Pop-up screen appears after login")
+    public void Referral_pop_up_modal() {
+
+        //waiting for home page to load
+        _wait(valueForTheGivenKey("Referral_modal"));
+        //Asserting the Student Home Page
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Referral_modal")));
+
+    }
+
+    @When("User dismiss referral modal")
+    public void User_dismiss_referral_modal() {
+
+        //Closing the referral modal
+        _click(valueForTheGivenKey("Referral_modal"));
+
+    }
+
+    @Then("User is redirected to the Home Page of single user account")
+    public void user_is_redirected_to_the_home_page_single_user_account() {
 
         //waiting for home page to load
         _wait(valueForTheGivenKey("Account_Select_Page"));
@@ -66,4 +84,6 @@ public class StudentTitlePage extends BaseUtil {
         Assert.assertTrue(_is_displayed(valueForTheGivenKey("Account_Select_Page")));
 
     }
+
+
 }
