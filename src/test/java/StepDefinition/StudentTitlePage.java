@@ -69,10 +69,12 @@ public class StudentTitlePage extends BaseUtil {
     }
 
     @And("User dismiss referral modal")
-    public void User_dismiss_referral_modal() {
+    public void User_dismiss_referral_modal() throws InterruptedException {
 
         //Closing the referral modal
         _click(valueForTheGivenKey("Referral_modal"));
+        //Providing time to load
+        Thread.sleep(3000);
 
     }
 
@@ -123,37 +125,86 @@ public class StudentTitlePage extends BaseUtil {
     //Scenario: 3 #Verifying Re-scheduling Next Class
 
     @When("User Clicks on three dots button")
-    public void user_clicks_on_three_dots_button() {
+    public void user_clicks_on_three_dots_button(){
+
+        //Clicking on 3 dots
+        _click_stale(valueForTheGivenKey("triple_dots"));
 
     }
 
     @Then("Dropdown should appear")
     public void dropdown_should_appear() {
 
+        //wait for dropdown
+        _wait(valueForTheGivenKey("Reschedule_class"));
+        //Asserting dropdown
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Reschedule_class")));
+
     }
 
     @When("User Selects Reschedule button")
     public void user_selects_reschedule_button() {
 
+        //Click on Reschedule button
+        _click(valueForTheGivenKey("Reschedule_class"));
+
     }
 
     @Then("User is at Reschedule screen and Next class should be pre-selected")
-    public void user_is_at_reschedule_screen_and_next_class_should_be_pre_selected() {
+    public void user_is_at_reschedule_screen_and_next_class_should_be_pre_selected(){
+
+        //waiting to land on Reschedule screen
+        _wait(valueForTheGivenKey("Reschedule_screen"));
+
+        //Asserting Reschedule screen
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Reschedule_screen")));
+
+
+        //Asserting pre-selected class should be Next class
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Next_Class_button")));
 
     }
 
     @When("User selected next class date and time")
-    public void user_selected_next_class_date_and_time() {
+    public void user_selected_next_class_date_and_time() throws InterruptedException {
+
+        //Clicking on Next class Date select dropdown
+        _click(valueForTheGivenKey("Next_class_Day_selector"));
+
+        //wait for dropdown to appear
+        _wait(valueForTheGivenKey("List_of_day"));
+
+        //Selecting any date from the available date
+        _random_options_from_dropdown(valueForTheGivenKey("List_of_day"));
+
+
+        //**************Selecting time after date****************
+
+
+        //Clicking on Next class Time Select dropdown
+        _click(valueForTheGivenKey("Next_class_Time_selector"));
+
+        //wait for dropdown to appear
+        _wait(valueForTheGivenKey("List_of_available_time"));
+
+        //Selecting any time from the available time
+        _random_options_from_dropdown(valueForTheGivenKey("List_of_available_time"));
+
 
     }
 
     @Then("Book your Slot CTA should get enabled")
-    public void cta_should_get_enabled(String string) {
+    public void cta_should_get_enabled() {
+
+        //Asserting Book your Slot CTA
+        Assert.assertTrue(_is_enabled(valueForTheGivenKey("Book_your_Slot_CTA")));
 
     }
 
     @When("User clicks on Book your Slot CTA")
-    public void user_clicks_on_cta(String string) {
+    public void user_clicks_on_cta() {
+
+        _click(valueForTheGivenKey("Book_your_Slot_CTA"));
 
     }
 

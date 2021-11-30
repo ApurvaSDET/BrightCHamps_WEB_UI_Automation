@@ -9,7 +9,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.io.FileInputStream;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 
@@ -19,7 +22,7 @@ public class BaseUtil {
     public static Properties Pro;
     public static WebDriverWait wait;
 
-    public String valueForTheGivenKey(String name) {
+    public static String valueForTheGivenKey(String name) {
 
         File file = new File(System.getProperty("user.dir")+"/src/test/resources/Properties_file/locator.properties");
         FileInputStream fis;
@@ -53,7 +56,7 @@ public class BaseUtil {
 
 
 
-    public void WaitForTitleToBe(String title){
+    public static void WaitForTitleToBe(String title){
 
         try {
             wait.until(ExpectedConditions.titleIs(title));
@@ -88,6 +91,18 @@ public class BaseUtil {
 
     }
 
+    public static void _click_stale(String value){
+
+        try {
+            driver.findElement(By.xpath(value)).click();
+        }
+        catch (StaleElementReferenceException e)
+        {
+            //System.out.println(e.getMessage());
+        }
+
+    }
+
     public static String _get_text(String value) {
 
 
@@ -104,8 +119,34 @@ public class BaseUtil {
 
     public static boolean _is_displayed(String xpath) {
 
-        try {
+       boolean result;
+
+       try
+        {
             return driver.findElement(By.xpath(xpath)).isDisplayed();
+        }
+        catch (NoSuchElementException | StaleElementReferenceException err)
+        {
+            result = err.getMessage().contains("StaleElementReferenceException");
+            return result;
+        }
+    }
+
+    public static boolean _is_selected(String xpath) {
+
+        try {
+            return driver.findElement(By.xpath(xpath)).isSelected();
+        }
+        catch (NoSuchElementException err)
+        {
+            return false;
+        }
+    }
+
+    public static boolean _is_enabled(String xpath) {
+
+        try {
+            return driver.findElement(By.xpath(xpath)).isEnabled();
         }
         catch (NoSuchElementException err)
         {
@@ -132,5 +173,50 @@ public class BaseUtil {
         }
 
     }
+
+    public static void _random_options_from_dropdown(String locator){
+
+        //Fetching list of WebElements
+        List<WebElement> dropdown_menu = driver.findElements(By.xpath(locator));
+
+        //Creating ArrayList and Random instance
+        ArrayList<WebElement> al = new ArrayList();
+        Random rand = new Random();
+
+        //Using enhanced for loop to get the elements
+        for (WebElement ele : dropdown_menu)
+
+        {
+            al.add(ele);
+
+        }
+
+        //Clicking on random values from the dropdown
+        al.get(rand.nextInt(dropdown_menu.size())).click();
+
+    }
+
+    public static void _selecting_particular_options_from_dropdown(String locator, String value_from_dropdown){
+
+        //Fetching list of WebElements
+        List<WebElement> dropdown_menu = driver.findElements(By.xpath(locator));
+
+        //Using enhanced for loop to get the elements
+        for (WebElement ele : dropdown_menu) {
+
+            // Here we will verify if link (item) is equal to particular value
+            if (ele.getAttribute("innerHTML").contains(value_from_dropdown)) {
+
+                // if yes then click on link (item)
+                ele.click();
+
+                // break the loop or come out of loop
+                break;
+
+            }
+        }
+
+
+        }
 
 }

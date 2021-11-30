@@ -1,4 +1,4 @@
-Feature: Student Portal Title page
+Feature: Test Automation for Login, Logout, Rescheduling and cancellation on Student Portal
 
   Background: User is Logged In
 
@@ -20,7 +20,7 @@ Feature: Student Portal Title page
 
     Then   User is at the Home Page of single user account
 
-  @Regression
+  @Regression1
   Scenario: 2 #Verifying logout after login via email and password for Single user a/c
 
     And    Clicks on Profile button

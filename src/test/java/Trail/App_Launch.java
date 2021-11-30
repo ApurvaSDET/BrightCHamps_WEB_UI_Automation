@@ -1,8 +1,10 @@
 package Trail;
 
+import Base.BaseUtil;
 import io.appium.java_client.AppiumDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.lang.StringUtils;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -20,12 +22,7 @@ import java.util.HashMap;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-public class App_Launch {
-
-    static WebDriver driver;
-    static WebDriverWait wait;
-    static FileInputStream fis;
-    static Properties p;
+public class App_Launch extends BaseUtil {
 
     public static void Launch_App() throws Exception {
 
@@ -35,9 +32,38 @@ public class App_Launch {
         driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, 10);
+        //Navigating to the Home Page of student portal
+        driver.get("https://students.brightchamps.com/");
+        //waiting for home page to load
+        WaitForTitleToBe(valueForTheGivenKey("Student_Title_Page"));
+        //Asserting the Student Home Page
+        Assert.assertEquals(valueForTheGivenKey("Student_Title_Page"), driver.getTitle());
+        _click(valueForTheGivenKey("Login_with_Password_CTA"));
+        _wait(valueForTheGivenKey("Sign_in_CTA"));
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Sign_in_CTA")));
+        driver.findElement(By.xpath(valueForTheGivenKey("Email_field"))).sendKeys("apurva.kushwaha@brightchamps.com");
+        driver.findElement(By.xpath(valueForTheGivenKey("Password_field"))).sendKeys("qwerty");
+        _click(valueForTheGivenKey("Sign_in_CTA"));
+        //waiting for home page to load
+        _wait(valueForTheGivenKey("Referral_modal"));
+        //Asserting the Student Home Page
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Referral_modal")));
+        _click(valueForTheGivenKey("Referral_modal"));
+        //waiting for home page to load
+        _wait(valueForTheGivenKey("Profile_button"));
+        //Asserting the Student Home Page
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Profile_button")));
+        //clicking on profile button
+        _click(valueForTheGivenKey("Profile_button"));
+        //waiting for Profile page to load
+        _wait(valueForTheGivenKey("Edit_Profile"));
 
-        //launching the specified URL
-        driver.get("https://www.google.com/");
+        Thread.sleep(2000);
+        _click(valueForTheGivenKey("Edit_Profile"));
+        Thread.sleep(2000);
+
+
+
 
     }
 
@@ -124,21 +150,7 @@ public class App_Launch {
         return New_date_format;
     }
 
-    public static int _Coins_count(String coinscount){
 
-        int count = Integer.parseInt(StringUtils.substringBefore(coinscount," "));
-        return count;
-    }
-
-    public static String _key(String keys) throws IOException {
-
-        fis = new FileInputStream(System.getProperty("user.dir")+"/src/test/resources/locator.properties");
-        p = new Properties();
-        p.load(fis);
-
-        return p.getProperty(keys);
-
-    }
 
     public static String _get_text(String xpath) {
 
@@ -166,7 +178,6 @@ public class App_Launch {
     public static void main (String []args) throws Exception {
 
         Launch_App();
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("ajhdjk")));
 
     }
 
