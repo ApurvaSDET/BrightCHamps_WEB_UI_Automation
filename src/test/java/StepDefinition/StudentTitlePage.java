@@ -122,13 +122,13 @@ public class StudentTitlePage extends BaseUtil {
         _click(valueForTheGivenKey("logout_button"));
     }
 
-    //Scenario: 3 #Verifying Re-scheduling Next Class
+    //Scenario: 3 #Verifying back button of Re-scheduling Next Class screen
 
     @When("User Clicks on three dots button")
     public void user_clicks_on_three_dots_button(){
 
         //Clicking on 3 dots
-        _click_stale(valueForTheGivenKey("triple_dots"));
+        _click(valueForTheGivenKey("triple_dots"));
 
     }
 
@@ -165,8 +165,19 @@ public class StudentTitlePage extends BaseUtil {
 
     }
 
+    @When("User clicks on back button")
+    public void user_clicks_on_back_button() {
+
+        _click(valueForTheGivenKey("Back_button"));
+
+    }
+
+
+
+    //Scenario: 4 #Verifying Re-scheduling Next Class
+
     @When("User selected next class date and time")
-    public void user_selected_next_class_date_and_time() throws InterruptedException {
+    public void user_selected_next_class_date_and_time() {
 
         //Clicking on Next class Date select dropdown
         _click(valueForTheGivenKey("Next_class_Day_selector"));
@@ -211,6 +222,9 @@ public class StudentTitlePage extends BaseUtil {
     @Then("User should be able to successfully Reschedule the class")
     public void user_should_be_able_to_successfully_reschedule_the_class() {
 
+        _wait(valueForTheGivenKey("Successfully_rescheduled_alert"));
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Successfully_rescheduled_alert")));
+
     }
 
     @And("Reason asking for Reschedule should appear")
@@ -228,7 +242,7 @@ public class StudentTitlePage extends BaseUtil {
 
     }
 
-    //Scenario: 4 #Verifying Skip button of reschedule screen
+    //Scenario: 5 #Verifying Skip button of reschedule screen
 
     @Given("User is at reschedule successful screen")
     public void user_is_at_reschedule_successful_screen() {
@@ -241,15 +255,11 @@ public class StudentTitlePage extends BaseUtil {
 
     }
 
-    //Scenario: 5 #Verifying back button of reschedule screen
-
-    @When("User clicks on back button")
-    public void user_clicks_on_back_button() {
-
-    }
+    //Scenario: 6 #Verifying back button of reschedule screen
 
 
-    //Scenario: 6 #Verifying Re-scheduling All Class
+
+    //Scenario: 7 #Verifying Re-scheduling All Class
 
     @Then("User is at Reschedule screen")
     public void user_is_at_reschedule_screen() {
@@ -280,6 +290,92 @@ public class StudentTitlePage extends BaseUtil {
     public void user_selected_all_four_classes_date_and_time() {
 
     }
+
+    //Scenario: 8 #Verifying X button on Cancel Class modal
+
+    @When("User Selects Cancel button")
+    public void user_selects_cancel_button() {
+
+    }
+
+    @Then("Cancel modal should appear")
+    public void cancel_modal_should_appear() {
+
+    }
+    @When("User Selects X button")
+    public void user_selects_x_button() {
+
+    }
+    @Then("Cancel modal should get closed")
+    public void cancel_modal_should_get_closed() {
+
+    }
+
+    //Scenario: 9 #Verifying No button on Cancel Class modal
+
+    @When("User clicks on NO button")
+    public void user_clicks_on_no_button() {
+
+    }
+
+
+    //Scenario: 10 #Verifying YES button on Cancel Class modal without accepting the student policy
+
+    @When("User clicks on YES button")
+    public void user_clicks_on_yes_button() {
+
+
+    }
+
+
+    @Then("YES button should be disabled")
+    public void yes_button_should_be_disabled() {
+
+
+    }
+
+
+    //Scenario: 11 #Verifying student policy link on Cancel Class modal
+
+    @When("User clicks on student policy link")
+    public void user_clicks_on_student_policy_link() {
+
+    }
+
+    @Then("A web page with student policy should get opened")
+    public void a_web_page_with_student_policy_should_get_opened() {
+
+
+    }
+
+    @When("User selects the checkbox to accept the agreement")
+    public void user_selects_the_checkbox_to_accept_the_agreement() {
+
+    }
+
+    @Then("YES button should be enabled")
+    public void yes_button_should_be_enabled() {
+
+    }
+    @Then("User should be able to successfully cancel the class")
+    public void user_should_be_able_to_successfully_cancel_the_class() {
+
+    }
+    @Then("Reason asking for Cancel should appear")
+    public void reason_asking_for_cancel_should_appear() {
+
+    }
+
+
+    //Scenario: 13 #Verifying Skip button of Successful cancel screen
+
+    @Given("User is at cancel successful screen")
+    public void user_is_at_cancel_successful_screen() {
+
+    }
+
+    //Scenario: 14 #Verifying X button of Successful cancel screen
+
 
     }
 

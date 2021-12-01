@@ -84,9 +84,18 @@ public class BaseUtil {
         try {
             driver.findElement(By.xpath(value)).click();
         }
-        catch (NoSuchElementException e)
+        catch (NoSuchElementException | StaleElementReferenceException e)
         {
-            Assert.fail();
+            if(e.getMessage().contains("StaleElementReferenceException"))
+            {
+                e.getMessage();
+            }
+            else
+            {
+                Assert.fail();
+            }
+
+
         }
 
     }

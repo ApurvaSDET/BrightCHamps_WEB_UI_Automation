@@ -20,7 +20,7 @@ Feature: Test Automation for Login, Logout, Rescheduling and cancellation on Stu
 
     Then   User is at the Home Page of single user account
 
-  @Regression1
+  @Regression
   Scenario: 2 #Verifying logout after login via email and password for Single user a/c
 
     And    Clicks on Profile button
@@ -29,9 +29,19 @@ Feature: Test Automation for Login, Logout, Rescheduling and cancellation on Stu
     Then   User is at Student portal title Page
 
 
+  @Regression
+  Scenario: 3 #Verifying back button of Re-scheduling Next Class screen
+
+    When   User Clicks on three dots button
+    Then   Dropdown should appear
+    When   User Selects Reschedule button
+    Then   User is at Reschedule screen and Next class should be pre-selected
+    When   User clicks on back button
+    Then   User should be redirected to dashboard screen
+
 
   @Regression
-  Scenario: 3 #Verifying Re-scheduling Next Class
+  Scenario: 4 #Verifying Re-scheduling Next Class
 
     When   User Clicks on three dots button
     Then   Dropdown should appear
@@ -47,7 +57,7 @@ Feature: Test Automation for Login, Logout, Rescheduling and cancellation on Stu
 
 
   @Regression
-  Scenario: 4 #Verifying Skip button of reschedule screen
+  Scenario: 5 #Verifying Skip button of rescheduled screen
 
     Given  User is at reschedule successful screen
     When   User clicks on Skip link
@@ -55,7 +65,7 @@ Feature: Test Automation for Login, Logout, Rescheduling and cancellation on Stu
 
 
   @Regression
-  Scenario: 5 #Verifying back button of reschedule screen
+  Scenario: 6 #Verifying back button of rescheduled screen
 
     Given  User is at reschedule successful screen
     When   User clicks on back button
@@ -63,7 +73,7 @@ Feature: Test Automation for Login, Logout, Rescheduling and cancellation on Stu
 
 
   @Regression
-  Scenario: 6 #Verifying Re-scheduling All Class
+  Scenario: 7 #Verifying Re-scheduling All Class
 
     When   User Clicks on three dots button
     Then   Dropdown should appear
@@ -83,5 +93,74 @@ Feature: Test Automation for Login, Logout, Rescheduling and cancellation on Stu
 
 
   @Regression
-  Scenario: 7 #Verifying Cancel Class
+  Scenario: 8 #Verifying X button on Cancel Class modal
 
+    When   User Clicks on three dots button
+    Then   Dropdown should appear
+    When   User Selects Cancel button
+    Then   Cancel modal should appear
+    When   User Selects X button
+    Then   Cancel modal should get closed
+
+
+  @Regression
+  Scenario: 9 #Verifying No button on Cancel Class modal
+
+    When   User Clicks on three dots button
+    Then   Dropdown should appear
+    When   User Selects Cancel button
+    Then   Cancel modal should appear
+    When   User clicks on NO button
+    Then   Cancel modal should get closed
+
+
+  @Regression
+  Scenario: 10 #Verifying YES button on Cancel Class modal without accepting the student policy
+
+    When   User Clicks on three dots button
+    Then   Dropdown should appear
+    When   User Selects Cancel button
+    Then   Cancel modal should appear
+    When   User clicks on YES button
+    Then   YES button should be disabled
+
+  @Regression
+  Scenario: 11 #Verifying student policy link on Cancel Class modal
+
+    When   User Clicks on three dots button
+    Then   Dropdown should appear
+    When   User Selects Cancel button
+    Then   Cancel modal should appear
+    When   User clicks on student policy link
+    Then   A web page with student policy should get opened
+
+  @Regression
+  Scenario: 12 #Verifying YES button on Cancel Class modal after accepting the student policy
+
+    When   User Clicks on three dots button
+    Then   Dropdown should appear
+    When   User Selects Cancel button
+    Then   Cancel modal should appear
+    When   User selects the checkbox to accept the agreement
+    Then   YES button should be enabled
+    When   User clicks on YES button
+    Then   User should be able to successfully cancel the class
+    And    Reason asking for Cancel should appear
+    Then   User should be able to select the reason and click on Submit CTA
+    And    Cancel modal should get closed
+
+
+  @Regression
+  Scenario: 13 #Verifying Skip button of Successful cancel screen
+
+    Given  User is at cancel successful screen
+    When   User clicks on Skip link
+    Then   Cancel modal should get closed
+
+
+  @Regression
+  Scenario: 14 #Verifying X button of Successful cancel screen
+
+    Given  User is at cancel successful screen
+    When   User Selects X button
+    Then   Cancel modal should get closed
