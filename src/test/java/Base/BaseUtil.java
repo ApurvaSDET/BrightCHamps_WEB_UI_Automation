@@ -21,6 +21,7 @@ public class BaseUtil {
     public static WebDriver driver;
     public static Properties Pro;
     public static WebDriverWait wait;
+    public static String Parent_Window;
 
     public static String valueForTheGivenKey(String name) {
 
@@ -133,6 +134,21 @@ public class BaseUtil {
        try
         {
             return driver.findElement(By.xpath(xpath)).isDisplayed();
+        }
+        catch (NoSuchElementException | StaleElementReferenceException err)
+        {
+            result = err.getMessage().contains("StaleElementReferenceException");
+            return result;
+        }
+    }
+
+    public static boolean _is_displayed_link_text(String value) {
+
+        boolean result;
+
+        try
+        {
+            return driver.findElement(By.linkText(value)).isDisplayed();
         }
         catch (NoSuchElementException | StaleElementReferenceException err)
         {

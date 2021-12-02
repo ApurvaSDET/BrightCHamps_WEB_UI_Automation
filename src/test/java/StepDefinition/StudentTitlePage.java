@@ -3,14 +3,20 @@ package StepDefinition;
 
 import Base.BaseUtil;
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
+
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class StudentTitlePage extends BaseUtil {
 
@@ -253,6 +259,10 @@ public class StudentTitlePage extends BaseUtil {
     @When("User clicks on Skip link")
     public void user_clicks_on_skip_link() {
 
+        //Clicking on SKIP link
+        _wait(valueForTheGivenKey("SKIP_Button"));
+        _click(valueForTheGivenKey("SKIP_Button"));
+
     }
 
     //Scenario: 6 #Verifying back button of reschedule screen
@@ -296,18 +306,32 @@ public class StudentTitlePage extends BaseUtil {
     @When("User Selects Cancel button")
     public void user_selects_cancel_button() {
 
+        //Click on Cancel button
+        _click(valueForTheGivenKey("Cancel_Class"));
+
     }
 
     @Then("Cancel modal should appear")
     public void cancel_modal_should_appear() {
 
-    }
-    @When("User Selects X button")
-    public void user_selects_x_button() {
+        //Waiting for Cancel modal to appear
+        _wait(valueForTheGivenKey("Cancel_modal_checkbox"));
+        //Asserting Cancel modal to appear
+        Assert.assertTrue(_is_displayed_link_text(valueForTheGivenKey("Student_Policy_link_text")));
 
     }
+    @When("User clicks on X button")
+    public void user_clicks_x_button() {
+
+        _click(valueForTheGivenKey("X_button_Cancel_Modal"));
+
+    }
+
     @Then("Cancel modal should get closed")
     public void cancel_modal_should_get_closed() {
+
+        _WaitAbsence(valueForTheGivenKey("Cancel_modal_checkbox"));
+        Assert.assertFalse(_is_displayed(valueForTheGivenKey("Cancel_modal_checkbox")));
 
     }
 
@@ -316,21 +340,24 @@ public class StudentTitlePage extends BaseUtil {
     @When("User clicks on NO button")
     public void user_clicks_on_no_button() {
 
+        _click(valueForTheGivenKey("No_CTA_Cancel_modal"));
     }
 
 
     //Scenario: 10 #Verifying YES button on Cancel Class modal without accepting the student policy
 
-    @When("User clicks on YES button")
-    public void user_clicks_on_yes_button() {
+    @And("YES button should be disabled")
+    public void yes_button_should_be_disabled(){
 
+        //Asserting if YES CTA is disabled
 
-    }
-
-
-    @Then("YES button should be disabled")
-    public void yes_button_should_be_disabled() {
-
+        try {
+            Assert.assertFalse(driver.findElement(By.xpath(valueForTheGivenKey("Disabled_Yes_button"))).isEnabled());
+        }
+        catch (NoSuchElementException e)
+        {
+            Assert.fail();
+        }
 
     }
 
@@ -340,37 +367,127 @@ public class StudentTitlePage extends BaseUtil {
     @When("User clicks on student policy link")
     public void user_clicks_on_student_policy_link() {
 
+        //Getting current window ID
+        Parent_Window = driver.getWindowHandle();
+
+        //Clicks on link available on cancel modal
+        driver.findElement(By.linkText(valueForTheGivenKey("Student_Policy_link_text"))).click();
+
     }
 
     @Then("A web page with student policy should get opened")
     public void a_web_page_with_student_policy_should_get_opened() {
 
+        Set<String> multiple_window = driver.getWindowHandles();
 
+        for(String e : multiple_window)
+        {
+            if(!e.equalsIgnoreCase(Parent_Window))
+            {
+                driver.switchTo().window(e);
+            }
+        }
+
+        Assert.assertEquals("Student Policy", driver.getTitle());
     }
+
+    // Scenario: 12 #Verifying YES button on Cancel Class modal after accepting the student policy
 
     @When("User selects the checkbox to accept the agreement")
     public void user_selects_the_checkbox_to_accept_the_agreement() {
 
+        //Selecting the checkbox
+        _click(valueForTheGivenKey("Cancel_modal_checkbox"));
     }
 
     @Then("YES button should be enabled")
     public void yes_button_should_be_enabled() {
 
+        //Asserting if YES CTA is enabled
+
+        try {
+            Assert.assertTrue(driver.findElement(By.xpath(valueForTheGivenKey("Disabled_Yes_button"))).isEnabled());
+        }
+        catch (NoSuchElementException e)
+        {
+            Assert.assertTrue(true);
+        }
+
     }
+
+    @When("User clicks on YES button")
+    public void user_clicks_on_yes_button() {
+
+        //Clicking Yes after selecting Checkbox
+        try {
+            driver.findElement(By.xpath(valueForTheGivenKey("Enabled_Yes_button"))).click();
+        } catch (NoSuchElementException | StaleElementReferenceException | ElementClickInterceptedException e) {
+            if (e.getMessage().contains("StaleElementReferenceException")) {
+                e.getMessage();
+            } else {
+                Assert.fail();
+            }
+
+        }
+
+    }
+
     @Then("User should be able to successfully cancel the class")
     public void user_should_be_able_to_successfully_cancel_the_class() {
 
+        //waiting for success text
+        _wait(valueForTheGivenKey("Successfully_cancel_alert"));
+
+        //Asserting Cancel Successful pop-up
+        Assert.assertEquals("This class has been cancelled",_get_text(valueForTheGivenKey("Successfully_cancel_alert")));
+
     }
+
     @Then("Reason asking for Cancel should appear")
     public void reason_asking_for_cancel_should_appear() {
 
+        //Assertion for availability of list of reasons for cancellation
+        _is_displayed(valueForTheGivenKey("Cancel_reason_options"));
+
     }
 
+    @Then("User should be able to select the cancel reason and click on Submit CTA")
+    public void user_should_be_able_to_select_the_cancel_reason_and_click_on_submit_cta() {
+
+        //Selecting any options available randomly
+        _random_options_from_dropdown(valueForTheGivenKey("Cancel_reason_options"));
+
+        //Clicking on Submit CTA
+        _click(valueForTheGivenKey("Enabled_Submit_CTA"));
+
+
+    }
+
+    @And("Successful cancel modal should get closed and Webpage should reload")
+    public void Successful_cancel_modal_should_get_closed() {
+
+        //wait for the invisibility
+        _WaitAbsence(valueForTheGivenKey("SKIP_Button"));
+
+        //Assertion for reloading of the web page
+        _WaitAbsence(valueForTheGivenKey("Cancel_Class"));
+        Assert.assertFalse(_is_displayed(valueForTheGivenKey("Cancel_Class")));
+
+    }
 
     //Scenario: 13 #Verifying Skip button of Successful cancel screen
 
     @Given("User is at cancel successful screen")
     public void user_is_at_cancel_successful_screen() {
+
+        //Reusing above methods to launch Cancel Success Screen
+        user_clicks_on_three_dots_button();
+        dropdown_should_appear();
+        user_selects_cancel_button();
+        cancel_modal_should_appear();
+        user_selects_the_checkbox_to_accept_the_agreement();
+        user_clicks_on_yes_button();
+        user_should_be_able_to_successfully_cancel_the_class();
 
     }
 
