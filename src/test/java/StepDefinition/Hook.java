@@ -19,6 +19,7 @@ public class Hook extends BaseUtil {
         chromeOptions.addArguments("--disable-notifications");
         driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
+        waitForGivenSec(1);
         wait = new WebDriverWait(driver, 20);
     }
 
@@ -31,6 +32,7 @@ public class Hook extends BaseUtil {
 
         }
 
+        waitForGivenSec(2);
         driver.quit();
     }
 
