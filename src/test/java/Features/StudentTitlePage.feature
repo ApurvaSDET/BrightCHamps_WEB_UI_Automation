@@ -74,7 +74,7 @@ Feature: Home Page Part 1
 
 
   @Regression
-  Scenario: 7 #Verifying Re-scheduling All Class
+  #Scenario: 7 #Verifying Re-scheduling All Class
 
     When   User Clicks on three dots button
     Then   Dropdown should appear

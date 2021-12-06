@@ -316,15 +316,22 @@ public class StudentTitlePage extends BaseUtil {
     @Then("By default three class per week should be shown")
     public void by_default_three_class_per_week_should_be_shown() {
 
+    //Assertion for showing 3rd class
+    Assert.assertTrue(_is_displayed(valueForTheGivenKey("Third_Class")));
+
     }
 
     @When("User selects classes one by one")
     public void user_selects_classes_one_by_one() {
 
+        _selecting_one_by_one_from_dropdown(valueForTheGivenKey("No._of_classes"));
+
     }
 
     @Then("User should see the option to select date amd time based on number of classes selected")
     public void user_should_see_the_option_to_select_date_amd_time_based_on_number_of_classes_selected() {
+
+
 
     }
 

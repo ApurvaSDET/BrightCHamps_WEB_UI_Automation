@@ -221,6 +221,22 @@ public class BaseUtil {
 
     }
 
+    public static void _selecting_one_by_one_from_dropdown(String locator){
+
+        //Fetching list of WebElements
+        List<WebElement> dropdown_menu = driver.findElements(By.xpath(locator));
+
+        //Using enhanced for loop to get the elements
+        for (WebElement ele : dropdown_menu)
+
+        {
+            ele.click();
+
+        }
+
+
+    }
+
     public static void _selecting_particular_options_from_dropdown(String locator, String value_from_dropdown){
 
         //Fetching list of WebElements
