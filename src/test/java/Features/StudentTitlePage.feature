@@ -1,4 +1,5 @@
-Feature: Test Automation for Login, Logout, Rescheduling and cancellation on Student Portal
+Feature: Home Page Part 1
+  Description: Test Automation for Login, Logout, Rescheduling and cancellation on Student Portal
 
   Background: User is Logged In
 
@@ -8,7 +9,7 @@ Feature: Test Automation for Login, Logout, Rescheduling and cancellation on Stu
     When   User enters valid email and password
 
       |Email|Password|
-      |apurva.kushwaha@brightchamps.com|qwerty|
+      |prathyusha.m@brightchamps.com|prat2021|
 
     And    User clicks on Sign-in CTA
     Then   Referral Pop-up screen appears after login
@@ -40,7 +41,7 @@ Feature: Test Automation for Login, Logout, Rescheduling and cancellation on Stu
     Then   User should be redirected to dashboard screen
 
 
-  @Regression1
+  @Regression
   Scenario: 4 #Verifying Re-scheduling Next Class
 
     When   User Clicks on three dots button
@@ -56,7 +57,7 @@ Feature: Test Automation for Login, Logout, Rescheduling and cancellation on Stu
     And    User should be redirected to dashboard screen
 
 
-  @Regression1
+  @Regression
   Scenario: 5 #Verifying Skip button of rescheduled screen
 
     Given  User is at reschedule successful screen
@@ -64,7 +65,7 @@ Feature: Test Automation for Login, Logout, Rescheduling and cancellation on Stu
     Then   User should be redirected to dashboard screen
 
 
-  @Regression1
+  @Regression
   Scenario: 6 #Verifying back button of rescheduled screen
 
     Given  User is at reschedule successful screen
@@ -72,7 +73,7 @@ Feature: Test Automation for Login, Logout, Rescheduling and cancellation on Stu
     Then   User should be redirected to dashboard screen
 
 
-  @Regression1
+  @Regression
   Scenario: 7 #Verifying Re-scheduling All Class
 
     When   User Clicks on three dots button

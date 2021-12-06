@@ -3,7 +3,6 @@ package StepDefinition;
 
 import Base.BaseUtil;
 import io.cucumber.datatable.DataTable;
-import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -236,15 +235,31 @@ public class StudentTitlePage extends BaseUtil {
     @And("Reason asking for Reschedule should appear")
     public void reason_asking_for_reschedule_should_appear() {
 
+        //Assertion for availability of list of reasons for reschedule
+        _is_displayed(valueForTheGivenKey("Reschedule_reason_options"));
+
     }
 
     @Then("User should be able to select the reason and click on Submit CTA")
     public void user_should_be_able_to_select_the_reason_and_click_on_submit_cta() {
 
+        //Selecting any options available randomly
+        _random_options_from_dropdown(valueForTheGivenKey("Reschedule_reason_options"));
+
+        //Clicking on Submit CTA
+        _click(valueForTheGivenKey("Enabled_Submit_CTA"));
+
     }
 
     @And("User should be redirected to dashboard screen")
     public void user_should_be_redirected_to_dashboard_screen() {
+
+        //wait for the invisibility
+        _WaitAbsence(valueForTheGivenKey("SKIP_Button"));
+
+        //Assertion for redirecting to home page
+        _wait(valueForTheGivenKey("triple_dots"));
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("triple_dots")));
 
     }
 
@@ -252,6 +267,15 @@ public class StudentTitlePage extends BaseUtil {
 
     @Given("User is at reschedule successful screen")
     public void user_is_at_reschedule_successful_screen() {
+
+        user_clicks_on_three_dots_button();
+        dropdown_should_appear();
+        user_selects_reschedule_button();
+        user_is_at_reschedule_screen_and_next_class_should_be_pre_selected();
+        user_selected_next_class_date_and_time();
+        cta_should_get_enabled();
+        user_clicks_on_cta();
+        user_should_be_able_to_successfully_reschedule_the_class();
 
     }
 
@@ -274,10 +298,18 @@ public class StudentTitlePage extends BaseUtil {
     @Then("User is at Reschedule screen")
     public void user_is_at_reschedule_screen() {
 
+        //waiting to land on Reschedule screen
+        _wait(valueForTheGivenKey("Reschedule_screen"));
+
+        //Asserting Reschedule screen
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Reschedule_screen")));
+
     }
 
     @And("User selects All Class tab")
     public void user_selects_all_class_tab() {
+
+        _click(valueForTheGivenKey("All_Class_Button"));
 
     }
 
