@@ -16,7 +16,7 @@ Feature: Home Page Part 1
     And    User dismiss referral modal
 
 
-  @Regression
+  @Regression1
   Scenario: 1 #Verifying login via email and password for Single user a/c
 
     Then   User is at the Home Page of single user account
