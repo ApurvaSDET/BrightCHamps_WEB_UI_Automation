@@ -13,3 +13,6 @@ pipelines:
             after-script:
               # Collect checkstyle results, if any, and convert to Bitbucket Code Insights.
               - pipe: atlassian/checkstyle-report:0.3.0
+
+             artifacts:
+               - target/html-report/**
