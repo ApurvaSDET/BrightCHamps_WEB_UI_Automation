@@ -15,4 +15,4 @@ pipelines:
               - pipe: atlassian/checkstyle-report:0.3.0
 
             artifacts:
-               - target/html-report/**
+               - target/html/testReport.html
