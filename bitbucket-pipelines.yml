@@ -1,6 +1,7 @@
 # Prerequisites: pom.xml and appropriate project structure should exist in the repository.
 
 image: markhobson/maven-chrome:jdk-8
+image: selenium/standalone-chrome
 
 pipelines:
   default:
@@ -17,8 +18,3 @@ pipelines:
             artifacts:
                - target/html/testReport.html
                - target/html_failed/testReport.html
-
-        definitions:
-          services:
-            selenium-chrome:
-              image: selenium/standalone-chrome
