@@ -19,7 +19,7 @@ Feature: Home Page Part 1
 
     Then   User is at the Home Page of single user account
 
-  @Regression
+  @Regression @SmokeTest
   Scenario: 2 #Verifying logout after login via email and password for Single user a/c
 
     And    Clicks on Profile button
@@ -28,7 +28,7 @@ Feature: Home Page Part 1
     Then   User is at Student portal title Page
 
 
-  @Regression
+  @Regression @SmokeTest
   Scenario: 3 #Verifying back button of Re-scheduling Next Class screen
 
     When   User Clicks on three dots button
@@ -91,7 +91,7 @@ Feature: Home Page Part 1
     And    User should be redirected to dashboard screen
 
 
-  @Regression
+  @Regression @SmokeTest
   Scenario: 8 #Verifying X button on Cancel Class modal
 
     When   User Clicks on three dots button
@@ -102,7 +102,7 @@ Feature: Home Page Part 1
     Then   Cancel modal should get closed
 
 
-  @Regression
+  @Regression @SmokeTest
   Scenario: 9 #Verifying No button on Cancel Class modal
 
     When   User Clicks on three dots button
@@ -113,7 +113,7 @@ Feature: Home Page Part 1
     Then   Cancel modal should get closed
 
 
-  @Regression
+  @Regression @SmokeTest
   Scenario: 10 #Verifying YES button on Cancel Class modal without accepting the student policy
 
     When   User Clicks on three dots button
@@ -122,7 +122,7 @@ Feature: Home Page Part 1
     Then   Cancel modal should appear
     And    YES button should be disabled
 
-  @Regression
+  @Regression @SmokeTest
   Scenario: 11 #Verifying student policy link on Cancel Class modal
 
     When   User Clicks on three dots button
@@ -132,7 +132,7 @@ Feature: Home Page Part 1
     When   User clicks on student policy link
     Then   A web page with student policy should get opened
 
-  @Regression
+  @Regression @SmokeTest
   Scenario: 12 #Verifying YES button on Cancel Class modal after accepting the student policy
 
     When   User Clicks on three dots button
@@ -148,7 +148,7 @@ Feature: Home Page Part 1
     And    Successful cancel modal should get closed and Webpage should reload
 
 
-  @Regression
+  @Regression @SmokeTest
   Scenario: 13 #Verifying Skip button of Successful cancel screen
 
     Given  User is at cancel successful screen
@@ -156,7 +156,7 @@ Feature: Home Page Part 1
     Then   Successful cancel modal should get closed and Webpage should reload
 
 
-  @Regression
+  @Regression @SmokeTest
   Scenario: 14 #Verifying X button of Successful cancel screen
 
     Given  User is at cancel successful screen
