@@ -14,7 +14,7 @@ Feature: Home Page Part 1
     And    User clicks on Sign-in CTA
 
 
-  @Regression
+  @Regression @SmokeTest
   Scenario: 1 #Verifying login via email and password for Single user a/c
 
     Then   User is at the Home Page of single user account
@@ -132,7 +132,7 @@ Feature: Home Page Part 1
     When   User clicks on student policy link
     Then   A web page with student policy should get opened
 
-  @Regression @SmokeTest
+  @Regression
   Scenario: 12 #Verifying YES button on Cancel Class modal after accepting the student policy
 
     When   User Clicks on three dots button
