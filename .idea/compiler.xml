@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="BrightChamps" target="16" />
+      <module name="BrightChamps" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
