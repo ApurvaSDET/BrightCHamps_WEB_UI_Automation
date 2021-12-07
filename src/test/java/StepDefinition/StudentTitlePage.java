@@ -58,29 +58,11 @@ public class StudentTitlePage extends BaseUtil {
     }
 
     @And("User clicks on Sign-in CTA")
-    public void Sign_in_CTA_click() {
+    public void Sign_in_CTA_click() throws InterruptedException {
 
         _click(valueForTheGivenKey("Sign_in_CTA"));
-    }
-
-    @Then("Referral Pop-up screen appears after login")
-    public void Referral_pop_up_modal() {
-
-        //waiting for home page to load
-        _wait(valueForTheGivenKey("Referral_modal"));
-        //Asserting the Student Home Page
-        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Referral_modal")));
-
-    }
-
-    @And("User dismiss referral modal")
-    public void User_dismiss_referral_modal() throws InterruptedException {
-
-        //Closing the referral modal
-        _click(valueForTheGivenKey("Referral_modal"));
         //Providing time to load
         Thread.sleep(3000);
-
     }
 
     //Scenario: 1 #Verifying login via email and password for Single user a/c

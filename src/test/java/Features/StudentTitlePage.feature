@@ -12,16 +12,14 @@ Feature: Home Page Part 1
       |prathyusha.m@brightchamps.com|prat2021|
 
     And    User clicks on Sign-in CTA
-    Then   Referral Pop-up screen appears after login
-    And    User dismiss referral modal
 
 
-  @Regression
+  @Regression @SmokeTest
   Scenario: 1 #Verifying login via email and password for Single user a/c
 
     Then   User is at the Home Page of single user account
 
-  @Regression
+  @Regression @SmokeTest
   Scenario: 2 #Verifying logout after login via email and password for Single user a/c
 
     And    Clicks on Profile button
