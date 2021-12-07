@@ -19,7 +19,7 @@ Feature: Home Page Part 1
 
     Then   User is at the Home Page of single user account
 
-  @Regression @SmokeTest
+  @Regression
   Scenario: 2 #Verifying logout after login via email and password for Single user a/c
 
     And    Clicks on Profile button

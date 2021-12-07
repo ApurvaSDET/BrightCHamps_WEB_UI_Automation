@@ -16,7 +16,7 @@ public class Hook extends BaseUtil {
     public void InvokeChromeBrowser(Scenario scenario) {
         WebDriverManager.chromedriver().setup();
         ChromeOptions chromeOptions = new ChromeOptions();
-        //chromeOptions.addArguments("--headless");
+        chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("--disable-notifications");
         driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
