@@ -73,8 +73,8 @@ Feature: Home Page Part 1
     Then   User should be redirected to dashboard screen
 
 
-  @Regression
-  #Scenario: 7 #Verifying Re-scheduling All Class
+  @Regression1
+  Scenario: 7 #Verifying Re-scheduling All Class
 
     When   User Clicks on three dots button
     Then   Dropdown should appear
