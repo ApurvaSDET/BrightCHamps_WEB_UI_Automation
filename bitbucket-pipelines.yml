@@ -16,3 +16,4 @@ pipelines:
 
             artifacts:
                - target/html/testReport.html
+               - target/html_failed/testReport.html
