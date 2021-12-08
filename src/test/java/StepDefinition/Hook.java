@@ -23,13 +23,14 @@ public class Hook extends BaseUtil {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
 
+        capabilities.setCapability("os", "OS X");
+        capabilities.setCapability("os_version", "Monterey");
         capabilities.setCapability("os", "Windows");
+        capabilities.setCapability("os_version", "10");
         capabilities.setCapability("browser", "Chrome");
-
-
         WebDriverManager.chromedriver().setup();
-
         driver = new RemoteWebDriver(new URL(BROWSERSTACK_URL), capabilities);
+
        /* ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setHeadless(true);
         chromeOptions.addArguments("--disable-dev-shm-usage");

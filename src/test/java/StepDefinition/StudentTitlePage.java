@@ -240,13 +240,14 @@ public class StudentTitlePage extends BaseUtil {
     }
 
     @And("User should be redirected to dashboard screen")
-    public void user_should_be_redirected_to_dashboard_screen() {
+    public void user_should_be_redirected_to_dashboard_screen() throws InterruptedException {
 
         //wait for the invisibility
         _WaitAbsence(valueForTheGivenKey("SKIP_Button"));
 
         //Assertion for redirecting to home page
         _wait(valueForTheGivenKey("triple_dots"));
+        Thread.sleep(2000);
         Assert.assertTrue(_is_displayed(valueForTheGivenKey("triple_dots")));
 
     }
