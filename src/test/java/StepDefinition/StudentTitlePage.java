@@ -62,7 +62,7 @@ public class StudentTitlePage extends BaseUtil {
 
         _click(valueForTheGivenKey("Sign_in_CTA"));
         //Providing time to load
-        Thread.sleep(3000);
+        Thread.sleep(5000);
     }
 
     //Scenario: 1 #Verifying login via email and password for Single user a/c
@@ -337,6 +337,7 @@ public class StudentTitlePage extends BaseUtil {
     public void user_selects_cancel_button() {
 
         //Click on Cancel button
+        _wait(valueForTheGivenKey("Cancel_Class"));
         _click(valueForTheGivenKey("Cancel_Class"));
 
     }
@@ -370,6 +371,7 @@ public class StudentTitlePage extends BaseUtil {
     @When("User clicks on NO button")
     public void user_clicks_on_no_button() {
 
+        _wait(valueForTheGivenKey("No_CTA_Cancel_modal"));
         _click(valueForTheGivenKey("No_CTA_Cancel_modal"));
     }
 
