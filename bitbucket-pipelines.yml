@@ -9,7 +9,9 @@ pipelines:
             caches:
               - maven
             script:
-              - mvn -B clean test -Dcucumber.filter.tags='@Regression' --file pom.xml
+              - bash run_local.sh # to setup local testing
+              - mvn -B clean test -Dcucumber.filter.tags='@Regression12' --file pom.xml
+
             after-script:
               # Collect checkstyle results, if any, and convert to Bitbucket Code Insights.
               - pipe: atlassian/checkstyle-report:0.3.0

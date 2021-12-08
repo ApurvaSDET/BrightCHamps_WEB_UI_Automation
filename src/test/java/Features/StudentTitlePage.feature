@@ -15,7 +15,7 @@ Feature: Home Page Part 1
     And    User clicks on Sign-in CTA
 
 
-  @Regression @SmokeTest
+  @Regression12 @SmokeTest
   Scenario: 1 #Verifying login via email and password for Single user a/c
 
     Then   User is at the Home Page of single user account

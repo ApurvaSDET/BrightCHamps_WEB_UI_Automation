@@ -22,6 +22,9 @@ public class BaseUtil {
     public static Properties Pro;
     public static WebDriverWait wait;
     public static String Parent_Window;
+    public static final String BROWSERSTACK_USERNAME = "apurvakushwaha_jOJdEn";
+    public static final String BROWSERSTACK_ACCESS_KEY = "jkLPsQLUwvduRvr93Eav";
+    public static final String BROWSERSTACK_URL = "https://" + BROWSERSTACK_USERNAME + ":" + BROWSERSTACK_ACCESS_KEY + "@hub.browserstack.com/wd/hub";
 
     public static String valueForTheGivenKey(String name) {
 
