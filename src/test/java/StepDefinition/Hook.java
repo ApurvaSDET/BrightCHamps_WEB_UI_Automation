@@ -18,30 +18,40 @@ import java.net.URL;
 public class Hook extends BaseUtil {
 
     @Before
-    public void InvokeChromeBrowser(Scenario scenario) throws MalformedURLException {
+    public void InvokeRemoteChromeBrowser(Scenario scenario) throws MalformedURLException {
 
+        //Setting up remote browser env on BrowserStack cloud
+        BROWSERSTACK_USERNAME = valueForTheGivenKey("BROWSERSTACK_USERNAME");
+        BROWSERSTACK_ACCESS_KEY = valueForTheGivenKey("BROWSERSTACK_ACCESS_KEY");
+        BROWSERSTACK_URL = "https://" + BROWSERSTACK_USERNAME + ":" + BROWSERSTACK_ACCESS_KEY + "@hub.browserstack.com/wd/hub";
+
+
+        //Defining capabilities
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
-
+        //Setting up capabilities
         capabilities.setCapability("os", "OS X");
         capabilities.setCapability("os_version", "Monterey");
-        //capabilities.setCapability("os", "Windows");
-       // capabilities.setCapability("os_version", "10");
         capabilities.setCapability("browser", "Chrome");
         WebDriverManager.chromedriver().setup();
         driver = new RemoteWebDriver(new URL(BROWSERSTACK_URL), capabilities);
 
-       /* ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setHeadless(true);
-        chromeOptions.addArguments("--disable-dev-shm-usage");
-        chromeOptions.addArguments("--no-sandbox");
-        chromeOptions.addArguments("--disable-setuid-sandbox");
-        chromeOptions.addArguments("disable-infobars");
-        chromeOptions.addArguments("--disable-extensions");
-        chromeOptions.addArguments("--disable-notifications");
-        driver = new ChromeDriver(chromeOptions);
+        driver.manage().window().maximize();
+        wait = new WebDriverWait(driver, 20);
+    }
 
-        */
+
+    public void InvokeLocalChromeBrowser(Scenario scenario) throws MalformedURLException {
+
+        //Setting up chrome driver
+        WebDriverManager.chromedriver().setup();
+
+        //Creating ChromeOptions instance
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.setHeadless(false);
+        chromeOptions.addArguments("--disable-notifications");
+
+        driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, 20);
     }
