@@ -7,15 +7,30 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 
 public class Hook extends BaseUtil {
 
     @Before
-    public void InvokeChromeBrowser(Scenario scenario) {
+    public void InvokeChromeBrowser(Scenario scenario) throws MalformedURLException {
+
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+
+
+        capabilities.setCapability("os", "Windows");
+        capabilities.setCapability("browser", "Chrome");
+
+
         WebDriverManager.chromedriver().setup();
-        ChromeOptions chromeOptions = new ChromeOptions();
+
+        driver = new RemoteWebDriver(new URL(BROWSERSTACK_URL), capabilities);
+       /* ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setHeadless(true);
         chromeOptions.addArguments("--disable-dev-shm-usage");
         chromeOptions.addArguments("--no-sandbox");
@@ -24,6 +39,8 @@ public class Hook extends BaseUtil {
         chromeOptions.addArguments("--disable-extensions");
         chromeOptions.addArguments("--disable-notifications");
         driver = new ChromeDriver(chromeOptions);
+
+        */
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, 20);
     }
