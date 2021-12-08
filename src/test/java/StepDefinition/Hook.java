@@ -29,9 +29,10 @@ public class Hook extends BaseUtil {
     }
 
     @After
-    public void TearDownTest(Scenario scenario) {
+    public void TearDownTest(Scenario scenario) throws InterruptedException {
         if (scenario.isFailed()) {
-            //Take a screenshot...
+            //Take a screenshot after waiting for a sec...
+            Thread.sleep(1000);
             final byte[] screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", "screenshot");
 

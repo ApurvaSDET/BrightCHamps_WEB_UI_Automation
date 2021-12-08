@@ -83,6 +83,9 @@ public class StudentTitlePage extends BaseUtil {
     @And("Clicks on Profile button")
     public void Clicks_on_Profile_button() {
 
+        //waiting for profile button
+        _wait(valueForTheGivenKey("Profile_button"));
+
         //clicking on profile button
         _click(valueForTheGivenKey("Profile_button"));
 
@@ -103,8 +106,10 @@ public class StudentTitlePage extends BaseUtil {
 
         //clicking on log-out button
         _click(valueForTheGivenKey("triple_dots"));
+
         //waiting for log-out dropdown
         _wait(valueForTheGivenKey("logout_button"));
+
         //clicking on log-out button
         _click(valueForTheGivenKey("logout_button"));
     }
@@ -127,6 +132,7 @@ public class StudentTitlePage extends BaseUtil {
 
         //wait for dropdown
         _wait(valueForTheGivenKey("Reschedule_class"));
+
         //Asserting dropdown
         Assert.assertTrue(_is_displayed(valueForTheGivenKey("Reschedule_class")));
 
