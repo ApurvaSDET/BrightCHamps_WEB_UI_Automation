@@ -1,6 +1,7 @@
 # Prerequisites: pom.xml and appropriate project structure should exist in the repository.
 
-image: markhobson/maven-chrome:jdk-8
+image: maven:3.8.3-jdk-8
+
 
 pipelines:
   default:
@@ -9,7 +10,7 @@ pipelines:
             caches:
               - maven
             script:
-              - mvn -B clean test -Dcucumber.filter.tags='@Regression12' --file pom.xml
+              - mvn -B clean test -Dcucumber.filter.tags='@Regression' --file pom.xml
 
             after-script:
               # Collect checkstyle results, if any, and convert to Bitbucket Code Insights.
