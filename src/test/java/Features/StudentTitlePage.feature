@@ -29,7 +29,7 @@ Feature: Home Page Part 1
     Then   User is at Student portal title Page
 
 
-  @Regression
+  @Regression @SmokeTest
   Scenario: 3 #Verifying back button of Re-scheduling Next Class screen
 
     When   User Clicks on three dots button

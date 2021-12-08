@@ -117,6 +117,7 @@ public class StudentTitlePage extends BaseUtil {
     public void user_clicks_on_three_dots_button() throws InterruptedException {
 
         //waiting for elements in DOM to load
+        _wait(valueForTheGivenKey("triple_dots"));
         Thread.sleep(5000);
 
         //Clicking on 3 dots
