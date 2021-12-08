@@ -93,6 +93,7 @@ public class BaseUtil {
             }
             else
             {
+                System.out.println(e.getMessage());
                 Assert.fail();
             }
 

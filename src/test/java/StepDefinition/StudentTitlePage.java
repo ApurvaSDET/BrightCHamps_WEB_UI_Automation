@@ -112,7 +112,9 @@ public class StudentTitlePage extends BaseUtil {
     //Scenario: 3 #Verifying back button of Re-scheduling Next Class screen
 
     @When("User Clicks on three dots button")
-    public void user_clicks_on_three_dots_button(){
+    public void user_clicks_on_three_dots_button() throws InterruptedException {
+
+        Thread.sleep(3000);
 
         //Clicking on 3 dots
         _click(valueForTheGivenKey("triple_dots"));
@@ -248,7 +250,7 @@ public class StudentTitlePage extends BaseUtil {
     //Scenario: 5 #Verifying Skip button of reschedule screen
 
     @Given("User is at reschedule successful screen")
-    public void user_is_at_reschedule_successful_screen() {
+    public void user_is_at_reschedule_successful_screen() throws InterruptedException {
 
         user_clicks_on_three_dots_button();
         dropdown_should_appear();
@@ -499,7 +501,7 @@ public class StudentTitlePage extends BaseUtil {
     //Scenario: 13 #Verifying Skip button of Successful cancel screen
 
     @Given("User is at cancel successful screen")
-    public void user_is_at_cancel_successful_screen() {
+    public void user_is_at_cancel_successful_screen() throws InterruptedException {
 
         //Reusing above methods to launch Cancel Success Screen
         user_clicks_on_three_dots_button();
