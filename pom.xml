@@ -215,7 +215,6 @@
                     </properties>
                     <includes>
                         <include>**/*TestRunner_Class.java</include>
-                        <include>**/*TestRunner_reRun_failed_cases.java</include>
                     </includes>
                 </configuration>
             </plugin>

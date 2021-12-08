@@ -53,7 +53,6 @@ public class BaseUtil {
         }
         catch (TimeoutException e)
         {
-            System.out.println(e.getMessage());
             Assert.fail();
         }
 
@@ -68,7 +67,6 @@ public class BaseUtil {
         }
         catch (TimeoutException e)
         {
-            System.out.println(e.getMessage());
             Assert.fail();
         }
 
@@ -80,7 +78,6 @@ public class BaseUtil {
         }
         catch (TimeoutException e)
         {
-            System.out.println(e.getMessage());
             Assert.fail();
         }
 
@@ -99,7 +96,6 @@ public class BaseUtil {
             }
             else
             {
-                System.out.println(e.getMessage());
                 Assert.fail();
             }
 
@@ -128,7 +124,6 @@ public class BaseUtil {
         }
         catch (NoSuchElementException e)
         {
-            System.out.println(e.getMessage());
             Assert.fail();
         }
 
