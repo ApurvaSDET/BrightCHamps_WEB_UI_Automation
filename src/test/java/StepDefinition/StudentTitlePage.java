@@ -59,7 +59,7 @@ public class StudentTitlePage extends BaseUtil {
 
         _click(valueForTheGivenKey("Sign_in_CTA"));
         //Providing time to load
-        Thread.sleep(3000);
+        Thread.sleep(6000);
     }
 
     //Scenario: 1 #Verifying login via email and password for Single user a/c
@@ -93,6 +93,7 @@ public class StudentTitlePage extends BaseUtil {
 
         //waiting for Profile page to load
         _wait(valueForTheGivenKey("Edit_Profile"));
+        waitForGivenSec(2);
         //Asserting the Profile pag
         Assert.assertTrue(_is_displayed(valueForTheGivenKey("Edit_Profile")));
 
