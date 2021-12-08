@@ -9,7 +9,7 @@ pipelines:
             caches:
               - maven
             script:
-              - mvn -B clean test -Dcucumber.filter.tags='@SmokeTest' --file pom.xml
+              - mvn -B clean test -Dcucumber.filter.tags='@Regression' --file pom.xml
             after-script:
               # Collect checkstyle results, if any, and convert to Bitbucket Code Insights.
               - pipe: atlassian/checkstyle-report:0.3.0

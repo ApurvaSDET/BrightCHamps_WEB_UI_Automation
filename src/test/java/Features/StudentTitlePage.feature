@@ -9,8 +9,8 @@ Feature: Home Page Part 1
     When   User enters valid email and password
 
       |Email|Password|
-      |apurva.kushwaha@brightchamps.com|qwerty|
       |prathyusha.m@brightchamps.com|prat2021|
+      |apurva.kushwaha@brightchamps.com|qwerty|
 
     And    User clicks on Sign-in CTA
 
@@ -20,7 +20,7 @@ Feature: Home Page Part 1
 
     Then   User is at the Home Page of single user account
 
-  @Regression @SmokeTest
+  @Regression1 @SmokeTest
   Scenario: 2 #Verifying logout after login via email and password for Single user a/c
 
     And    Clicks on Profile button
