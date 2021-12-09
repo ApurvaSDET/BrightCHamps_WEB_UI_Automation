@@ -16,7 +16,7 @@ import java.net.URL;
 
 public class Hook extends BaseUtil {
 
-
+    @Before
     public void InvokeRemoteChromeBrowser(Scenario scenario) throws MalformedURLException {
 
         //Setting up remote browser env on BrowserStack cloud
@@ -39,7 +39,7 @@ public class Hook extends BaseUtil {
         wait = new WebDriverWait(driver, 20);
     }
 
-    @Before
+
     public void InvokeLocalChromeBrowser(Scenario scenario) throws MalformedURLException {
 
         //Setting up chrome driver
@@ -47,7 +47,7 @@ public class Hook extends BaseUtil {
 
         //Creating ChromeOptions instance
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setHeadless(true);
+        chromeOptions.setHeadless(false);
         chromeOptions.addArguments("--disable-notifications");
 
         driver = new ChromeDriver(chromeOptions);
