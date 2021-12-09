@@ -135,6 +135,7 @@ public class StudentTitlePage extends BaseUtil {
     public void dropdown_should_appear() {
 
         //wait for dropdown
+        DocumentInReadyState();
         _wait(valueForTheGivenKey("Reschedule_class"));
 
         //Asserting dropdown
