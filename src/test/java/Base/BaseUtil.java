@@ -1,9 +1,11 @@
 package Base;
 
 
+import com.google.common.base.Predicate;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
@@ -58,7 +60,18 @@ public class BaseUtil {
 
     }
 
+    public void DocumentInReadyState()
 
+    {
+        while (true)
+        {
+            boolean ajaxIsComplete = ((JavascriptExecutor)driver).executeScript("return document.readyState").toString().equals("complete");
+            if (ajaxIsComplete){
+                break;
+            }
+
+        }
+    }
 
     public static void WaitForTitleToBe(String title){
 
@@ -90,7 +103,7 @@ public class BaseUtil {
         }
         catch (NoSuchElementException | StaleElementReferenceException e)
         {
-            if(e.getMessage().contains("StaleElementReferenceException"))
+            if(e.getMessage().contains("stale element reference"))
             {
                 e.getMessage();
             }
@@ -98,7 +111,6 @@ public class BaseUtil {
             {
                 Assert.fail();
             }
-
 
         }
 
@@ -132,7 +144,6 @@ public class BaseUtil {
 
     public static boolean _is_displayed(String xpath) {
 
-       boolean result;
 
        try
         {
@@ -140,14 +151,12 @@ public class BaseUtil {
         }
         catch (NoSuchElementException | StaleElementReferenceException err)
         {
-            result = err.getMessage().contains("StaleElementReferenceException");
-            return result;
+            return err.getMessage().contains("stale element reference");
         }
     }
 
     public static boolean _is_displayed_link_text(String value) {
 
-        boolean result;
 
         try
         {
@@ -155,8 +164,7 @@ public class BaseUtil {
         }
         catch (NoSuchElementException | StaleElementReferenceException err)
         {
-            result = err.getMessage().contains("StaleElementReferenceException");
-            return result;
+            return err.getMessage().contains("stale element reference");
         }
     }
 

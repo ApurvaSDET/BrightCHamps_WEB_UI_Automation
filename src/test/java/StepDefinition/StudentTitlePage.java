@@ -13,6 +13,7 @@ import org.openqa.selenium.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 public class StudentTitlePage extends BaseUtil {
 
@@ -59,7 +60,7 @@ public class StudentTitlePage extends BaseUtil {
 
         _click(valueForTheGivenKey("Sign_in_CTA"));
         //Providing time to load
-        Thread.sleep(6000);
+        Thread.sleep(5000);
     }
 
     //Scenario: 1 #Verifying login via email and password for Single user a/c
@@ -91,9 +92,12 @@ public class StudentTitlePage extends BaseUtil {
     @Then("User is at Profile screen")
     public void user_is_at_profile_screen() {
 
+        //waiting for document to be in ready state
+        DocumentInReadyState();
+
         //waiting for Profile page to load
         _wait(valueForTheGivenKey("Edit_Profile"));
-        waitForGivenSec(2);
+
         //Asserting the Profile pag
         Assert.assertTrue(_is_displayed(valueForTheGivenKey("Edit_Profile")));
 
@@ -117,9 +121,10 @@ public class StudentTitlePage extends BaseUtil {
     @When("User Clicks on three dots button")
     public void user_clicks_on_three_dots_button() throws InterruptedException {
 
-        //waiting for elements in DOM to load
+        //waiting for document to be in ready state
+        DocumentInReadyState();
+
         _wait(valueForTheGivenKey("triple_dots"));
-        Thread.sleep(5000);
 
         //Clicking on 3 dots
         _click(valueForTheGivenKey("triple_dots"));
@@ -242,14 +247,18 @@ public class StudentTitlePage extends BaseUtil {
     }
 
     @And("User should be redirected to dashboard screen")
-    public void user_should_be_redirected_to_dashboard_screen() throws InterruptedException {
+    public void user_should_be_redirected_to_dashboard_screen(){
 
         //wait for the invisibility
         _WaitAbsence(valueForTheGivenKey("SKIP_Button"));
 
-        //Assertion for redirecting to home page
+        //wait for any unique dashboard element to be visible
         _wait(valueForTheGivenKey("triple_dots"));
-        Thread.sleep(2000);
+
+        //waiting for document to be in ready state on dashboard
+        DocumentInReadyState();
+
+        //Assertion for redirecting to home page
         Assert.assertTrue(_is_displayed(valueForTheGivenKey("triple_dots")));
 
     }
