@@ -17,5 +17,5 @@ pipelines:
               - pipe: atlassian/checkstyle-report:0.3.0
 
             artifacts:
-               - test-output/./HTMLReport/Spark.html
-               - test-output/./JsonReport/Spark.html
+               - test-output/../HTMLReport/Spark.html
+               - test-output/../JsonReport/Spark.html
