@@ -48,7 +48,9 @@ public class Hook extends BaseUtil {
         //Creating ChromeOptions instance
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setHeadless(true);
+        chromeOptions.addArguments("window-size=1200,1100");
         chromeOptions.addArguments("--disable-notifications");
+        chromeOptions.addArguments("--disable-dev-shm-usage");
 
         driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
