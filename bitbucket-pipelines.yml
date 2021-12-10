@@ -10,12 +10,11 @@ pipelines:
             caches:
               - maven
             script:
-              - mvn -B clean test -Dcucumber.filter.tags='@SmokeTest' --file pom.xml
+              - mvn -B clean test -Dcucumber.filter.tags='@SmokeTest1' --file pom.xml
 
             after-script:
               # Collect checkstyle results, if any, and convert to Bitbucket Code Insights.
               - pipe: atlassian/checkstyle-report:0.3.0
 
             artifacts:
-               - test-output/SparkReports/HTMLReport/Spark.html
-               - test-output/./JsonReport/Json.json
+               - target/HTMLReport/Spark.html

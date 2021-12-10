@@ -16,12 +16,12 @@ Feature: Home Page Part 1
     And    User clicks on Sign-in CTA
 
 
-  @Regression @SmokeTest
+  @Regression @SmokeTest1
   Scenario: 1 #Verifying login via email and password for Single user a/c
 
     Then   User is at the Home Page of single user account
 
-  @Regression @SmokeTest
+  @Regression @SmokeTest1
   Scenario: 2 #Verifying logout after login via email and password for Single user a/c
 
     And    Clicks on Profile button
@@ -30,7 +30,7 @@ Feature: Home Page Part 1
     Then   User is at Student portal title Page
 
 
-  @Regression @SmokeTest
+  @Regression @SmokeTest1
   Scenario: 3 #Verifying back button of Re-scheduling Next Class screen
 
     When   User Clicks on three dots button
