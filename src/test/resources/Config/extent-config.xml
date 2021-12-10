@@ -11,10 +11,10 @@
         <protocol>https</protocol>
 
         <!-- title of the document -->
-        <documentTitle>Housing_HDA - Cucumber Framework</documentTitle>
+        <documentTitle>BrightChampsWEB - Cucumber Framework</documentTitle>
 
         <!-- report name - displayed at top-nav -->
-        <reportName>Housing_HDA - Cucumber Report</reportName>
+        <reportName>BrightChampsWEB - Cucumber Report</reportName>
 
         <!-- global date format override -->  <!-- defaults to yyyy-MM-dd -->
         <dateFormat>dd-yyyy-MM</dateFormat>
