@@ -107,7 +107,7 @@ public class StudentTitlePage extends BaseUtil {
     public void user_clicks_logout_button() {
 
         //clicking on log-out button
-        _click(valueForTheGivenKey("triple_dots"));
+        _click(valueForTheGivenKey("triple_dots_profile"));
 
         //waiting for log-out dropdown
         _wait(valueForTheGivenKey("logout_button"));
