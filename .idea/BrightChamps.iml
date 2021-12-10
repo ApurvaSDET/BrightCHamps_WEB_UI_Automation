@@ -153,5 +153,14 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.1.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.9.4" level="project" />
     <orderEntry type="library" name="Maven: io.cucumber:datatable:3.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven.surefire:surefire-junit47:2.22.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven.surefire:common-junit48:2.22.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven.surefire:common-junit4:2.22.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven.surefire:common-junit3:2.22.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven.surefire:common-java5:2.22.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven.shared:maven-shared-utils:0.9" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven.surefire:surefire-grouper:2.22.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven.surefire:surefire-api:2.22.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven.surefire:surefire-logger-api:2.22.2" level="project" />
   </component>
 </module>

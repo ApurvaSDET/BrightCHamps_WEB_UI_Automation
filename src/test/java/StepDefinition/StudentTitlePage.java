@@ -127,7 +127,7 @@ public class StudentTitlePage extends BaseUtil {
         _wait(valueForTheGivenKey("triple_dots"));
 
         //Clicking on 3 dots
-        Thread.sleep(2500);
+        Thread.sleep(3000);
         _click(valueForTheGivenKey("triple_dots"));
 
     }
