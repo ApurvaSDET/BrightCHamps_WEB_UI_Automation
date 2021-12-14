@@ -1,20 +1,16 @@
 package Base;
 
 
-import com.google.common.base.Predicate;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.io.FileInputStream;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 
@@ -116,14 +112,13 @@ public class BaseUtil {
 
     }
 
-    public static void _click_stale(String value){
+    public static int _get_WebElements_size(String value) {
 
         try {
-            driver.findElement(By.xpath(value)).click();
-        }
-        catch (StaleElementReferenceException e)
-        {
-            //System.out.println(e.getMessage());
+            return driver.findElements(By.xpath(value)).size();
+        } catch (NoSuchElementException e) {
+            Assert.fail();
+            return 0;
         }
 
     }
@@ -228,7 +223,19 @@ public class BaseUtil {
         }
 
         //Clicking on random values from the dropdown
-        al.get(rand.nextInt(dropdown_menu.size())).click();
+        try {
+            al.get(rand.nextInt(dropdown_menu.size())).click();
+        }
+        catch (ElementClickInterceptedException e)
+        {
+            try {
+                al.get(rand.nextInt(dropdown_menu.size())).click();
+            }
+            catch (ElementClickInterceptedException err)
+            {
+                al.get(rand.nextInt(dropdown_menu.size())).click();
+            }
+        }
 
     }
 
@@ -247,6 +254,11 @@ public class BaseUtil {
 
 
     }
+
+    public void openNewTab() {
+        ((JavascriptExecutor)driver).executeScript("window.open('about:blank','_blank');");
+    }
+
 
     public static void _selecting_particular_options_from_dropdown(String locator, String value_from_dropdown){
 
@@ -267,6 +279,22 @@ public class BaseUtil {
 
             }
         }
+
+
+        }
+
+        public static void Switch_to_next_tab(String DefaultWindow){
+
+
+            Set<String> multiple_window = driver.getWindowHandles();
+
+            for(String e : multiple_window)
+            {
+                if(!e.equalsIgnoreCase(DefaultWindow))
+                {
+                    driver.switchTo().window(e);
+                }
+            }
 
 
         }

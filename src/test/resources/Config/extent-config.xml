@@ -2,7 +2,7 @@
 <extentreports>
     <configuration>
         <!-- report theme --> <!-- standard, dark -->
-        <theme>standard</theme>
+        <theme>dark</theme>
 
         <!-- document encoding -->  <!-- defaults to UTF-8 -->
         <encoding>UTF-8</encoding>
@@ -11,10 +11,10 @@
         <protocol>https</protocol>
 
         <!-- title of the document -->
-        <documentTitle>BrightChampsWEB - Cucumber Framework</documentTitle>
+        <documentTitle>BrightChampsWEB</documentTitle>
 
         <!-- report name - displayed at top-nav -->
-        <reportName>BrightChampsWEB - Cucumber Report</reportName>
+        <reportName>BrightChampsWEB_Test_Report</reportName>
 
         <!-- global date format override -->  <!-- defaults to yyyy-MM-dd -->
         <dateFormat>dd-yyyy-MM</dateFormat>

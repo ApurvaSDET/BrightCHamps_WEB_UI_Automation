@@ -9,7 +9,7 @@ Feature: Home Page Part 1
     When   User enters valid email and password
 
       |Email|Password|
-      |apurva.kushwaha@brightchamps.com|qwerty|
+      |apurva.kushwaha@mailinator.com|qwerty|
       |prathyusha.m@brightchamps.com|prat2021|
 
 
@@ -30,7 +30,7 @@ Feature: Home Page Part 1
     Then   User is at Student portal title Page
 
 
-  @Regression @SmokeTest1
+  @Regression
   Scenario: 3 #Verifying back button of Re-scheduling Next Class screen
 
     When   User Clicks on three dots button
@@ -86,11 +86,11 @@ Feature: Home Page Part 1
     Then   User should see the option to select date amd time based on number of classes selected
     When   User selected all four classes date and time
     Then   Book your Slot CTA should get enabled
-    When   User clicks on Book your Slot CTA
-    Then   User should be able to successfully Reschedule the class
-    And    Reason asking for Reschedule should appear
-    Then   User should be able to select the reason and click on Submit CTA
-    And    User should be redirected to dashboard screen
+    #When   User clicks on Book your Slot CTA
+    #Then   User should be able to successfully Reschedule the class
+   # And    Reason asking for Reschedule should appear
+    #Then   User should be able to select the reason and click on Submit CTA
+    #And    User should be redirected to dashboard screen
 
 
   @Regression @SmokeTest

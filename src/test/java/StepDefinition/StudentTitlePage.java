@@ -9,10 +9,9 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.NoSuchElementException;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class StudentTitlePage extends BaseUtil {
@@ -243,7 +242,8 @@ public class StudentTitlePage extends BaseUtil {
         //Selecting any options available randomly
         _random_options_from_dropdown(valueForTheGivenKey("Reschedule_reason_options"));
 
-        //Clicking on Submit CTA
+        //Waiting and Clicking on Submit CTA
+        _wait(valueForTheGivenKey("Enabled_Submit_CTA"));
         _click(valueForTheGivenKey("Enabled_Submit_CTA"));
 
     }
@@ -318,8 +318,8 @@ public class StudentTitlePage extends BaseUtil {
     @Then("By default three class per week should be shown")
     public void by_default_three_class_per_week_should_be_shown() {
 
-    //Assertion for showing 3rd class
-    Assert.assertTrue(_is_displayed(valueForTheGivenKey("Third_Class")));
+    //Assertion for showing 3 class slots
+    Assert.assertEquals(6, (_get_WebElements_size(valueForTheGivenKey("class_per_week_count"))));
 
     }
 
@@ -333,12 +333,49 @@ public class StudentTitlePage extends BaseUtil {
     @Then("User should see the option to select date amd time based on number of classes selected")
     public void user_should_see_the_option_to_select_date_amd_time_based_on_number_of_classes_selected() {
 
+        //Fetching list of WebElements
+        List<WebElement> dropdown_menu = driver.findElements(By.xpath(valueForTheGivenKey("No._of_classes")));
 
+        //Creating ArrayList and Random instance
+        ArrayList<Integer> al = new ArrayList();
+
+        //Using enhanced for loop to get the elements
+        for (WebElement ele : dropdown_menu)
+
+        {
+            ele.click();
+            al.add(_get_WebElements_size(valueForTheGivenKey("class_per_week_count")));
+
+        }
+
+        //Asserting all 4 classes slots wrt classes selected
+        Assert.assertEquals("2", String.valueOf(al.get(0)));
+        Assert.assertEquals("4", String.valueOf(al.get(1)));
+        Assert.assertEquals("6", String.valueOf(al.get(2)));
+        Assert.assertEquals("8", String.valueOf(al.get(3)));
 
     }
 
     @When("User selected all four classes date and time")
     public void user_selected_all_four_classes_date_and_time() {
+
+        //Fetching list of WebElements
+        List<WebElement> dropdown_menu = driver.findElements(By.xpath(valueForTheGivenKey("All_class_Day_selector")));
+
+
+        //Using enhanced for loop to get the elements
+        for (WebElement ele : dropdown_menu)
+
+        {
+            ele.click();
+            //wait for dropdown to appear
+            _wait(valueForTheGivenKey("List_of_Day_Time"));
+
+            //Selecting any option from the available date/time
+            _random_options_from_dropdown(valueForTheGivenKey("List_of_Day_Time"));
+
+        }
+
 
     }
 
