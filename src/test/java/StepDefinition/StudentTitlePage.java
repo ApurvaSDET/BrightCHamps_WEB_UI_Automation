@@ -10,6 +10,8 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.*;
 
 public class StudentTitlePage extends BaseUtil {
@@ -357,6 +359,8 @@ public class StudentTitlePage extends BaseUtil {
     @When("User selected all four classes date and time")
     public void user_selected_all_four_classes_date_and_time() {
 
+        WebDriverWait wait = new WebDriverWait(driver, 2);
+
         //Fetching list of WebElements
         List<WebElement> dropdown_menu = driver.findElements(By.xpath(valueForTheGivenKey("All_class_Day_selector")));
 
@@ -366,11 +370,24 @@ public class StudentTitlePage extends BaseUtil {
 
         {
             ele.click();
-            //wait for dropdown to appear
-            _wait(valueForTheGivenKey("List_of_Day_Time"));
 
-            //Selecting any option from the available date/time
-            _random_options_from_dropdown(valueForTheGivenKey("List_of_Day_Time"));
+            try {
+
+                //wait for dropdown to appear
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(valueForTheGivenKey("List_of_Days_available"))));
+
+                //Selecting any option from the available date/time
+                _random_options_from_dropdown(valueForTheGivenKey("List_of_Days_available"));
+            }
+            catch (TimeoutException e)
+            {
+                //wait for dropdown to appear
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(valueForTheGivenKey("List_of_Time_available"))));
+
+                //Selecting any option from the available date/time
+                _random_options_from_dropdown(valueForTheGivenKey("List_of_Time_available"));
+
+            }
 
         }
 
@@ -569,8 +586,6 @@ public class StudentTitlePage extends BaseUtil {
         _click(valueForTheGivenKey("SKIP_Button"));
 
     }
-
-
 
     }
 
