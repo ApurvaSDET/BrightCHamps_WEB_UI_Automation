@@ -16,6 +16,8 @@ public class Student_Dashboard_Title_Page extends BaseUtil {
 
     public static List<Map<String,String>> data;
 
+    //Scenario: 1 #Verifying login via OTP using Email
+
     @When("User clicks on Email button")
     public void user_clicks_on_email_button() {
 
@@ -45,6 +47,9 @@ public class Student_Dashboard_Title_Page extends BaseUtil {
 
         _wait(valueForTheGivenKey("OTP_Sent_Alert"));
         Assert.assertEquals("OTP has been sent to "+data.get(0).get("Email"),_get_text(valueForTheGivenKey("OTP_Sent_Alert")));
+
+        //Waiting for the Alert to get disappear
+        _WaitAbsence(valueForTheGivenKey("OTP_Sent_Alert"));
 
     }
 
@@ -125,6 +130,188 @@ public class Student_Dashboard_Title_Page extends BaseUtil {
         Assert.assertEquals("Authenticated successfully",_get_text(valueForTheGivenKey("OTP_Sent_Alert")));
 
     }
+
+
+    //Scenario: 2 #Verifying login via OTP using Mobile - Negative Test case
+
+    @When("User clicks on Mobile button")
+    public void user_clicks_on_mobile_button() {
+
+        _click(valueForTheGivenKey("Mobile"));
+
+    }
+
+    @And("User enters Invalid Mobile no")
+    public void user_enters_invalid_mobile_no(DataTable dataTable) {
+
+        //getting values from Datatable as a Key: Value pair in feature file
+        data = dataTable.asMaps(String.class, String.class);
+
+        driver.findElement(By.xpath(valueForTheGivenKey("Mobile_text_field"))).sendKeys(data.get(0).get("Mobile"));
+
+        //Clicking on Login CTA
+        user_clicks_on_login_cta();
+
+        //Asserting the error message for incorrect number format
+        _wait(valueForTheGivenKey("Error_msg"));
+        Assert.assertEquals("You have entered an invalid number",_get_text(valueForTheGivenKey("Error_msg")));
+
+        //Entering valid but unregistered number
+        driver.navigate().refresh();
+        _wait(valueForTheGivenKey("Mobile_text_field"));
+        driver.findElement(By.xpath(valueForTheGivenKey("Mobile_text_field"))).sendKeys(data.get(1).get("Mobile"));
+
+
+    }
+
+    @Then("Error message should appear")
+    public void error_message_should_appear() {
+
+        _wait(valueForTheGivenKey("Error_msg"));
+        Assert.assertEquals("Phone number is not registered!",_get_text(valueForTheGivenKey("Error_msg")));
+
+    }
+
+    @When("User enters valid Mobile no")
+    public void user_enters_valid_mobile_no(DataTable dataTable) {
+
+        //getting values from Datatable as a Key: Value pair in feature file
+        data = dataTable.asMaps(String.class, String.class);
+        driver.navigate().refresh();
+        _wait(valueForTheGivenKey("Mobile_text_field"));
+        driver.findElement(By.xpath(valueForTheGivenKey("Mobile_text_field"))).sendKeys(data.get(0).get("Mobile"));
+
+    }
+
+    @Then("OTP sent Successful message should appear")
+    public void otp_sent_successful_message_should_appear() {
+
+        _wait(valueForTheGivenKey("OTP_Sent_Alert"));
+
+        if (_get_text(valueForTheGivenKey("OTP_Sent_Alert")).contains("OTP has been sent to"))
+            Assert.assertTrue(true);
+
+        else
+            Assert.fail();
+
+        _WaitAbsence(valueForTheGivenKey("OTP_Sent_Alert"));
+    }
+
+    @When("User Clicks on Send again link")
+    public void user_clicks_on_send_again_link() {
+
+        _click(valueForTheGivenKey("Resend_link"));
+
+    }
+
+    @Then("OTP resend message should appear")
+    public void otp_resend_message_should_appear() {
+
+        _wait(valueForTheGivenKey("OTP_Sent_Alert"));
+
+        if (_get_text(valueForTheGivenKey("OTP_Sent_Alert")).contains("OTP has been sent to"))
+            Assert.assertTrue(true);
+
+        else
+            Assert.fail();
+
+
+        _WaitAbsence(valueForTheGivenKey("OTP_Sent_Alert"));
+
+    }
+
+
+    @When("User enters Invalid OTP")
+    public void user_enters_invalid_otp() {
+
+        //Fetching list of WebElements to enter OTP in Separate text box
+        List<WebElement> dropdown_menu = driver.findElements(By.xpath(valueForTheGivenKey("OTP_Text_Input")));
+
+        //Using enhanced for loop to enter OTP in separate text box
+        int index = 1; //to get iteration count
+        for (WebElement ele : dropdown_menu)
+
+        {
+
+            ele.sendKeys(String.valueOf(index));
+            index++;
+
+        }
+
+    }
+
+    @Then("Incorrect OTP message should appear")
+    public void incorrect_otp_message_should_appear() {
+
+        _wait(valueForTheGivenKey("OTP_Sent_Alert"));
+        Assert.assertEquals("Incorrect OTP",_get_text(valueForTheGivenKey("OTP_Sent_Alert")));
+
+
+    }
+
+
+    //Scenario: 3 #Verifying login via OTP using Email - Negative Test case
+
+
+    @And("User enters Invalid Email address")
+    public void User_enters_Invalid_Email_address(DataTable dataTable) {
+
+        //getting values from Datatable as a Key: Value pair in feature file
+        data = dataTable.asMaps(String.class, String.class);
+
+        driver.findElement(By.xpath(valueForTheGivenKey("Email_field"))).sendKeys(data.get(0).get("Email"));
+
+        //Clicking on Login CTA
+        user_clicks_on_login_cta();
+
+        //Asserting the error message for incorrect number format
+        _wait(valueForTheGivenKey("Error_msg_Email"));
+        Assert.assertEquals("Something went wrong.",_get_text(valueForTheGivenKey("Error_msg_Email")));
+
+        //Entering valid but unregistered number
+        driver.navigate().refresh();
+        _wait(valueForTheGivenKey("Email"));
+        user_clicks_on_email_button();
+        driver.findElement(By.xpath(valueForTheGivenKey("Email_field"))).sendKeys(data.get(1).get("Email"));
+
+
+    }
+
+
+    @Then("Error message should be shown")
+    public void error_message_should_be_shown() {
+
+        _wait(valueForTheGivenKey("Error_msg_Email"));
+        Assert.assertEquals("Something went wrong.",_get_text(valueForTheGivenKey("Error_msg_Email")));
+
+        //Removing older written data
+        driver.navigate().refresh();
+        _wait(valueForTheGivenKey("Email"));
+        user_clicks_on_email_button();
+
+    }
+
+
+    //Scenario: 4 #Verifying older OTP can’t be used after resending new one
+
+
+    //Scenario: 5 #Verifying login via Resent OTP using Email
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

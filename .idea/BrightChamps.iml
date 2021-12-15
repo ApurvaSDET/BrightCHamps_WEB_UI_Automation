@@ -175,6 +175,9 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.1.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.1.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.9.4" level="project" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.19" level="project" />
+    <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.6.1" level="project" />
+    <orderEntry type="library" name="Maven: com.oracle.database.jdbc:ojdbc8:19.7.0.0" level="project" />
     <orderEntry type="library" name="Maven: io.cucumber:datatable:3.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.maven.surefire:surefire-junit47:2.22.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.maven.surefire:common-junit48:2.22.2" level="project" />

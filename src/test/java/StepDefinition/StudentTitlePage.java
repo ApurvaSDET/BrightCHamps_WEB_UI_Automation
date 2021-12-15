@@ -10,9 +10,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.NoSuchElementException;
-
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 public class StudentTitlePage extends BaseUtil {
 
@@ -243,8 +241,8 @@ public class StudentTitlePage extends BaseUtil {
         _random_options_from_dropdown(valueForTheGivenKey("Reschedule_reason_options"));
 
         //Waiting and Clicking on Submit CTA
-        _wait(valueForTheGivenKey("Enabled_Submit_CTA"));
-        _click(valueForTheGivenKey("Enabled_Submit_CTA"));
+        _wait(valueForTheGivenKey("Reschedule_Submit_CTA"));
+        _click(valueForTheGivenKey("Reschedule_Submit_CTA"));
 
     }
 
@@ -252,7 +250,7 @@ public class StudentTitlePage extends BaseUtil {
     public void user_should_be_redirected_to_dashboard_screen(){
 
         //wait for the invisibility
-        _WaitAbsence(valueForTheGivenKey("SKIP_Button"));
+        _WaitAbsence(valueForTheGivenKey("Reschedule_SKIP_Button"));
 
         //wait for any unique dashboard element to be visible
         _wait(valueForTheGivenKey("triple_dots"));
@@ -286,8 +284,8 @@ public class StudentTitlePage extends BaseUtil {
     public void user_clicks_on_skip_link() {
 
         //Clicking on SKIP link
-        _wait(valueForTheGivenKey("SKIP_Button"));
-        _click(valueForTheGivenKey("SKIP_Button"));
+        _wait(valueForTheGivenKey("Reschedule_SKIP_Button"));
+        _click(valueForTheGivenKey("Reschedule_SKIP_Button"));
 
     }
 
@@ -379,7 +377,7 @@ public class StudentTitlePage extends BaseUtil {
 
     }
 
-    //Scenario: 8 #Verifying X button on Cancel Class modal
+    //Scenario: 9 #Verifying No button on Cancel Class modal
 
     @When("User Selects Cancel button")
     public void user_selects_cancel_button() {
@@ -399,11 +397,12 @@ public class StudentTitlePage extends BaseUtil {
         Assert.assertTrue(_is_displayed_link_text(valueForTheGivenKey("Student_Policy_link_text")));
 
     }
-    @When("User clicks on X button")
-    public void user_clicks_x_button() {
 
-        _click(valueForTheGivenKey("X_button_Cancel_Modal"));
+    @When("User clicks on NO button")
+    public void user_clicks_on_no_button() {
 
+        _wait(valueForTheGivenKey("No_CTA_Cancel_modal"));
+        _click(valueForTheGivenKey("No_CTA_Cancel_modal"));
     }
 
     @Then("Cancel modal should get closed")
@@ -412,15 +411,6 @@ public class StudentTitlePage extends BaseUtil {
         _WaitAbsence(valueForTheGivenKey("Cancel_modal_checkbox"));
         Assert.assertFalse(_is_displayed(valueForTheGivenKey("Cancel_modal_checkbox")));
 
-    }
-
-    //Scenario: 9 #Verifying No button on Cancel Class modal
-
-    @When("User clicks on NO button")
-    public void user_clicks_on_no_button() {
-
-        _wait(valueForTheGivenKey("No_CTA_Cancel_modal"));
-        _click(valueForTheGivenKey("No_CTA_Cancel_modal"));
     }
 
 
@@ -571,7 +561,15 @@ public class StudentTitlePage extends BaseUtil {
 
     }
 
-    //Scenario: 14 #Verifying X button of Successful cancel screen
+    @Given("User clicks on Skip link of Cancel Modal")
+    public void User_clicks_Skip_of_Cancel_Modal(){
+
+        //Clicking on SKIP link
+        _wait(valueForTheGivenKey("SKIP_Button"));
+        _click(valueForTheGivenKey("SKIP_Button"));
+
+    }
+
 
 
     }

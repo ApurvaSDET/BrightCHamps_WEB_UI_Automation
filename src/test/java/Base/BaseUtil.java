@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.io.FileInputStream;
-import java.sql.Timestamp;
+import java.sql.*;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 

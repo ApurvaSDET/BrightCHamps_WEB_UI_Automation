@@ -10,7 +10,7 @@ pipelines:
             caches:
               - maven
             script:
-              - mvn -B clean test -Dcucumber.filter.tags='@abc' --file pom.xml
+              - mvn -B clean test -Dcucumber.filter.tags='@Regression' --file pom.xml
 
             after-script:
               # Collect checkstyle results, if any, and convert to Bitbucket Code Insights.

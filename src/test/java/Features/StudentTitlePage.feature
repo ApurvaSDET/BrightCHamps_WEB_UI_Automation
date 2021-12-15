@@ -16,12 +16,12 @@ Feature: Home Page Part 1
     And    User clicks on Sign-in CTA
 
 
-  @Regression @SmokeTest1
+  @Regression @Smoke
   Scenario: 1 #Verifying login via email and password for Single user a/c
 
     Then   User is at the Home Page of single user account
 
-  @Regression @SmokeTest1
+  @Regression @Smoke
   Scenario: 2 #Verifying logout after login via email and password for Single user a/c
 
     And    Clicks on Profile button
@@ -41,7 +41,7 @@ Feature: Home Page Part 1
     Then   User should be redirected to dashboard screen
 
 
-  @Regression
+  @Regression @Smoke
   Scenario: 4 #Verifying Re-scheduling Next Class
 
     When   User Clicks on three dots button
@@ -73,7 +73,7 @@ Feature: Home Page Part 1
     Then   User should be redirected to dashboard screen
 
 
-  @Regression1
+  @Regression @Smoke
   Scenario: 7 #Verifying Re-scheduling All Class
 
     When   User Clicks on three dots button
@@ -86,26 +86,13 @@ Feature: Home Page Part 1
     Then   User should see the option to select date amd time based on number of classes selected
     When   User selected all four classes date and time
     Then   Book your Slot CTA should get enabled
-    #When   User clicks on Book your Slot CTA
-    #Then   User should be able to successfully Reschedule the class
-   # And    Reason asking for Reschedule should appear
-    #Then   User should be able to select the reason and click on Submit CTA
-    #And    User should be redirected to dashboard screen
+    When   User clicks on Book your Slot CTA
+    Then   User should be able to successfully Reschedule the class
+    And    User should be redirected to dashboard screen
 
 
-  @Regression @SmokeTest
-  Scenario: 8 #Verifying X button on Cancel Class modal
-
-    When   User Clicks on three dots button
-    Then   Dropdown should appear
-    When   User Selects Cancel button
-    Then   Cancel modal should appear
-    When   User clicks on X button
-    Then   Cancel modal should get closed
-
-
-  @Regression @SmokeTest
-  Scenario: 9 #Verifying No button on Cancel Class modal
+  @Regression
+  Scenario: 8 #Verifying No button on Cancel Class modal
 
     When   User Clicks on three dots button
     Then   Dropdown should appear
@@ -115,8 +102,8 @@ Feature: Home Page Part 1
     Then   Cancel modal should get closed
 
 
-  @Regression @SmokeTest
-  Scenario: 10 #Verifying YES button on Cancel Class modal without accepting the student policy
+  @Regression
+  Scenario: 9 #Verifying YES button on Cancel Class modal without accepting the student policy
 
     When   User Clicks on three dots button
     Then   Dropdown should appear
@@ -124,8 +111,8 @@ Feature: Home Page Part 1
     Then   Cancel modal should appear
     And    YES button should be disabled
 
-  @Regression @SmokeTest
-  Scenario: 11 #Verifying student policy link on Cancel Class modal
+  @Regression
+  Scenario: 10 #Verifying student policy link on Cancel Class modal
 
     When   User Clicks on three dots button
     Then   Dropdown should appear
@@ -134,8 +121,8 @@ Feature: Home Page Part 1
     When   User clicks on student policy link
     Then   A web page with student policy should get opened
 
-  @Regression @SmokeTest
-  Scenario: 12 #Verifying YES button on Cancel Class modal after accepting the student policy
+  @Regression @Smoke
+  Scenario: 11 #Verifying YES button on Cancel Class modal after accepting the student policy
 
     When   User Clicks on three dots button
     Then   Dropdown should appear
@@ -150,18 +137,9 @@ Feature: Home Page Part 1
     And    Successful cancel modal should get closed and Webpage should reload
 
 
-  @Regression @SmokeTest
-  Scenario: 13 #Verifying Skip button of Successful cancel screen
+  @Regression
+  Scenario: 12 #Verifying Skip button of Successful cancel screen
 
     Given  User is at cancel successful screen
-    When   User clicks on Skip link
+    When   User clicks on Skip link of Cancel Modal
     Then   Successful cancel modal should get closed and Webpage should reload
-
-
-  @Regression @SmokeTest
-  Scenario: 14 #Verifying X button of Successful cancel screen
-
-    Given  User is at cancel successful screen
-    When   User clicks on X button
-    #Then   Successful cancel modal should get closed and Webpage should reload
-           #https://brightchamps.atlassian.net/browse/STUD-199

@@ -4,7 +4,7 @@ Feature: Student Dashboard Title Page
                3. Negative test cases for login scenarios.
 
 
-  @abc
+  @Regression @Smoke
   Scenario: 1 #Verifying login via OTP using Email
 
     Given  User is at Student portal title Page
@@ -17,6 +17,101 @@ Feature: Student Dashboard Title Page
     When   User clicks on Login CTA
     Then   OTP sent Successfully message should appear
     And    User lands on Enter Verification Code Screen
+    When   User enters OTP
+    And    Clicks on Verify OTP CTA
+    #Then   Authenticated successfully message should appear
+    And    User is at the Home Page of single user account
+
+  @Regression
+  Scenario: 2 #Verifying login via OTP using Mobile - Negative Test case
+
+    Given  User is at Student portal title Page
+    When   User clicks on Mobile button
+    And    User enters Invalid Mobile no
+
+      |Mobile|
+      |12345|
+      |7310000021|
+
+    When   User clicks on Login CTA
+    Then   Error message should appear
+    When   User enters valid Mobile no
+
+      |Mobile|
+      |8130865152|
+
+    And    User clicks on Login CTA
+    Then   OTP sent Successful message should appear
+    And    User lands on Enter Verification Code Screen
+    When   User Clicks on Send again link
+    Then   OTP resend message should appear
+    When   User enters Invalid OTP
+    And    Clicks on Verify OTP CTA
+    Then   Incorrect OTP message should appear
+
+  @Regression
+  Scenario: 3 #Verifying login via OTP using Email - Negative Test case
+
+    Given  User is at Student portal title Page
+    When   User clicks on Email button
+    And    User enters Invalid Email address
+
+      |Email|
+      |apurva.kushwaha|
+      |apurva.kushwaha@gmail.com|
+
+
+    When   User clicks on Login CTA
+    Then   Error message should be shown
+    When   User enters valid Email address
+
+      |Email|
+      |apurva.kushwaha@mailinator.com|
+
+    And    User clicks on Login CTA
+    Then   OTP sent Successfully message should appear
+    And    User lands on Enter Verification Code Screen
+    When   User Clicks on Send again link
+    Then   OTP sent Successfully message should appear
+    When   User enters Invalid OTP
+    And    Clicks on Verify OTP CTA
+    Then   Incorrect OTP message should appear
+
+
+  @Regression
+  Scenario: 4 #Verifying older OTP can’t be used after resending new one
+
+    Given  User is at Student portal title Page
+    When   User clicks on Email button
+    And    User enters valid Email address
+
+      |Email|
+      |apurva.kushwaha@mailinator.com|
+
+    When   User clicks on Login CTA
+    Then   OTP sent Successfully message should appear
+    And    User lands on Enter Verification Code Screen
+    When   User enters OTP
+    And    User Clicks on Send again link
+    Then   OTP sent Successfully message should appear
+    And    Clicks on Verify OTP CTA
+    Then   Incorrect OTP message should appear
+
+  @Regression @Smoke
+  Scenario: 5 #Verifying login via Resent OTP using Email
+
+    Given  User is at Student portal title Page
+    When   User clicks on Email button
+    And    User enters valid Email address
+
+      |Email|
+      |apurva.kushwaha@mailinator.com|
+
+    When   User clicks on Login CTA
+    Then   OTP sent Successfully message should appear
+    And    User lands on Enter Verification Code Screen
+    And    User Clicks on Send again link
+    Then   OTP sent Successfully message should appear
     When   User enters OTP
     And    Clicks on Verify OTP CTA
     #Then   Authenticated successfully message should appear

@@ -1,78 +1,13 @@
 package Trail;
 
 import Base.BaseUtil;
-import io.appium.java_client.AppiumDriver;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.lang.StringUtils;
-import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.net.URL;
-import java.sql.Timestamp;
-import java.time.Instant;
-import java.util.Date;
+import java.sql.*;
 import java.util.HashMap;
-import java.util.Properties;
-import java.util.concurrent.TimeUnit;
+
 
 public class App_Launch extends BaseUtil {
 
-    public static void Launch_App() throws Exception {
-
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--disable-notifications");
-        driver = new ChromeDriver(chromeOptions);
-        driver.manage().window().maximize();
-        wait = new WebDriverWait(driver, 10);
-        //Navigating to the Home Page of student portal
-        driver.get("https://students.brightchamps.com/");
-        //waiting for home page to load
-        WaitForTitleToBe(valueForTheGivenKey("Student_Title_Page"));
-        //Asserting the Student Home Page
-        Assert.assertEquals(valueForTheGivenKey("Student_Title_Page"), driver.getTitle());
-        _click(valueForTheGivenKey("Login_with_Password_CTA"));
-        _wait(valueForTheGivenKey("Sign_in_CTA"));
-        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Sign_in_CTA")));
-        driver.findElement(By.xpath(valueForTheGivenKey("Email_field"))).sendKeys("apurva.kushwaha@brightchamps.com");
-        driver.findElement(By.xpath(valueForTheGivenKey("Password_field"))).sendKeys("qwerty");
-        _click(valueForTheGivenKey("Sign_in_CTA"));
-        //waiting for home page to load
-        _wait(valueForTheGivenKey("Referral_modal"));
-        //Asserting the Student Home Page
-        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Referral_modal")));
-        _click(valueForTheGivenKey("Referral_modal"));
-        //waiting for home page to load
-        _wait(valueForTheGivenKey("Profile_button"));
-        //Asserting the Student Home Page
-        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Profile_button")));
-        //clicking on profile button
-        _click(valueForTheGivenKey("Profile_button"));
-        //waiting for Profile page to load
-        _wait(valueForTheGivenKey("Edit_Profile"));
-
-        Thread.sleep(2000);
-        _click(valueForTheGivenKey("Edit_Profile"));
-        Thread.sleep(2000);
-
-
-
-
-    }
-
-    public static void On_boardingScreen() {
-
-        driver.findElement(By.xpath("//android.widget.TextView[@index = '0' and @text = 'Pay Your Rent']")).click();
-        driver.findElement(By.xpath("//android.widget.TextView[@text = 'Pay Rent' and @index = '0']/following::android.view.ViewGroup[@index='6']")).click();
-        driver.findElement(By.xpath("//div/iy-/"));
-    }
 
     public static  String _converted_date(String date)
 
@@ -152,18 +87,6 @@ public class App_Launch extends BaseUtil {
 
 
 
-    public static String _get_text(String xpath) {
-
-       return driver.findElement(By.xpath(xpath)).getText();
-
-    }
-
-    public static boolean _is_dispalyed(String xpath) {
-
-        return driver.findElement(By.xpath(xpath)).isDisplayed();
-
-    }
-
     public static int _currenttimestamp(){
 
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
@@ -175,9 +98,8 @@ public class App_Launch extends BaseUtil {
 
     }
 
-    public static void main (String []args) throws Exception {
 
-        Launch_App();
+    public static void main (String []args) {
 
     }
 
