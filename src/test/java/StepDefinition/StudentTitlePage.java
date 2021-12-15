@@ -209,14 +209,15 @@ public class StudentTitlePage extends BaseUtil {
     public void cta_should_get_enabled() {
 
         //Asserting Book your Slot CTA
-        Assert.assertTrue(_is_enabled(valueForTheGivenKey("Book_your_Slot_CTA")));
+        _wait(valueForTheGivenKey("Enabled_Book_your_slot"));
+        Assert.assertTrue(_is_enabled(valueForTheGivenKey("Enabled_Book_your_slot")));
 
     }
 
     @When("User clicks on Book your Slot CTA")
     public void user_clicks_on_cta() {
 
-        _click(valueForTheGivenKey("Book_your_Slot_CTA"));
+        _click(valueForTheGivenKey("Enabled_Book_your_slot"));
 
     }
 
@@ -411,6 +412,7 @@ public class StudentTitlePage extends BaseUtil {
         //Waiting for Cancel modal to appear
         _wait(valueForTheGivenKey("Cancel_modal_checkbox"));
         //Asserting Cancel modal to appear
+        waitForGivenSec(1);
         Assert.assertTrue(_is_displayed_link_text(valueForTheGivenKey("Student_Policy_link_text")));
 
     }
