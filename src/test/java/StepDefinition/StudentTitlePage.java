@@ -254,13 +254,14 @@ public class StudentTitlePage extends BaseUtil {
         for (WebElement ele : dropdown_menu)
 
         {
-            //al.add(ele);
-            ele.click();
+            waitForGivenSec(2);
+            al.add(ele);
+            //ele.click();
 
         }
 
         //Clicking on random values from the dropdown
-     /*   try {
+        try {
             al.get(rand.nextInt(6)).click();
         }
         catch (ElementClickInterceptedException e)
@@ -273,7 +274,6 @@ public class StudentTitlePage extends BaseUtil {
                 al.get(rand.nextInt(dropdown_menu.size())).click();
             }
         }
-        */
 
 
 
