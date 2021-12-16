@@ -298,20 +298,75 @@ public class Student_Dashboard_Title_Page extends BaseUtil {
     //Scenario: 5 #Verifying login via Resent OTP using Email
 
 
+    //Scenario: 6 #Verifying login with E-mail/Passwords - All negative test cases
 
 
 
+    @When("User enters {string} and {string} combination")
+    public void User_enters_Invalid_email_and_password_combination(String InvalidEmail, String Password) {
+
+        driver.findElement(By.xpath(valueForTheGivenKey("Email_field"))).sendKeys(InvalidEmail);
+        driver.findElement(By.xpath(valueForTheGivenKey("Password_field"))).sendKeys(Password);
+
+    }
+
+    @And("User clicks on SIGN IN CTA")
+    public void Sign_in_CTA_click() {
+
+        _click(valueForTheGivenKey("Sign_in_CTA"));
+
+    }
+
+    @Then("Proper {string} should appear")
+    public void Proper_validation_message_should_appear(String Validation_Message) {
+
+        _wait(valueForTheGivenKey("OTP_Sent_Alert"));
+        Assert.assertEquals(Validation_Message,_get_text(valueForTheGivenKey("OTP_Sent_Alert")));
+
+    }
 
 
+    //Scenario: 7 #Verifying Forgot Password feature
 
+    @When("User clicks on forgot password link")
+    public void user_clicks_on_forgot_password_link() {
 
+        _wait(valueForTheGivenKey("Forgot_Password"));
+        _click(valueForTheGivenKey("Forgot_Password"));
 
+    }
 
+    @Then("User is redirected to forgot password screen")
+    public void user_is_redirected_to_forgot_password_screen() {
 
+        _wait(valueForTheGivenKey("Reset_Password"));
 
+    }
 
+    @And("Click on RESET PASSWORD CTA")
+    public void click_on_reset_password_cta() {
 
+        _click(valueForTheGivenKey("Reset_Password"));
 
+    }
+
+    @Then("Success alert should appear")
+    public void success_alert_should_appear() {
+
+        _wait(valueForTheGivenKey("OTP_Sent_Alert"));
+        Assert.assertEquals("An email has been sent to "+data.get(0).get("Email")+". Please follow the instructions to reset your password.",_get_text(valueForTheGivenKey("OTP_Sent_Alert")));
+
+    }
+
+    @And("User gets redirected to the title page")
+    public void User_redirected_to_title_page() {
+
+        //waiting for redirection to the Login page
+        _wait(valueForTheGivenKey("Email"));
+        //Asserting the Student Home Page
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Email")));
+
+    }
 
 
 }

@@ -4,7 +4,7 @@ Feature: Student Dashboard Title Page
                3. Negative test cases for login scenarios.
 
 
-  @Regression @Smoke
+  @Regression @SmokeTest
   Scenario: 1 #Verifying login via OTP using Email
 
     Given  User is at Student portal title Page
@@ -22,7 +22,7 @@ Feature: Student Dashboard Title Page
     #Then   Authenticated successfully message should appear
     And    User is at the Home Page of single user account
 
-  @Regression
+  @Regression @SmokeTest
   Scenario: 2 #Verifying login via OTP using Mobile - Negative Test case
 
     Given  User is at Student portal title Page
@@ -49,7 +49,7 @@ Feature: Student Dashboard Title Page
     And    Clicks on Verify OTP CTA
     Then   Incorrect OTP message should appear
 
-  @Regression
+  @Regression @SmokeTest
   Scenario: 3 #Verifying login via OTP using Email - Negative Test case
 
     Given  User is at Student portal title Page
@@ -78,7 +78,7 @@ Feature: Student Dashboard Title Page
     Then   Incorrect OTP message should appear
 
 
-  @Regression
+  @Regression @SmokeTest
   Scenario: 4 #Verifying older OTP can’t be used after resending new one
 
     Given  User is at Student portal title Page
@@ -97,7 +97,7 @@ Feature: Student Dashboard Title Page
     And    Clicks on Verify OTP CTA
     Then   Incorrect OTP message should appear
 
-  @Regression @Smoke
+  @Regression @SmokeTest
   Scenario: 5 #Verifying login via Resent OTP using Email
 
     Given  User is at Student portal title Page
@@ -116,3 +116,41 @@ Feature: Student Dashboard Title Page
     And    Clicks on Verify OTP CTA
     #Then   Authenticated successfully message should appear
     And    User is at the Home Page of single user account
+
+  @Regression @SmokeTest
+  Scenario Outline: 6 #Verifying login with E-mail/Passwords - All negative test cases
+
+    Given  User is at Student portal title Page
+    When   User clicks on 'Login with Password' CTA
+    Then   User is at 'Login with Password' screen
+    When   User enters "<Invalid Email>" and "<Password>" combination
+    And    User clicks on SIGN IN CTA
+    Then   Proper "<Validation Message>" should appear
+
+    Examples:
+      |Invalid Email                    |Password |Validation Message                         |
+      |apur.kushwaha@brightchamps.com   |qwerty   |User with that email does not exist.       |
+      |                                 |qwerty   |Must be a valid email address              |
+      |apurva.kushwaha@mailinator.com   |         |Invalid value                              |
+      |apurva.kushwaha                  |qwerty   |Must be a valid email address              |
+      |apurva.kushwaha@mailinator.com   |password |Invalid email and password                 |
+      |apurva.kushwaha@brightchamps.com |qwer     |Password must be at least 6 characters long|
+
+
+
+  @Regression @SmokeTest
+  Scenario: 7 #Verifying Forgot Password feature at client end
+
+    Given  User is at Student portal title Page
+    When   User clicks on 'Login with Password' CTA
+    Then   User is at 'Login with Password' screen
+    When   User clicks on forgot password link
+    Then   User is redirected to forgot password screen
+    When   User enters valid Email address
+
+      |Email|
+      |apurva.kushwaha@mailinator.com|
+
+    And    Click on RESET PASSWORD CTA
+    Then   Success alert should appear
+    And    User gets redirected to the title page
