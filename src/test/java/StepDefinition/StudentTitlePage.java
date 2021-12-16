@@ -215,8 +215,9 @@ public class StudentTitlePage extends BaseUtil {
     }
 
     @When("User clicks on Book your Slot CTA")
-    public void user_clicks_on_cta() {
+    public void user_clicks_on_cta() throws InterruptedException {
 
+        Thread.sleep(2000);
         _click(valueForTheGivenKey("Enabled_Book_your_slot"));
 
     }
