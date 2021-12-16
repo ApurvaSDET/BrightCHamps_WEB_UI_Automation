@@ -241,40 +241,7 @@ public class StudentTitlePage extends BaseUtil {
     public void user_should_be_able_to_select_the_reason_and_click_on_submit_cta() {
 
         //Selecting any options available randomly
-       // _random_options_from_dropdown(valueForTheGivenKey("Reschedule_reason_options"));
-
-        //Fetching list of WebElements
-        List<WebElement> dropdown_menu = driver.findElements(By.xpath(valueForTheGivenKey("Reschedule_reason_options")));
-
-        //Creating ArrayList and Random instance
-        ArrayList<WebElement> al = new ArrayList();
-        Random rand = new Random();
-
-        //Using enhanced for loop to get the elements
-        for (WebElement ele : dropdown_menu)
-
-        {
-            waitForGivenSec(2);
-            al.add(ele);
-            //ele.click();
-
-        }
-
-        //Clicking on random values from the dropdown
-        try {
-            al.get(rand.nextInt(dropdown_menu.size())).click();
-        }
-        catch (ElementClickInterceptedException e)
-        {
-            try {
-                al.get(rand.nextInt(dropdown_menu.size())).click();
-            }
-            catch (ElementClickInterceptedException err)
-            {
-                al.get(rand.nextInt(dropdown_menu.size())).click();
-            }
-        }
-
+        _random_options_from_dropdown(valueForTheGivenKey("Reschedule_reason_options"));
 
 
         //Waiting and Clicking on Submit CTA

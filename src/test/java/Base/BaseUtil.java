@@ -39,7 +39,7 @@ public class BaseUtil {
         return Pro.getProperty(name);
     }
 
-    public void waitForGivenSec(int i) {
+    public static void waitForGivenSec(int i) {
         driver.manage().timeouts().implicitlyWait(i, TimeUnit.SECONDS);
     }
 
@@ -218,6 +218,8 @@ public class BaseUtil {
         for (WebElement ele : dropdown_menu)
 
         {
+
+            waitForGivenSec(2);
             al.add(ele);
 
         }
