@@ -258,11 +258,9 @@ public class StudentTitlePage extends BaseUtil {
 
         }
 
-
-        System.out.println(dropdown_menu.size());
         //Clicking on random values from the dropdown
         try {
-            al.get(rand.nextInt(dropdown_menu.size())).click();
+            al.get(rand.nextInt(6)).click();
         }
         catch (ElementClickInterceptedException e)
         {
