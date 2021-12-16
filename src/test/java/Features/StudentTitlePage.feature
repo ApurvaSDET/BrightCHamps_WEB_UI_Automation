@@ -41,7 +41,7 @@ Feature: Home Page Part 1
     Then   User should be redirected to dashboard screen
 
 
-  @Regression @Smoke
+  @Regression1 @Smoke
   Scenario: 4 #Verifying Re-scheduling Next Class
 
     When   User Clicks on three dots button

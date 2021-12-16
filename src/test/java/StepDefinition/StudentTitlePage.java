@@ -215,9 +215,8 @@ public class StudentTitlePage extends BaseUtil {
     }
 
     @When("User clicks on Book your Slot CTA")
-    public void user_clicks_on_cta() throws InterruptedException {
+    public void user_clicks_on_cta(){
 
-        Thread.sleep(2000);
         _click(valueForTheGivenKey("Enabled_Book_your_slot"));
 
     }
@@ -242,7 +241,40 @@ public class StudentTitlePage extends BaseUtil {
     public void user_should_be_able_to_select_the_reason_and_click_on_submit_cta() {
 
         //Selecting any options available randomly
-        _random_options_from_dropdown(valueForTheGivenKey("Reschedule_reason_options"));
+       // _random_options_from_dropdown(valueForTheGivenKey("Reschedule_reason_options"));
+
+        //Fetching list of WebElements
+        List<WebElement> dropdown_menu = driver.findElements(By.xpath(valueForTheGivenKey("Reschedule_reason_options")));
+
+        //Creating ArrayList and Random instance
+        ArrayList<WebElement> al = new ArrayList();
+        Random rand = new Random();
+
+        //Using enhanced for loop to get the elements
+        for (WebElement ele : dropdown_menu)
+
+        {
+            al.add(ele);
+
+        }
+
+
+        System.out.println(dropdown_menu.size());
+        //Clicking on random values from the dropdown
+        try {
+            al.get(rand.nextInt(dropdown_menu.size())).click();
+        }
+        catch (ElementClickInterceptedException e)
+        {
+            try {
+                al.get(rand.nextInt(dropdown_menu.size())).click();
+            }
+            catch (ElementClickInterceptedException err)
+            {
+                al.get(rand.nextInt(dropdown_menu.size())).click();
+            }
+        }
+
 
         //Waiting and Clicking on Submit CTA
         _wait(valueForTheGivenKey("Reschedule_Submit_CTA"));
