@@ -138,7 +138,7 @@ Feature: Student Dashboard Title Page
 
 
 
-  @Regression @SmokeTest
+  @Regression @Smoke
   Scenario: 7 #Verifying Forgot Password feature at client end
 
     Given  User is at Student portal title Page
