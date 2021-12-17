@@ -4,7 +4,7 @@ Feature: Student Dashboard Title Page
                3. Negative test cases for login scenarios.
 
 
-  @Regression @SmokeTest
+  @Regression @Smoke
   Scenario: 1 #Verifying login via OTP using Email
 
     Given  User is at Student portal title Page
@@ -22,7 +22,7 @@ Feature: Student Dashboard Title Page
     #Then   Authenticated successfully message should appear
     And    User is at the Home Page of single user account
 
-  @Regression @SmokeTest
+  @Regression @Smoke
   Scenario: 2 #Verifying login via OTP using Mobile - Negative Test case
 
     Given  User is at Student portal title Page
@@ -49,7 +49,7 @@ Feature: Student Dashboard Title Page
     And    Clicks on Verify OTP CTA
     Then   Incorrect OTP message should appear
 
-  @Regression @SmokeTest
+  @Regression @Smoke
   Scenario: 3 #Verifying login via OTP using Email - Negative Test case
 
     Given  User is at Student portal title Page
@@ -78,7 +78,7 @@ Feature: Student Dashboard Title Page
     Then   Incorrect OTP message should appear
 
 
-  @Regression @SmokeTest
+  @Regression @Smoke
   Scenario: 4 #Verifying older OTP can’t be used after resending new one
 
     Given  User is at Student portal title Page
@@ -97,7 +97,7 @@ Feature: Student Dashboard Title Page
     And    Clicks on Verify OTP CTA
     Then   Incorrect OTP message should appear
 
-  @Regression @SmokeTest
+  @Regression @Smoke
   Scenario: 5 #Verifying login via Resent OTP using Email
 
     Given  User is at Student portal title Page
@@ -117,7 +117,7 @@ Feature: Student Dashboard Title Page
     #Then   Authenticated successfully message should appear
     And    User is at the Home Page of single user account
 
-  @Regression @SmokeTest
+  @Regression @Smoke
   Scenario Outline: 6 #Verifying login with E-mail/Passwords - All negative test cases
 
     Given  User is at Student portal title Page
