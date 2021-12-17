@@ -10,8 +10,8 @@ pipelines:
             caches:
               - maven
             script:
-              - echo mvn -B clean test -Dcucumber.filter.tags=@$TAG_NAME --file pom.xml
-              - echo '\$TAG_NAMES\'
+              - mvn -B clean test -Dcucumber.filter.tags=@$TAG_NAME --file pom.xml
+
 
             after-script:
               # Collect checkstyle results, if any, and convert to Bitbucket Code Insights.
