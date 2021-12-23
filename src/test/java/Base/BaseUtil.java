@@ -5,12 +5,18 @@ import org.apache.commons.lang.StringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.io.FileInputStream;
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 
@@ -300,5 +306,67 @@ public class BaseUtil {
 
 
         }
+
+    public static String _get_current_Month(){
+
+        //Getting the current date value
+        LocalDate CurrentDate = LocalDate.now();
+
+        //Getting the current month
+        return CurrentDate.getMonth().toString();
+
+    }
+
+    public static String _get_current_Day(){
+
+        //Getting the current date value
+        LocalDate CurrentDate = LocalDate.now();
+
+        //Getting the current month
+        int currentDay = CurrentDate.getDayOfMonth();
+
+        return String.valueOf(currentDay);
+
+    }
+
+    public static int _get_current_time_in_sec(){
+
+        LocalDateTime date = LocalDateTime.now();
+        return date.toLocalTime().toSecondOfDay();
+
+    }
+
+    public static int _get_provided_time_in_sec(String demo_class_time) throws ParseException {
+
+        SimpleDateFormat displayFormat = new SimpleDateFormat("HH:mm");
+        SimpleDateFormat parseFormat = new SimpleDateFormat("hh:mm a");
+        Date date = parseFormat.parse(StringUtils.substringBefore(demo_class_time, " -"));
+        //System.out.println(parseFormat.format(date) + " = " + displayFormat.format(date));
+
+
+
+        String time = displayFormat.format(date); //HH:MM
+        String[] units = time.split(":"); //will break the string up into an array
+        int hours = Integer.parseInt(units[0]); //first element
+        int minutes = Integer.parseInt(units[1]); //second element
+        int duration = 3600 * hours + 60 * minutes; //add up our values
+
+        return duration;
+
+    }
+
+
+    public static void _search_throughout_webpage(String element_locator){
+
+        WebElement element = driver.findElement(By.xpath(valueForTheGivenKey(element_locator)));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element);
+        actions.perform();
+
+        _wait(valueForTheGivenKey(element_locator));
+        _click(valueForTheGivenKey(element_locator));
+
+    }
+
 
 }

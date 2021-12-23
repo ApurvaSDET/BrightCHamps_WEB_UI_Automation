@@ -27,7 +27,7 @@ Feature: Home Page Part 1
     And    Clicks on Profile button
     Then   User is at Profile screen
     When   User clicks logout button
-    Then   User is at Student portal title Page
+    Then   User is at Student Portal Title Page
 
 
   @Regression

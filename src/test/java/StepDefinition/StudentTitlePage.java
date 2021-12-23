@@ -22,7 +22,7 @@ public class StudentTitlePage extends BaseUtil {
     public void user_is_at_student_portal() {
 
         //Navigating to the Home Page of student portal
-        driver.get("https://students.brightchamps.com/");
+        driver.get(valueForTheGivenKey("WEB_URL"));
         //waiting for home page to load
         WaitForTitleToBe(valueForTheGivenKey("Student_Title_Page"));
         //Asserting the Student Home Page
