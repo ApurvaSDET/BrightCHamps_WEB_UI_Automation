@@ -209,6 +209,12 @@
             <version>19.7.0.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.github.cdimascio</groupId>
+            <artifactId>java-dotenv</artifactId>
+            <version>5.1.1</version>
+        </dependency>
+
 
         <dependency>
             <groupId>io.cucumber</groupId>

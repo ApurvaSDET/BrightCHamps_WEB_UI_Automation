@@ -30,7 +30,7 @@ Feature: Home Page Part 1
     Then   User is at Student Portal Title Page
 
 
-  @Regression
+  @Regression @Reschedule
   Scenario: 3 #Verifying back button of Re-scheduling Next Class screen
 
     When   User Clicks on three dots button
@@ -41,7 +41,7 @@ Feature: Home Page Part 1
     Then   User should be redirected to dashboard screen
 
 
-  @Regression @Smoke
+  @Regression @Reschedule
   Scenario: 4 #Verifying Re-scheduling Next Class
 
     When   User Clicks on three dots button
@@ -57,7 +57,7 @@ Feature: Home Page Part 1
     And    User should be redirected to dashboard screen
 
 
-  @Regression
+  @Regression @Reschedule
   Scenario: 5 #Verifying Skip button of rescheduled screen
 
     Given  User is at reschedule successful screen
@@ -65,7 +65,7 @@ Feature: Home Page Part 1
     Then   User should be redirected to dashboard screen
 
 
-  @Regression
+  @Regression @Reschedule
   Scenario: 6 #Verifying back button of rescheduled screen
 
     Given  User is at reschedule successful screen
@@ -73,7 +73,7 @@ Feature: Home Page Part 1
     Then   User should be redirected to dashboard screen
 
 
-  @Regression @Smoke
+  @Regression @Reschedule
   Scenario: 7 #Verifying Re-scheduling All Class
 
     When   User Clicks on three dots button
@@ -91,7 +91,7 @@ Feature: Home Page Part 1
     And    User should be redirected to dashboard screen
 
 
-  @Regression
+  @Regression @Cancel
   Scenario: 8 #Verifying No button on Cancel Class modal
 
     When   User Clicks on three dots button
@@ -102,7 +102,7 @@ Feature: Home Page Part 1
     Then   Cancel modal should get closed
 
 
-  @Regression
+  @Regression @Cancel
   Scenario: 9 #Verifying YES button on Cancel Class modal without accepting the student policy
 
     When   User Clicks on three dots button
@@ -111,7 +111,7 @@ Feature: Home Page Part 1
     Then   Cancel modal should appear
     And    YES button should be disabled
 
-  @Regression
+  @Regression @Cancel
   Scenario: 10 #Verifying student policy link on Cancel Class modal
 
     When   User Clicks on three dots button
@@ -121,7 +121,7 @@ Feature: Home Page Part 1
     When   User clicks on student policy link
     Then   A web page with student policy should get opened
 
-  @Regression @Smoke
+  @Regression @Cancel
   Scenario: 11 #Verifying YES button on Cancel Class modal after accepting the student policy
 
     When   User Clicks on three dots button
@@ -137,9 +137,24 @@ Feature: Home Page Part 1
     And    Successful cancel modal should get closed and Webpage should reload
 
 
-  @Regression
+  @Regression @Cancel
   Scenario: 12 #Verifying Skip button of Successful cancel screen
 
     Given  User is at cancel successful screen
     When   User clicks on Skip link of Cancel Modal
     Then   Successful cancel modal should get closed and Webpage should reload
+
+
+  @Regression @Smoke
+  Scenario: 13 #Verifying disabled JOIN CTA logic
+
+    Given   User is at the Home Page of single user account
+    When    User has an Upcoming Appointment
+    #Then    Verify JOIN CTA is enabled or disabled
+
+  @Regression @Smoke
+  Scenario: 14 #Verifying global House CTA
+
+    Given   User is at the Home Page of single user account
+    When    User clicks on Confirm Now CTA of global house card
+    Then    User should be navigated to the google form

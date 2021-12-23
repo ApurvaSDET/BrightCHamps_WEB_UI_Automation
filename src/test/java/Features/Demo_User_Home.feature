@@ -13,12 +13,12 @@ Feature: Demo User
     And    User clicks on SUBMIT CTA
 
 
-  @Regression @Smoke
+  @Regression @Demo
   Scenario: 1 #Verifying master login for demo a/c
 
     Then   User is at the Home Page of Demo account
 
-  @Regression @Smoke
+  @Regression @Demo
   Scenario: 2 #Verifying Reschedule Your Class feature for demo user
 
     Given   User is at the Home Page of Demo account
@@ -29,7 +29,7 @@ Feature: Demo User
     Then    User should be able to successfully Reschedule the demo class
     And     User should be redirected to dashboard screen of demo user
 
-  @Regression @Smoke
+  @Regression @Demo
   Scenario: 3 #Verifying back button of Re-scheduling Trail Class screen
 
     Given   User is at the Home Page of Demo account
@@ -38,14 +38,14 @@ Feature: Demo User
     When    User clicks on back button
     And     User should be redirected to dashboard screen of demo user
 
-  @Regression @Smoke
+  @Regression @Demo
   Scenario: 4 #Verifying disabled JOIN CTA logic
 
     Given   User is at the Home Page of Demo account
     When    User has scheduled demo class
     Then    Verify JOIN CTA is enabled or disabled
 
-  @Regression @Smoke
+  @Regression @Demo
   Scenario: 5 #Verifying Glimpse of Project section on Demo Home Page
 
     Given   User is at the Home Page of Demo account
@@ -55,43 +55,43 @@ Feature: Demo User
     Then    User should be able to scroll to top of the Page
     And     Verify user should be able to successfully play and close all the videos
 
-  @Regression @Smoke
+  @Regression @Demo
   Scenario: 6 #Verifying ‘Try our Course’ CTA on Demo Home Page
 
     Given   User is at the Home Page of Demo account
     When    User clicks on Try our Course CTA
     Then    User should be redirected to Freemium Videos screen
 
-  @Regression @Smoke
+  @Regression @Demo
   Scenario: 7 #Verifying ‘Start Creating’ CTA on Demo Home Page
 
     Given   User is at the Home Page of Demo account
     When    User clicks on Start Creating CTA
-    Then    User should be redirected to BUY_PLAN Page
+    Then    User should be redirected to Our-Curriculum Page
 
 
-  @Regression @Smoke
+  @Regression @Demo
   Scenario: 8 #Verifying ‘Apple App Store’ CTA on Demo Home Page
 
     Given   User is at the Home Page of Demo account
     When    User clicks on Apple AppStore CTA
     Then    User should be redirected to the Apple AppStore Screen
 
-  @Regression @Smoke
+  @Regression @Demo
   Scenario: 9 #Verifying ‘Google PlayStore’ CTA on Demo Home Page
 
     Given   User is at the Home Page of Demo account
     When    User clicks on Google PlayStore CTA
     Then    User should be redirected to the Google PlayStore Screen
 
-  @Regression @Smoke
+  @Regression @Demo
   Scenario: 10 #Verifying ‘Grab Your Seat’ CTA on Demo User
 
     Given   User is at the Home Page of Demo account
     When    User clicks on Grab Your Seat CTA
-    Then    User should be redirected to BUY_PLAN Page
+    Then    User should be redirected to Our-Curriculum Page
 
-  @Regression @Smoke
+  @Regression @Demo
   Scenario: 11 #Verifying logout for Demo User
 
     Given   User is at the Home Page of Demo account

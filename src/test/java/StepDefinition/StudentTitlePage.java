@@ -590,5 +590,46 @@ public class StudentTitlePage extends BaseUtil {
 
     }
 
+    //Scenario: 13 #Verifying disabled JOIN CTA logic
+
+    @When("User has an Upcoming Appointment")
+    public void User_has_an_Upcoming_Appointment(){
+
+        //Clicking on SKIP link
+        _wait(valueForTheGivenKey("triple_dots"));
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("triple_dots")));
+
+    }
+
+    //Scenario: 14 #Verifying global House CTA
+
+    @When("User clicks on Confirm Now CTA of global house card")
+    public void user_clicks_on_confirm_now_cta_of_global_house_card() {
+
+        //Storing Current Window Handle in Static String Variable 'Parent_Window'
+        Parent_Window = driver.getWindowHandle();
+
+        //Waiting for the page to load and clicking on CTA
+        _wait(valueForTheGivenKey("Confirm_Now_CTA"));
+        _click(valueForTheGivenKey("Confirm_Now_CTA"));
+
+    }
+
+
+    @Then("User should be navigated to the google form")
+    public void user_should_be_navigated_to_the_google_form() {
+
+        //Switching driver focus to next Window
+        Switch_to_next_tab(Parent_Window);
+
+        //Validating if new tab is opened with Google doc URL
+        wait.until(ExpectedConditions.urlContains("docs.google.com"));
+        Assert.assertTrue(driver.getCurrentUrl().contains("docs.google.com"));
+
+    }
+
+
+
+
     }
 

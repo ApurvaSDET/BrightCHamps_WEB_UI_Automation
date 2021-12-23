@@ -304,6 +304,17 @@ public class Demo_User_Home extends BaseUtil {
             _wait(valueForTheGivenKey("Player_ID"));
             _click(valueForTheGivenKey("Player_ID"));
 
+            //Validating if Video is correctly loaded and played
+            try
+            {
+                Assert.assertFalse(driver.findElement(By.xpath(valueForTheGivenKey("YouTube_Link_Broken_error"))).isDisplayed());
+            }
+            catch (NoSuchElementException e)
+            {
+                Assert.assertTrue(true);
+            }
+
+
             Thread.sleep(2000);
 
             //Closing the Video Player Modal
@@ -355,16 +366,23 @@ public class Demo_User_Home extends BaseUtil {
     @When("User clicks on Start Creating CTA")
     public void User_clicks_on_Start_Creating_CTA() {
 
+        //Storing Current Window Handle in Static String Variable 'Parent_Window'
+        Parent_Window = driver.getWindowHandle();
+
         _wait(valueForTheGivenKey("Video_Container_Title"));
         _search_throughout_webpage("Start_Creating_CTA");
 
     }
 
-    @Then("User should be redirected to BUY_PLAN Page")
-    public void User_should_be_redirected_to_BUY_PLAN_Page() {
+    @Then("User should be redirected to Our-Curriculum Page")
+    public void User_should_be_redirected_to_Our_Curriculum_Page() {
 
-        wait.until(ExpectedConditions.urlToBe(valueForTheGivenKey("Buy_Plan_Page_URL")));
-        Assert.assertEquals(valueForTheGivenKey("Buy_Plan_Page_URL"),driver.getCurrentUrl());
+        //Switching driver focus to next Window
+        Switch_to_next_tab(Parent_Window);
+
+        //Validating if new tab is opened with Curriculum_Page_URL
+        wait.until(ExpectedConditions.urlToBe(valueForTheGivenKey("Our_Curriculum_Page_URL")));
+        Assert.assertEquals(valueForTheGivenKey("Our_Curriculum_Page_URL"),driver.getCurrentUrl());
 
     }
 
@@ -390,7 +408,7 @@ public class Demo_User_Home extends BaseUtil {
         //Switching driver focus to next Window
         Switch_to_next_tab(Parent_Window);
 
-        //Validating if next tab is opened with apple URL
+        //Validating if new tab is opened with apple URL
         wait.until(ExpectedConditions.urlContains("apps.apple.com"));
         Assert.assertTrue(driver.getCurrentUrl().contains("apps.apple.com"));
 
@@ -418,7 +436,7 @@ public class Demo_User_Home extends BaseUtil {
         //Switching driver focus to next Window
         Switch_to_next_tab(Parent_Window);
 
-        //Validating if next tab is opened with Gogle URL
+        //Validating if new tab is opened with Gogle URL
         wait.until(ExpectedConditions.urlContains("play.google.com"));
         Assert.assertTrue(driver.getCurrentUrl().contains("play.google.com"));
 
@@ -429,6 +447,9 @@ public class Demo_User_Home extends BaseUtil {
 
     @When("User clicks on Grab Your Seat CTA")
     public void User_clicks_on_Grab_Your_Seat_CTA() {
+
+        //Storing Current Window Handle in Static String Variable 'Parent_Window'
+        Parent_Window = driver.getWindowHandle();
 
         _wait(valueForTheGivenKey("Grab_Your_Seat"));
         _click(valueForTheGivenKey("Grab_Your_Seat"));

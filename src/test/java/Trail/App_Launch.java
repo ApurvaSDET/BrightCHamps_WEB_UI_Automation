@@ -1,7 +1,13 @@
 package Trail;
 
 import Base.BaseUtil;
+import io.github.cdimascio.dotenv.Dotenv;
+import io.github.cdimascio.dotenv.DotenvEntriesFilter;
+import io.github.cdimascio.dotenv.DotenvEntry;
 import org.apache.commons.lang.StringUtils;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.sql.*;
 import java.text.ParseException;
 import java.time.LocalDateTime;
@@ -9,6 +15,7 @@ import java.time.LocalTime;
 import java.util.HashMap;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Set;
 
 
 public class App_Launch extends BaseUtil {
@@ -97,68 +104,13 @@ public class App_Launch extends BaseUtil {
     }
 
 
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) {
 
-       /* System.out.println(LocalTime.now());
-        LocalDateTime date = LocalDateTime.now();
-        int seconds = date.toLocalTime().toSecondOfDay();
+        Dotenv dotenv = Dotenv.load();
 
-        System.out.println(seconds);
+        System.out.println(dotenv.get("DBUSERNAME"));
 
-        */
-
-      /*  SimpleDateFormat displayFormat = new SimpleDateFormat("HH:mm");
-        SimpleDateFormat parseFormat = new SimpleDateFormat("hh:mm a");
-        Date date = parseFormat.parse("00:30 AM");
-        System.out.println(parseFormat.format(date) + " = " + displayFormat.format(date));
-
-
-
-        String time = displayFormat.format(date); //HH:MM
-        String[] units = time.split(":"); //will break the string up into an array
-        int hours = Integer.parseInt(units[0]); //first element
-        int minutes = Integer.parseInt(units[1]); //second element
-        int duration = 3600 * hours + 60 * minutes; //add up our values
-
-        System.out.println(duration);
-
-       */
-
-
-     /*   System.out.println(_get_current_time_in_sec());
-        System.out.println(_get_provided_time_in_sec("12:00 PM "));
-
-        String value = "12:00 PM - 1:00 PM";
-
-        System.out.println(StringUtils.substringBefore(value, " -"));
-
-      */
-
-
-
-boolean abc = _get_provided_time_in_sec("17:30 PM - 18:30 PM")-600 <=
-        _get_current_time_in_sec() && _get_provided_time_in_sec("12:00 PM - 1:00 PM")+600
-        <=_get_current_time_in_sec();
-
-//System.out.println(abc);
-
-      int before =   _get_provided_time_in_sec("06:00 PM - 07:00 PM")-600;
-      int after =  _get_provided_time_in_sec("06:00 PM - 07:00 PM")+600;
-      System.out.println(before);
-      System.out.println(after);
-      System.out.println(_get_current_time_in_sec());
-
-
-      boolean qwerty = _get_current_time_in_sec()>= before && _get_current_time_in_sec()<= after;
-
-      System.out.println(qwerty);
-
-
-
-
-
-}
 
     }
-
+    }
 
