@@ -158,3 +158,14 @@ Feature: Home Page Part 1
     Given   User is at the Home Page of single user account
     When    User clicks on Confirm Now CTA of global house card
     Then    User should be navigated to the google form
+
+  @Regression @SmokeTest
+  Scenario: 15 #Verifying referral modal on Home Page of paid user
+
+    Given   User is at the Home Page of single user account
+    When    User clicks on Book Free Trial CTA of referral card
+    Then    User should be navigated to the new tab with referral link in it
+    When    User click on COPY LINK
+    Then    Text on CTA should be changed to COPIED
+    When    User opens a new tab and paste copied link in it
+    Then    Verify Same URL should be there which is associated with Book Free Trial CTA

@@ -12,9 +12,19 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.UnsupportedFlavorException;
+import java.io.IOException;
 import java.util.*;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class StudentTitlePage extends BaseUtil {
+
+    public static String Referral_URL_from_CTA;
+    public static String Referral_URL_from_Paste;
 
     //Background: User is Logged In
 
@@ -628,8 +638,99 @@ public class StudentTitlePage extends BaseUtil {
 
     }
 
+    //Scenario: 15 #Verifying referral modal on Home Page of paid user
+
+    @When("User clicks on Book Free Trial CTA of referral card")
+    public void user_clicks_on_book_free_trial_cta_of_referral_card() {
+
+        //Making page to stop loading referral webpage and throw exception, since it's loading infinitely
+        driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
+
+        //Storing Current Window Handle in Static String Variable 'Parent_Window'
+        Parent_Window = driver.getWindowHandle();
+
+        //Waiting for the page to load and navigating to the Book_Free_Trial CTA
+        _wait(valueForTheGivenKey("triple_dots"));
+        _search_throughout_webpage("Book_Free_Trial_CTA");
+
+    }
+
+    @Then("User should be navigated to the new tab with referral link in it")
+    public void user_should_be_navigated_to_the_new_tab_with_referral_link_in_it() {
+
+        // Executing rest of the logic in try catch block after exception is thrown
+        try {
+            //Switching driver focus to next Window
+            Switch_to_next_tab(Parent_Window);
+            Referral_URL_from_CTA = driver.getCurrentUrl();
+
+        } catch (TimeoutException e) {
+
+            Referral_URL_from_CTA = driver.getCurrentUrl();
+        }
+
+        //Validating if new tab is opened with referral URL
+        Assert.assertTrue(Referral_URL_from_CTA.contains("referral-demo"));
+
+    }
+
+    @When("User click on COPY LINK")
+    public void user_click_on_copy_link() {
+
+        //Switching to the default window
+        driver.close();
+        driver.switchTo().window(Parent_Window);
+
+        //Click on COPY LINK CTA on referral modal
+        _wait(valueForTheGivenKey("triple_dots"));
+        _search_throughout_webpage("COPY_LINK_CTA");
 
 
+    }
+
+    @Then("Text on CTA should be changed to COPIED")
+    public void text_on_cta_should_be_changed_to_copied() {
+
+        //Validating COPIED CTA
+        _wait(valueForTheGivenKey("COPIED_CTA"));
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("COPIED_CTA")));
+
+    }
+
+    @When("User opens a new tab and paste copied link in it")
+    public void user_opens_a_new_tab_and_paste_copied_link_in_it() throws IOException, UnsupportedFlavorException {
+
+        //Copying the Copied text on clipboard and getting the copied text
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        Object CopiedURL = clipboard.getData(DataFlavor.stringFlavor);
+
+        //Opening a new tab
+        openNewTab();
+
+        //Switching driver focus to next Window and navigating to the copied URL from ClipBoard
+        Switch_to_next_tab(Parent_Window);
+
+        // Executing rest of the logic in try catch block after exception is thrown
+        try {
+            driver.get(CopiedURL.toString());
+        } catch (TimeoutException e) {
+            // Ignore the exception.
+        }
+
+        //Validating if new tab is opened with referral URL
+        wait.until(ExpectedConditions.urlToBe(CopiedURL.toString()));
+        Referral_URL_from_Paste = driver.getCurrentUrl();
+        Assert.assertTrue(Referral_URL_from_Paste.contains("referral-demo"));
+
+    }
+
+    @Then("Verify Same URL should be there which is associated with Book Free Trial CTA")
+    public void verify_same_url_should_be_there_which_is_associated_with_book_free_trial_cta() {
+
+        //Validating if both CTAs are fulfilling same purpose
+        Assert.assertEquals(Referral_URL_from_CTA, Referral_URL_from_Paste);
+
+    }
 
     }
 
