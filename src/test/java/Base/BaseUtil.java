@@ -32,7 +32,7 @@ public class BaseUtil {
 
     public static String valueForTheGivenKey(String name) {
 
-        File file = new File(System.getProperty("user.dir")+"/src/test/resources/Properties_file/locator.properties");
+        File file = new File(System.getProperty("user.dir")+"/src/test/resources/Element_Locator_Properties_file/locator.properties");
         FileInputStream fis;
         try {
             fis = new FileInputStream(file);

@@ -375,9 +375,10 @@ public class Demo_User_Home extends BaseUtil {
     }
 
     @Then("User should be redirected to Our-Curriculum Page")
-    public void User_should_be_redirected_to_Our_Curriculum_Page() {
+    public void User_should_be_redirected_to_Our_Curriculum_Page() throws InterruptedException {
 
-        //Switching driver focus to next Window
+        //Switching driver focus to next Window after a sec
+        Thread.sleep(1000);
         Switch_to_next_tab(Parent_Window);
 
         //Validating if new tab is opened with Curriculum_Page_URL

@@ -34,9 +34,9 @@ public class StudentTitlePage extends BaseUtil {
         //Navigating to the Home Page of student portal
         driver.get(valueForTheGivenKey("WEB_URL"));
         //waiting for home page to load
-        WaitForTitleToBe(valueForTheGivenKey("Student_Title_Page"));
+        _wait(valueForTheGivenKey("Login_with_Password_CTA"));
         //Asserting the Student Home Page
-        Assert.assertEquals(valueForTheGivenKey("Student_Title_Page"), driver.getTitle());
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Login_with_Password_CTA")));
     }
 
     @When("User clicks on 'Login with Password' CTA")
@@ -698,11 +698,23 @@ public class StudentTitlePage extends BaseUtil {
     }
 
     @When("User opens a new tab and paste copied link in it")
-    public void user_opens_a_new_tab_and_paste_copied_link_in_it() throws IOException, UnsupportedFlavorException {
+    public void user_opens_a_new_tab_and_paste_copied_link_in_it(){
 
-        //Copying the Copied text on clipboard and getting the copied text
-        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-        Object CopiedURL = clipboard.getData(DataFlavor.stringFlavor);
+        //*************Copying the Copied text on Email field and getting the copied text****************
+
+        //Reusing methods to navigate to Email field and pasting the copied link on Email text input
+        Clicks_on_Profile_button();
+        user_clicks_logout_button();
+        user_is_at_student_portal();
+        user_clicks_on_login_with_password_cta();
+        user_is_at_login_with_password_screen();
+
+        // Pasting the Copied link using Cmd +V
+        driver.findElement(By.xpath(valueForTheGivenKey("Email_field"))).sendKeys(Keys.COMMAND + "v");
+
+
+        //Storing the String value in a local variable
+        String PastedURL = driver.findElement(By.xpath(valueForTheGivenKey("Email_field"))).getAttribute("value");
 
         //Opening a new tab
         openNewTab();
@@ -712,13 +724,13 @@ public class StudentTitlePage extends BaseUtil {
 
         // Executing rest of the logic in try catch block after exception is thrown
         try {
-            driver.get(CopiedURL.toString());
+            driver.get(PastedURL);
         } catch (TimeoutException e) {
             // Ignore the exception.
         }
 
         //Validating if new tab is opened with referral URL
-        wait.until(ExpectedConditions.urlToBe(CopiedURL.toString()));
+        wait.until(ExpectedConditions.urlToBe(PastedURL));
         Referral_URL_from_Paste = driver.getCurrentUrl();
         Assert.assertTrue(Referral_URL_from_Paste.contains("referral-demo"));
 
