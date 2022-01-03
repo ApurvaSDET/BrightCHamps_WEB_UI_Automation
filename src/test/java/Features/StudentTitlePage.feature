@@ -160,7 +160,7 @@ Feature: Home Page Part 1
     When    User clicks on Confirm Now CTA of global house card
     Then    User should be navigated to the google form
 
-  @Regression @SmokeTest1
+  @Regression @Referral
   Scenario: 15 #Verifying referral modal on Home Page of paid user
 
     Given   User is at the Home Page of single user account
