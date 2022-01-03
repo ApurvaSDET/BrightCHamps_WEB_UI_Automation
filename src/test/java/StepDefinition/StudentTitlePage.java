@@ -710,9 +710,9 @@ public class StudentTitlePage extends BaseUtil {
         user_clicks_on_login_with_password_cta();
         user_is_at_login_with_password_screen();
 
-        // Pasting the Copied link using Cmd +V
+        // Pasting the Copied link using Cmd/Ctrl +V depending upon system
         driver.findElement(By.xpath(valueForTheGivenKey("Email_field"))).sendKeys(Keys.CONTROL + "v");
-
+        driver.findElement(By.xpath(valueForTheGivenKey("Email_field"))).sendKeys(Keys.COMMAND + "v");
 
         //Storing the String value in a local variable
         String PastedURL = driver.findElement(By.xpath(valueForTheGivenKey("Email_field"))).getAttribute("value");
