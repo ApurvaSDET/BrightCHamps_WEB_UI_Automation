@@ -641,7 +641,7 @@ public class StudentTitlePage extends BaseUtil {
     //Scenario: 15 #Verifying referral modal on Home Page of paid user
 
     @When("User clicks on Book Free Trial CTA of referral card")
-    public void user_clicks_on_book_free_trial_cta_of_referral_card() {
+    public void user_clicks_on_book_free_trial_cta_of_referral_card() throws InterruptedException {
 
         //Making page to stop loading referral webpage and throw exception, since it's loading infinitely
         driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
@@ -651,6 +651,7 @@ public class StudentTitlePage extends BaseUtil {
 
         //Waiting for the page to load and navigating to the Book_Free_Trial CTA
         _wait(valueForTheGivenKey("triple_dots"));
+        Thread.sleep(2000);
         _search_throughout_webpage("Book_Free_Trial_CTA");
 
     }
@@ -710,7 +711,7 @@ public class StudentTitlePage extends BaseUtil {
         user_is_at_login_with_password_screen();
 
         // Pasting the Copied link using Cmd +V
-        driver.findElement(By.xpath(valueForTheGivenKey("Email_field"))).sendKeys(Keys.COMMAND + "v");
+        driver.findElement(By.xpath(valueForTheGivenKey("Email_field"))).sendKeys(Keys.CONTROL + "v");
 
 
         //Storing the String value in a local variable
