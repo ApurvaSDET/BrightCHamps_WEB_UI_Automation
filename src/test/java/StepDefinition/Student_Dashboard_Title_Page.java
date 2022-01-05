@@ -266,7 +266,7 @@ public class Student_Dashboard_Title_Page extends BaseUtil {
 
         //Asserting the error message for incorrect number format
         _wait(valueForTheGivenKey("Error_msg_Email"));
-        Assert.assertEquals("Something went wrong.",_get_text(valueForTheGivenKey("Error_msg_Email")));
+        Assert.assertEquals(valueForTheGivenKey("Email_Error_Message"),_get_text(valueForTheGivenKey("Error_msg_Email")));
 
         //Entering valid but unregistered number
         driver.navigate().refresh();
@@ -282,7 +282,7 @@ public class Student_Dashboard_Title_Page extends BaseUtil {
     public void error_message_should_be_shown() {
 
         _wait(valueForTheGivenKey("Error_msg_Email"));
-        Assert.assertEquals("Something went wrong.",_get_text(valueForTheGivenKey("Error_msg_Email")));
+        Assert.assertEquals(valueForTheGivenKey("Email_Error_Message"),_get_text(valueForTheGivenKey("Error_msg_Email")));
 
         //Removing older written data
         driver.navigate().refresh();

@@ -36,7 +36,7 @@ public class Hook extends BaseUtil {
         driver = new RemoteWebDriver(new URL(BROWSERSTACK_URL), capabilities);
 
         driver.manage().window().maximize();
-        wait = new WebDriverWait(driver, 20);
+        wait = new WebDriverWait(driver, 30);
     }
 
     @Before
