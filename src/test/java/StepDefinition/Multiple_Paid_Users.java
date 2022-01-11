@@ -112,7 +112,8 @@ public class Multiple_Paid_Users extends BaseUtil {
         _click(valueForTheGivenKey("Profile_button"));
 
 
-        //Clicking dropdown button to expand a/c users
+        //Waiting and Clicking dropdown button to expand a/c users
+        _wait(valueForTheGivenKey("Account_Dropdown"));
         _click(valueForTheGivenKey("Account_Dropdown"));
 
         //Waiting for dropdown menu to appear
