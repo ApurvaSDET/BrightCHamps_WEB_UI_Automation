@@ -62,6 +62,18 @@ public class BaseUtil {
 
     }
 
+    public static void _wait_forAllElements(String value){
+
+        try {
+            wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(value)));
+        }
+        catch (TimeoutException e)
+        {
+            Assert.fail();
+        }
+
+    }
+
     public void DocumentInReadyState()
 
     {

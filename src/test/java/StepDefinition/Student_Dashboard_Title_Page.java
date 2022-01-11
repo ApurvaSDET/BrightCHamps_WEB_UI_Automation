@@ -5,6 +5,7 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.commons.lang.StringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -77,8 +78,12 @@ public class Student_Dashboard_Title_Page extends BaseUtil {
         _wait(valueForTheGivenKey("Mailinator_search_box"));
         driver.findElement(By.xpath(valueForTheGivenKey("Mailinator_search_box"))).sendKeys(data.get(0).get("Email"),Keys.ENTER);
 
-        _wait(valueForTheGivenKey("Inbox_mailinator"));
-        _click(valueForTheGivenKey("Inbox_mailinator"));
+        //Getting entered email domain prefix
+        String domain_prefix = StringUtils.substringBefore(data.get(0).get("Email"), "@");
+
+        //Using the entered email domain prefix as part of Xpath
+        _wait("//*[starts-with(@id,'row_"+domain_prefix+"')]");
+        _click("//*[starts-with(@id,'row_"+domain_prefix+"')]");
 
         //Switching to message body iFrame and getting OTP
         driver.switchTo().frame(valueForTheGivenKey("Inbox_frame"));

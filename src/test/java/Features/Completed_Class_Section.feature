@@ -1,4 +1,4 @@
-Feature: Completed Class Section for Paid users on Home Page
+Feature: Home Page Part 2 - Completed Class Section
   Description: Test Automation for covering all possible cases of a Completed Class Section for Paid users on Home Page
 
   Background: User is Logged In

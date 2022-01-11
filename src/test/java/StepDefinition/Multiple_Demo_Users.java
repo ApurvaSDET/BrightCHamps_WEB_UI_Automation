@@ -1,0 +1,184 @@
+package StepDefinition;
+
+import Base.BaseUtil;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.apache.commons.lang.StringUtils;
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebElement;
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class Multiple_Demo_Users extends BaseUtil {
+
+    ArrayList<String> List_of_account_Name;
+    ArrayList<String> alObject;
+    List<WebElement> account_names;
+
+    //Scenario: 1 #Verifying Select Your Account Screen
+
+    @Then("User is at the Select Your Account Screen")
+    public void User_is_at_the_Select_Your_Account_Screen() {
+
+        //waiting for home page to load
+        _wait_forAllElements(valueForTheGivenKey("Account_Select_Page"));
+        //Asserting the Student Home Page
+        Assert.assertTrue(driver.findElements(By.xpath(valueForTheGivenKey("Account_Select_Page"))).size()>1);
+
+    }
+
+
+    //Scenario: 2 #Verifying User lands on the same a/c which is selected at Select Your Account Screen
+
+    @When("User clicks on each account")
+    public void user_clicks_on_each_account() {
+
+        //Creating ArrayList Object to store the A/C names from dashboard screen
+        List_of_account_Name = new ArrayList<>();
+
+        //Creating another ArrayList Object to store the A/C names from Account Select Page
+        ArrayList<String> al = new ArrayList<>();
+
+        //Fetching no. of accounts on Account Select Page
+        List<WebElement> account_names = driver.findElements(By.xpath(valueForTheGivenKey("Account_Names_On_Select_Page")));
+
+        //Using enhanced for loop to store the a/c names in ArrayList al
+
+        for (WebElement ele : account_names)
+
+        {
+            al.add(ele.getText());
+        }
+
+        //Using for loop to click on each accounts
+        for(int i =0; i<account_names.size(); i++) {
+
+            try {
+                driver.findElement(By.xpath("//p[text()='"+al.get(i)+"']/parent::div/div/div")).click();
+            } catch (StaleElementReferenceException e) {
+                e.getMessage();
+            }
+
+            //waiting for Demo Home Page to load
+            _wait(valueForTheGivenKey("Video_Container_Title"));
+
+            //Storing the a/c name from Home Page in another ArrayList
+            List_of_account_Name.add(_get_text(valueForTheGivenKey("Account_Name")));
+
+            //Navigating back to the Account Select Page
+            driver.navigate().back();
+
+            //Validating the Account Select page
+            User_is_at_the_Select_Your_Account_Screen();
+
+        }
+
+    }
+
+
+    @Then("User should be redirected to their selected account only")
+    public void user_should_be_redirected_to_their_selected_account_only() {
+
+        //Fetching no. of accounts on Account Select Page
+        List<WebElement> account_names = driver.findElements(By.xpath(valueForTheGivenKey("Account_Names_On_Select_Page")));
+
+        //Using enhanced for loop to get the elements
+        int count = 0;
+        for (WebElement ele : account_names)
+
+        {
+            //Validating if the user is redirected to the same a/c which is opened from Account Select Page
+            Assert.assertTrue(ele.getText().contains(List_of_account_Name.get(count)));
+            count++;
+        }
+
+
+    }
+
+    //Scenario: 3 #Verifying User lands on the same a/c when selected from dropdown on HomePage
+
+
+    @When("User clicks on any account")
+    public void user_clicks_on_any_account() {
+
+        _click(valueForTheGivenKey("Account_Select_Page"));
+
+    }
+
+    @Then("User lands on Home Page")
+    public void user_lands_on_home_page() {
+
+        _wait(valueForTheGivenKey("Video_Container_Title"));
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Video_Container_Title")));
+
+    }
+
+    @When("User select each account from dropdown")
+    public void user_select_each_account_from_dropdown() {
+
+        //Creating ArrayList Object to store the A/C names from greeting text on Home Page
+        List_of_account_Name = new ArrayList<>();
+
+        //Creating another ArrayList Object to store the A/C names from drop down menu
+        alObject = new ArrayList<>();
+
+        //Clicking dropdown button to expand a/c users
+        _click(valueForTheGivenKey("Account_Dropdown"));
+
+        //Waiting for dropdown menu to appear
+        _wait_forAllElements(valueForTheGivenKey("Dropdown_Items"));
+
+        //Storing A/C names from dropdown into List<WebElements>
+        account_names = driver.findElements(By.xpath(valueForTheGivenKey("Dropdown_Items")));
+
+        //Using enhanced for loop to store the a/c names in ArrayList alObject
+
+        for (WebElement ele : account_names) {
+            alObject.add(ele.getText());
+        }
+
+        //Using for loop to click on each account from dropdown menu
+        for (int i = 0; i < account_names.size(); i++) {
+
+            try {
+                driver.findElement(By.xpath("//ul[@id='menu-list-grow']/li/div/div/p[text()='"+alObject.get(i)+"']")).click();
+            } catch (StaleElementReferenceException e) {
+                e.getMessage();
+            }
+
+            //Waiting for Title_Heading to load up
+            _wait(valueForTheGivenKey("Title_Heading"));
+
+            //Storing the Title_Heading from Home Page in another ArrayList 'List_of_account_Name'
+            List_of_account_Name.add(_get_text(valueForTheGivenKey("Title_Heading")));
+
+            //Waiting for DropDown button to load
+            _wait(valueForTheGivenKey("Account_Dropdown"));
+
+            //Clicking dropdown button to expand a/c users
+            _click(valueForTheGivenKey("Account_Dropdown"));
+
+        }
+
+
+    }
+
+
+    @Then("Verify selected account Home Page should be opened")
+    public void verify_selected_account_home_page_should_be_opened() {
+
+        //Logic for validating if the same a/c got opened which user actually opened
+        for(int i = 0; i < account_names.size(); i++) {
+
+           if(List_of_account_Name.get(i).contains(StringUtils.substringBefore(alObject.get(i), " ")))
+               Assert.assertTrue(true);
+           else
+               Assert.fail();
+        }
+
+    }
+
+}

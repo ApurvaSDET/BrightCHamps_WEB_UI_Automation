@@ -5,7 +5,7 @@ Feature: Student Dashboard Title Page
 
 
   @Regression @TitlePage
-  Scenario: 1 #Verifying login via OTP using Email
+  Scenario: 1 #Verifying login via OTP using Email for paid user
 
     Given  User is at Student portal title Page
     When   User clicks on Email button
@@ -23,7 +23,25 @@ Feature: Student Dashboard Title Page
     And    User is at the Home Page of single user account
 
   @Regression @TitlePage
-  Scenario: 2 #Verifying login via OTP using Mobile - Negative Test case
+  Scenario: 2 #Verifying login via OTP using Email for demo user
+
+    Given  User is at Student portal title Page
+    When   User clicks on Email button
+    And    User enters valid Email address
+
+      |Email|
+      |kishan.patel@mailinator.com|
+
+    When   User clicks on Login CTA
+    Then   OTP sent Successfully message should appear
+    And    User lands on Enter Verification Code Screen
+    When   User enters OTP
+    And    Clicks on Verify OTP CTA
+    #Then   Authenticated successfully message should appear
+    And    User is at the Home Page of Demo account
+
+  @Regression @TitlePage
+  Scenario: 3 #Verifying login via OTP using Mobile - Negative Test case
 
     Given  User is at Student portal title Page
     When   User clicks on Mobile button
@@ -50,7 +68,7 @@ Feature: Student Dashboard Title Page
     Then   Incorrect OTP message should appear
 
   @Regression @TitlePage
-  Scenario: 3 #Verifying login via OTP using Email - Negative Test case
+  Scenario: 4 #Verifying login via OTP using Email - Negative Test case
 
     Given  User is at Student portal title Page
     When   User clicks on Email button
@@ -79,7 +97,7 @@ Feature: Student Dashboard Title Page
 
 
   @Regression @TitlePage
-  Scenario: 4 #Verifying older OTP can’t be used after resending new one
+  Scenario: 5 #Verifying older OTP can’t be used after resending new one
 
     Given  User is at Student portal title Page
     When   User clicks on Email button
@@ -98,7 +116,7 @@ Feature: Student Dashboard Title Page
     Then   Incorrect OTP message should appear
 
   @Regression @TitlePage
-  Scenario: 5 #Verifying login via Resent OTP using Email
+  Scenario: 6 #Verifying login via Resent OTP using Email
 
     Given  User is at Student portal title Page
     When   User clicks on Email button
@@ -118,7 +136,7 @@ Feature: Student Dashboard Title Page
     And    User is at the Home Page of single user account
 
   @Regression @TitlePage
-  Scenario Outline: 6 #Verifying login with E-mail/Passwords - All negative test cases
+  Scenario Outline: 7 #Verifying login with E-mail/Passwords - All negative test cases
 
     Given  User is at Student portal title Page
     When   User clicks on 'Login with Password' CTA
@@ -139,7 +157,7 @@ Feature: Student Dashboard Title Page
 
 
   @Regression @TitlePage
-  Scenario: 7 #Verifying Forgot Password feature at client end
+  Scenario: 8 #Verifying Forgot Password feature at client end
 
     Given  User is at Student portal title Page
     When   User clicks on 'Login with Password' CTA
