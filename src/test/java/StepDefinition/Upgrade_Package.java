@@ -86,12 +86,13 @@ public class Upgrade_Package extends BaseUtil {
     }
 
     @When("User selects curriculum")
-    public void user_selects_any_curriculum() {
+    public void user_selects_any_curriculum() throws InterruptedException {
 
         //Storing Current Window Handle in Static String Variable 'Parent_Window'
         Parent_Window = driver.getWindowHandle();
 
         //Scrolling till Upgrade CTA and clicking on it
+        Thread.sleep(1500);
         _search_throughout_webpage("Upgrade_To_CTA");
 
     }
