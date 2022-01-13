@@ -26,7 +26,7 @@ Feature: Home Page Part 3b - Multiple Paid Users with in a Single a/c
     When    User clicks on each paid account
     Then    User should be redirected to their selected paid account only
 
-  @Regression1 @MultiplePaidUsers
+  @Regression @MultiplePaidUsers
   Scenario: 3 #Verifying User lands on the same a/c when selected from dropdown on HomePage
 
     Given   User is at the Select Your Account Screen
