@@ -9,10 +9,8 @@ Feature: Home Page Part 1
     When   User enters valid email and password
 
       |Email|Password|
-      |prathyusha.m@brightchamps.com|prat2021|
-      |apurva.kushwaha@mailinator.com|qwerty|
-
-
+      |apurva.kushwaha@mailinator.com|qwerty  |
+      |prathyusha.m@brightchamps.com |prat2021|
 
     And    User clicks on Sign-in CTA
 

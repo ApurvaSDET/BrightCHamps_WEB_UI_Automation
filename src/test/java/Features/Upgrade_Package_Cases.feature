@@ -11,6 +11,7 @@ Feature: Home Page Part 4 - Upgrade Package Scenarios
     When   User enters valid Phone no and password
 
       |Phone     |Password|
+      |8130865152|hr26ec2 |
       |8433918423|hr26ec2 |
 
     And    User clicks on SUBMIT CTA
@@ -75,6 +76,7 @@ Feature: Home Page Part 4 - Upgrade Package Scenarios
     When   User enters valid Phone no and password
 
       |Phone     |Password|
+      |8130865152|hr26ec2 |
       |8433918423|hr26ec2 |
 
     And    User clicks on SUBMIT CTA

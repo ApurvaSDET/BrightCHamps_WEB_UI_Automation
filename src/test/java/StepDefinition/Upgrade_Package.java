@@ -11,7 +11,6 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -82,6 +81,7 @@ public class Upgrade_Package extends BaseUtil {
     public void user_is_redirected_to_the_curriculum_selection_page() {
 
         _wait(valueForTheGivenKey("Upgrade_Plan_Page"));
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Upgrade_Plan_Page")));
 
     }
 

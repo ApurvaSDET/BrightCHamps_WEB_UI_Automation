@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.ArrayList;
 import java.util.Set;
@@ -19,8 +20,13 @@ public class Completed_Class_Section extends BaseUtil {
     public void user_clicks_on_session_booklet_link_of_all_the_completed_class_cards() {
 
         //Waiting for Elements to be present
-        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(valueForTheGivenKey("Session_booklet_link"))));
-
+        try {
+            wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(valueForTheGivenKey("Session_booklet_link"))));
+        }
+        catch (TimeoutException e)
+        {
+            Assert.fail();
+        }
         //Using method to click on each link one by one
         _selecting_one_by_one_from_dropdown(valueForTheGivenKey("Session_booklet_link"));
 
@@ -55,8 +61,13 @@ public class Completed_Class_Section extends BaseUtil {
     public void user_clicks_on_assignment_link_of_all_the_completed_class_cards() {
 
         //Waiting for Elements to be present
-        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(valueForTheGivenKey("Assignment_link"))));
-
+        try {
+            wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(valueForTheGivenKey("Assignment_link"))));
+        }
+        catch (TimeoutException e)
+        {
+            Assert.fail();
+        }
         //Using method to click on each link one by one
         _selecting_one_by_one_from_dropdown(valueForTheGivenKey("Assignment_link"));
 

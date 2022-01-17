@@ -9,6 +9,7 @@ Feature: Home Page Part 2 - Completed Class Section
     When   User enters valid email and password
 
       |Email|Password|
+      |apurva.kushwaha@mailinator.com|qwerty |
       |prathyusha.m@brightchamps.com|prat2021|
 
     And    User clicks on Sign-in CTA
