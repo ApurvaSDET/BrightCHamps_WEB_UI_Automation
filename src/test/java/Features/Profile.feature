@@ -70,7 +70,7 @@ Feature: Validating Profile Page
     Then Profile pic updated message should appear
     And  Profile Pic should get changed
 
-  @Regression @Profile
+  @Regression12 @Profile12
   Scenario: 7 #Verifying Updating DOB from Calendar on Profile Page
 
     When User enters DOB as input

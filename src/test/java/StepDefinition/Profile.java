@@ -11,6 +11,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 
 public class Profile extends BaseUtil {
@@ -181,11 +182,12 @@ public class Profile extends BaseUtil {
     }
 
     @When("User enters new Hobbies from Dropdown")
-    public void user_enters_new_hobbies_from_dropdown() {
+    public void user_enters_new_hobbies_from_dropdown() throws InterruptedException {
 
         //User enters multiple random Hobbies from dropdown
         for (int i = 0 ; i<5; i++) {
             _click(valueForTheGivenKey("Hobby_dropdown_button"));
+            Thread.sleep(1000);
             _random_options_from_dropdown(valueForTheGivenKey("Hobby_dropdown_popup"));
         }
 

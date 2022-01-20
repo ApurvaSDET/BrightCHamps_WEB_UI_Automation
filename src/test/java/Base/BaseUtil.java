@@ -143,16 +143,21 @@ public class BaseUtil {
 
     public static String _get_text(String value) {
 
+        String text = null;
 
         try {
-            driver.findElement(By.xpath(value)).getText();
+            text = driver.findElement(By.xpath(value)).getText();
         }
-        catch (NoSuchElementException e)
+        catch (NoSuchElementException | StaleElementReferenceException e)
         {
-            Assert.fail();
+            if(e.getMessage().contains("stale element reference"))
+                e.getMessage();
+
+            else
+                Assert.fail();
         }
 
-        return driver.findElement(By.xpath(value)).getText();
+        return text;
     }
 
     public static boolean _is_displayed(String xpath) {
