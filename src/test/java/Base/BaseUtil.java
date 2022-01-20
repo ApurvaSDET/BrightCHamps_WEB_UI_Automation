@@ -192,6 +192,33 @@ public class BaseUtil {
         }
     }
 
+    public static void _clear(String locator) {
+
+        WebElement element = driver.findElement(By.xpath(valueForTheGivenKey(locator)));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element);
+        actions.perform();
+
+        _wait(valueForTheGivenKey(locator));
+
+        //Performing triple click to select all the text and deleting them
+        actions.moveToElement(driver.findElement(By.xpath(valueForTheGivenKey(locator)))).doubleClick().click().
+        sendKeys(Keys.DELETE).perform();
+
+    }
+
+    public static void _SendKeys(String locator, String Value) {
+
+        WebElement element = driver.findElement(By.xpath(valueForTheGivenKey(locator)));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element);
+        actions.perform();
+
+        _wait(valueForTheGivenKey(locator));
+        driver.findElement(By.xpath(valueForTheGivenKey(locator))).sendKeys(Value);
+
+    }
+
     public static boolean _is_enabled(String xpath) {
 
         try {
@@ -268,7 +295,14 @@ public class BaseUtil {
         for (WebElement ele : dropdown_menu)
 
         {
-            ele.click();
+
+            try {
+                ele.click();
+            }
+            catch (StaleElementReferenceException e)
+            {
+                e.getMessage();
+            }
 
         }
 
@@ -348,6 +382,12 @@ public class BaseUtil {
 
     }
 
+    public static String _get_value(String Xpath){
+
+        return driver.findElement(By.xpath(Xpath)).getAttribute("value");
+
+    }
+
     public static int _get_provided_time_in_sec(String demo_class_time) throws ParseException {
 
         SimpleDateFormat displayFormat = new SimpleDateFormat("HH:mm");
@@ -378,6 +418,42 @@ public class BaseUtil {
         _wait(valueForTheGivenKey(element_locator));
         _click(valueForTheGivenKey(element_locator));
 
+    }
+
+    // function to generate a random string of length n
+    public static String getAlphaNumericString(String value, int n)
+    {
+
+        String AlphaNumericString= null;
+
+        // chose a Character random from this String
+        switch (value) {
+            case "Alpha":
+            AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                    + "abcdefghijklmnopqrstuvxyz";
+            break;
+
+            case "Numeric":
+            AlphaNumericString = "987654321";
+                break;
+        }
+        // create StringBuffer size of AlphaNumericString
+        StringBuilder sb = new StringBuilder(n);
+
+        for (int i = 0; i < n; i++) {
+
+            // generate a random number between
+            // 0 to AlphaNumericString variable length
+            int index
+                    = (int)(AlphaNumericString.length()
+                    * Math.random());
+
+            // add Character one by one in end of sb
+            sb.append(AlphaNumericString
+                    .charAt(index));
+        }
+
+        return sb.toString();
     }
 
 

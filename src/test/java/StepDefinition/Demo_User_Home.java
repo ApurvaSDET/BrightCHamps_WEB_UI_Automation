@@ -8,7 +8,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.text.ParseException;
@@ -300,7 +299,7 @@ public class Demo_User_Home extends BaseUtil {
 
             //Playing Video after switching into the frame
             _wait(valueForTheGivenKey("Video_Close_Icon"));
-            driver.switchTo().frame(0);
+            driver.switchTo().frame(1);
             _wait(valueForTheGivenKey("Player_ID"));
             _click(valueForTheGivenKey("Player_ID"));
 

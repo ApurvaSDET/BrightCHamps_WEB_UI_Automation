@@ -25,6 +25,7 @@ public class StudentTitlePage extends BaseUtil {
 
     public static String Referral_URL_from_CTA;
     public static String Referral_URL_from_Paste;
+    public List<WebElement> UpcomingClasses;
 
     //Background: User is Logged In
 
@@ -748,5 +749,50 @@ public class StudentTitlePage extends BaseUtil {
 
     }
 
+    //Scenario: 16 #Verifying 'Check your schedule classes' expand button
+
+    @When("User clicks on Check your schedule classes expand button")
+    public void user_clicks_on_check_your_schedule_classes_expand_button() {
+
+        //Waiting and Clicking on toggle to expand the view
+        _wait(valueForTheGivenKey("Schedule_Classes_Toggle"));
+        _click(valueForTheGivenKey("Schedule_Classes_Toggle"));
+
     }
+
+    @Then("Upcoming classes should appear")
+    public void upcoming_classes_should_appear() {
+
+        //Storing List<Element> in UpcomingClasses to use in next method
+        UpcomingClasses = driver.findElements(By.xpath(valueForTheGivenKey("Upcoming_Classes")));
+
+        //Waiting and Validating if the view is expanded
+        _wait_forAllElements(valueForTheGivenKey("Upcoming_Classes"));
+        Assert.assertFalse(driver.findElements(By.xpath(valueForTheGivenKey("Upcoming_Classes"))).isEmpty());
+
+    }
+
+    @When("User clicks on Hide your schedule class button")
+    public void user_clicks_on_hide_your_schedule_class_button() {
+
+        //Clicking on toggle to collapse the expanded view
+        _click(valueForTheGivenKey("Schedule_Classes_Toggle"));
+    }
+
+    @Then("Upcoming classes should disappear")
+    public void upcoming_classes_should_disappear() {
+
+        //Waiting and Validating if the view is collapsed
+        try {
+            wait.until(ExpectedConditions.invisibilityOfAllElements(UpcomingClasses));
+            Assert.assertTrue(true);
+        }
+        catch (TimeoutException e)
+        {
+            Assert.fail();
+        }
+
+    }
+
+}
 

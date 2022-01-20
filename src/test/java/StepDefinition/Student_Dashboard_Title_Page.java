@@ -303,7 +303,7 @@ public class Student_Dashboard_Title_Page extends BaseUtil {
     //Scenario: 5 #Verifying login via Resent OTP using Email
 
 
-    //Scenario: 6 #Verifying login with E-mail/Passwords - All negative test cases
+    //Scenario: 7 #Verifying login with E-mail/Passwords - All negative test cases
 
 
 
@@ -331,7 +331,7 @@ public class Student_Dashboard_Title_Page extends BaseUtil {
     }
 
 
-    //Scenario: 7 #Verifying Forgot Password feature
+    //Scenario: 8 #Verifying Forgot Password feature
 
     @When("User clicks on forgot password link")
     public void user_clicks_on_forgot_password_link() {

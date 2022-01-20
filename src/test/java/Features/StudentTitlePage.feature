@@ -168,3 +168,12 @@ Feature: Home Page Part 1
     Then    Text on CTA should be changed to COPIED
     When    User opens a new tab and paste copied link in it
     Then    Verify Same URL should be there which is associated with Book Free Trial CTA
+
+  @Regression @UpcomingClasses
+  Scenario: 16 #Verifying 'Check your schedule classes' expand button
+
+    Given   User is at the Home Page of single user account
+    When    User clicks on Check your schedule classes expand button
+    Then    Upcoming classes should appear
+    When    User clicks on Hide your schedule class button
+    Then    Upcoming classes should disappear

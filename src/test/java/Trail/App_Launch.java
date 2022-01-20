@@ -1,22 +1,9 @@
 package Trail;
 
 import Base.BaseUtil;
-import io.github.cdimascio.dotenv.Dotenv;
-import io.github.cdimascio.dotenv.DotenvEntriesFilter;
-import io.github.cdimascio.dotenv.DotenvEntry;
 import org.apache.commons.lang.StringUtils;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
 import java.sql.*;
-import java.text.ParseException;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.HashMap;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Objects;
-import java.util.Set;
 
 
 public class App_Launch extends BaseUtil {
@@ -107,32 +94,9 @@ public class App_Launch extends BaseUtil {
 
     public static void main(String[] args) throws ClassNotFoundException {
 
-        Dotenv dotenv = Dotenv.load();
-        System.out.println(dotenv.get("connectionUrl"));
-
-        String sqlSelectAllPersons = "Select Employee_ID from sys.Employee where Employee_Phone = '8130865152'";
-
-
-        try (Connection conn = DriverManager.getConnection(Objects.requireNonNull(dotenv.get("connectionUrl")), dotenv.get("USERNAME"), dotenv.get("PASSWORD"));
-             PreparedStatement ps = conn.prepareStatement(sqlSelectAllPersons);
-             ResultSet rs = ps.executeQuery()) {
-
-            System.out.println("Connection is successful");
-
-            while (rs.next()) {
-               int a = rs.getInt(1);
-                // do something with the extracted data...
-                System.out.println(a);
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-
-
-
-
 
 
     }
+
     }
 

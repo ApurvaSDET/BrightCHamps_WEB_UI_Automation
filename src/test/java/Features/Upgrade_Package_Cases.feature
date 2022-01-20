@@ -55,7 +55,7 @@ Feature: Home Page Part 4 - Upgrade Package Scenarios
     When   User enters valid Phone no and password
 
       |Phone     |Password|
-      |8433918423|hr26ec2 |
+      |8130865152|hr26ec2 |
 
     And    User clicks on SUBMIT CTA
     Then   User is at the Home Page of single user account
