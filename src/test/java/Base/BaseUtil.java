@@ -207,8 +207,11 @@ public class BaseUtil {
         _wait(valueForTheGivenKey(locator));
 
         //Performing triple click to select all the text and deleting them
-        actions.moveToElement(driver.findElement(By.xpath(valueForTheGivenKey(locator)))).doubleClick().click().
-        sendKeys(Keys.DELETE).perform();
+        if(System.getProperty("os.name").contains("Mac"))
+            actions.moveToElement(driver.findElement(By.xpath(valueForTheGivenKey(locator)))).doubleClick().click().sendKeys(Keys.DELETE).perform();
+
+        else
+            actions.moveToElement(driver.findElement(By.xpath(valueForTheGivenKey(locator)))).doubleClick().click().sendKeys(Keys.BACK_SPACE).perform();
 
     }
 
