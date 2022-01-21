@@ -68,6 +68,7 @@ public class Profile extends BaseUtil {
         do {
             Thread.sleep(1500);
             _click(valueForTheGivenKey("Grade_dropdown_button"));
+            DocumentInReadyState(); //to load the elements in dropdown
             _wait_forAllElements(valueForTheGivenKey("Grade_dropdown_popup"));
             _random_options_from_dropdown(valueForTheGivenKey("Grade_dropdown_popup"));
 
@@ -152,10 +153,11 @@ public class Profile extends BaseUtil {
     //Scenario: 2 #Verifying Updating Hobbies on Profile Page
 
     @When("User clicks on X button of Hobbies")
-    public void user_clicks_on_button_of_hobbies() {
+    public void user_clicks_on_button_of_hobbies() throws InterruptedException {
 
         //User Clicks on Edit Button
         _click(valueForTheGivenKey("Edit_Profile"));
+        Thread.sleep(1000);
 
         //Scrolling the Page
         _search_throughout_webpage("Password");
