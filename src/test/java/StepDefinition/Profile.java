@@ -105,7 +105,7 @@ public class Profile extends BaseUtil {
 
         //User enters Country from dropdown
         _click(valueForTheGivenKey("Country_dropdown_button"));
-        _wait_forAllElements(valueForTheGivenKey("Country_dropdown_popup"));
+        Thread.sleep(2000);
         _selecting_particular_options_from_dropdown(valueForTheGivenKey("Country_dropdown_popup"),"India | India Standard");
 
         //User clears and enters City
@@ -119,6 +119,7 @@ public class Profile extends BaseUtil {
 
         //Clicking on SAVE button to update the newly entered data
         _search_throughout_webpage("Save_Button");
+        Thread.sleep(500);
 
     }
 
