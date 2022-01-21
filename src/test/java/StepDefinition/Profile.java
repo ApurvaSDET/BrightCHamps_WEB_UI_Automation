@@ -46,6 +46,7 @@ public class Profile extends BaseUtil {
 
         //User Clicks on Edit Button
         _click(valueForTheGivenKey("Edit_Profile"));
+        Thread.sleep(1000);
 
         //User clears and enters Student Name
         _clear("Student_Name");
@@ -133,7 +134,7 @@ public class Profile extends BaseUtil {
     @And("Profile Page should get updated")
     public void profile_page_should_get_updated() {
 
-        //Assert.assertEquals(AL.get(0)+" "+AL.get(1),driver.findElement(By.xpath(valueForTheGivenKey("Student_Name"))).getAttribute("value"));
+        Assert.assertEquals(AL.get(0)+" "+AL.get(1),driver.findElement(By.xpath(valueForTheGivenKey("Student_Name"))).getAttribute("value"));
         Assert.assertEquals(AL.get(2)+" "+AL.get(1),driver.findElement(By.xpath(valueForTheGivenKey("Father_Name"))).getAttribute("value"));
         Assert.assertEquals(AL.get(3)+" "+AL.get(1),driver.findElement(By.xpath(valueForTheGivenKey("Mother_Name"))).getAttribute("value"));
         Assert.assertEquals(AL.get(4),driver.findElement(By.xpath(valueForTheGivenKey("Father_Number"))).getAttribute("value"));
