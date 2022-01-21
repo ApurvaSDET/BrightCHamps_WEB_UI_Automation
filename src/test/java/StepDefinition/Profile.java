@@ -360,7 +360,7 @@ public class Profile extends BaseUtil {
         _click(valueForTheGivenKey("Edit_Profile")); //Click on Edit button
         Thread.sleep(1000);
 
-        _SendKeys("DOB_Input", "12-01-2012"); //Sending valid input data (DOB)
+        _SendKeys("DOB_Input", "26-11-2012"); //Sending valid input data (DOB)
 
         //Clicking on SAVE button to update the newly entered data
         _search_throughout_webpage("Save_Button");
@@ -376,7 +376,7 @@ public class Profile extends BaseUtil {
 
         //Validating if DOB is updated wrt to the provided input data (DOB)
         DOB = driver.findElement(By.xpath(valueForTheGivenKey("DOB_Input"))).getAttribute("value");
-        Assert.assertEquals("2012-01-12",DOB);
+        Assert.assertEquals("2012-11-26",DOB);
 
     }
 
