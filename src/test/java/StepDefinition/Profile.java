@@ -27,7 +27,7 @@ public class Profile extends BaseUtil {
     Random rand = new Random();
 
     @When("User updates all the Profile page information")
-    public void user_updates_all_the_profile_page_information() {
+    public void user_updates_all_the_profile_page_information() throws InterruptedException {
 
         //First Adding Values to be entered in ArrayList
         AL = new ArrayList<>();
@@ -46,7 +46,7 @@ public class Profile extends BaseUtil {
 
         //User Clicks on Edit Button
         _click(valueForTheGivenKey("Edit_Profile"));
-        DocumentInReadyState();
+        Thread.sleep(1500);
 
         //User clears and enters Student Name
         _clear("Student_Name");
@@ -60,13 +60,13 @@ public class Profile extends BaseUtil {
         _clear("Mother_Name");
         _SendKeys("Mother_Name", AL.get(3)+" "+AL.get(1));
 
-        DocumentInReadyState();
         //Storing previous value into AL Object at 10th index
         String Previous_Value = driver.findElement(By.xpath(valueForTheGivenKey("Grade_dropdown_button"))).getAttribute("value");
         AL.add(Previous_Value);
 
         //User enters Grade from dropdown
         do {
+            Thread.sleep(1500);
             _click(valueForTheGivenKey("Grade_dropdown_button"));
             _wait_forAllElements(valueForTheGivenKey("Grade_dropdown_popup"));
             _random_options_from_dropdown(valueForTheGivenKey("Grade_dropdown_popup"));
@@ -162,6 +162,7 @@ public class Profile extends BaseUtil {
 
         //User deletes all the existing Hobbies
         do {
+            DocumentInReadyState();
             _selecting_one_by_one_from_dropdown(valueForTheGivenKey("Delete_Hobby_Icon"));
         }
         while (!driver.findElements(By.xpath(valueForTheGivenKey("Hobby_Text"))).isEmpty());
