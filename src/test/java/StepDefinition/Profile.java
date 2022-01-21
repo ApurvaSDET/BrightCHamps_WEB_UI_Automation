@@ -157,10 +157,10 @@ public class Profile extends BaseUtil {
 
         //User Clicks on Edit Button
         _click(valueForTheGivenKey("Edit_Profile"));
-        Thread.sleep(1000);
 
         //Scrolling the Page
         _search_throughout_webpage("Password");
+        Thread.sleep(1000);
 
         //User deletes all the existing Hobbies
         do {
@@ -480,10 +480,11 @@ public class Profile extends BaseUtil {
     //Scenario: 8 #Validating invalid input on Profile Page
 
     @When("User enters invalid input in Student Name")
-    public void user_enters_invalid_input_in_student_name() {
+    public void user_enters_invalid_input_in_student_name() throws InterruptedException {
 
         //User Clicks on Edit Button
         _click(valueForTheGivenKey("Edit_Profile"));
+        Thread.sleep(1000);
 
         _clear("Student_Name");
         _SendKeys("Student_Name", "12345@#$%^");

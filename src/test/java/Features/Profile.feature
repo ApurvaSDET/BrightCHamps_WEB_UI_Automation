@@ -16,14 +16,14 @@ Feature: Validating Profile Page
     Then   User is at Profile screen
 
 
-  @Regression12 @Profile @Profile12
+  @Regression12 @Profile
   Scenario: 1 #Verifying Updating Profile Page information
 
     When User updates all the Profile page information
     Then Profile Updated Success message should appear
     And  Profile Page should get updated
 
-  @Regression12 @Profile @Profile12
+  @Regression12 @Profile
   Scenario: 2 #Verifying Updating Hobbies on Profile Page
 
     When User clicks on X button of Hobbies
