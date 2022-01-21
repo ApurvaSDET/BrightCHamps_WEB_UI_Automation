@@ -360,7 +360,7 @@ public class Profile extends BaseUtil {
         _click(valueForTheGivenKey("Edit_Profile")); //Click on Edit button
         Thread.sleep(1000);
 
-        _SendKeys("DOB_Input", "26-11-2012"); //Sending valid input data (DOB)
+        _SendKeys("DOB_Input", "12-01-2012"); //Sending valid input data (DOB)
 
         //Clicking on SAVE button to update the newly entered data
         _search_throughout_webpage("Save_Button");
@@ -376,7 +376,7 @@ public class Profile extends BaseUtil {
 
         //Validating if DOB is updated wrt to the provided input data (DOB)
         DOB = driver.findElement(By.xpath(valueForTheGivenKey("DOB_Input"))).getAttribute("value");
-        Assert.assertEquals("2012-11-26",DOB);
+        Assert.assertEquals("2012-12-01",DOB);
 
     }
 
@@ -406,7 +406,7 @@ public class Profile extends BaseUtil {
     public void Newly_selected_date_should_appear_on_DOB_field() {
 
         //Storing initial Date in String
-        String initial_date = StringUtils.substringAfter(StringUtils.substringAfter(DOB, "-"), "-");
+        String initial_date = StringUtils.substringBefore(StringUtils.substringAfter(DOB, "-"), "-");
 
         //Storing Changed Date in String after Keyboard actions
         Changed_Date = StringUtils.substringAfter(StringUtils.substringAfter(driver.findElement(By.xpath(valueForTheGivenKey("DOB_Input"))).getAttribute("value"), "-"), "-");
@@ -433,7 +433,8 @@ public class Profile extends BaseUtil {
     public void Newly_selected_month_should_appear_on_DOB_field() {
 
         //Storing initial Month in String
-        String initial_month = StringUtils.substringBefore(StringUtils.substringAfter(DOB, "-"), "-");
+        String initial_month = StringUtils.substringAfter(StringUtils.substringAfter(DOB, "-"), "-");
+
 
         //Storing Changed Month in String after Keyboard actions
         Changed_Month = StringUtils.substringBefore(StringUtils.substringAfter(driver.findElement(By.xpath(valueForTheGivenKey("DOB_Input"))).getAttribute("value"), "-"), "-");
@@ -469,7 +470,7 @@ public class Profile extends BaseUtil {
     public void new_dob_should_be_updated_on_profile_page() {
 
         //Storing new DOB in appropriate format
-        String NEW_DOB = Changed_year+"-"+Changed_Month+"-"+Changed_Date;
+        String NEW_DOB = Changed_year+"-"+Changed_Date+"-"+Changed_Month;
 
         //Getting DOB after saving Profile page
         String Updated_DOB = driver.findElement(By.xpath(valueForTheGivenKey("DOB_Input"))).getAttribute("value");
