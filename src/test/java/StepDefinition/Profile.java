@@ -47,6 +47,7 @@ public class Profile extends BaseUtil {
         //User Clicks on Edit Button
         _click(valueForTheGivenKey("Edit_Profile"));
         _wait(valueForTheGivenKey("Save_Button"));
+        Thread.sleep(1000);
 
         //User clears and enters Student Name
         _clear("Student_Name");
@@ -129,6 +130,7 @@ public class Profile extends BaseUtil {
 
         _wait(valueForTheGivenKey("OTP_Sent_Alert"));
         Assert.assertEquals("Profile Updated", _get_text(valueForTheGivenKey("OTP_Sent_Alert")));
+        _WaitAbsence(valueForTheGivenKey("OTP_Sent_Alert"));
 
     }
 
@@ -192,8 +194,7 @@ public class Profile extends BaseUtil {
         //User enters multiple random Hobbies from dropdown
         for (int i = 0 ; i<5; i++) {
             _click(valueForTheGivenKey("Hobby_dropdown_button"));
-            DocumentInReadyState();
-            _wait_forAllElements(valueForTheGivenKey("Hobby_dropdown_popup"));
+            Thread.sleep(1500);
             _random_options_from_dropdown(valueForTheGivenKey("Hobby_dropdown_popup"));
         }
 
@@ -487,6 +488,7 @@ public class Profile extends BaseUtil {
         //User Clicks on Edit Button
         _click(valueForTheGivenKey("Edit_Profile"));
         _wait(valueForTheGivenKey("Save_Button"));
+        Thread.sleep(1000);
 
         _clear("Student_Name");
         _SendKeys("Student_Name", "12345@#$%^");
