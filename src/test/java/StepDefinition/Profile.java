@@ -189,7 +189,6 @@ public class Profile extends BaseUtil {
     public void user_enters_new_hobbies_from_dropdown() throws InterruptedException {
 
         //User enters multiple random Hobbies from dropdown
-        Thread.sleep(1000);
         for (int i = 0 ; i<5; i++) {
             _click(valueForTheGivenKey("Hobby_dropdown_button"));
             Thread.sleep(1000);
@@ -355,10 +354,11 @@ public class Profile extends BaseUtil {
     //Scenario: 7 #Verifying Updating DOB from Calendar on Profile Page
 
     @When("User enters DOB as input")
-    public void User_enters_DOB_as_input() {
+    public void User_enters_DOB_as_input() throws InterruptedException {
 
         //Logic to enter DOB
         _click(valueForTheGivenKey("Edit_Profile")); //Click on Edit button
+        Thread.sleep(1000);
 
         _SendKeys("DOB_Input", "12-01-2012"); //Sending valid input data (DOB)
 
@@ -381,10 +381,11 @@ public class Profile extends BaseUtil {
     }
 
     @When("User Clicks on DOB field")
-    public void user_clicks_on_dob_field() {
+    public void user_clicks_on_dob_field() throws InterruptedException {
 
         //Logic to enter DOB
         _click(valueForTheGivenKey("Edit_Profile"));
+        Thread.sleep(1000);
 
         //Clicks on DOB icon to invoke DatePicker
         _click(valueForTheGivenKey("DOB_Input"));
