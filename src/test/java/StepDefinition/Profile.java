@@ -186,12 +186,12 @@ public class Profile extends BaseUtil {
     }
 
     @When("User enters new Hobbies from Dropdown")
-    public void user_enters_new_hobbies_from_dropdown(){
+    public void user_enters_new_hobbies_from_dropdown() throws InterruptedException {
 
         //User enters multiple random Hobbies from dropdown
         for (int i = 0 ; i<5; i++) {
             _click(valueForTheGivenKey("Hobby_dropdown_button"));
-            DocumentInReadyState();
+            Thread.sleep(1500);
             _random_options_from_dropdown(valueForTheGivenKey("Hobby_dropdown_popup"));
         }
 
