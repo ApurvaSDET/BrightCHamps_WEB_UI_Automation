@@ -157,14 +157,14 @@ public class Profile extends BaseUtil {
 
         //User Clicks on Edit Button
         _click(valueForTheGivenKey("Edit_Profile"));
+        Thread.sleep(1000);
 
         //Scrolling the Page
         _search_throughout_webpage("Password");
-        Thread.sleep(1000);
 
         //User deletes all the existing Hobbies
         do {
-            DocumentInReadyState();
+            Thread.sleep(1000);
             _selecting_one_by_one_from_dropdown(valueForTheGivenKey("Delete_Hobby_Icon"));
         }
         while (!driver.findElements(By.xpath(valueForTheGivenKey("Hobby_Text"))).isEmpty());
