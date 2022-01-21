@@ -470,7 +470,7 @@ public class Profile extends BaseUtil {
     public void new_dob_should_be_updated_on_profile_page() {
 
         //Storing new DOB in appropriate format
-        String NEW_DOB = Changed_year+"-"+Changed_Month+"-"+Changed_Date;
+        String NEW_DOB = Changed_year+"-"+Changed_Date+"-"+Changed_Month;
 
         //Getting DOB after saving Profile page
         String Updated_DOB = driver.findElement(By.xpath(valueForTheGivenKey("DOB_Input"))).getAttribute("value");
