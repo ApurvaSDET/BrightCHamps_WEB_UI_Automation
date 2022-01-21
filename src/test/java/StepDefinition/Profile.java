@@ -409,7 +409,7 @@ public class Profile extends BaseUtil {
         String initial_date = StringUtils.substringBefore(StringUtils.substringAfter(DOB, "-"), "-");
 
         //Storing Changed Date in String after Keyboard actions
-        Changed_Date = StringUtils.substringAfter(StringUtils.substringAfter(driver.findElement(By.xpath(valueForTheGivenKey("DOB_Input"))).getAttribute("value"), "-"), "-");
+        Changed_Date = StringUtils.substringBefore(StringUtils.substringAfter(driver.findElement(By.xpath(valueForTheGivenKey("DOB_Input"))).getAttribute("value"), "-"), "-");
 
         //Validating if initial and changed dates are different
         Assert.assertNotEquals(initial_date,Changed_Date);
@@ -437,7 +437,7 @@ public class Profile extends BaseUtil {
 
 
         //Storing Changed Month in String after Keyboard actions
-        Changed_Month = StringUtils.substringBefore(StringUtils.substringAfter(driver.findElement(By.xpath(valueForTheGivenKey("DOB_Input"))).getAttribute("value"), "-"), "-");
+        Changed_Month = StringUtils.substringAfter(StringUtils.substringAfter(driver.findElement(By.xpath(valueForTheGivenKey("DOB_Input"))).getAttribute("value"), "-"), "-");
 
         //Validating if initial and changed months are different
         Assert.assertNotEquals(initial_month,Changed_Month);
@@ -470,7 +470,7 @@ public class Profile extends BaseUtil {
     public void new_dob_should_be_updated_on_profile_page() {
 
         //Storing new DOB in appropriate format
-        String NEW_DOB = Changed_year+"-"+Changed_Date+"-"+Changed_Month;
+        String NEW_DOB = Changed_year+"-"+Changed_Month+"-"+Changed_Date;
 
         //Getting DOB after saving Profile page
         String Updated_DOB = driver.findElement(By.xpath(valueForTheGivenKey("DOB_Input"))).getAttribute("value");
