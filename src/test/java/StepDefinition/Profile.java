@@ -46,7 +46,7 @@ public class Profile extends BaseUtil {
 
         //User Clicks on Edit Button
         _click(valueForTheGivenKey("Edit_Profile"));
-        Thread.sleep(1000);
+        _wait(valueForTheGivenKey("Save_Button"));
 
         //User clears and enters Student Name
         _clear("Student_Name");
@@ -157,6 +157,7 @@ public class Profile extends BaseUtil {
 
         //User Clicks on Edit Button
         _click(valueForTheGivenKey("Edit_Profile"));
+        _wait(valueForTheGivenKey("Save_Button"));
 
         //Scrolling the Page
         _search_throughout_webpage("Password");
@@ -191,7 +192,8 @@ public class Profile extends BaseUtil {
         //User enters multiple random Hobbies from dropdown
         for (int i = 0 ; i<5; i++) {
             _click(valueForTheGivenKey("Hobby_dropdown_button"));
-            Thread.sleep(1500);
+            DocumentInReadyState();
+            _wait_forAllElements(valueForTheGivenKey("Hobby_dropdown_popup"));
             _random_options_from_dropdown(valueForTheGivenKey("Hobby_dropdown_popup"));
         }
 
@@ -484,7 +486,7 @@ public class Profile extends BaseUtil {
 
         //User Clicks on Edit Button
         _click(valueForTheGivenKey("Edit_Profile"));
-        Thread.sleep(1000);
+        _wait(valueForTheGivenKey("Save_Button"));
 
         _clear("Student_Name");
         _SendKeys("Student_Name", "12345@#$%^");
