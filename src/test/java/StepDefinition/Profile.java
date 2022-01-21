@@ -46,7 +46,7 @@ public class Profile extends BaseUtil {
 
         //User Clicks on Edit Button
         _click(valueForTheGivenKey("Edit_Profile"));
-        Thread.sleep(1500);
+        Thread.sleep(1000);
 
         //User clears and enters Student Name
         _clear("Student_Name");
