@@ -46,7 +46,6 @@ public class Profile extends BaseUtil {
 
         //User Clicks on Edit Button
         _click(valueForTheGivenKey("Edit_Profile"));
-        _wait(valueForTheGivenKey("Save_Button"));
         Thread.sleep(1000);
 
         //User clears and enters Student Name
@@ -67,10 +66,8 @@ public class Profile extends BaseUtil {
 
         //User enters Grade from dropdown
         do {
-            Thread.sleep(1500);
             _click(valueForTheGivenKey("Grade_dropdown_button"));
-            DocumentInReadyState(); //to load the elements in dropdown
-            _wait_forAllElements(valueForTheGivenKey("Grade_dropdown_popup"));
+            Thread.sleep(2000);
             _random_options_from_dropdown(valueForTheGivenKey("Grade_dropdown_popup"));
 
         } while (AL.get(10).equals(driver.findElement(By.xpath(valueForTheGivenKey("Grade_dropdown_button"))).getAttribute("value")));
@@ -159,7 +156,6 @@ public class Profile extends BaseUtil {
 
         //User Clicks on Edit Button
         _click(valueForTheGivenKey("Edit_Profile"));
-        _wait(valueForTheGivenKey("Save_Button"));
 
         //Scrolling the Page
         _search_throughout_webpage("Password");
@@ -487,7 +483,6 @@ public class Profile extends BaseUtil {
 
         //User Clicks on Edit Button
         _click(valueForTheGivenKey("Edit_Profile"));
-        _wait(valueForTheGivenKey("Save_Button"));
         Thread.sleep(1000);
 
         _clear("Student_Name");
