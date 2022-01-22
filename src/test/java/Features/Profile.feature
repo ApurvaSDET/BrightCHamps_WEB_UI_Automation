@@ -16,7 +16,7 @@ Feature: Validating Profile Page
     Then   User is at Profile screen
 
 
-  @Regression @Profile
+  @Regression @Profile1
   Scenario: 1 #Verifying Updating Profile Page information
 
     When User updates all the Profile page information
