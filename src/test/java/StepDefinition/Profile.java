@@ -45,8 +45,9 @@ public class Profile extends BaseUtil {
 
         //User Clicks on Edit Button
         _click(valueForTheGivenKey("Edit_Profile"));
+        _WaitAbsence(valueForTheGivenKey("Edit_Profile"));
         Wait_till_clickable(valueForTheGivenKey("Student_Name"));
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
 
         //User clears and enters Student Name
         _clear("Student_Name");
@@ -119,16 +120,15 @@ public class Profile extends BaseUtil {
 
         //Clicking on SAVE button to update the newly entered data
         _search_throughout_webpage("Save_Button");
-        Thread.sleep(500);
 
     }
 
     @Then("Profile Updated Success message should appear")
     public void Profile_Updated_Success_message_should_appear() {
 
-        _wait(valueForTheGivenKey("OTP_Sent_Alert"));
-        Assert.assertEquals("Profile Updated", _get_text(valueForTheGivenKey("OTP_Sent_Alert")));
-        _WaitAbsence(valueForTheGivenKey("OTP_Sent_Alert"));
+        _wait(valueForTheGivenKey("Profile_Updated_Msg"));
+        Assert.assertEquals("Profile Updated", _get_text(valueForTheGivenKey("Profile_Updated_Msg")));
+        _WaitAbsence(valueForTheGivenKey("Profile_Updated_Msg"));
 
     }
 
@@ -157,8 +157,9 @@ public class Profile extends BaseUtil {
 
         //User Clicks on Edit Button
         _click(valueForTheGivenKey("Edit_Profile"));
+        _WaitAbsence(valueForTheGivenKey("Edit_Profile"));
         Wait_till_clickable(valueForTheGivenKey("Student_Name"));
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
 
         //Scrolling the Page
         _search_throughout_webpage("Password");
@@ -359,8 +360,9 @@ public class Profile extends BaseUtil {
 
         //Logic to enter DOB
         _click(valueForTheGivenKey("Edit_Profile")); //Click on Edit button
+        _WaitAbsence(valueForTheGivenKey("Edit_Profile"));
         Wait_till_clickable(valueForTheGivenKey("Student_Name"));
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
 
         _SendKeys("DOB_Input", "12-01-2012"); //Sending valid input data (DOB)
 
@@ -387,8 +389,9 @@ public class Profile extends BaseUtil {
 
         //Logic to enter DOB
         _click(valueForTheGivenKey("Edit_Profile"));
+        _WaitAbsence(valueForTheGivenKey("Edit_Profile"));
         Wait_till_clickable(valueForTheGivenKey("Student_Name"));
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
 
         //Clicks on DOB icon to invoke DatePicker
         _click(valueForTheGivenKey("DOB_Input"));
@@ -490,8 +493,9 @@ public class Profile extends BaseUtil {
 
         //User Clicks on Edit Button
         _click(valueForTheGivenKey("Edit_Profile"));
+        _WaitAbsence(valueForTheGivenKey("Edit_Profile"));
         Wait_till_clickable(valueForTheGivenKey("Student_Name"));
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
 
         _clear("Student_Name");
         _SendKeys("Student_Name", "12345@#$%^");
