@@ -87,10 +87,10 @@ public class BaseUtil {
         }
     }
 
-    public static void WaitForTitleToBe(String title){
+    public static void Wait_till_clickable(String locator){
 
         try {
-            wait.until(ExpectedConditions.titleIs(title));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
         }
         catch (TimeoutException e)
         {

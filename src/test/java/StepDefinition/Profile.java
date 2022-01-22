@@ -46,7 +46,7 @@ public class Profile extends BaseUtil {
 
         //User Clicks on Edit Button
         _click(valueForTheGivenKey("Edit_Profile"));
-        Thread.sleep(1000);
+        Wait_till_clickable(valueForTheGivenKey("Student_Name"));
 
         //User clears and enters Student Name
         _clear("Student_Name");
@@ -157,7 +157,7 @@ public class Profile extends BaseUtil {
 
         //User Clicks on Edit Button
         _click(valueForTheGivenKey("Edit_Profile"));
-        Thread.sleep(1000);
+        Wait_till_clickable(valueForTheGivenKey("Student_Name"));
 
         //Scrolling the Page
         _search_throughout_webpage("Password");
@@ -354,11 +354,11 @@ public class Profile extends BaseUtil {
     //Scenario: 7 #Verifying Updating DOB from Calendar on Profile Page
 
     @When("User enters DOB as input")
-    public void User_enters_DOB_as_input() throws InterruptedException {
+    public void User_enters_DOB_as_input(){
 
         //Logic to enter DOB
         _click(valueForTheGivenKey("Edit_Profile")); //Click on Edit button
-        Thread.sleep(1000);
+        Wait_till_clickable(valueForTheGivenKey("Student_Name"));
 
         _SendKeys("DOB_Input", "12-01-2012"); //Sending valid input data (DOB)
 
@@ -381,11 +381,11 @@ public class Profile extends BaseUtil {
     }
 
     @When("User Clicks on DOB field")
-    public void user_clicks_on_dob_field() throws InterruptedException {
+    public void user_clicks_on_dob_field() {
 
         //Logic to enter DOB
         _click(valueForTheGivenKey("Edit_Profile"));
-        Thread.sleep(1000);
+        Wait_till_clickable(valueForTheGivenKey("Student_Name"));
 
         //Clicks on DOB icon to invoke DatePicker
         _click(valueForTheGivenKey("DOB_Input"));
@@ -483,11 +483,11 @@ public class Profile extends BaseUtil {
     //Scenario: 8 #Validating invalid input on Profile Page
 
     @When("User enters invalid input in Student Name")
-    public void user_enters_invalid_input_in_student_name() throws InterruptedException {
+    public void user_enters_invalid_input_in_student_name() {
 
         //User Clicks on Edit Button
         _click(valueForTheGivenKey("Edit_Profile"));
-        Thread.sleep(1000);
+        Wait_till_clickable(valueForTheGivenKey("Student_Name"));
 
         _clear("Student_Name");
         _SendKeys("Student_Name", "12345@#$%^");

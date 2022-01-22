@@ -159,7 +159,7 @@ public class Demo_User_Home extends BaseUtil {
         try {
 
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(valueForTheGivenKey("triple_dots_profile"))));
-            Assert.assertTrue(driver.findElement(By.xpath(valueForTheGivenKey("triple_dots_profile"))).isDisplayed());
+            Assert.assertTrue(_is_displayed(valueForTheGivenKey("triple_dots_profile")));
 
         }
 
