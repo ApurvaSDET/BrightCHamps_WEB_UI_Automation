@@ -78,7 +78,6 @@ public class Profile extends BaseUtil {
                 }
 
             }
-            //Thread.sleep(2000);
             _random_options_from_dropdown(valueForTheGivenKey("Grade_dropdown_popup"));
 
         } while (AL.get(10).equals(driver.findElement(By.xpath(valueForTheGivenKey("Grade_dropdown_button"))).getAttribute("value")));
@@ -116,7 +115,17 @@ public class Profile extends BaseUtil {
 
         //User enters Country from dropdown
         _click(valueForTheGivenKey("Country_dropdown_button"));
-        Thread.sleep(1000);
+
+        //Logic to Wait till elements are available in dropdown
+        int Time_after_click = _get_current_time_in_sec();
+        while(driver.findElements(By.xpath(valueForTheGivenKey("Country_dropdown_popup"))).isEmpty())
+        {
+            if(!(Time_after_click+60>=_get_current_time_in_sec())) {
+                Assert.fail();
+                break;
+            }
+
+        }
         _selecting_particular_options_from_dropdown(valueForTheGivenKey("Country_dropdown_popup"),"India | India Standard");
 
         //User clears and enters City
@@ -198,7 +207,7 @@ public class Profile extends BaseUtil {
     }
 
     @When("User enters new Hobbies from Dropdown")
-    public void user_enters_new_hobbies_from_dropdown() throws InterruptedException {
+    public void user_enters_new_hobbies_from_dropdown() {
 
         //User enters multiple random Hobbies from dropdown
         for (int i = 0 ; i<5; i++) {
@@ -214,7 +223,6 @@ public class Profile extends BaseUtil {
                 }
 
             }
-            //Thread.sleep(1000);
             _random_options_from_dropdown(valueForTheGivenKey("Hobby_dropdown_popup"));
         }
 
