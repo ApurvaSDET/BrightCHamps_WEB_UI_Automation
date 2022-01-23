@@ -178,6 +178,7 @@ public class Profile extends BaseUtil {
         //User Clicks on Edit Button
         _click(valueForTheGivenKey("Edit_Profile"));
         Wait_till_clickable(valueForTheGivenKey("Student_Name"));
+        Thread.sleep(1000);
 
         //Scrolling the Page
         _search_throughout_webpage("Password");
