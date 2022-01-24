@@ -11,6 +11,5 @@ import org.junit.runner.RunWith;
        monochrome = false, glue={"StepDefinition"}, dryRun = false, tags = "@SmokeTest")
 
 public class TestRunner_Class {
-//@Regression and not @smt
 
 }

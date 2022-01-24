@@ -27,7 +27,7 @@ Feature: Home Page Part 3a - Multiple Demo Users with in a Single a/c
     When    User clicks on each account
     Then    User should be redirected to their selected account only
 
-  @Regression1 @MultipleDemoUsers
+  @Regression @MultipleDemoUsers
   Scenario: 3 #Verifying User lands on the same a/c when selected from dropdown on HomePage
 
     Given   User is at the Select Your Account Screen

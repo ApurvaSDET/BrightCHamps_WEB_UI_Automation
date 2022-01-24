@@ -354,8 +354,8 @@ public class Demo_User_Home extends BaseUtil {
     @Then("User should be redirected to Freemium Videos screen")
     public void User_should_be_redirected_to_Freemium_Videos_screen() {
 
-       _wait(valueForTheGivenKey("Go_To_Course_CTA"));
-       Assert.assertTrue(_is_displayed(valueForTheGivenKey("Go_To_Course_CTA")));
+       _wait(valueForTheGivenKey("Go_To_Course"));
+       Assert.assertTrue(_is_displayed(valueForTheGivenKey("Go_To_Course")));
 
     }
 

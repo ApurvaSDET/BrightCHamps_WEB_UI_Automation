@@ -138,10 +138,10 @@ public class Multiple_Paid_Users extends BaseUtil {
             }
 
             //Wait for the Name element to load up
-            _wait(valueForTheGivenKey("Student_Name_On_Profile"));
+            _wait(valueForTheGivenKey("Student_Name"));
 
             //Getting Full Name of Student from Profile Table
-            String ProfileName = driver.findElement(By.xpath(valueForTheGivenKey("Student_Name_On_Profile"))).getAttribute("value");
+            String ProfileName = driver.findElement(By.xpath(valueForTheGivenKey("Student_Name"))).getAttribute("value");
 
             //Storing the Title_Heading from Home Page in another ArrayList 'List_of_account_Name'
             List_of_account_Name.add(ProfileName);
