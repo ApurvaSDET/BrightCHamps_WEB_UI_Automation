@@ -5,7 +5,7 @@ Feature: Home Page Part 4 - Upgrade Package Scenarios
 
     Given  User is at Student portal master login Page
 
-  @Regression @UpgradePackage
+  @Regression1 @UpgradePackage
   Scenario: 1 #Verifying Upgrade Package Card in case of 5 or less classes are left
 
     When   User enters valid Phone no and password
@@ -34,6 +34,7 @@ Feature: Home Page Part 4 - Upgrade Package Scenarios
 
       |Phone     |Password|
       |503670250 |hr26ec2 |
+      #This is prod user
 
     And    User clicks on SUBMIT CTA
     Then   User is at the Home Page of single user account
@@ -55,17 +56,18 @@ Feature: Home Page Part 4 - Upgrade Package Scenarios
     When   User enters valid Phone no and password
 
       |Phone     |Password|
-      |8130865152|hr26ec2 |
+      |503670250|hr26ec2 |
 
     And    User clicks on SUBMIT CTA
     Then   User is at the Home Page of single user account
     When   User is left with below classes in his account to be completed
 
       |ClassesLeft|
-      |     5     |
+      |     0     |
 
-    Then   Verify there is an Upgrade Package Card shown for Non-Champion User
-    When   User clicks on Upgrade CTA
+    Then   Navigate back to the Home Page
+    And    Verify there is an Upgrade Now Card at the top of Home Page
+    When   User clicks on Upgrade Now Card at the top of Home Page
     Then   User is redirected to the Curriculum selection Page
     When   User clicks on back button of Curriculum Page
     Then   User is at the Home Page of single user account
