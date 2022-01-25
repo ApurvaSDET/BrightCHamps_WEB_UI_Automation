@@ -390,6 +390,22 @@ public class BaseUtil {
 
     }
 
+    public static void _wait_till_element_available_in_dropdown(String locator, int waitTime){
+
+        //Logic to Wait till elements are available in dropdown
+        int Time_after_click = _get_current_time_in_sec();
+        while(driver.findElements(By.xpath(locator)).isEmpty())
+        {
+            if(!(Time_after_click+waitTime>=_get_current_time_in_sec())) {
+                Assert.fail();
+                break;
+            }
+
+        }
+
+    }
+
+
     public static String _get_value(String Xpath){
 
         return driver.findElement(By.xpath(Xpath)).getAttribute("value");
@@ -463,6 +479,8 @@ public class BaseUtil {
 
         return sb.toString();
     }
+
+
 
 
 }

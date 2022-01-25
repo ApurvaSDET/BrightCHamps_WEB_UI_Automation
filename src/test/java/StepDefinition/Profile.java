@@ -68,16 +68,8 @@ public class Profile extends BaseUtil {
         do {
             _click(valueForTheGivenKey("Grade_dropdown_button"));
 
-            //Logic to Wait till elements are available in dropdown
-            int Time_after_click = _get_current_time_in_sec();
-            while(driver.findElements(By.xpath(valueForTheGivenKey("Grade_dropdown_popup"))).isEmpty())
-            {
-                if(!(Time_after_click+60>=_get_current_time_in_sec())) {
-                    Assert.fail();
-                    break;
-                }
-
-            }
+            //wait for dropdown to appear
+            _wait_till_element_available_in_dropdown(valueForTheGivenKey("Grade_dropdown_popup"), 20);
             _random_options_from_dropdown(valueForTheGivenKey("Grade_dropdown_popup"));
 
         } while (AL.get(10).equals(driver.findElement(By.xpath(valueForTheGivenKey("Grade_dropdown_button"))).getAttribute("value")));
@@ -116,16 +108,8 @@ public class Profile extends BaseUtil {
         //User enters Country from dropdown
         _click(valueForTheGivenKey("Country_dropdown_button"));
 
-        //Logic to Wait till elements are available in dropdown
-        int Time_after_click = _get_current_time_in_sec();
-        while(driver.findElements(By.xpath(valueForTheGivenKey("Country_dropdown_popup"))).isEmpty())
-        {
-            if(!(Time_after_click+60>=_get_current_time_in_sec())) {
-                Assert.fail();
-                break;
-            }
-
-        }
+        //wait for dropdown to appear
+        _wait_till_element_available_in_dropdown(valueForTheGivenKey("Country_dropdown_popup"), 20);
         _selecting_particular_options_from_dropdown(valueForTheGivenKey("Country_dropdown_popup"),"India | India Standard");
 
         //User clears and enters City
@@ -213,16 +197,8 @@ public class Profile extends BaseUtil {
         for (int i = 0 ; i<5; i++) {
             _click(valueForTheGivenKey("Hobby_dropdown_button"));
 
-            //Logic to Wait till elements are available in dropdown
-            int Time_after_click = _get_current_time_in_sec();
-            while(driver.findElements(By.xpath(valueForTheGivenKey("Hobby_dropdown_popup"))).isEmpty())
-            {
-                if(!(Time_after_click+60>=_get_current_time_in_sec())) {
-                    Assert.fail();
-                    break;
-                }
-
-            }
+            //wait for dropdown to appear
+            _wait_till_element_available_in_dropdown(valueForTheGivenKey("Hobby_dropdown_popup"), 20);
             _random_options_from_dropdown(valueForTheGivenKey("Hobby_dropdown_popup"));
         }
 

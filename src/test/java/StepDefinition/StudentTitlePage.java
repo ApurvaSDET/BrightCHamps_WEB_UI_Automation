@@ -195,7 +195,7 @@ public class StudentTitlePage extends BaseUtil {
         _click(valueForTheGivenKey("Next_class_Day_selector"));
 
         //wait for dropdown to appear
-        _wait(valueForTheGivenKey("List_of_day"));
+        _wait_till_element_available_in_dropdown(valueForTheGivenKey("List_of_day"), 10);
 
         //Selecting any date from the available date
         _random_options_from_dropdown(valueForTheGivenKey("List_of_day"));
@@ -208,7 +208,7 @@ public class StudentTitlePage extends BaseUtil {
         _click(valueForTheGivenKey("Next_class_Time_selector"));
 
         //wait for dropdown to appear
-        _wait(valueForTheGivenKey("List_of_available_time"));
+        _wait_till_element_available_in_dropdown(valueForTheGivenKey("List_of_available_time"), 10);
 
         //Selecting any time from the available time
         _random_options_from_dropdown(valueForTheGivenKey("List_of_available_time"));
