@@ -328,9 +328,7 @@ public class Profile extends BaseUtil {
     public void user_upload_profile_pic() {
 
         //Uploading file from local to remote system
-        //((RemoteWebDriver) driver).setFileDetector(new LocalFileDetector());
-
-        ((ChromeDriver) driver).setFileDetector(new LocalFileDetector());
+        ((RemoteWebDriver) driver).setFileDetector(new LocalFileDetector());
 
         //Declaring String variable for filePath
         String filePath;
