@@ -8,6 +8,8 @@ import io.cucumber.java.en.When;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.remote.LocalFileDetector;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.ArrayList;
 import java.util.Random;
@@ -324,6 +326,10 @@ public class Profile extends BaseUtil {
     @When("User upload profile pic")
     public void user_upload_profile_pic() {
 
+        //Uploading file from local to remote system
+        ((RemoteWebDriver) driver).setFileDetector(new LocalFileDetector());
+
+        //Declaring String variable for filePath
         String filePath;
 
         filename = driver.findElement(By.xpath(valueForTheGivenKey("Profile_Pic_locator"))).getAttribute("src");
