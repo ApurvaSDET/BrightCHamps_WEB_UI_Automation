@@ -63,7 +63,7 @@ Feature: Validating Profile Page
     When User Clicks on Update Now CTA
     Then User is at Profile screen
 
-  @Regression @Profile1
+  @Regression25 @Profile25
   Scenario: 6 #Verifying Upload Profile Pic from Profile Page
 
     When User upload profile pic
