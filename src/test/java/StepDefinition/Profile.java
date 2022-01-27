@@ -328,9 +328,9 @@ public class Profile extends BaseUtil {
 
         filename = driver.findElement(By.xpath(valueForTheGivenKey("Profile_Pic_locator"))).getAttribute("src");
 
-        if(filename.contains("mountains"))
+        if(filename.contains("jpeg"))
             //Location of the image file to be uploaded
-            filePath = System.getProperty("user.dir")+"/src/test/resources/Profile_Pic/flower.jpeg";
+            filePath = System.getProperty("user.dir")+"/src/test/resources/Profile_Pic/flower.png";
 
         else
             //Location of the image file to be uploaded
@@ -353,6 +353,7 @@ public class Profile extends BaseUtil {
     @Then("Profile Pic should get changed")
     public void profile_pic_should_get_changed(){
 
+        _WaitAbsence(valueForTheGivenKey("OTP_Sent_Alert"));
        Assert.assertNotEquals(filename, driver.findElement(By.xpath(valueForTheGivenKey("Profile_Pic_locator"))).getAttribute("src"));
 
     }
