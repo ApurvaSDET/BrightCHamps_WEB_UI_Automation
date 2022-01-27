@@ -8,6 +8,7 @@ import io.cucumber.java.en.When;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -327,7 +328,9 @@ public class Profile extends BaseUtil {
     public void user_upload_profile_pic() {
 
         //Uploading file from local to remote system
-        ((RemoteWebDriver) driver).setFileDetector(new LocalFileDetector());
+        //((RemoteWebDriver) driver).setFileDetector(new LocalFileDetector());
+
+        ((ChromeDriver) driver).setFileDetector(new LocalFileDetector());
 
         //Declaring String variable for filePath
         String filePath;
