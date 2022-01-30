@@ -44,12 +44,11 @@ public class Demo_User_Home extends BaseUtil {
 
 
     @And("User clicks on SUBMIT CTA")
-    public void user_clicks_on_submit_cta() throws InterruptedException {
+    public void user_clicks_on_submit_cta() {
 
         _click(valueForTheGivenKey("Master_login_screen"));
         //Providing time to load
-        Thread.sleep(5000);
-
+        DocumentInReadyState();
     }
 
 
@@ -238,7 +237,7 @@ public class Demo_User_Home extends BaseUtil {
 
             try {
 
-                _wait(valueForTheGivenKey("Video_Container_Title"));
+                _wait(valueForTheGivenKey("Title_Heading"));
                 _search_throughout_webpage("View_More_Link");
 
             }
@@ -346,7 +345,7 @@ public class Demo_User_Home extends BaseUtil {
     @When("User clicks on Try our Course CTA")
     public void User_clicks_on_Try_our_Course_CTA() {
 
-        _wait(valueForTheGivenKey("Video_Container_Title"));
+        _wait(valueForTheGivenKey("Title_Heading"));
         _search_throughout_webpage("Try_Our_Course");
 
     }
@@ -368,7 +367,7 @@ public class Demo_User_Home extends BaseUtil {
         //Storing Current Window Handle in Static String Variable 'Parent_Window'
         Parent_Window = driver.getWindowHandle();
 
-        _wait(valueForTheGivenKey("Video_Container_Title"));
+        _wait(valueForTheGivenKey("Title_Heading"));
         _search_throughout_webpage("Start_Creating_CTA");
 
     }
@@ -396,7 +395,7 @@ public class Demo_User_Home extends BaseUtil {
         Parent_Window = driver.getWindowHandle();
 
         //Waiting for the page to load and navigating to the Apple Store CTA
-        _wait(valueForTheGivenKey("Video_Container_Title"));
+        _wait(valueForTheGivenKey("Title_Heading"));
         _search_throughout_webpage("Apple_Store_CTA");
 
     }
@@ -424,7 +423,7 @@ public class Demo_User_Home extends BaseUtil {
         Parent_Window = driver.getWindowHandle();
 
         //Waiting for the page to load and navigating to the Google Store CTA
-        _wait(valueForTheGivenKey("Video_Container_Title"));
+        _wait(valueForTheGivenKey("Title_Heading"));
         _search_throughout_webpage("Google_PlaySTore_CTA");
 
     }
