@@ -70,7 +70,8 @@ public class StudentTitlePage extends BaseUtil {
 
         _click(valueForTheGivenKey("Sign_in_CTA"));
         //Providing time to load
-        Thread.sleep(5000);
+        DocumentInReadyState();
+        Thread.sleep(3000);
     }
 
     //Scenario: 1 #Verifying login via email and password for Single user a/c

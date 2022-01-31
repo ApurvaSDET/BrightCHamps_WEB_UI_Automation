@@ -152,6 +152,15 @@ public class Upgrade_Package extends BaseUtil {
         //Creating Instance of StudentTitlePage to reuse Cancel methods from that Class
         obj = new StudentTitlePage();
 
+        //Waiting for the elements to appear
+        try {
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(valueForTheGivenKey("triple_dots"))));
+        }
+        catch (TimeoutException e)
+        {
+            _wait(valueForTheGivenKey("Schedule_From_Dashboard"));
+        }
+
         //Logic to Cancel all the Upcoming Class(if any) until there are no classes remaining
         while(_is_displayed(valueForTheGivenKey("triple_dots"))) {
 
