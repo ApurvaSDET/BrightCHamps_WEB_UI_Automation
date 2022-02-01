@@ -101,10 +101,11 @@ public class StudentTitlePage extends BaseUtil {
     }
 
     @Then("User is at Profile screen")
-    public void user_is_at_profile_screen() {
+    public void user_is_at_profile_screen() throws InterruptedException {
 
         //waiting for document to be in ready state
         DocumentInReadyState();
+        Thread.sleep(1000);
 
         //waiting for Profile page to load
         _wait(valueForTheGivenKey("Edit_Profile"));
