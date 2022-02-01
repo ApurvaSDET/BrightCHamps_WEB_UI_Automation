@@ -63,7 +63,8 @@ public class Multiple_Demo_Users extends BaseUtil {
             }
 
             //waiting for Demo Home Page to load
-            _wait(valueForTheGivenKey("Video_Container_Title"));
+            DocumentInReadyState();
+            _wait(valueForTheGivenKey("Title_Heading"));
 
             //Storing the a/c name from Home Page in another ArrayList
             List_of_account_Name.add(_get_text(valueForTheGivenKey("Account_Name")));
@@ -111,7 +112,7 @@ public class Multiple_Demo_Users extends BaseUtil {
     @Then("User lands on Home Page")
     public void user_lands_on_home_page() {
 
-        _wait(valueForTheGivenKey("Video_Container_Title"));
+        _wait(valueForTheGivenKey("Title_Heading"));
         Assert.assertTrue(_is_displayed(valueForTheGivenKey("Video_Container_Title")));
 
     }
