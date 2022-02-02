@@ -502,7 +502,7 @@ public class Profile extends BaseUtil {
         String NEW_DOB = Changed_year+"-"+Changed_Date+"-"+Changed_Month;
 
         //Getting DOB after saving Profile page
-        String Updated_DOB = driver.findElement(By.xpath(valueForTheGivenKey("DOB_Input"))).getAttribute("value");
+        String Updated_DOB = _get_value(valueForTheGivenKey("DOB_Input"));
 
         //Validating if NEW_DOB and Updated_DOB are same
         Assert.assertEquals(NEW_DOB,Updated_DOB);
