@@ -28,7 +28,7 @@ public class Profile extends BaseUtil {
     Random rand = new Random();
 
     @When("User updates all the Profile page information")
-    public void user_updates_all_the_profile_page_information() {
+    public void user_updates_all_the_profile_page_information() throws InterruptedException {
 
         //First Adding Values to be entered in ArrayList
         AL = new ArrayList<>();
@@ -51,6 +51,7 @@ public class Profile extends BaseUtil {
        } while(!_is_enabled(valueForTheGivenKey("Student_Name")));
 
         Wait_till_clickable(valueForTheGivenKey("Student_Name"));
+        Thread.sleep(1000);
 
         //User clears and enters Student Name
         _clear("Student_Name");
@@ -372,7 +373,7 @@ public class Profile extends BaseUtil {
     //Scenario: 7 #Verifying Updating DOB from Calendar on Profile Page
 
     @When("User enters DOB as input")
-    public void User_enters_DOB_as_input() {
+    public void User_enters_DOB_as_input() throws InterruptedException {
 
         //Logic to enter DOB
         do {
@@ -380,6 +381,7 @@ public class Profile extends BaseUtil {
         } while(!_is_enabled(valueForTheGivenKey("Student_Name")));
 
         Wait_till_clickable(valueForTheGivenKey("Student_Name"));
+        Thread.sleep(1000);
 
         _SendKeys("DOB_Input", "12-01-2012"); //Sending valid input data (DOB)
 
@@ -402,7 +404,7 @@ public class Profile extends BaseUtil {
     }
 
     @When("User Clicks on DOB field")
-    public void user_clicks_on_dob_field() {
+    public void user_clicks_on_dob_field() throws InterruptedException {
 
         //Logic to enter DOB
         do {
@@ -410,6 +412,7 @@ public class Profile extends BaseUtil {
         } while(!_is_enabled(valueForTheGivenKey("Student_Name")));
 
         Wait_till_clickable(valueForTheGivenKey("Student_Name"));
+        Thread.sleep(1000);
 
         //Clicks on DOB icon to invoke DatePicker
         _click(valueForTheGivenKey("DOB_Input"));
@@ -507,7 +510,7 @@ public class Profile extends BaseUtil {
     //Scenario: 8 #Validating invalid input on Profile Page
 
     @When("User enters invalid input in Student Name")
-    public void user_enters_invalid_input_in_student_name() {
+    public void user_enters_invalid_input_in_student_name() throws InterruptedException {
 
         //User Clicks on Edit Button
         do {
@@ -515,6 +518,7 @@ public class Profile extends BaseUtil {
         } while(!_is_enabled(valueForTheGivenKey("Student_Name")));
 
         Wait_till_clickable(valueForTheGivenKey("Student_Name"));
+        Thread.sleep(1000);
 
         _clear("Student_Name");
         _SendKeys("Student_Name", "12345@#$%^");
