@@ -28,7 +28,7 @@ public class Profile extends BaseUtil {
     Random rand = new Random();
 
     @When("User updates all the Profile page information")
-    public void user_updates_all_the_profile_page_information(){
+    public void user_updates_all_the_profile_page_information() throws InterruptedException {
 
         //First Adding Values to be entered in ArrayList
         AL = new ArrayList<>();
@@ -51,6 +51,7 @@ public class Profile extends BaseUtil {
        } while(!_is_enabled(valueForTheGivenKey("Student_Name")));
 
         Wait_till_clickable(valueForTheGivenKey("Student_Name"));
+        Thread.sleep(1000);
 
         //User clears and enters Student Name
         do{
@@ -519,6 +520,7 @@ public class Profile extends BaseUtil {
         } while(!_is_enabled(valueForTheGivenKey("Student_Name")));
 
         Wait_till_clickable(valueForTheGivenKey("Student_Name"));
+        Thread.sleep(1000);
 
         //logic to clear text field
        do{
