@@ -28,7 +28,7 @@ public class Profile extends BaseUtil {
     Random rand = new Random();
 
     @When("User updates all the Profile page information")
-    public void user_updates_all_the_profile_page_information() throws InterruptedException {
+    public void user_updates_all_the_profile_page_information(){
 
         //First Adding Values to be entered in ArrayList
         AL = new ArrayList<>();
@@ -51,10 +51,11 @@ public class Profile extends BaseUtil {
        } while(!_is_enabled(valueForTheGivenKey("Student_Name")));
 
         Wait_till_clickable(valueForTheGivenKey("Student_Name"));
-        Thread.sleep(1000);
 
         //User clears and enters Student Name
-        _clear("Student_Name");
+        do{
+            _clear("Student_Name");
+        }while (!_get_value(valueForTheGivenKey("Student_Name")).equals(""));
         _SendKeys("Student_Name", AL.get(0)+" "+AL.get(1));
 
         //User clears and enters Father's Name
@@ -518,9 +519,12 @@ public class Profile extends BaseUtil {
         } while(!_is_enabled(valueForTheGivenKey("Student_Name")));
 
         Wait_till_clickable(valueForTheGivenKey("Student_Name"));
-        Thread.sleep(1000);
 
-        _clear("Student_Name");
+        //logic to clear text field
+       do{
+           _clear("Student_Name");
+       }while (!_get_value(valueForTheGivenKey("Student_Name")).equals(""));
+
         _SendKeys("Student_Name", "12345@#$%^");
 
     }
