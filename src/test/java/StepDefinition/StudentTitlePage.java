@@ -616,27 +616,27 @@ public class StudentTitlePage extends BaseUtil {
     //Scenario: 14 #Verifying global House CTA
 
     @When("User clicks on Confirm Now CTA of global house card")
-    public void user_clicks_on_confirm_now_cta_of_global_house_card() {
+    public void user_clicks_on_confirm_now_cta_of_global_house_card() throws InterruptedException {
 
-        //Storing Current Window Handle in Static String Variable 'Parent_Window'
-        Parent_Window = driver.getWindowHandle();
+        //Waiting for the Global House Card to load on Web Page
+        _wait(valueForTheGivenKey("Global_House_Card"));
 
-        //Waiting for the page to load and clicking on CTA
-        _wait(valueForTheGivenKey("Confirm_Now_CTA"));
-        _click(valueForTheGivenKey("Confirm_Now_CTA"));
+        //Logic to check if Confirm CTA is visible
+        if(_is_displayed(valueForTheGivenKey("Confirm_Now_CTA"))) {
+            _click(valueForTheGivenKey("Confirm_Now_CTA"));
+            Thread.sleep(1000);
+        }
+
+        else
+            Assert.assertEquals("Congratulations! Your entry into the Global House is confirmed. We will schedule your session very soon.", _get_text(valueForTheGivenKey("Global_House_Card")));
 
     }
 
 
-    @Then("User should be navigated to the google form")
-    public void user_should_be_navigated_to_the_google_form() {
+    @Then("User should be able to submit the request")
+    public void user_should_be_able_to_submit_request() {
 
-        //Switching driver focus to next Window
-        Switch_to_next_tab(Parent_Window);
-
-        //Validating if new tab is opened with Google doc URL
-        wait.until(ExpectedConditions.urlContains("docs.google.com"));
-        Assert.assertTrue(driver.getCurrentUrl().contains("docs.google.com"));
+        Assert.assertEquals("Congratulations! Your entry into the Global House is confirmed. We will schedule your session very soon.", _get_text(valueForTheGivenKey("Global_House_Card")));
 
     }
 

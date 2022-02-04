@@ -151,12 +151,12 @@ Feature: Home Page Part 1
     When    User has an Upcoming Appointment
     #Then    Verify JOIN CTA is enabled or disabled
 
-  @Regression1 @GobalHouse
+  @Regression @GlobalHouse
   Scenario: 14 #Verifying global House CTA
 
     Given   User is at the Home Page of single user account
     When    User clicks on Confirm Now CTA of global house card
-    Then    User should be navigated to the google form
+    Then    User should be able to submit the request
 
   @Regression @Referral
   Scenario: 15 #Verifying referral modal on Home Page of paid user
