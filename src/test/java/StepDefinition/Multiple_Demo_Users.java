@@ -130,7 +130,7 @@ public class Multiple_Demo_Users extends BaseUtil {
         _click(valueForTheGivenKey("Account_Dropdown"));
 
         //Waiting for dropdown menu to appear
-        _wait_forAllElements(valueForTheGivenKey("Dropdown_Items"));
+        _wait_till_element_available_in_dropdown(valueForTheGivenKey("Dropdown_Items"), 5);
 
         //Storing A/C names from dropdown into List<WebElements>
         account_names = driver.findElements(By.xpath(valueForTheGivenKey("Dropdown_Items")));
