@@ -298,7 +298,7 @@ public class Demo_User_Home extends BaseUtil {
 
             //Playing Video after switching into the frame
             _wait(valueForTheGivenKey("Video_Close_Icon"));
-            driver.switchTo().frame(1);
+            driver.switchTo().frame(0);
             _wait(valueForTheGivenKey("Player_ID"));
             _click(valueForTheGivenKey("Player_ID"));
 

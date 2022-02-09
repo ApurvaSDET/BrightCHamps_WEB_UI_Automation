@@ -45,7 +45,7 @@ Feature: Demo User
     When    User has scheduled demo class
     Then    Verify JOIN CTA is enabled or disabled
 
-  @Regression @Demo
+  @Regression1 @Demo
   Scenario: 5 #Verifying Glimpse of Project section on Demo Home Page
 
     Given   User is at the Home Page of Demo account
@@ -55,7 +55,7 @@ Feature: Demo User
     Then    User should be able to scroll to top of the Page
     And     Verify user should be able to successfully play and close all the videos
 
-  @Regression @Demo
+  @Regression1 @Demo1
   Scenario: 6 #Verifying ‘Try our Course’ CTA on Demo Home Page
 
     Given   User is at the Home Page of Demo account

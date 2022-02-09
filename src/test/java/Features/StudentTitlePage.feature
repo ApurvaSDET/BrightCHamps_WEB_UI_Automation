@@ -151,7 +151,7 @@ Feature: Home Page Part 1
     When    User has an Upcoming Appointment
     #Then    Verify JOIN CTA is enabled or disabled
 
-  @Regression @GlobalHouse
+  @Regression1 @GlobalHouse
   Scenario: 14 #Verifying global House CTA
 
     Given   User is at the Home Page of single user account
