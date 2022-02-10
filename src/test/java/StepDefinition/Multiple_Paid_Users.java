@@ -110,6 +110,7 @@ public class Multiple_Paid_Users extends BaseUtil {
 
         //Logic to get the names from Profile Page
         _click(valueForTheGivenKey("Profile_button"));
+        _wait(valueForTheGivenKey("Edit_Profile"));
 
 
         //Waiting and Clicking dropdown button to expand a/c users

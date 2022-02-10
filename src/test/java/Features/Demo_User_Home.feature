@@ -45,7 +45,7 @@ Feature: Demo User
     When    User has scheduled demo class
     Then    Verify JOIN CTA is enabled or disabled
 
-  @Regression1 @Demo
+  @Regression @Demo
   Scenario: 5 #Verifying Glimpse of Project section on Demo Home Page
 
     Given   User is at the Home Page of Demo account
