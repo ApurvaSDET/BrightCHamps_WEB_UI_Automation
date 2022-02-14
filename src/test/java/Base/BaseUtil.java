@@ -342,10 +342,9 @@ public class BaseUtil {
             }
         }
 
+    }
 
-        }
-
-        public static void Switch_to_next_tab(String DefaultWindow){
+    public static void Switch_to_next_tab(String DefaultWindow){
 
 
             Set<String> multiple_window = driver.getWindowHandles();

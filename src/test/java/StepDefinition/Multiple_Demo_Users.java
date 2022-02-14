@@ -118,7 +118,7 @@ public class Multiple_Demo_Users extends BaseUtil {
     }
 
     @When("User select each account from dropdown")
-    public void user_select_each_account_from_dropdown() {
+    public void user_select_each_account_from_dropdown() throws InterruptedException {
 
         //Creating ArrayList Object to store the A/C names from greeting text on Home Page
         List_of_account_Name = new ArrayList<>();
@@ -162,6 +162,7 @@ public class Multiple_Demo_Users extends BaseUtil {
             //Clicking dropdown button to expand a/c users
             _click(valueForTheGivenKey("Account_Dropdown"));
             _wait_till_element_available_in_dropdown(valueForTheGivenKey("Dropdown_Items"), 10);
+            Thread.sleep(2000);
 
         }
 
