@@ -49,6 +49,19 @@ public class Demo_User_Home extends BaseUtil {
         _click(valueForTheGivenKey("Master_login_screen"));
         //Providing time to load
         DocumentInReadyState();
+
+        //Declaring own wait
+        WebDriverWait wait = new WebDriverWait(driver,10);
+
+        // Accepting the Cookies Alert
+        try{
+
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(valueForTheGivenKey("Accept_Cookie"))));
+            _click(valueForTheGivenKey("Accept_Cookie"));
+        }
+        catch (TimeoutException e) {
+            e.getMessage();
+        }
     }
 
 

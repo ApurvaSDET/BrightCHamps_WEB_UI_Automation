@@ -73,9 +73,18 @@ public class StudentTitlePage extends BaseUtil {
         DocumentInReadyState();
         Thread.sleep(3000);
 
-        // Switching to Alert
-        _wait("//*[text()='Accept']");
-        _click("//*[text()='Accept']");
+        //Declaring own wait
+        WebDriverWait wait = new WebDriverWait(driver,10);
+
+        // Accepting the Cookies Alert
+        try{
+
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(valueForTheGivenKey("Accept_Cookie"))));
+            _click(valueForTheGivenKey("Accept_Cookie"));
+        }
+        catch (TimeoutException e) {
+            e.getMessage();
+        }
     }
 
     //Scenario: 1 #Verifying login via email and password for Single user a/c
