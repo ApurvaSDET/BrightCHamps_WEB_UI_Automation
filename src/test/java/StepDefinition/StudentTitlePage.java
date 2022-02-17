@@ -74,8 +74,8 @@ public class StudentTitlePage extends BaseUtil {
         Thread.sleep(3000);
 
         // Switching to Alert
-        Alert alert = driver.switchTo().alert();
-        alert.accept(); //Accepting the alert
+        _wait("//*[text()='ACCEPT']");
+        _click("//*[text()='ACCEPT']");
     }
 
     //Scenario: 1 #Verifying login via email and password for Single user a/c
