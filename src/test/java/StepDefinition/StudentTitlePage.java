@@ -74,8 +74,8 @@ public class StudentTitlePage extends BaseUtil {
         Thread.sleep(3000);
 
         // Switching to Alert
-        _wait("//*[text()='ACCEPT']");
-        _click("//*[text()='ACCEPT']");
+        _wait("//*[text()='Accept']");
+        _click("//*[text()='Accept']");
     }
 
     //Scenario: 1 #Verifying login via email and password for Single user a/c
