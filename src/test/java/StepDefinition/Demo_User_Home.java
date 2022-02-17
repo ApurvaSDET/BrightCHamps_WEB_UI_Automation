@@ -380,7 +380,7 @@ public class Demo_User_Home extends BaseUtil {
         //Storing Current Window Handle in Static String Variable 'Parent_Window'
         Parent_Window = driver.getWindowHandle();
 
-        _wait(valueForTheGivenKey("Title_Heading"));
+        _wait(valueForTheGivenKey("Start_Creating_CTA"));
         _search_throughout_webpage("Start_Creating_CTA");
 
     }
