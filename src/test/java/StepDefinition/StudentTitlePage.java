@@ -72,6 +72,10 @@ public class StudentTitlePage extends BaseUtil {
         //Providing time to load
         DocumentInReadyState();
         Thread.sleep(3000);
+
+        // Switching to Alert
+        Alert alert = driver.switchTo().alert();
+        alert.accept(); //Accepting the alert
     }
 
     //Scenario: 1 #Verifying login via email and password for Single user a/c
