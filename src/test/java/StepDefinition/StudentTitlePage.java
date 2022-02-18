@@ -396,7 +396,14 @@ public class StudentTitlePage extends BaseUtil {
         for (WebElement ele : dropdown_menu)
 
         {
-            ele.click();
+            try
+                {
+                    ele.click();
+                }
+            catch (ElementClickInterceptedException e)
+                {
+                    e.getMessage();
+                }
 
             try {
 

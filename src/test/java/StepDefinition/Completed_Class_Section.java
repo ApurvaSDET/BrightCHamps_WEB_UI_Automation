@@ -36,7 +36,10 @@ public class Completed_Class_Section extends BaseUtil {
     }
 
     @Then("Link should get opened in the new tab")
-    public void link_should_get_opened_in_the_new_tab() {
+    public void link_should_get_opened_in_the_new_tab() throws InterruptedException {
+
+        //Waiting to open multiple tabs
+        Thread.sleep(1500);
 
         //Storing Window Handle into Set of String
         Set<String> multipleTabs = driver.getWindowHandles();
