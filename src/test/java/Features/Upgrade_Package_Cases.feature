@@ -5,7 +5,7 @@ Feature: Home Page Part 4 - Upgrade Package Scenarios
 
     Given  User is at Student portal master login Page
 
-  @Regression1 @UpgradePackage
+  @Regression @UpgradePackage
   Scenario: 1 #Verifying Upgrade Package Card in case of 5 or less classes are left
 
     When   User enters valid Phone no and password
@@ -47,8 +47,6 @@ Feature: Home Page Part 4 - Upgrade Package Scenarios
     And    Verify there is an Upgrade Now Card at the top of Home Page
     When   User clicks on Upgrade Now Card at the top of Home Page
     Then   User is redirected to the Curriculum selection Page
-    When   User selects curriculum
-    Then   User is redirected to the Payment screen of BrightChamps
 
   @Regression @CurriculumPageBackButton
   Scenario: 3 #Verifying back button of Curriculum Page
