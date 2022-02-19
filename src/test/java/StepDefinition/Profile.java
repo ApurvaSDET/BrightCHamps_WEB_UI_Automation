@@ -72,11 +72,12 @@ public class Profile extends BaseUtil {
         AL.add(Previous_Value);
 
         //User enters Grade from dropdown
+        Thread.sleep(1000); //Waiting before clicking
         do {
             _click(valueForTheGivenKey("Grade_dropdown_button"));
 
             //wait for dropdown to appear
-            _wait_till_element_available_in_dropdown(valueForTheGivenKey("Grade_dropdown_popup"), 20);
+            _wait_till_element_available_in_dropdown(valueForTheGivenKey("Grade_dropdown_popup"), 10);
             _random_options_from_dropdown(valueForTheGivenKey("Grade_dropdown_popup"));
 
         } while (AL.get(10).equals(driver.findElement(By.xpath(valueForTheGivenKey("Grade_dropdown_button"))).getAttribute("value")));
@@ -110,13 +111,14 @@ public class Profile extends BaseUtil {
         _SendKeys("Mother_Email_ID", AL.get(7));
 
         //Storing previous value into AL Object at 12th index
-        AL.add(driver.findElement(By.xpath(valueForTheGivenKey("Country_dropdown_button"))).getAttribute("value"));
+        AL.add(_get_value(valueForTheGivenKey("Country_dropdown_button")));
 
         //User enters Country from dropdown
+        Thread.sleep(1000); //Waiting before clicking
         _click(valueForTheGivenKey("Country_dropdown_button"));
 
         //wait for dropdown to appear
-        _wait_till_element_available_in_dropdown(valueForTheGivenKey("Country_dropdown_popup"), 20);
+        _wait_till_element_available_in_dropdown(valueForTheGivenKey("Country_dropdown_popup"), 10);
         _selecting_particular_options_from_dropdown(valueForTheGivenKey("Country_dropdown_popup"),"India | India Standard");
 
         //User clears and enters City
