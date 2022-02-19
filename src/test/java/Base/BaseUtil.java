@@ -273,22 +273,25 @@ public class BaseUtil {
         {
 
             waitForGivenSec(2);
-            al.add(ele);
+            if(!ele.getAttribute("innerHTML").toUpperCase().contains(LocalDate.now().getDayOfWeek().name()))
+            {
+                al.add(ele);
+            }
 
         }
 
         //Clicking on random values from the dropdown
         try {
-            al.get(rand.nextInt(dropdown_menu.size())).click();
+            al.get(rand.nextInt(dropdown_menu.size()-1)).click();
         }
         catch (ElementClickInterceptedException e)
         {
             try {
-                al.get(rand.nextInt(dropdown_menu.size())).click();
+                al.get(rand.nextInt(dropdown_menu.size()-1)).click();
             }
             catch (ElementClickInterceptedException err)
             {
-                al.get(rand.nextInt(dropdown_menu.size())).click();
+                al.get(rand.nextInt(dropdown_menu.size()-1)).click();
             }
         }
 
