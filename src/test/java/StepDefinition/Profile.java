@@ -72,7 +72,7 @@ public class Profile extends BaseUtil {
         AL.add(Previous_Value);
 
         //User enters Grade from dropdown
-        Thread.sleep(1000); //Waiting before clicking
+        /*
         do {
             _click(valueForTheGivenKey("Grade_dropdown_button"));
 
@@ -82,8 +82,10 @@ public class Profile extends BaseUtil {
 
         } while (AL.get(10).equals(driver.findElement(By.xpath(valueForTheGivenKey("Grade_dropdown_button"))).getAttribute("value")));
 
+         */
+
         //Storing previous value into AL Object at 11th index
-        String PreviousValue = driver.findElement(By.xpath(valueForTheGivenKey("Gender_dropdown_button"))).getAttribute("value");
+        String PreviousValue = _get_value(valueForTheGivenKey("Gender_dropdown_button"));
         AL.add(PreviousValue);
 
         //User enters Gender from dropdown
@@ -114,12 +116,11 @@ public class Profile extends BaseUtil {
         AL.add(_get_value(valueForTheGivenKey("Country_dropdown_button")));
 
         //User enters Country from dropdown
-        Thread.sleep(1000); //Waiting before clicking
-        _click(valueForTheGivenKey("Country_dropdown_button"));
+        //_click(valueForTheGivenKey("Country_dropdown_button"));
 
         //wait for dropdown to appear
-        _wait_till_element_available_in_dropdown(valueForTheGivenKey("Country_dropdown_popup"), 10);
-        _selecting_particular_options_from_dropdown(valueForTheGivenKey("Country_dropdown_popup"),"India | India Standard");
+        //_wait_till_element_available_in_dropdown(valueForTheGivenKey("Country_dropdown_popup"), 10);
+        //_selecting_particular_options_from_dropdown(valueForTheGivenKey("Country_dropdown_popup"),"India | India Standard");
 
         //User clears and enters City
         _clear("City");
@@ -148,18 +149,18 @@ public class Profile extends BaseUtil {
     @And("Profile Page should get updated")
     public void profile_page_should_get_updated() {
 
-        Assert.assertEquals(AL.get(0)+" "+AL.get(1),driver.findElement(By.xpath(valueForTheGivenKey("Student_Name"))).getAttribute("value"));
-        Assert.assertEquals(AL.get(2)+" "+AL.get(1),driver.findElement(By.xpath(valueForTheGivenKey("Father_Name"))).getAttribute("value"));
-        Assert.assertEquals(AL.get(3)+" "+AL.get(1),driver.findElement(By.xpath(valueForTheGivenKey("Mother_Name"))).getAttribute("value"));
-        Assert.assertEquals(AL.get(4),driver.findElement(By.xpath(valueForTheGivenKey("Father_Number"))).getAttribute("value"));
-        Assert.assertEquals(AL.get(5),driver.findElement(By.xpath(valueForTheGivenKey("Father_Email_ID"))).getAttribute("value"));
-        Assert.assertEquals(AL.get(6),driver.findElement(By.xpath(valueForTheGivenKey("Mother_Number"))).getAttribute("value"));
-        Assert.assertEquals(AL.get(7),driver.findElement(By.xpath(valueForTheGivenKey("Mother_Email_ID"))).getAttribute("value"));
-        Assert.assertEquals(AL.get(8),driver.findElement(By.xpath(valueForTheGivenKey("City"))).getAttribute("value"));
-        Assert.assertEquals(AL.get(9),driver.findElement(By.xpath(valueForTheGivenKey("School_Name"))).getAttribute("value"));
-        Assert.assertNotEquals(AL.get(10),driver.findElement(By.xpath(valueForTheGivenKey("Grade_dropdown_button"))).getAttribute("value"));
-        Assert.assertNotEquals(AL.get(11),driver.findElement(By.xpath(valueForTheGivenKey("Gender_dropdown_button"))).getAttribute("value"));
-        Assert.assertEquals(AL.get(12),driver.findElement(By.xpath(valueForTheGivenKey("Country_dropdown_button"))).getAttribute("value"));
+        Assert.assertEquals(AL.get(0)+" "+AL.get(1),_get_value(valueForTheGivenKey("Student_Name")));
+        Assert.assertEquals(AL.get(2)+" "+AL.get(1),_get_value(valueForTheGivenKey("Father_Name")));
+        Assert.assertEquals(AL.get(3)+" "+AL.get(1),_get_value(valueForTheGivenKey("Mother_Name")));
+        Assert.assertEquals(AL.get(4),_get_value(valueForTheGivenKey("Father_Number")));
+        Assert.assertEquals(AL.get(5),_get_value(valueForTheGivenKey("Father_Email_ID")));
+        Assert.assertEquals(AL.get(6),_get_value(valueForTheGivenKey("Mother_Number")));
+        Assert.assertEquals(AL.get(7),_get_value(valueForTheGivenKey("Mother_Email_ID")));
+        Assert.assertEquals(AL.get(8),_get_value(valueForTheGivenKey("City")));
+        Assert.assertEquals(AL.get(9),_get_value(valueForTheGivenKey("School_Name")));
+        //Assert.assertNotEquals(AL.get(10),_get_value(valueForTheGivenKey("Grade_dropdown_button")));
+        Assert.assertNotEquals(AL.get(11),_get_value(valueForTheGivenKey("Gender_dropdown_button")));
+        Assert.assertEquals(AL.get(12),_get_value(valueForTheGivenKey("Country_dropdown_button")));
 
     }
 

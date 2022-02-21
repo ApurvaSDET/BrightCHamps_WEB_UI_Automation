@@ -282,16 +282,16 @@ public class BaseUtil {
 
         //Clicking on random values from the dropdown
         try {
-            al.get(rand.nextInt(dropdown_menu.size()-1)).click();
+            al.get(rand.nextInt(al.size())).click();
         }
         catch (ElementClickInterceptedException e)
         {
             try {
-                al.get(rand.nextInt(dropdown_menu.size()-1)).click();
+                al.get(rand.nextInt(al.size())).click();
             }
             catch (ElementClickInterceptedException err)
             {
-                al.get(rand.nextInt(dropdown_menu.size()-1)).click();
+                al.get(rand.nextInt(al.size())).click();
             }
         }
 
