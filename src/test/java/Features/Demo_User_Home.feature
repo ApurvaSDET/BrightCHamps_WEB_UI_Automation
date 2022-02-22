@@ -95,5 +95,7 @@ Feature: Demo User
   Scenario: 11 #Verifying logout for Demo User
 
     Given   User is at the Home Page of Demo account
-    When    User clicks on logout button
+    And     Clicks on Profile button
+    Then    User is at Profile screen
+    When    User clicks logout button
     Then    User is at Student Portal Title Page
