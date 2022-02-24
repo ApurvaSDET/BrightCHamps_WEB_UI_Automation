@@ -23,7 +23,7 @@ Feature: Validating Profile Page
     Then Profile Updated Success message should appear
     And  Profile Page should get updated
 
-  @Regression @Profile
+  @Regression1 @Profile
   Scenario: 2 #Verifying Updating Hobbies on Profile Page
 
     When User clicks on X button of Hobbies

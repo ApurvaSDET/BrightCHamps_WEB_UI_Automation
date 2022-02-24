@@ -50,18 +50,9 @@ public class Demo_User_Home extends BaseUtil {
         //Providing time to load
         DocumentInReadyState();
 
-        //Declaring own wait
-        WebDriverWait wait = new WebDriverWait(driver,10);
+        //Accepting Cookies
+        AcceptCookies(); //Using method to Accept Cookies
 
-        // Accepting the Cookies Alert
-        try{
-
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(valueForTheGivenKey("Accept_Cookie"))));
-            _click(valueForTheGivenKey("Accept_Cookie"));
-        }
-        catch (TimeoutException e) {
-            e.getMessage();
-        }
     }
 
 

@@ -482,7 +482,22 @@ public class BaseUtil {
         return sb.toString();
     }
 
+public static void AcceptCookies(){
 
+    //Declaring own wait
+    WebDriverWait wait = new WebDriverWait(driver,5);
+
+    // Accepting the Cookies Alert
+    try{
+
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(valueForTheGivenKey("Accept_Cookie"))));
+        _click(valueForTheGivenKey("Accept_Cookie"));
+    }
+    catch (TimeoutException e) {
+        e.getMessage();
+    }
+
+}
 
 
 }

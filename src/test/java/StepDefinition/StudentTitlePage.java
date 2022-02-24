@@ -38,6 +38,9 @@ public class StudentTitlePage extends BaseUtil {
         _wait(valueForTheGivenKey("Login_with_Password_CTA"));
         //Asserting the Student Home Page
         Assert.assertTrue(_is_displayed(valueForTheGivenKey("Login_with_Password_CTA")));
+
+        //Accepting Cookies
+        AcceptCookies(); //Using method to Accept Cookies
     }
 
     @When("User clicks on 'Login with Password' CTA")
@@ -73,18 +76,6 @@ public class StudentTitlePage extends BaseUtil {
         DocumentInReadyState();
         Thread.sleep(3000);
 
-        //Declaring own wait
-        WebDriverWait wait = new WebDriverWait(driver,10);
-
-        // Accepting the Cookies Alert
-        try{
-
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(valueForTheGivenKey("Accept_Cookie"))));
-            _click(valueForTheGivenKey("Accept_Cookie"));
-        }
-        catch (TimeoutException e) {
-            e.getMessage();
-        }
     }
 
     //Scenario: 1 #Verifying login via email and password for Single user a/c
