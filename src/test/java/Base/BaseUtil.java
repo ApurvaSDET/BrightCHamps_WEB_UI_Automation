@@ -491,9 +491,9 @@ public static void AcceptCookies(){
     try{
 
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(valueForTheGivenKey("Accept_Cookie"))));
-        _click(valueForTheGivenKey("Accept_Cookie"));
+        driver.findElement(By.xpath(valueForTheGivenKey("Accept_Cookie"))).click();
     }
-    catch (TimeoutException e) {
+    catch (TimeoutException | ElementNotInteractableException e) {
         e.getMessage();
     }
 
