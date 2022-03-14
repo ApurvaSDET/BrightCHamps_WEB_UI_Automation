@@ -53,7 +53,7 @@ public class Hook extends BaseUtil {
 
         driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
-        wait = new WebDriverWait(driver, 30);
+        wait = new WebDriverWait(driver, 55);
     }
 
     @After
