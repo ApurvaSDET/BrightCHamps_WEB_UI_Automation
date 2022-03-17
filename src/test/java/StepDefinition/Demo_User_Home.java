@@ -118,23 +118,8 @@ public class Demo_User_Home extends BaseUtil {
     @And("User should be redirected to dashboard screen of demo user")
     public void user_should_be_redirected_to_dashboard_screen_of_demo_user() {
 
-        WebDriverWait wait = new WebDriverWait(driver,15);
-
-        try {
-
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(valueForTheGivenKey("triple_dots_profile"))));
-            Assert.assertTrue(_is_displayed(valueForTheGivenKey("triple_dots_profile")));
-
-        }
-
-        catch (TimeoutException e)
-
-        {
-            _wait(valueForTheGivenKey("Reschedule_demo_CTA"));
-            Assert.assertTrue(driver.findElement(By.xpath(valueForTheGivenKey("Reschedule_demo_CTA"))).isDisplayed());
-
-        }
-
+        _wait(valueForTheGivenKey("Title_Heading"));
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Title_Heading")));
 
     }
 
@@ -154,7 +139,7 @@ public class Demo_User_Home extends BaseUtil {
     @When("User has scheduled demo class")
     public void user_has_scheduled_demo_class() {
 
-        WebDriverWait wait = new WebDriverWait(driver,15);
+        WebDriverWait wait = new WebDriverWait(driver,5);
 
         //Creating object to reuse method from StudentTitlePage class
         StudentTitlePage obj = new StudentTitlePage();
@@ -162,11 +147,12 @@ public class Demo_User_Home extends BaseUtil {
         try {
 
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(valueForTheGivenKey("triple_dots_profile"))));
+            Thread.sleep(2000);
             Assert.assertTrue(_is_displayed(valueForTheGivenKey("triple_dots_profile")));
 
         }
 
-        catch (TimeoutException e)
+        catch (TimeoutException | InterruptedException e)
 
         {
 
@@ -366,12 +352,12 @@ public class Demo_User_Home extends BaseUtil {
     //Scenario: 7 #Verifying ‘Start Creating’ CTA on Demo Home Page
 
     @When("User clicks on Start Creating CTA")
-    public void User_clicks_on_Start_Creating_CTA() {
+    public void User_clicks_on_Start_Creating_CTA() throws InterruptedException {
 
         //Storing Current Window Handle in Static String Variable 'Parent_Window'
         Parent_Window = driver.getWindowHandle();
 
-        _wait(valueForTheGivenKey("Start_Creating_CTA"));
+        Thread.sleep(2000);
         _search_throughout_webpage("Start_Creating_CTA");
 
     }

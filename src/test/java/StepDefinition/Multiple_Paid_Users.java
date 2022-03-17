@@ -28,7 +28,7 @@ public class Multiple_Paid_Users extends BaseUtil {
         ArrayList<String> al = new ArrayList<>();
 
         //Fetching no. of accounts on Account Select Page
-        List<WebElement> account_names = driver.findElements(By.xpath(valueForTheGivenKey("Account_Names_On_Select_Page_Paid")));
+        List<WebElement> account_names = driver.findElements(By.xpath(valueForTheGivenKey("Account_Names_On_Select_Page")));
 
         //Using enhanced for loop to store the a/c names in ArrayList al
 
@@ -70,7 +70,7 @@ public class Multiple_Paid_Users extends BaseUtil {
     public void user_should_be_redirected_to_their_selected_paid_account_only() {
 
         //Fetching no. of accounts on Account Select Page
-        List<WebElement> account_names = driver.findElements(By.xpath(valueForTheGivenKey("Account_Names_On_Select_Page_Paid")));
+        List<WebElement> account_names = driver.findElements(By.xpath(valueForTheGivenKey("Account_Names_On_Select_Page")));
 
         //Using enhanced for loop to get the elements
         int count = 0;
