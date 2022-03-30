@@ -18,7 +18,7 @@ Feature: Demo User
 
     Then   User is at the Home Page of Demo account
 
-  @Regression @Demo
+  @Regression @Demo @SmokeTest
   Scenario: 2 #Verifying Reschedule Your Class feature for demo user
 
     Given   User is at the Home Page of Demo account
@@ -38,7 +38,7 @@ Feature: Demo User
     When    User clicks on back button
     And     User should be redirected to dashboard screen of demo user
 
-  @Regression @Demo
+  @Regression1 @Demo
   Scenario: 4 #Verifying disabled JOIN CTA logic
 
     Given   User is at the Home Page of Demo account
@@ -91,7 +91,7 @@ Feature: Demo User
     When    User clicks on Grab Your Seat CTA
     Then    User should be redirected to Our-Curriculum Page
 
-  @Regression @Demo
+  @Regression @Demo @SmokeTest
   Scenario: 11 #Verifying logout for Demo User
 
     Given   User is at the Home Page of Demo account

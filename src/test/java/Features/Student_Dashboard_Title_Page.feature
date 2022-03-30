@@ -4,7 +4,7 @@ Feature: Student Dashboard Title Page
                3. Negative test cases for login scenarios.
 
 
-  @Regression @TitlePage
+  @Regression @TitlePage @SmokeTest
   Scenario: 1 #Verifying login via OTP using Email for paid user
 
     Given  User is at Student portal title Page
@@ -22,7 +22,7 @@ Feature: Student Dashboard Title Page
     #Then   Authenticated successfully message should appear
     And    User is at the Home Page of single user account
 
-  @Regression @TitlePage
+  @Regression @TitlePage @SmokeTest
   Scenario: 2 #Verifying login via OTP using Email for demo user
 
     Given  User is at Student portal title Page

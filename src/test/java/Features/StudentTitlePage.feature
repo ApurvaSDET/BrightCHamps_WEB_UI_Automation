@@ -40,7 +40,7 @@ Feature: Home Page Part 1
     Then   User should be redirected to dashboard screen
 
 
-  @Regression @Reschedule
+  @Regression @Reschedule @SmokeTest
   Scenario: 4 #Verifying Re-scheduling Next Class
 
     When   User Clicks on three dots button
@@ -56,7 +56,7 @@ Feature: Home Page Part 1
     And    User should be redirected to dashboard screen
 
 
-  @Regression @Reschedule
+  @Regression @Reschedule @SmokeTest
   Scenario: 5 #Verifying Skip button of rescheduled screen
 
     Given  User is at reschedule successful screen
@@ -72,7 +72,7 @@ Feature: Home Page Part 1
     Then   User should be redirected to dashboard screen
 
 
-  @Regression @Reschedule
+  @Regression @Reschedule @SmokeTest
   Scenario: 7 #Verifying Re-scheduling All Class
 
     When   User Clicks on three dots button
@@ -120,7 +120,7 @@ Feature: Home Page Part 1
     When   User clicks on student policy link
     Then   A web page with student policy should get opened
 
-  @Regression @Cancel
+  @Regression @Cancel @SmokeTest
   Scenario: 11 #Verifying YES button on Cancel Class modal after accepting the student policy
 
     When   User Clicks on three dots button
@@ -136,7 +136,7 @@ Feature: Home Page Part 1
     And    Successful cancel modal should get closed and Webpage should reload
 
 
-  @Regression @Cancel
+  @Regression @Cancel @SmokeTest
   Scenario: 12 #Verifying Skip button of Successful cancel screen
 
     Given  User is at cancel successful screen
@@ -158,7 +158,7 @@ Feature: Home Page Part 1
     When    User clicks on Confirm Now CTA of global house card
     Then    User should be able to submit the request
 
-  @Regression @Referral
+  @Regression @Referral @SmokeTest
   Scenario: 15 #Verifying referral modal on Home Page of paid user
 
     Given   User is at the Home Page of single user account
@@ -169,7 +169,7 @@ Feature: Home Page Part 1
     When    User opens a new tab and paste copied link in it
     Then    Verify Same URL should be there which is associated with Book Free Trial CTA
 
-  @Regression @UpcomingClasses
+  @Regression @UpcomingClasses @SmokeTest
   Scenario: 16 #Verifying 'Check your schedule classes' expand button
 
     Given   User is at the Home Page of single user account

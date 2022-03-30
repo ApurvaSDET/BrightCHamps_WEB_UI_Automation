@@ -26,7 +26,7 @@ Feature: Home Page Part 4 - Upgrade Package Scenarios
     When   User selects curriculum
     Then   User is redirected to the Payment screen of BrightChamps
 
-  @Regression @UpgradePackage
+  @Regression @UpgradePackage @SmokeTest
   Scenario: 2 #Verifying Upgrade Package Card in case no classes are left
 
     When   User enters valid Phone no and password
@@ -69,7 +69,7 @@ Feature: Home Page Part 4 - Upgrade Package Scenarios
     When   User clicks on back button of Curriculum Page
     Then   User is at the Home Page of single user account
 
-  @Regression @SchedulingFromDashboard
+  @Regression @SchedulingFromDashboard @SmokeTest
   Scenario: 4 #Verifying Class Schedule from Dashboard Screen
 
     When   User enters valid Phone no and password
