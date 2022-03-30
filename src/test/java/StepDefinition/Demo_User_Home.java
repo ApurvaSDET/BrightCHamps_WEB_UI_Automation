@@ -21,7 +21,7 @@ public class Demo_User_Home extends BaseUtil {
     public void user_is_at_student_portal_master_login_page() {
 
         //Navigating to the Home Page of student portal
-        driver.get(valueForTheGivenKey("WEB_URL")+"/login");
+        driver.get(System.getenv("WEB_URL")+"/login");
         //waiting for home page to load
         _wait(valueForTheGivenKey("Master_login_screen"));
         //Asserting the Student Home Page

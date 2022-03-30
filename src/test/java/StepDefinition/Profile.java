@@ -318,8 +318,8 @@ public class Profile extends BaseUtil {
     @Then("User is navigated to the Home Page")
     public void user_is_navigated_to_the_home_page() {
 
-        wait.until(ExpectedConditions.urlToBe(valueForTheGivenKey("WEB_URL")+"/dashboard"));
-        Assert.assertEquals(valueForTheGivenKey("WEB_URL")+"/dashboard", driver.getCurrentUrl());
+        wait.until(ExpectedConditions.urlToBe(System.getenv("WEB_URL")+"/dashboard"));
+        Assert.assertEquals(System.getenv("WEB_URL")+"/dashboard", driver.getCurrentUrl());
 
     }
 
