@@ -33,7 +33,8 @@ public class StudentTitlePage extends BaseUtil {
     public void user_is_at_student_portal() {
 
         //Navigating to the Home Page of student portal
-        driver.get(valueForTheGivenKey("WEB_URL"));
+        driver.get(System.getenv("WEB_URL"));
+        //driver.get(valueForTheGivenKey("WEB_URL"));
         //waiting for home page to load
         _wait(valueForTheGivenKey("Login_with_Password_CTA"));
         //Asserting the Student Home Page
