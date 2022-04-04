@@ -219,10 +219,11 @@ public class Demo_User_Home extends BaseUtil {
 
 
     @When("User Scrolls down till Videos section on the Page")
-    public void User_Scrolls_down_till_Videos_section_on_the_Page() {
+    public void User_Scrolls_down_till_Videos_section_on_the_Page() throws InterruptedException {
 
         //Scrolling till Videos section are visibile on The Web Page
         _wait(valueForTheGivenKey("Title_Heading"));
+        Thread.sleep(2000);
         _Scrolling_throughout_the_WebPage("Videos_Section");
 
     }
