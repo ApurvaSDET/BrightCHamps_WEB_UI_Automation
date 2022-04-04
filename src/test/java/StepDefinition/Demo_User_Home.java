@@ -223,7 +223,7 @@ public class Demo_User_Home extends BaseUtil {
 
         //Scrolling till Videos section are visibile on The Web Page
         _wait(valueForTheGivenKey("Title_Heading"));
-        Thread.sleep(2000);
+        DocumentInReadyState();
         _Scrolling_throughout_the_WebPage("Videos_Section");
 
     }
