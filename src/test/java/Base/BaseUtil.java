@@ -446,6 +446,23 @@ public class BaseUtil {
 
     }
 
+    public static void _Scrolling_throughout_the_WebPage(String element_locator){
+
+        WebElement element = null;
+        
+        try {
+            element = driver.findElement(By.xpath(valueForTheGivenKey(element_locator)));
+        }
+        catch (NoSuchElementException e)
+        {
+            Assert.fail();
+        }
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element);
+        actions.perform();
+        
+    }
+
     // function to generate a random string of length n
     public static String getAlphaNumericString(String value, int n)
     {

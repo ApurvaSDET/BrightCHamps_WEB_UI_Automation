@@ -45,15 +45,12 @@ Feature: Demo User
     When    User has scheduled demo class
     Then    Verify JOIN CTA is enabled or disabled
 
-  @Regression1 @Demo1
+  @Regression @Demo
   Scenario: 5 #Verifying Glimpse of Project section on Demo Home Page
 
     Given   User is at the Home Page of Demo account
-    When    User clicks on View More link to expand till last video
-    Then    Verify all the videos are available on the page
-    When    User navigates to the top of the Page
-    Then    User should be able to scroll to top of the Page
-    And     Verify user should be able to successfully play and close all the videos
+    When    User Scrolls down till Videos section on the Page
+    Then    Verify user should be able to successfully play and close all the videos
 
   @Regression1 @Demo1
   Scenario: 6 #Verifying ‘Try our Course’ CTA on Demo Home Page

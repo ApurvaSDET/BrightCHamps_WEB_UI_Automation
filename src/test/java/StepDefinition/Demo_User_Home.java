@@ -218,115 +218,61 @@ public class Demo_User_Home extends BaseUtil {
     //Scenario: 5 #Verifying Glimpse of Project section on Demo Home Page
 
 
-    @When("User clicks on View More link to expand till last video")
-    public void user_clicks_on_view_more_link_to_expand_till_last_video() {
+    @When("User Scrolls down till Videos section on the Page")
+    public void User_Scrolls_down_till_Videos_section_on_the_Page() {
 
-        //Clicking on View More link to expand all the videos in this section of Home Page
-
-        for(int i=0; i<20; i++) {
-
-            try {
-
-                _wait(valueForTheGivenKey("Title_Heading"));
-                _search_throughout_webpage("View_More_Link");
-
-            }
-            catch (NoSuchElementException e)
-            {
-                Assert.assertTrue(true);
-            }
-
-        }
+        //Scrolling till Videos section are visibile on The Web Page
+        _wait(valueForTheGivenKey("Title_Heading"));
+        _Scrolling_throughout_the_WebPage("Videos_Section");
 
     }
 
-    @Then("Verify all the videos are available on the page")
-    public void verify_all_the_videos_are_available_on_the_page() {
-
-        //Getting list of all the WebElements
-        List <WebElement> Videos =   driver.findElements(By.xpath(valueForTheGivenKey("List_of_Videos")));
-
-        if (Videos.size() > 2)
-        {
-            Assert.assertTrue(true);
-        }
-
-        else {
-            Assert.fail();
-        }
-
-    }
-
-    @When("User navigates to the top of the Page")
-    public void user_navigates_to_the_top_of_the_page() {
-
-        WebElement element = driver.findElement(By.xpath(valueForTheGivenKey("Video_Container_Title")));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
-
-    }
-
-    @Then("User should be able to scroll to top of the Page")
-    public void user_should_be_able_to_scroll_to_top_of_the_page() {
-
-        _wait(valueForTheGivenKey("Video_Container_Title"));
-        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Video_Container_Title")));
-
-    }
-
-    @And("Verify user should be able to successfully play and close all the videos")
+    @Then("Verify user should be able to successfully play and close all the videos")
     public void verify_user_should_be_able_to_successfully_play_all_the_videos() throws InterruptedException {
 
-        List <WebElement> Videos =   driver.findElements(By.xpath(valueForTheGivenKey("List_of_Videos")));
-
-
-        for (WebElement ele : Videos)
-        {
-
             //Waiting for JS to load before click
-            DocumentInReadyState();
-            ele.click();
+            Thread.sleep(1000);
 
-            //Playing Video after switching into the frame
-            _wait(valueForTheGivenKey("Video_Close_Icon"));
-            driver.switchTo().frame(0);
-            _wait(valueForTheGivenKey("Player_ID"));
-            _click(valueForTheGivenKey("Player_ID"));
+            int TimeBeforeStart = _get_current_time_in_sec();
 
-            //Validating if Video is correctly loaded and played
-            try
-            {
-                Assert.assertFalse(driver.findElement(By.xpath(valueForTheGivenKey("YouTube_Link_Broken_error"))).isDisplayed());
+            while (TimeBeforeStart+60 > _get_current_time_in_sec()) {
+
+                _click(valueForTheGivenKey("Videos_Section"));
+
+                //Playing Video after switching into the frame
+                _wait(valueForTheGivenKey("Video_Close_Icon"));
+                driver.switchTo().frame(0);
+                _wait(valueForTheGivenKey("Player_ID"));
+                _click(valueForTheGivenKey("Player_ID"));
+
+                //Validating if Video is correctly loaded and played
+                try {
+                    Assert.assertFalse(driver.findElement(By.xpath(valueForTheGivenKey("YouTube_Link_Broken_error"))).isDisplayed());
+                } catch (NoSuchElementException e) {
+                    Assert.assertTrue(true);
+                }
+
+
+                Thread.sleep(2000);
+
+                //Closing the Video Player Modal
+                driver.switchTo().defaultContent(); // switching the default window
+
+                //Waiting and Clicking on closeIcon
+                _wait(valueForTheGivenKey("Video_Close_Icon"));
+                _click(valueForTheGivenKey("Video_Close_Icon"));
+
+                //Asserting the close Icon of Video Player Modal
+                _WaitAbsence(valueForTheGivenKey("Video_Close_Icon"));
+
+                try {
+                    Assert.assertFalse(driver.findElement(By.xpath(valueForTheGivenKey("Video_Close_Icon"))).isDisplayed());
+
+                } catch (NoSuchElementException e) {
+                    Assert.assertTrue(true);
+                }
+
             }
-            catch (NoSuchElementException e)
-            {
-                Assert.assertTrue(true);
-            }
-
-
-            Thread.sleep(2000);
-
-            //Closing the Video Player Modal
-            driver.switchTo().defaultContent(); // switching the default window
-
-            //Waiting and Clicking on closeIcon
-            _wait(valueForTheGivenKey("Video_Close_Icon"));
-            _click(valueForTheGivenKey("Video_Close_Icon"));
-
-            //Asserting the close Icon of Video Player Modal
-            _WaitAbsence(valueForTheGivenKey("Video_Close_Icon"));
-
-            try
-            {
-                Assert.assertFalse(driver.findElement(By.xpath(valueForTheGivenKey("Video_Close_Icon"))).isDisplayed());
-
-            }
-            catch (NoSuchElementException e)
-            {
-                Assert.assertTrue(true);
-            }
-
-        }
-
 
     }
 
