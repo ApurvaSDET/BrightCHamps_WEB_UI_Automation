@@ -258,6 +258,44 @@ public class BaseUtil {
 
     }
 
+    public Object _getResult(String Query, String DateType, String Column){
+
+        Object Data = null;
+
+        try {
+            Connection dbConnection = DriverManager
+                    .getConnection(System.getenv("DB_CONNECTIONURL")+"/?serverTimezone=UTC&characterEncoding=utf-8&useSSL=false",System.getenv("DB_USERNAME"),System.getenv("DB_PASSWORD"));
+            Statement stmt = dbConnection.createStatement();
+
+            if(stmt.execute(Query))
+            {
+                ResultSet rs = stmt.executeQuery(Query);
+
+                while (rs.next()) {
+
+                    switch (DateType) {
+                        case "int":
+                            Data = rs.getInt(Column);
+                            break;
+
+                        case "String":
+                            Data = rs.getString(Column);
+                            break;
+                    }
+                }
+
+            }
+
+            dbConnection.close();
+        } catch (SQLException e) {
+            System.out.println("database-ConnectionError: " + e);
+            System.exit(0);
+        }
+
+        return Data;
+
+    }
+
     public static void _random_options_from_dropdown(String locator){
 
         //Fetching list of WebElements

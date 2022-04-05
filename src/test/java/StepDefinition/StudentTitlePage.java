@@ -628,27 +628,61 @@ public class StudentTitlePage extends BaseUtil {
     //Scenario: 14 #Verifying global House CTA
 
     @When("User clicks on Confirm Now CTA of global house card")
-    public void user_clicks_on_confirm_now_cta_of_global_house_card() throws InterruptedException {
+    public void user_clicks_on_confirm_now_cta_of_global_house_card() {
+
+        //Clering Data of Test User from DB before Running this Test
+        _getResult(valueForTheGivenKey("DeleteGlobalHouseEntry"), null, null);
+
+        //Reloading WEB Page to fecth Updated APIs after DB call
+        driver.navigate().refresh();
 
         //Waiting for the Global House Card to load on Web Page
-        _wait(valueForTheGivenKey("Global_House_Card"));
+        _wait(valueForTheGivenKey("Confirm_Now_CTA"));
 
-        //Logic to check if Confirm CTA is visible
-        if(_is_displayed(valueForTheGivenKey("Confirm_Now_CTA"))) {
-            _click(valueForTheGivenKey("Confirm_Now_CTA"));
-            Thread.sleep(1000);
-        }
-
-        else
-            Assert.assertEquals("Congratulations! Your entry into the Global House is confirmed. We will schedule your session very soon.", _get_text(valueForTheGivenKey("Global_House_Card")));
+        //Clicking on Confirm_Now Button
+        _click(valueForTheGivenKey("Confirm_Now_CTA"));
 
     }
 
+    @Then("User is redirected to Global House Screen")
+    public void user_is_redirected_to_global_house_screen() {
 
-    @Then("User should be able to submit the request")
-    public void user_should_be_able_to_submit_request() {
+        //Asserting Book Your Slot disabled CTA
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Disabled_Book_your_slot")));
 
+    }
+
+    @When("User selects all the Preference")
+    public void user_selects_all_the_preference() {
+
+        //Reusing Reschedule all classes method
+        user_selected_all_four_classes_date_and_time();
+    }
+
+    @Then("Success alert message should appear")
+    public void success_alert_should_appear() {
+
+        _wait(valueForTheGivenKey("OTP_Sent_Alert"));
+        Assert.assertEquals("Congratulations! Your entry into the Global House is confirmed :)",_get_text(valueForTheGivenKey("OTP_Sent_Alert")));
+
+    }
+
+    @Then("Verify Congratulations! message on Global House Card")
+    public void verify_congratulations_message_on_global_house_card() {
+
+         //Waiting for the Global House Card
+        _wait(valueForTheGivenKey("Global_House_Card"));
+
+        //Asserting the Global House Card
         Assert.assertEquals("Congratulations! Your entry into the Global House is confirmed. We will schedule your session very soon.", _get_text(valueForTheGivenKey("Global_House_Card")));
+
+    }
+
+    @And("Verify Confirm Now CTA is not visible anymore")
+    public void verify_confirm_now_cta_is_not_visible_anymore() {
+
+        //Asserting the invisibility of Confirm_Now_CTA
+        Assert.assertFalse(_is_displayed(valueForTheGivenKey("Confirm_Now_CTA")));
 
     }
 
