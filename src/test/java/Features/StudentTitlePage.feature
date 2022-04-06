@@ -176,8 +176,41 @@ Feature: Home Page Part 1
     When    User opens a new tab and paste copied link in it
     Then    Verify Same URL should be there which is associated with Book Free Trial CTA
 
+  @Regression @KnowMore @Referral
+  Scenario: 16 #Verifying 'Know More' CTA on referral modal
+
+    Given   User is at the Home Page of single user account
+    When    User clicks on 'Know More' CTA of referral card
+    Then    User should be navigated to the new policy tab
+
+
+  @Regression @Facebook @Referral
+  Scenario: 17 #Verifying 'Facebook' link on referral modal
+
+    Given   User is at the Home Page of single user account
+    When    User clicks on Facebook link of referral card
+    Then    Verify new tab with facebook link should get opened
+
+
+  @Regression @WhatsApp @Referral
+  Scenario: 18 #Verifying 'WhatsApp' link  on referral modal
+
+    Given   User is at the Home Page of single user account
+    When    User clicks on WhatsApp link of referral card
+    Then    Verify new tab with WhatsApp link should get opened
+
+
+  @Regression @Leaderboard @Referral
+  Scenario: 19 #Verifying Leaderboard section on referral modal
+
+    Given   User is at the Home Page of single user account
+    When    User clicks on Leaderboard section of referral card
+    Then    Leaderboard section should gets opened
+    And     Verify all the data on Leaderboard section
+
+
   @Regression @UpcomingClasses @SmokeTest
-  Scenario: 16 #Verifying 'Check your schedule classes' expand button
+  Scenario: 20 #Verifying 'Check your schedule classes' expand button
 
     Given   User is at the Home Page of single user account
     When    User clicks on Check your schedule classes expand button

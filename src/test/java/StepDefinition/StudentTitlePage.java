@@ -796,7 +796,117 @@ public class StudentTitlePage extends BaseUtil {
 
     }
 
-    //Scenario: 16 #Verifying 'Check your schedule classes' expand button
+    //Scenario: 16 #Verifying 'Know More' CTA on referral modal
+
+    @When("User clicks on 'Know More' CTA of referral card")
+    public void User_clicks_on_Know_More_CTA_of_referral_card() throws InterruptedException {
+
+        //Storing Current Window Handle in Static String Variable 'Parent_Window'
+        Parent_Window = driver.getWindowHandle();
+
+        //Waiting for the page to load and navigating to the Book_Free_Trial CTA
+        _wait(valueForTheGivenKey("triple_dots"));
+        //Thread.sleep(2000);
+        _search_throughout_webpage("Know_More_CTA");
+
+    }
+
+    @Then("User should be navigated to the new policy tab")
+    public void User_should_be_navigated_to_the_new_policy_tab() {
+
+        //Switching driver focus to next Window
+        Switch_to_next_tab(Parent_Window);
+
+        //Validating if new tab is opened with Policy URL
+        Assert.assertTrue(driver.getCurrentUrl().contains("policy.brightchamps.com"));
+
+    }
+
+    //Scenario: 17 #Verifying 'Facebook' link on referral modal
+
+    @When("User clicks on Facebook link of referral card")
+    public void userClicksOnFacebookLinkOfReferralCard() throws InterruptedException {
+
+        //Storing Current Window Handle in Static String Variable 'Parent_Window'
+        Parent_Window = driver.getWindowHandle();
+
+        //Waiting for the page to load and navigating to the Book_Free_Trial CTA
+        _wait(valueForTheGivenKey("triple_dots"));
+        //Thread.sleep(2000);
+        _search_throughout_webpage("Facebook_Share_icon");
+
+    }
+
+    @Then("Verify new tab with facebook link should get opened")
+    public void verifyNewTabWithFacebookLinkShouldGetOpened() {
+
+        //Switching driver focus to next Window
+        Switch_to_next_tab(Parent_Window);
+
+        //Validating if new tab is opened with Policy URL
+        Assert.assertTrue(driver.getCurrentUrl().contains("www.facebook.com"));
+
+    }
+
+
+    //Scenario: 18 #Verifying 'WhatsApp' link  on referral modal
+
+    @When("User clicks on WhatsApp link of referral card")
+    public void userClicksOnWhatsAppLinkOfReferralCard() throws InterruptedException {
+
+        //Storing Current Window Handle in Static String Variable 'Parent_Window'
+        Parent_Window = driver.getWindowHandle();
+
+        //Waiting for the page to load and navigating to the Book_Free_Trial CTA
+        _wait(valueForTheGivenKey("triple_dots"));
+        //Thread.sleep(2000);
+        _search_throughout_webpage("WhatsApp_Share_icon");
+
+    }
+
+    @Then("Verify new tab with WhatsApp link should get opened")
+    public void verifyNewTabWithWhatsAppLinkShouldGetOpened() {
+
+        //Switching driver focus to next Window
+        Switch_to_next_tab(Parent_Window);
+
+        //Validating if new tab is opened with Policy URL
+        Assert.assertTrue(driver.getCurrentUrl().contains("web.whatsapp.com"));
+
+    }
+
+    //Scenario: 19 #Verifying Leaderboard section on referral modal
+
+    @When("User clicks on Leaderboard section of referral card")
+    public void userClicksOnLeaderboardSectionOfReferralCard() {
+
+        //Waiting for the page to load and navigating to the Book_Free_Trial CTA
+        _wait(valueForTheGivenKey("triple_dots"));
+        _search_throughout_webpage("LeaderBoard_link");
+
+    }
+
+    @Then("Leaderboard section should gets opened")
+    public void leaderboardSectionShouldGetsOpened() {
+
+        //Validating if Correct Data appears on Leaderboard
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Your_Referrals"))
+                &&
+                _is_displayed(valueForTheGivenKey("Your_Rank")));
+
+
+    }
+
+    @And("Verify all the data on Leaderboard section")
+    public void verifyAllTheDataOnLeaderboardSection() {
+
+        //Validating if Correct number of Rows and Coloumns appear on Leaderboard
+        Assert.assertEquals(4, _get_WebElements_size(valueForTheGivenKey("LeaderBoard_Coloumn_Count")));
+        Assert.assertEquals(10, _get_WebElements_size(valueForTheGivenKey("LeaderBoard_Rows_Count")));
+
+    }
+
+    //Scenario: 20 #Verifying 'Check your schedule classes' expand button
 
     @When("User clicks on Check your schedule classes expand button")
     public void user_clicks_on_check_your_schedule_classes_expand_button() {
