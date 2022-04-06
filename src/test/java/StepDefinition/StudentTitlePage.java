@@ -806,7 +806,7 @@ public class StudentTitlePage extends BaseUtil {
 
         //Waiting for the page to load and navigating to the Book_Free_Trial CTA
         _wait(valueForTheGivenKey("triple_dots"));
-        //Thread.sleep(2000);
+        Thread.sleep(1500);
         _search_throughout_webpage("Know_More_CTA");
 
     }
@@ -832,7 +832,7 @@ public class StudentTitlePage extends BaseUtil {
 
         //Waiting for the page to load and navigating to the Book_Free_Trial CTA
         _wait(valueForTheGivenKey("triple_dots"));
-        //Thread.sleep(2000);
+        Thread.sleep(1500);
         _search_throughout_webpage("Facebook_Share_icon");
 
     }
@@ -859,7 +859,7 @@ public class StudentTitlePage extends BaseUtil {
 
         //Waiting for the page to load and navigating to the Book_Free_Trial CTA
         _wait(valueForTheGivenKey("triple_dots"));
-        //Thread.sleep(2000);
+        Thread.sleep(1500);
         _search_throughout_webpage("WhatsApp_Share_icon");
 
     }
@@ -878,10 +878,11 @@ public class StudentTitlePage extends BaseUtil {
     //Scenario: 19 #Verifying Leaderboard section on referral modal
 
     @When("User clicks on Leaderboard section of referral card")
-    public void userClicksOnLeaderboardSectionOfReferralCard() {
+    public void userClicksOnLeaderboardSectionOfReferralCard() throws InterruptedException {
 
         //Waiting for the page to load and navigating to the Book_Free_Trial CTA
         _wait(valueForTheGivenKey("triple_dots"));
+        Thread.sleep(1500);
         _search_throughout_webpage("LeaderBoard_link");
 
     }
