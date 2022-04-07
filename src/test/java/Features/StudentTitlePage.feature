@@ -151,7 +151,7 @@ Feature: Home Page Part 1
     When    User has an Upcoming Appointment
     #Then    Verify JOIN CTA is enabled or disabled
 
-  @Regression1 @GlobalHouse
+  @Regression99 @GlobalHouse
   Scenario: 14 #Verifying global House CTA
 
     Given   User is at the Home Page of single user account
@@ -165,7 +165,7 @@ Feature: Home Page Part 1
     Then    Verify Congratulations! message on Global House Card
     And     Verify Confirm Now CTA is not visible anymore
 
-  @Regression @Referral @SmokeTest
+  @Regression99 @Referral @SmokeTest
   Scenario: 15 #Verifying referral modal on Home Page of paid user
 
     Given   User is at the Home Page of single user account
@@ -176,7 +176,7 @@ Feature: Home Page Part 1
     When    User opens a new tab and paste copied link in it
     Then    Verify Same URL should be there which is associated with Book Free Trial CTA
 
-  @Regression @KnowMore @Referral
+  @Regression99 @KnowMore @Referral
   Scenario: 16 #Verifying 'Know More' CTA on referral modal
 
     Given   User is at the Home Page of single user account
@@ -184,7 +184,7 @@ Feature: Home Page Part 1
     Then    User should be navigated to the new policy tab
 
 
-  @Regression @Facebook @Referral
+  @Regression99 @Facebook @Referral
   Scenario: 17 #Verifying 'Facebook' link on referral modal
 
     Given   User is at the Home Page of single user account
@@ -192,7 +192,7 @@ Feature: Home Page Part 1
     Then    Verify new tab with facebook link should get opened
 
 
-  @Regression @WhatsApp @Referral
+  @Regression99 @WhatsApp @Referral
   Scenario: 18 #Verifying 'WhatsApp' link  on referral modal
 
     Given   User is at the Home Page of single user account
@@ -200,7 +200,7 @@ Feature: Home Page Part 1
     Then    Verify new tab with WhatsApp link should get opened
 
 
-  @Regression @Leaderboard @Referral
+  @Regression99 @Leaderboard @Referral
   Scenario: 19 #Verifying Leaderboard section on referral modal
 
     Given   User is at the Home Page of single user account

@@ -279,25 +279,6 @@ public class Demo_User_Home extends BaseUtil {
 
     }
 
-    //Scenario: 6 #Verifying ‘Try our Course’ CTA on Demo Home Page
-
-    @When("User clicks on Try our Course CTA")
-    public void User_clicks_on_Try_our_Course_CTA() {
-
-        _wait(valueForTheGivenKey("Title_Heading"));
-        _search_throughout_webpage("Try_Our_Course");
-
-    }
-
-    @Then("User should be redirected to Freemium Videos screen")
-    public void User_should_be_redirected_to_Freemium_Videos_screen() {
-
-       _wait(valueForTheGivenKey("Go_To_Course"));
-       Assert.assertTrue(_is_displayed(valueForTheGivenKey("Go_To_Course")));
-
-    }
-
-
     //Scenario: 7 #Verifying ‘Start Creating’ CTA on Demo Home Page
 
     @When("User clicks on Start Creating CTA")

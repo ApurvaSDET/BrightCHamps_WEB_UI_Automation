@@ -52,15 +52,8 @@ Feature: Demo User
     When    User Scrolls down till Videos section on the Page
     Then    Verify user should be able to successfully play and close all the videos
 
-  @Regression1 @Demo1
-  Scenario: 6 #Verifying ‘Try our Course’ CTA on Demo Home Page
-
-    Given   User is at the Home Page of Demo account
-    When    User clicks on Try our Course CTA
-    Then    User should be redirected to Freemium Videos screen
-
   @Regression @Demo
-  Scenario: 7 #Verifying ‘Start Creating’ CTA on Demo Home Page
+  Scenario: 6 #Verifying ‘Start Creating’ CTA on Demo Home Page
 
     Given   User is at the Home Page of Demo account
     When    User clicks on Start Creating CTA
@@ -68,28 +61,28 @@ Feature: Demo User
 
 
   @Regression @Demo
-  Scenario: 8 #Verifying ‘Apple App Store’ CTA on Demo Home Page
+  Scenario: 7 #Verifying ‘Apple App Store’ CTA on Demo Home Page
 
     Given   User is at the Home Page of Demo account
     When    User clicks on Apple AppStore CTA
     Then    User should be redirected to the Apple AppStore Screen
 
   @Regression @Demo
-  Scenario: 9 #Verifying ‘Google PlayStore’ CTA on Demo Home Page
+  Scenario: 8 #Verifying ‘Google PlayStore’ CTA on Demo Home Page
 
     Given   User is at the Home Page of Demo account
     When    User clicks on Google PlayStore CTA
     Then    User should be redirected to the Google PlayStore Screen
 
   @Regression @Demo
-  Scenario: 10 #Verifying ‘Grab Your Seat’ CTA on Demo User
+  Scenario: 9 #Verifying ‘Grab Your Seat’ CTA on Demo User
 
     Given   User is at the Home Page of Demo account
     When    User clicks on Grab Your Seat CTA
     Then    User should be redirected to Our-Curriculum Page
 
   @Regression @Demo @SmokeTest
-  Scenario: 11 #Verifying logout for Demo User
+  Scenario: 10 #Verifying logout for Demo User
 
     Given   User is at the Home Page of Demo account
     And     Clicks on Profile button

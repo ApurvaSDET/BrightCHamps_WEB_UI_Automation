@@ -84,9 +84,9 @@ public class StudentTitlePage extends BaseUtil {
     public void user_is_redirected_to_the_home_page_single_user_account() {
 
         //waiting for home page to load
-        _wait(valueForTheGivenKey("Profile_button"));
+        _wait(valueForTheGivenKey("triple_dots"));
         //Asserting the Student Home Page
-        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Profile_button")));
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("triple_dots")));
 
     }
 
@@ -698,7 +698,7 @@ public class StudentTitlePage extends BaseUtil {
         Parent_Window = driver.getWindowHandle();
 
         //Waiting for the page to load and navigating to the Book_Free_Trial CTA
-        _wait(valueForTheGivenKey("triple_dots"));
+        //_wait(valueForTheGivenKey("triple_dots"));
         Thread.sleep(2000);
         _search_throughout_webpage("Book_Free_Trial_CTA");
 
@@ -719,7 +719,7 @@ public class StudentTitlePage extends BaseUtil {
         }
 
         //Validating if new tab is opened with referral URL
-        Assert.assertTrue(Referral_URL_from_CTA.contains("referral-demo"));
+        Assert.assertTrue(Referral_URL_from_CTA.contains("utm_source=referral"));
 
     }
 
@@ -731,7 +731,7 @@ public class StudentTitlePage extends BaseUtil {
         driver.switchTo().window(Parent_Window);
 
         //Click on COPY LINK CTA on referral modal
-        _wait(valueForTheGivenKey("triple_dots"));
+        //_wait(valueForTheGivenKey("triple_dots"));
         _search_throughout_webpage("COPY_LINK_CTA");
 
 
@@ -785,7 +785,7 @@ public class StudentTitlePage extends BaseUtil {
         //Validating if new tab is opened with referral URL
         wait.until(ExpectedConditions.urlToBe(PastedURL));
         Referral_URL_from_Paste = driver.getCurrentUrl();
-        Assert.assertTrue(Referral_URL_from_Paste.contains("referral-demo"));
+        Assert.assertTrue(Referral_URL_from_Paste.contains("utm_source=referral"));
     }
 
     @Then("Verify Same URL should be there which is associated with Book Free Trial CTA")
@@ -805,7 +805,7 @@ public class StudentTitlePage extends BaseUtil {
         Parent_Window = driver.getWindowHandle();
 
         //Waiting for the page to load and navigating to the Book_Free_Trial CTA
-        _wait(valueForTheGivenKey("triple_dots"));
+        //_wait(valueForTheGivenKey("triple_dots"));
         Thread.sleep(1500);
         _search_throughout_webpage("Know_More_CTA");
 
@@ -831,7 +831,7 @@ public class StudentTitlePage extends BaseUtil {
         Parent_Window = driver.getWindowHandle();
 
         //Waiting for the page to load and navigating to the Book_Free_Trial CTA
-        _wait(valueForTheGivenKey("triple_dots"));
+       // _wait(valueForTheGivenKey("triple_dots"));
         Thread.sleep(1500);
         _search_throughout_webpage("Facebook_Share_icon");
 
@@ -858,7 +858,7 @@ public class StudentTitlePage extends BaseUtil {
         Parent_Window = driver.getWindowHandle();
 
         //Waiting for the page to load and navigating to the Book_Free_Trial CTA
-        _wait(valueForTheGivenKey("triple_dots"));
+        //_wait(valueForTheGivenKey("triple_dots"));
         Thread.sleep(1500);
         _search_throughout_webpage("WhatsApp_Share_icon");
 
@@ -881,7 +881,7 @@ public class StudentTitlePage extends BaseUtil {
     public void userClicksOnLeaderboardSectionOfReferralCard() throws InterruptedException {
 
         //Waiting for the page to load and navigating to the Book_Free_Trial CTA
-        _wait(valueForTheGivenKey("triple_dots"));
+        //_wait(valueForTheGivenKey("triple_dots"));
         Thread.sleep(1500);
         _search_throughout_webpage("LeaderBoard_link");
 
