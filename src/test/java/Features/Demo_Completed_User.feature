@@ -1,4 +1,4 @@
-Feature: Demo User
+Feature: Demo Completed User
   Description: Test Automation for covering all possible cases of a Demo Completed User
 
   Background: User is Logged In
@@ -7,9 +7,9 @@ Feature: Demo User
     When   User enters valid Phone no and password
 
       |Phone     |Password|
+      |85171152007|hr26ec2|
+      #This is a prod User
       |5210000011|hr26ec2 |
-      #|85171152007|hr26ec2 | This is a prod User
-
 
     And    User clicks on SUBMIT CTA
     Then   User is at the Home Page of Demo Completed account
@@ -50,7 +50,7 @@ Feature: Demo User
     When    User clicks on Buy This Plan CTA of Champion Plan
     Then    User should be redirected to Payment Gateway
 
-  @Regression99 @DemoCompleted
+  @Regression @DemoCompleted
   Scenario: 7 #Verifying referral modal on Home Page of paid user
 
     When    User clicks on Book Free Trial CTA of referral card
@@ -60,35 +60,35 @@ Feature: Demo User
     When    User opens a new tab and paste copied link in it
     Then    Verify Same URL should be there which is associated with Book Free Trial CTA
 
-  @Regression99 @DemoCompleted
+  @Regression @DemoCompleted
   Scenario: 8 #Verifying 'Know More' CTA on referral modal
 
     When    User clicks on 'Know More' CTA of referral card
     Then    User should be navigated to the new policy tab
 
 
-  @Regression99 @DemoCompleted
+  @Regression @DemoCompleted
   Scenario: 9 #Verifying 'Facebook' link on referral modal
 
     When    User clicks on Facebook link of referral card
     Then    Verify new tab with facebook link should get opened
 
 
-  @Regression99 @DemoCompleted
+  @Regression @DemoCompleted
   Scenario: 10 #Verifying 'WhatsApp' link  on referral modal
 
     When    User clicks on WhatsApp link of referral card
     Then    Verify new tab with WhatsApp link should get opened
 
 
-  @Regression99 @DemoCompleted
+  @Regression @DemoCompleted
   Scenario: 11 #Verifying Leaderboard section on referral modal
 
     When    User clicks on Leaderboard section of referral card
     Then    Leaderboard section should gets opened
     And     Verify all the data on Leaderboard section
 
-  @Regression @DemoCompleted
+  @Regression @DemoCompleted @UnlockedCertificate
   Scenario: 12 #Verifying 'Join our community on Facebook' banner on the Dashboard
 
     When    User clicks on Facebook banner card
@@ -103,13 +103,13 @@ Feature: Demo User
     Then    Testimonial Cards should Scroll to Right
 
 
-  @Regression @DemoCompleted
+  @Regression @DemoCompleted @UnlockedCertificate
   Scenario: 14 #Verifying Unlocked Certificate
 
     When    User Scrolls down till Certificate section
     Then    Verify Certificate Should be unlocked
 
-  @Regression @DemoCompleted
+  @Regression @DemoCompleted @UnlockedCertificate
   Scenario: 15 #Verifying Unlocked Certificate can be downloaded
 
     When    User Scrolls down till Certificate section

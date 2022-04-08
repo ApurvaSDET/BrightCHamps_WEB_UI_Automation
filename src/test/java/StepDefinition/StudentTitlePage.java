@@ -12,11 +12,6 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import java.awt.*;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.UnsupportedFlavorException;
-import java.io.IOException;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -648,6 +643,7 @@ public class StudentTitlePage extends BaseUtil {
     public void user_is_redirected_to_global_house_screen() {
 
         //Asserting Book Your Slot disabled CTA
+        _Scrolling_throughout_the_WebPage("Disabled_Book_your_slot");
         Assert.assertTrue(_is_displayed(valueForTheGivenKey("Disabled_Book_your_slot")));
 
     }
@@ -698,7 +694,6 @@ public class StudentTitlePage extends BaseUtil {
         Parent_Window = driver.getWindowHandle();
 
         //Waiting for the page to load and navigating to the Book_Free_Trial CTA
-        //_wait(valueForTheGivenKey("triple_dots"));
         Thread.sleep(2000);
         _search_throughout_webpage("Book_Free_Trial_CTA");
 
@@ -731,7 +726,6 @@ public class StudentTitlePage extends BaseUtil {
         driver.switchTo().window(Parent_Window);
 
         //Click on COPY LINK CTA on referral modal
-        //_wait(valueForTheGivenKey("triple_dots"));
         _search_throughout_webpage("COPY_LINK_CTA");
 
 
@@ -805,7 +799,6 @@ public class StudentTitlePage extends BaseUtil {
         Parent_Window = driver.getWindowHandle();
 
         //Waiting for the page to load and navigating to the Book_Free_Trial CTA
-        //_wait(valueForTheGivenKey("triple_dots"));
         Thread.sleep(1500);
         _search_throughout_webpage("Know_More_CTA");
 
@@ -831,7 +824,6 @@ public class StudentTitlePage extends BaseUtil {
         Parent_Window = driver.getWindowHandle();
 
         //Waiting for the page to load and navigating to the Book_Free_Trial CTA
-       // _wait(valueForTheGivenKey("triple_dots"));
         Thread.sleep(1500);
         _search_throughout_webpage("Facebook_Share_icon");
 
@@ -858,7 +850,6 @@ public class StudentTitlePage extends BaseUtil {
         Parent_Window = driver.getWindowHandle();
 
         //Waiting for the page to load and navigating to the Book_Free_Trial CTA
-        //_wait(valueForTheGivenKey("triple_dots"));
         Thread.sleep(1500);
         _search_throughout_webpage("WhatsApp_Share_icon");
 
@@ -881,7 +872,6 @@ public class StudentTitlePage extends BaseUtil {
     public void userClicksOnLeaderboardSectionOfReferralCard() throws InterruptedException {
 
         //Waiting for the page to load and navigating to the Book_Free_Trial CTA
-        //_wait(valueForTheGivenKey("triple_dots"));
         Thread.sleep(1500);
         _search_throughout_webpage("LeaderBoard_link");
 

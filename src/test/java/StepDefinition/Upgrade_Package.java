@@ -113,6 +113,16 @@ public class Upgrade_Package extends BaseUtil {
 
     //Scenario: 2 #Verifying Upgrade Package Card in case no classes are left
 
+    @Then("User is at the Home Page of completed account")
+    public void user_is_redirected_to_the_home_page_completed_account() {
+
+        //waiting for home page to load
+        _wait(valueForTheGivenKey("Upgrade_Now_CTA_Home_Page"));
+        //Asserting the Student Home Page
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Upgrade_Now_CTA_Home_Page")));
+
+    }
+
     @Then("Navigate back to the Home Page")
     public void Navigate_back_to_the_Home_Page() {
 

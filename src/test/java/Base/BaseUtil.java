@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
@@ -500,6 +501,28 @@ public class BaseUtil {
         actions.perform();
         
     }
+
+    public static boolean filepresent(String FilePath) {
+
+        File f = new File(FilePath);
+
+        boolean iSFilePresent = false;
+
+        int CurentTime = _get_current_time_in_sec();
+
+        while(_get_current_time_in_sec() < CurentTime+20)
+        {
+            if(iSFilePresent = f.exists())
+                break;
+        }
+
+        //Deleting the downloaded file
+        f.delete();
+
+        return iSFilePresent;
+
+    }
+
 
     // function to generate a random string of length n
     public static String getAlphaNumericString(String value, int n)

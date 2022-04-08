@@ -36,7 +36,7 @@ Feature: Home Page Part 4 - Upgrade Package Scenarios
       #This is prod user
 
     And    User clicks on SUBMIT CTA
-    Then   User is at the Home Page of single user account
+    Then   User is at the Home Page of completed account
     When   User is left with below classes in his account to be completed
 
       |ClassesLeft|

@@ -108,8 +108,14 @@ public class Demo_Completed_User extends BaseUtil {
     //Scenario: 12 #Verifying 'Join our community on Facebook' banner on the Dashboard
 
     @When("User clicks on Facebook banner card")
-    public void user_clicks_on_facebook_banner_card() {
+    public void user_clicks_on_facebook_banner_card() throws InterruptedException {
 
+        //Storing Current Window Handle in Static String Variable 'Parent_Window'
+        Parent_Window = driver.getWindowHandle();
+
+        //Waiting for the page to load and navigating to the Book_Free_Trial CTA
+        Thread.sleep(1500);
+        _search_throughout_webpage("Facebook_Banner");
 
     }
 
@@ -144,12 +150,17 @@ public class Demo_Completed_User extends BaseUtil {
     @When("User Scrolls down till Certificate section")
     public void user_scrolls_down_till_certificate_section() {
 
+        //Scrolling till Download_Certificate_Link is visible on the screen
+        _Scrolling_throughout_the_WebPage("Download_Certificate_Link");
 
     }
 
     @Then("Verify Certificate Should be unlocked")
     public void verify_certificate_should_be_unlocked() {
 
+        //Validating Unlocked Demo Certificate Title and Download Link
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Unlocked_Demo_Certificate")));
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Download_Certificate_Link")));
 
     }
 
@@ -159,6 +170,12 @@ public class Demo_Completed_User extends BaseUtil {
     @Then("Verify Certificate Should be able to Download")
     public void verify_certificate_should_be_able_to_download() {
 
+        //Clicking on Download Certificate Link
+        _click(valueForTheGivenKey("Download_Certificate_Link"));
+
+       //Validating if the certificate was actually downloaded
+        Assert.assertTrue(filepresent(System.getProperty("user.home")+
+                valueForTheGivenKey("Downloaded_File_Path")));
 
     }
 
