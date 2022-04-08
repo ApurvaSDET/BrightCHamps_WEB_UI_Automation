@@ -1,5 +1,5 @@
-Feature: Home Page Part 4 - Upgrade Package Scenarios
-  Description: Test Automation for Upgrade Package Scenarios
+Feature: Home Page Part 4 - Upgrade Package Scenarios and Demo Certificates
+  Description: Test Automation for Upgrade Package & Demo Certificate Scenarios
 
   Background: User is Logged In
 
@@ -82,3 +82,31 @@ Feature: Home Page Part 4 - Upgrade Package Scenarios
     Then   User is at the Home Page of single user account
     When   There is no Scheduled Class for a user to attend
     Then   Verify User can schedule a class from Dashboard Screen
+
+  @Regression @DemoCertificate
+  Scenario: 5 #Verifying Unlocked Certificate
+
+    When   User enters valid Phone no and password
+
+      |Phone     |Password|
+      |85171152007|hr26ec2|
+      #This is a prod User
+
+    And    User clicks on SUBMIT CTA
+    Then   User is at the Home Page of Demo Completed account
+    When   User Scrolls down till Certificate section
+    Then   Verify Certificate Should be unlocked
+
+  @Regression1 @DemoCertificate1
+  Scenario: 6 #Verifying Unlocked Certificate can be downloaded
+
+    When   User enters valid Phone no and password
+
+      |Phone     |Password|
+      |85171152007|hr26ec2|
+      #This is a prod User
+
+    And    User clicks on SUBMIT CTA
+    Then   User is at the Home Page of Demo Completed account
+    When   User Scrolls down till Certificate section
+    Then   Verify Certificate Should be able to Download

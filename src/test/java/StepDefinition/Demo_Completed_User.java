@@ -145,38 +145,4 @@ public class Demo_Completed_User extends BaseUtil {
 
     }
 
-    //Scenario: 14 #Verifying Unlocked Certificate
-
-    @When("User Scrolls down till Certificate section")
-    public void user_scrolls_down_till_certificate_section() {
-
-        //Scrolling till Download_Certificate_Link is visible on the screen
-        _Scrolling_throughout_the_WebPage("Download_Certificate_Link");
-
-    }
-
-    @Then("Verify Certificate Should be unlocked")
-    public void verify_certificate_should_be_unlocked() {
-
-        //Validating Unlocked Demo Certificate Title and Download Link
-        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Unlocked_Demo_Certificate")));
-        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Download_Certificate_Link")));
-
-    }
-
-
-    //Scenario: 15 #Verifying Unlocked Certificate can be downloaded
-
-    @Then("Verify Certificate Should be able to Download")
-    public void verify_certificate_should_be_able_to_download() {
-
-        //Clicking on Download Certificate Link
-        _click(valueForTheGivenKey("Download_Certificate_Link"));
-
-       //Validating if the certificate was actually downloaded
-        Assert.assertTrue(filepresent(System.getProperty("user.home")+
-                valueForTheGivenKey("Downloaded_File_Path")));
-
-    }
-
 }

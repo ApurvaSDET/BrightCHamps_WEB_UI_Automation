@@ -7,8 +7,6 @@ Feature: Demo Completed User
     When   User enters valid Phone no and password
 
       |Phone     |Password|
-      |85171152007|hr26ec2|
-      #This is a prod User
       |5210000011|hr26ec2 |
 
     And    User clicks on SUBMIT CTA
@@ -88,7 +86,7 @@ Feature: Demo Completed User
     Then    Leaderboard section should gets opened
     And     Verify all the data on Leaderboard section
 
-  @Regression @DemoCompleted @UnlockedCertificate
+  @Regression @DemoCompleted
   Scenario: 12 #Verifying 'Join our community on Facebook' banner on the Dashboard
 
     When    User clicks on Facebook banner card
@@ -101,16 +99,3 @@ Feature: Demo Completed User
     Then    Testimonial Cards should Scroll to Left
     When    User clicks on Lefy Arrow
     Then    Testimonial Cards should Scroll to Right
-
-
-  @Regression @DemoCompleted @UnlockedCertificate
-  Scenario: 14 #Verifying Unlocked Certificate
-
-    When    User Scrolls down till Certificate section
-    Then    Verify Certificate Should be unlocked
-
-  @Regression @DemoCompleted @UnlockedCertificate
-  Scenario: 15 #Verifying Unlocked Certificate can be downloaded
-
-    When    User Scrolls down till Certificate section
-    Then    Verify Certificate Should be able to Download
