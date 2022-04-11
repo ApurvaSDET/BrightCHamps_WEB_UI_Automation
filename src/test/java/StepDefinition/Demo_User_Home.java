@@ -399,9 +399,10 @@ public class Demo_User_Home extends BaseUtil {
 
 
     @When("User Scrolls till Certificate section")
-    public void userScrollsTillCertificateSection() {
+    public void userScrollsTillCertificateSection() throws InterruptedException {
 
         //Scrolling till locked certificate is visible on the screen
+        Thread.sleep(1500);
         _Scrolling_throughout_the_WebPage("Locked_Certificate");
 
     }

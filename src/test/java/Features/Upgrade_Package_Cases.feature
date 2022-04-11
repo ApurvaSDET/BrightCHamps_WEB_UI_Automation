@@ -56,7 +56,7 @@ Feature: Home Page Part 4 - Upgrade Package Scenarios and Demo Certificates
       |503670250|hr26ec2 |
 
     And    User clicks on SUBMIT CTA
-    Then   User is at the Home Page of single user account
+    Then   User is at the Home Page of completed account
     When   User is left with below classes in his account to be completed
 
       |ClassesLeft|
@@ -67,7 +67,7 @@ Feature: Home Page Part 4 - Upgrade Package Scenarios and Demo Certificates
     When   User clicks on Upgrade Now Card at the top of Home Page
     Then   User is redirected to the Curriculum selection Page
     When   User clicks on back button of Curriculum Page
-    Then   User is at the Home Page of single user account
+    Then   User is at the Home Page of completed account
 
   @Regression @SchedulingFromDashboard @SmokeTest
   Scenario: 4 #Verifying Class Schedule from Dashboard Screen
