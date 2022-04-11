@@ -34,19 +34,19 @@ Feature: Demo Completed User
   Scenario: 4 #Verifying Buy This Plan CTA of Accelerator Plan
 
     When    User clicks on Buy This Plan CTA of Accelerator Plan
-    Then    User should be redirected to Payment Gateway
+    #Then    User should be redirected to Payment Gateway
 
   @Regression @DemoCompleted
   Scenario: 5 #Verifying Buy This Plan CTA of Achiever Plan
 
     When    User clicks on Buy This Plan CTA of Achiever Plan
-    Then    User should be redirected to Payment Gateway
+    #Then    User should be redirected to Payment Gateway
 
   @Regression @DemoCompleted
   Scenario: 6 #Verifying Buy This Plan CTA of Champion Plan
 
     When    User clicks on Buy This Plan CTA of Champion Plan
-    Then    User should be redirected to Payment Gateway
+    #Then    User should be redirected to Payment Gateway
 
   @Regression @DemoCompleted
   Scenario: 7 #Verifying referral modal on Home Page of paid user
@@ -99,3 +99,9 @@ Feature: Demo Completed User
     Then    Testimonial Cards should Scroll to Left
     When    User clicks on Lefy Arrow
     Then    Testimonial Cards should Scroll to Right
+
+  @Regression @DemoCompleted
+  Scenario: 14 #Verifying 'Code-O-Fiesta' banner on the Dashboard
+
+    When    User clicks on Contest Now CTA of Code-O-Fiesta banner
+    Then    Verify user is redirected to the Code-O-Fiesta WebPage

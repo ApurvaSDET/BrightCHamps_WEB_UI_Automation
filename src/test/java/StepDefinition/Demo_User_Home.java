@@ -279,7 +279,7 @@ public class Demo_User_Home extends BaseUtil {
 
     }
 
-    //Scenario: 7 #Verifying ‘Start Creating’ CTA on Demo Home Page
+    //Scenario: 6 #Verifying ‘Start Creating’ CTA on Demo Home Page
 
     @When("User clicks on Start Creating CTA")
     public void User_clicks_on_Start_Creating_CTA() throws InterruptedException {
@@ -306,7 +306,7 @@ public class Demo_User_Home extends BaseUtil {
     }
 
 
-    //Scenario: 8 #Verifying ‘Apple App Store’ CTA on Demo Home Page
+    //Scenario: 7 #Verifying ‘Apple App Store’ CTA on Demo Home Page
 
     @When("User clicks on Apple AppStore CTA")
     public void user_clicks_on_apple_app_store_cta() {
@@ -334,7 +334,7 @@ public class Demo_User_Home extends BaseUtil {
 
     }
 
-    //Scenario: 9 #Verifying ‘Google PlayStore’ CTA on Demo Home Page
+    //Scenario: 8 #Verifying ‘Google PlayStore’ CTA on Demo Home Page
 
     @When("User clicks on Google PlayStore CTA")
     public void user_clicks_on_google_play_store_cta() {
@@ -362,7 +362,7 @@ public class Demo_User_Home extends BaseUtil {
     }
 
 
-    //Scenario: 10 #Verifying ‘Grab Your Seat’ CTA on Demo User
+    //Scenario: 9 #Verifying ‘Grab Your Seat’ CTA on Demo User
 
     @When("User clicks on Grab Your Seat CTA")
     public void User_clicks_on_Grab_Your_Seat_CTA() {
@@ -375,7 +375,7 @@ public class Demo_User_Home extends BaseUtil {
 
     }
 
-    //Scenario: 11 #Verifying logout for Demo User
+    //Scenario: 10 #Verifying logout for Demo User
 
     @When("User clicks on logout button")
     public void User_clicks_on_logout_button() {
@@ -394,5 +394,25 @@ public class Demo_User_Home extends BaseUtil {
         Assert.assertTrue(_is_displayed(valueForTheGivenKey("Login_with_Password_CTA")));
     }
 
+
+    //Scenario: 11 #Verifying locked Certificate for Demo User
+
+
+    @When("User Scrolls till Certificate section")
+    public void userScrollsTillCertificateSection() {
+
+        //Scrolling till locked certificate is visible on the screen
+        _Scrolling_throughout_the_WebPage("Locked_Certificate");
+
+    }
+
+    @Then("Verify Certificate Should be locked for non completed users")
+    public void verifyCertificateShouldBeLockedForNonCompletedUsers() {
+
+        //Validating Unlocked Demo Certificate Title and Download Link
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Locked_Certificate")));
+        Assert.assertFalse(_is_displayed(valueForTheGivenKey("Download_Certificate_Link")));
+
+    }
 }
 

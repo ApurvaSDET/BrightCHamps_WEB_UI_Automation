@@ -6,6 +6,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class Demo_Completed_User extends BaseUtil {
 
@@ -82,6 +83,8 @@ public class Demo_Completed_User extends BaseUtil {
     @When("User clicks on Buy This Plan CTA of Accelerator Plan")
     public void user_clicks_on_buy_this_plan_cta_of_accelerator_plan() {
 
+        //Scrolling till ACCELERATOR_Buy_This_Plan CTA is in view and clicking on it
+        _search_throughout_webpage("ACCELERATOR_Buy_This_Plan");
 
     }
 
@@ -95,6 +98,8 @@ public class Demo_Completed_User extends BaseUtil {
     @When("User clicks on Buy This Plan CTA of Achiever Plan")
     public void user_clicks_on_buy_this_plan_cta_of_achiever_plan() {
 
+        //Scrolling till ACHIEVER_Buy_This_Plan CTA is in view and clicking on it
+        _search_throughout_webpage("ACHIEVER_Buy_This_Plan");
 
     }
 
@@ -102,6 +107,8 @@ public class Demo_Completed_User extends BaseUtil {
     @When("User clicks on Buy This Plan CTA of Champion Plan")
     public void user_clicks_on_buy_this_plan_cta_of_champion_plan() {
 
+        //Scrolling till CHAMPION_Buy_This_Plan CTA is in view and clicking on it
+        _search_throughout_webpage("CHAMPION_Buy_This_Plan");
 
     }
 
@@ -124,25 +131,70 @@ public class Demo_Completed_User extends BaseUtil {
     @When("User clicks on Right Arrow")
     public void user_clicks_on_right_arrow() {
 
+        _Scrolling_throughout_the_WebPage("Next_Button");
+
+        int currntTime = _get_current_time_in_sec();
+
+        while(_is_displayed(valueForTheGivenKey("Next_Button")))
+        {
+            _click(valueForTheGivenKey("Next_Button"));
+
+            if(currntTime+20 < _get_current_time_in_sec())
+                break;
+
+        }
 
     }
 
     @Then("Testimonial Cards should Scroll to Left")
     public void testimonial_cards_should_scroll_to_left() {
 
+        Assert.assertFalse(_is_displayed(valueForTheGivenKey("Next_Button")));
 
     }
 
     @When("User clicks on Lefy Arrow")
     public void user_clicks_on_lefy_arrow() {
 
+        int currntTime = _get_current_time_in_sec();
+
+        while(_is_displayed(valueForTheGivenKey("Previous_Button")))
+        {
+            _click(valueForTheGivenKey("Previous_Button"));
+
+            if(currntTime+20 < _get_current_time_in_sec())
+                break;
+
+        }
 
     }
 
     @Then("Testimonial Cards should Scroll to Right")
     public void testimonial_cards_should_scroll_to_right() {
 
+        Assert.assertFalse(_is_displayed(valueForTheGivenKey("Previous_Button")));
 
     }
 
+
+    //Scenario: 14 #Verifying 'Code-O-Fiesta' banner on the Dashboard
+
+    @When("User clicks on Contest Now CTA of Code-O-Fiesta banner")
+    public void userClicksOnCodeOFiestaBannerCard() {
+
+        //Scrolling till Code-O-Fiesta banner card is in view and clicking on Contest Now CTA
+        _search_throughout_webpage("Contest_Now_CTA");
+
+    }
+
+    @Then("Verify user is redirected to the Code-O-Fiesta WebPage")
+    public void verifyUserIsRedirectedToTheCodeOFiestaWebPage() {
+
+        //Waiting to for Code-O-Fiesta WebPage to load
+        wait.until(ExpectedConditions.urlContains("book.brightchamps.com"));
+
+        //Asseting Code-O-Fiesta WebPage
+        Assert.assertTrue(driver.getCurrentUrl().contains("book.brightchamps.com"));
+
+    }
 }

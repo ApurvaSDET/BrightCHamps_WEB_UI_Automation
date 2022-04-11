@@ -663,21 +663,30 @@ public class StudentTitlePage extends BaseUtil {
 
     }
 
-    @Then("Verify Congratulations! message on Global House Card")
-    public void verify_congratulations_message_on_global_house_card() {
+    @Then("Verify Congratulations! message on Global House Screen")
+    public void verify_congratulations_message_on_global_house_screen() {
 
          //Waiting for the Global House Card
-        _wait(valueForTheGivenKey("Global_House_Card"));
+        _wait(valueForTheGivenKey("Global_House_Success_Msg"));
 
         //Asserting the Global House Card
-        Assert.assertEquals("Congratulations! Your entry into the Global House is confirmed. We will schedule your session very soon.", _get_text(valueForTheGivenKey("Global_House_Card")));
+        Assert.assertEquals("Your entry into Global House is confirmed. We will schedule your session very soon.\n" +
+                "Till then stay connected :)", _get_text(valueForTheGivenKey("Global_House_Success_Msg")));
 
+    }
+
+    @When("User navigate back to dashboard screen")
+    public void userNavigateBackToDashboardScreen() {
+
+        //Navigating back to dashboard screen
+         driver.navigate().back();
     }
 
     @And("Verify Confirm Now CTA is not visible anymore")
     public void verify_confirm_now_cta_is_not_visible_anymore() {
 
         //Asserting the invisibility of Confirm_Now_CTA
+        _wait(valueForTheGivenKey("Global_House_Card"));
         Assert.assertFalse(_is_displayed(valueForTheGivenKey("Confirm_Now_CTA")));
 
     }

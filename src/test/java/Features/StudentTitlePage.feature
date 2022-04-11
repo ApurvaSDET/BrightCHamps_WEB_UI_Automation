@@ -160,9 +160,9 @@ Feature: Home Page Part 1
     When    User selects all the Preference
     Then    Book your Slot CTA should get enabled
     When    User clicks on Book your Slot CTA
-    #Then    Success alert message should appear
-    And     User should be redirected to dashboard screen
-    Then    Verify Congratulations! message on Global House Card
+    Then    Success alert message should appear
+    And     Verify Congratulations! message on Global House Screen
+    When    User navigate back to dashboard screen
     And     Verify Confirm Now CTA is not visible anymore
 
   @Regression @Referral @SmokeTest

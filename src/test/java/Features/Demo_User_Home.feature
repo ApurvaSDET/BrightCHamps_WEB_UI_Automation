@@ -38,7 +38,7 @@ Feature: Demo User
     When    User clicks on back button
     And     User should be redirected to dashboard screen of demo user
 
-  @Regression1 @Demo
+  @Regression @Demo
   Scenario: 4 #Verifying disabled JOIN CTA logic
 
     Given   User is at the Home Page of Demo account
@@ -89,3 +89,10 @@ Feature: Demo User
     Then    User is at Profile screen
     When    User clicks logout button
     Then    User is at Student Portal Title Page
+
+  @Regression @LockedCertificate
+  Scenario: 11 #Verifying locked Certificate for Demo User
+
+    Given   User is at the Home Page of Demo account
+    When    User Scrolls till Certificate section
+    Then    Verify Certificate Should be locked for non completed users

@@ -5,7 +5,7 @@ Feature: Home Page Part 4 - Upgrade Package Scenarios and Demo Certificates
 
     Given  User is at Student portal master login Page
 
-  @Regression1 @UpgradePackage
+  @Regression @UpgradePackage
   Scenario: 1 #Verifying Upgrade Package Card in case of 5 or less classes are left
 
     When   User enters valid Phone no and password
@@ -97,7 +97,7 @@ Feature: Home Page Part 4 - Upgrade Package Scenarios and Demo Certificates
     When   User Scrolls down till Certificate section
     Then   Verify Certificate Should be unlocked
 
-  @Regression1 @DemoCertificate1
+  @Regression @DemoCertificate
   Scenario: 6 #Verifying Unlocked Certificate can be downloaded
 
     When   User enters valid Phone no and password
