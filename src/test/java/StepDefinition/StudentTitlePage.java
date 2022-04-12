@@ -640,10 +640,11 @@ public class StudentTitlePage extends BaseUtil {
     }
 
     @Then("Verify new tab with global house detail should get opened")
-    public void user_is_redirected_to_global_house_screen() {
+    public void user_is_redirected_to_global_house_screen() throws InterruptedException {
 
         //Switching driver focus to next Window
         Switch_to_next_tab(Parent_Window);
+        Thread.sleep(1500);
 
         //Asserting Book Your Slot disabled CTA
         _Scrolling_throughout_the_WebPage("Disabled_Book_your_slot");
