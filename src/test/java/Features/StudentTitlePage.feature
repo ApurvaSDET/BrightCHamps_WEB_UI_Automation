@@ -155,15 +155,13 @@ Feature: Home Page Part 1
   Scenario: 14 #Verifying global House CTA
 
     Given   User is at the Home Page of single user account
-    When    User clicks on Confirm Now CTA of global house card
-    Then    User is redirected to Global House Screen
+    When    User clicks on global house banner
+    Then    Verify new tab with global house detail should get opened
     When    User selects all the Preference
     Then    Book your Slot CTA should get enabled
     When    User clicks on Book your Slot CTA
     Then    Success alert message should appear
     And     Verify Congratulations! message on Global House Screen
-    When    User navigate back to dashboard screen
-    And     Verify Confirm Now CTA is not visible anymore
 
   @Regression @Referral @SmokeTest
   Scenario: 15 #Verifying referral modal on Home Page of paid user

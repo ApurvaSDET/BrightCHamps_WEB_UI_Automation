@@ -622,25 +622,28 @@ public class StudentTitlePage extends BaseUtil {
 
     //Scenario: 14 #Verifying global House CTA
 
-    @When("User clicks on Confirm Now CTA of global house card")
-    public void user_clicks_on_confirm_now_cta_of_global_house_card() {
+    @When("User clicks on global house banner")
+    public void user_clicks_on_global_house_banner() {
 
         //Clering Data of Test User from DB before Running this Test
         _getResult(valueForTheGivenKey("DeleteGlobalHouseEntry"), null, null);
 
-        //Reloading WEB Page to fecth Updated APIs after DB call
-        driver.navigate().refresh();
+        //Storing Current Window Handle in Static String Variable 'Parent_Window'
+        Parent_Window = driver.getWindowHandle();
 
         //Waiting for the Global House Card to load on Web Page
-        _wait(valueForTheGivenKey("Confirm_Now_CTA"));
+        _wait(valueForTheGivenKey("Global_House_banner"));
 
         //Clicking on Confirm_Now Button
-        _click(valueForTheGivenKey("Confirm_Now_CTA"));
+        _click(valueForTheGivenKey("Global_House_banner"));
 
     }
 
-    @Then("User is redirected to Global House Screen")
+    @Then("Verify new tab with global house detail should get opened")
     public void user_is_redirected_to_global_house_screen() {
+
+        //Switching driver focus to next Window
+        Switch_to_next_tab(Parent_Window);
 
         //Asserting Book Your Slot disabled CTA
         _Scrolling_throughout_the_WebPage("Disabled_Book_your_slot");
@@ -672,22 +675,6 @@ public class StudentTitlePage extends BaseUtil {
         //Asserting the Global House Card
         Assert.assertEquals("Your entry into Global House is confirmed. We will schedule your session very soon.\n" +
                 "Till then stay connected :)", _get_text(valueForTheGivenKey("Global_House_Success_Msg")));
-
-    }
-
-    @When("User navigate back to dashboard screen")
-    public void userNavigateBackToDashboardScreen() {
-
-        //Navigating back to dashboard screen
-         driver.navigate().back();
-    }
-
-    @And("Verify Confirm Now CTA is not visible anymore")
-    public void verify_confirm_now_cta_is_not_visible_anymore() {
-
-        //Asserting the invisibility of Confirm_Now_CTA
-        _wait(valueForTheGivenKey("Global_House_Card"));
-        Assert.assertFalse(_is_displayed(valueForTheGivenKey("Confirm_Now_CTA")));
 
     }
 
