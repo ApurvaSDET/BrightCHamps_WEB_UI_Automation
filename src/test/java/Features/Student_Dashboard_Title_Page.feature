@@ -150,7 +150,7 @@ Feature: Student Dashboard Title Page
       |apur.kushwaha@brightchamps.com   |qwerty   |User with that email does not exist.       |
       |                                 |qwerty   |Must be a valid email address              |
       |apurva.kushwaha@mailinator.com   |         |Invalid value                              |
-      |apurva.kushwaha                  |qwerty   |Must be a valid email address              |
+      #|apurva.kushwaha                  |qwerty   |Must be a valid email address              |
       |apurva.kushwaha@mailinator.com   |password |Invalid email and password                 |
       |apurva.kushwaha@brightchamps.com |qwer     |Password must be at least 6 characters long|
 

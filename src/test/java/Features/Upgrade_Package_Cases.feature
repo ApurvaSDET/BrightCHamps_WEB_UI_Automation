@@ -5,7 +5,7 @@ Feature: Home Page Part 4 - Upgrade Package Scenarios and Demo Certificates
 
     Given  User is at Student portal master login Page
 
-  @Regression @UpgradePackage
+  @Regression1 @UpgradePackage
   Scenario: 1 #Verifying Upgrade Package Card in case of 5 or less classes are left
 
     When   User enters valid Phone no and password
