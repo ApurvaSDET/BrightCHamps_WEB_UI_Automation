@@ -111,7 +111,31 @@ public class Upgrade_Package extends BaseUtil {
     }
 
 
-    //Scenario: 2 #Verifying Upgrade Package Card in case no classes are left
+    //Scenario: 2 #Verifying Buy Lost Classes feature
+
+    @Then("User is at the Home Page of penalized account")
+    public void userIsAtTheHomePageOfPenalizedAccount() {
+
+        //waiting for home page to load
+        _wait(valueForTheGivenKey("Buy_Lost_Classes_CTA"));
+        //Asserting the Student Home Page
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Buy_Lost_Classes_CTA")));
+
+    }
+
+    @When("User clicks on Buy Lost Classes CTA")
+    public void userClicksOnBuyLostClassesCTA() {
+
+        //Storing Current Window Handle in Static String Variable 'Parent_Window'
+        Parent_Window = driver.getWindowHandle();
+
+        //Scrolling till Upgrade CTA and clicking on it
+        _search_throughout_webpage("Buy_Lost_Classes_CTA");
+
+    }
+
+
+    //Scenario: 3 #Verifying Upgrade Package Card in case no classes are left
 
     @Then("User is at the Home Page of completed account")
     public void user_is_redirected_to_the_home_page_completed_account() {
@@ -145,7 +169,7 @@ public class Upgrade_Package extends BaseUtil {
     }
 
 
-    //Scenario: 3 #Verifying back button of Curriculum Page
+    //Scenario: 4 #Verifying back button of Curriculum Page
 
     @When("User clicks on back button of Curriculum Page")
     public void User_clicks_back_button_Curriculum_Page() {
@@ -154,7 +178,7 @@ public class Upgrade_Package extends BaseUtil {
 
     }
 
-    //Scenario: 4 #Verifying Class Schedule from Dashboard Screen
+    //Scenario: 5 #Verifying Class Schedule from Dashboard Screen
 
     @When("There is no Scheduled Class for a user to attend")
     public void there_is_no_scheduled_class_for_a_user_to_attend() throws InterruptedException {
@@ -241,41 +265,6 @@ public class Upgrade_Package extends BaseUtil {
         //validating the Success message
         Assert.assertEquals("Congratulations, your classes have been scheduled.",_get_text(valueForTheGivenKey("OTP_Sent_Alert")));
 
-
-    }
-
-
-
-    //Scenario: 5 #Verifying Unlocked Certificate
-
-    @When("User Scrolls down till Certificate section")
-    public void user_scrolls_down_till_certificate_section() {
-
-        //Scrolling till Download_Certificate_Link is visible on the screen
-        _Scrolling_throughout_the_WebPage("Download_Certificate_Link");
-
-    }
-
-    @Then("Verify Certificate Should be unlocked")
-    public void verify_certificate_should_be_unlocked() {
-
-        //Validating Unlocked Demo Certificate Title and Download Link
-        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Unlocked_Demo_Certificate")));
-        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Download_Certificate_Link")));
-
-    }
-
-
-    //Scenario: 6 #Verifying Unlocked Certificate can be downloaded
-
-    @Then("Verify Certificate Should be able to Download")
-    public void verify_certificate_should_be_able_to_download() {
-
-        //Clicking on Download Certificate Link
-        _click(valueForTheGivenKey("Download_Certificate_Link"));
-
-        //Validating if the certificate was actually downloaded
-        Assert.assertTrue(filepresent(System.getProperty("user.dir")+valueForTheGivenKey("Downloaded_File_Path")));
 
     }
 
