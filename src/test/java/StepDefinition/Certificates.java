@@ -58,6 +58,7 @@ public class Certificates extends BaseUtil {
     @Then("Verify Certificate shown on the Dashboard")
     public void verify_certificate_shown_on_the_dashboard() {
 
+        _wait(valueForTheGivenKey("Certificate_Dashboard"));
         Assert.assertTrue(_is_displayed(valueForTheGivenKey("Certificate_Dashboard")));
 
     }

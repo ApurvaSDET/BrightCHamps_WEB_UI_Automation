@@ -59,6 +59,7 @@ Feature: Paid and Demo Users Certificates
       |9656222580|hr26ec2|
 
     And    User clicks on SUBMIT CTA
+    Then   User is at the Select Your Account Screen
     When   User clicks on paid account
     Then   User is at the Home Page of single user account
     When   User is at Certificates Screen
@@ -74,6 +75,7 @@ Feature: Paid and Demo Users Certificates
       |9656222580|hr26ec2|
 
     And    User clicks on SUBMIT CTA
+    Then   User is at the Select Your Account Screen
     When   User clicks on paid account
     Then   User is at the Home Page of single user account
     When   User is at Certificates Screen
@@ -90,6 +92,7 @@ Feature: Paid and Demo Users Certificates
       |9656222580|hr26ec2|
 
     And    User clicks on SUBMIT CTA
+    Then   User is at the Select Your Account Screen
     When   User clicks on paid account
     Then   User is at the Home Page of single user account
     When   User is at Certificates Screen

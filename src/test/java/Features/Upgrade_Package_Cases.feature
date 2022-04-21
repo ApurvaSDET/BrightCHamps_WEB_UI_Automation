@@ -35,6 +35,7 @@ Feature: Home Page Part 4 - Upgrade Package Scenarios and Demo Certificates
       |8433918423|hr26ec2 |
 
     And    User clicks on SUBMIT CTA
+    Then   User is at the Select Your Account Screen
     When   User clicks on paid account
     Then   User is at the Home Page of penalized account
     When   User clicks on Buy Lost Classes CTA
