@@ -56,9 +56,13 @@ public class Certificates extends BaseUtil {
     }
 
     @Then("Verify Certificate shown on the Dashboard")
-    public void verify_certificate_shown_on_the_dashboard() {
+    public void verify_certificate_shown_on_the_dashboard() throws InterruptedException {
 
+        //Waiting for Certificate to load
         _wait(valueForTheGivenKey("Certificate_Dashboard"));
+        Thread.sleep(1500);
+
+        //Asserting the Certificate Section
         Assert.assertTrue(_is_displayed(valueForTheGivenKey("Certificate_Dashboard")));
 
     }
@@ -83,7 +87,7 @@ public class Certificates extends BaseUtil {
     //Scenario: 4 #Verifying Unlocked Certificates on Certificate Screen
 
     @Given("User is at Certificates Screen")
-    public void user_is_at_certificates_screen() {
+    public void user_is_at_certificates_screen() throws InterruptedException {
 
         //Resuing above methods to Navigate to Certificate Screen
         verify_certificate_shown_on_the_dashboard();
