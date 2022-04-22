@@ -74,7 +74,7 @@ Feature: Demo User
     When    User clicks on Google PlayStore CTA
     Then    User should be redirected to the Google PlayStore Screen
 
-  @Regression @Demo
+  @Regression1 @Demo
   Scenario: 9 #Verifying ‘Grab Your Seat’ CTA on Demo User
 
     Given   User is at the Home Page of Demo account
