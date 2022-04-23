@@ -40,11 +40,11 @@ Feature: Paid and Demo Users Certificates
     When   User enters valid Phone no and password
 
       |Phone     |Password|
-      |9656222580|hr26ec2|
+      |8932903950|hr26ec2|
 
     And    User clicks on SUBMIT CTA
-    Then   User is at the Select Your Account Screen
-    When   User clicks on paid account
+    #Then   User is at the Select Your Account Screen
+    #When   User clicks on paid account
     Then   User is at the Home Page of single user account
     And    Verify Certificate shown on the Dashboard
     When   User clicks on Certifcates
@@ -56,11 +56,11 @@ Feature: Paid and Demo Users Certificates
     When   User enters valid Phone no and password
 
       |Phone     |Password|
-      |9656222580|hr26ec2|
+      |8932903950|hr26ec2|
 
     And    User clicks on SUBMIT CTA
-    Then   User is at the Select Your Account Screen
-    When   User clicks on paid account
+    #Then   User is at the Select Your Account Screen
+    #When   User clicks on paid account
     Then   User is at the Home Page of single user account
     When   User is at Certificates Screen
     Then   Verify Unlocked Certifiates should be available under Certificates Earned Section
@@ -72,11 +72,11 @@ Feature: Paid and Demo Users Certificates
     When   User enters valid Phone no and password
 
       |Phone     |Password|
-      |9656222580|hr26ec2|
+      |8932903950|hr26ec2|
 
     And    User clicks on SUBMIT CTA
-    Then   User is at the Select Your Account Screen
-    When   User clicks on paid account
+    #Then   User is at the Select Your Account Screen
+    #When   User clicks on paid account
     Then   User is at the Home Page of single user account
     When   User is at Certificates Screen
     Then   Verify Locked Certificates should be available Under Upgrade Now Section
@@ -89,11 +89,11 @@ Feature: Paid and Demo Users Certificates
     When   User enters valid Phone no and password
 
       |Phone     |Password|
-      |9656222580|hr26ec2|
+      |8932903950|hr26ec2|
 
     And    User clicks on SUBMIT CTA
-    Then   User is at the Select Your Account Screen
-    When   User clicks on paid account
+    #Then   User is at the Select Your Account Screen
+    #When   User clicks on paid account
     Then   User is at the Home Page of single user account
     When   User is at Certificates Screen
     When   User Clicks on Update this Plan CTA
