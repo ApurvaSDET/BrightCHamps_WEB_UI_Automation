@@ -207,7 +207,7 @@ Feature: Home Page Part 1
     And     Verify all the data on Leaderboard section
 
 
-  @Regression @UpcomingClasses @SmokeTest
+  @Regression1 @UpcomingClasses @SmokeTest
   Scenario: 20 #Verifying 'Check your schedule classes' expand button
 
     Given   User is at the Home Page of single user account
