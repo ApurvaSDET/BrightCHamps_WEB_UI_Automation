@@ -40,11 +40,10 @@ Feature: Paid and Demo Users Certificates
     When   User enters valid Phone no and password
 
       |Phone     |Password|
-      |503670250 |hr26ec2 |
-      #This is Prod User
+      |8130865152 |hr26ec2 |
 
     And    User clicks on SUBMIT CTA
-    Then   User is at the Home Page of completed account
+    Then   User is at the Home Page of single user account
     And    Verify Certificate shown on the Dashboard
     When   User clicks on Certifcates
     Then   User should be redirected to Certificates screen
@@ -55,11 +54,10 @@ Feature: Paid and Demo Users Certificates
     When   User enters valid Phone no and password
 
       |Phone     |Password|
-      |503670250 |hr26ec2 |
-      #This is Prod User
+      |8130865152 |hr26ec2 |
 
     And    User clicks on SUBMIT CTA
-    Then   User is at the Home Page of completed account
+    Then   User is at the Home Page of single user account
     When   User is at Certificates Screen
     Then   Verify Unlocked Certifiates should be available under Certificates Earned Section
     And    Unlocked Certificate can be downloaded
@@ -70,11 +68,10 @@ Feature: Paid and Demo Users Certificates
     When   User enters valid Phone no and password
 
       |Phone     |Password|
-      |503670250 |hr26ec2 |
-      #This is Prod User
+      |8130865152 |hr26ec2 |
 
     And    User clicks on SUBMIT CTA
-    Then   User is at the Home Page of completed account
+    Then   User is at the Home Page of single user account
     When   User is at Certificates Screen
     Then   Verify Locked Certificates should be available Under Upgrade Now Section
     And    Verify lock icon on all the locked Certificates
@@ -86,11 +83,10 @@ Feature: Paid and Demo Users Certificates
     When   User enters valid Phone no and password
 
       |Phone     |Password|
-      |503670250 |hr26ec2 |
-      #This is Prod User
+      |8130865152 |hr26ec2 |
 
     And    User clicks on SUBMIT CTA
-    Then   User is at the Home Page of completed account
+    Then   User is at the Home Page of single user account
     When   User is at Certificates Screen
     When   User Clicks on Update this Plan CTA
     Then   User is redirected to the Curriculum selection Page
