@@ -69,6 +69,7 @@ Feature: Home Page Part 4 - Upgrade Package Scenarios and Demo Certificates
 
       |Phone     |Password|
       |503670250|hr26ec2 |
+      #This is prod user
 
     And    User clicks on SUBMIT CTA
     Then   User is at the Home Page of completed account
