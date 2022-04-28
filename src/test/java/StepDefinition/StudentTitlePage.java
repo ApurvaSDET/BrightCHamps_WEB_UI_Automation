@@ -387,7 +387,7 @@ public class StudentTitlePage extends BaseUtil {
                 {
                     ele.click();
                 }
-            catch (ElementClickInterceptedException e)
+            catch (ElementClickInterceptedException | StaleElementReferenceException e)
                 {
                     e.getMessage();
                 }
