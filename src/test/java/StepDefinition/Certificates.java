@@ -48,13 +48,6 @@ public class Certificates extends BaseUtil {
 
     //Scenario: 3 #Verifying Certificates on the Home Page
 
-    @When("User clicks on paid account")
-    public void user_clicks_on_paid_account() {
-
-        _click(valueForTheGivenKey("Account_Select_Page"));
-
-    }
-
     @Then("Verify Certificate shown on the Dashboard")
     public void verify_certificate_shown_on_the_dashboard() throws InterruptedException {
 
@@ -103,7 +96,7 @@ public class Certificates extends BaseUtil {
         _wait_forAllElements(valueForTheGivenKey("Download_icons"));
 
         //Asserting if Certificates are downloadable
-        Assert.assertTrue(_get_WebElements_size(valueForTheGivenKey("Download_icons")) > 5);
+        Assert.assertTrue(_get_WebElements_size(valueForTheGivenKey("Download_icons")) >= 2);
 
 
     }
