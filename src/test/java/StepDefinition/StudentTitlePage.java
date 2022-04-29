@@ -673,7 +673,7 @@ public class StudentTitlePage extends BaseUtil {
     public void verify_congratulations_message_on_global_house_screen() {
 
          //Waiting for the Global House Card
-        _wait(valueForTheGivenKey("Global_House_Success_Msg"));
+        _Scrolling_throughout_the_WebPage("Global_House_Success_Msg");
 
         //Asserting the Global House Card
         Assert.assertEquals("Your entry into Global House is confirmed. We will schedule your session very soon.\n" +
