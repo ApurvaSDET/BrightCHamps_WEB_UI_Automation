@@ -371,7 +371,7 @@ public class StudentTitlePage extends BaseUtil {
     }
 
     @When("User selected all four classes date and time")
-    public void user_selected_all_four_classes_date_and_time() {
+    public void user_selected_all_four_classes_date_and_time() throws InterruptedException {
 
         WebDriverWait wait = new WebDriverWait(driver, 2);
 
@@ -389,7 +389,9 @@ public class StudentTitlePage extends BaseUtil {
                 }
             catch (ElementClickInterceptedException | StaleElementReferenceException e)
                 {
-                    e.getMessage();
+                    driver.navigate().refresh();
+                    Thread.sleep(1500);
+                    ele.click();
                 }
 
             try {
@@ -653,7 +655,7 @@ public class StudentTitlePage extends BaseUtil {
     }
 
     @When("User selects all the Preference")
-    public void user_selects_all_the_preference() {
+    public void user_selects_all_the_preference() throws InterruptedException {
 
         //Reusing Reschedule all classes method
         user_selected_all_four_classes_date_and_time();
