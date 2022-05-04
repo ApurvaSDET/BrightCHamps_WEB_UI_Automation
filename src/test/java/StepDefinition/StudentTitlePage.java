@@ -740,7 +740,7 @@ public class StudentTitlePage extends BaseUtil {
     }
 
     @When("User opens a new tab and paste copied link in it")
-    public void user_opens_a_new_tab_and_paste_copied_link_in_it(){
+    public void user_opens_a_new_tab_and_paste_copied_link_in_it() throws InterruptedException {
 
         //*************Copying the Copied text on Email field and getting the copied text****************
 
@@ -776,7 +776,7 @@ public class StudentTitlePage extends BaseUtil {
         }
 
         //Validating if new tab is opened with referral URL
-        wait.until(ExpectedConditions.urlToBe(PastedURL));
+        Thread.sleep(3000);
         Referral_URL_from_Paste = driver.getCurrentUrl();
         Assert.assertTrue(Referral_URL_from_Paste.contains("utm_source=referral"));
     }
