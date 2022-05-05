@@ -5,7 +5,7 @@ Feature: Home Page Part 4 - Upgrade Package Scenarios and Demo Certificates
 
     Given  User is at Student portal master login Page
 
-  @Regression1 @UpgradePackage
+  @Regression @UpgradePackage
   Scenario: 1 #Verifying Upgrade Package Card in case of 5 or less classes are left
 
     When   User enters valid Phone no and password
@@ -14,7 +14,9 @@ Feature: Home Page Part 4 - Upgrade Package Scenarios and Demo Certificates
       |8433918423|hr26ec2 |
 
     And    User clicks on SUBMIT CTA
-    Then   User is at the Home Page of single user account
+    Then   User is at the Select Your Account Screen
+    When   User clicks on paid account
+    Then   User is at the Home Page of penalized account
     When   User is left with below classes in his account to be completed
 
       |ClassesLeft|
