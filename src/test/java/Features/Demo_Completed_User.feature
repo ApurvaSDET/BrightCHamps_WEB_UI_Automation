@@ -18,12 +18,12 @@ Feature: Demo Completed User
 
     Then   Demo Completed banner should be present at the top of the Dashboard
 
-  @Regression @DemoCompleted
+
   Scenario: 2 #Verifying Free Scratch Course Video on the Demo Dashboard
 
     Then    Verify Video should be playing on the dashboard
 
-  @Regression @DemoCompleted
+
   Scenario: 3 #Verifying Try Our Course CTA on the Demo Dashboard
 
     When    User clicks on Try our Course CTA

@@ -132,6 +132,12 @@ public class StudentTitlePage extends BaseUtil {
     @When("User Clicks on three dots button")
     public void user_clicks_on_three_dots_button() throws InterruptedException {
 
+        //Setting Vertical of test a/c to 1 for BrightChamps User
+        _getResult(valueForTheGivenKey("UpdateVertical"), null, null);
+
+        //Reloading WebPage to reflect BrightChamps Vertical
+        driver.navigate().refresh();
+
         //waiting for document to be in ready state
         DocumentInReadyState();
 
@@ -499,7 +505,12 @@ public class StudentTitlePage extends BaseUtil {
             }
         }
 
-        Assert.assertEquals("Student Policy", driver.getTitle());
+        String PageTitle = driver.getTitle();
+
+        if(PageTitle.equals("Student Policy") || PageTitle.equals("Refund Policy -10x"))
+            Assert.assertTrue(true);
+        else
+            Assert.fail();
     }
 
     // Scenario: 12 #Verifying YES button on Cancel Class modal after accepting the student policy
@@ -629,6 +640,12 @@ public class StudentTitlePage extends BaseUtil {
 
         //Clering Data of Test User from DB before Running this Test
         _getResult(valueForTheGivenKey("DeleteGlobalHouseEntry"), null, null);
+
+        //Setting Vertical of test a/c to 1 for BrightChamps User
+        _getResult(valueForTheGivenKey("UpdateVertical"), null, null);
+
+        //Reloading WebPage to reflect Global House Banner
+        driver.navigate().refresh();
 
         //Storing Current Window Handle in Static String Variable 'Parent_Window'
         Parent_Window = driver.getWindowHandle();
@@ -869,6 +886,12 @@ public class StudentTitlePage extends BaseUtil {
 
     @When("User clicks on Leaderboard section of referral card")
     public void userClicksOnLeaderboardSectionOfReferralCard() throws InterruptedException {
+
+        //Setting Vertical of test a/c to 1 for BrightChamps User
+        _getResult(valueForTheGivenKey("UpdateVertical"), null, null);
+
+        //Reloading WebPage to reflect BrightChamps Vertical
+        driver.navigate().refresh();
 
         //Waiting for the page to load and navigating to the Book_Free_Trial CTA
         Thread.sleep(1500);
