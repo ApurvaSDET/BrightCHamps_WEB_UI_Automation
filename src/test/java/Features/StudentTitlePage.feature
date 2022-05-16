@@ -151,7 +151,7 @@ Feature: Home Page Part 1
     When    User has an Upcoming Appointment
     #Then    Verify JOIN CTA is enabled or disabled
 
-  @Regression @GlobalHouse @SmokeTest
+  @Regression1 @GlobalHouse @SmokeTest1
   Scenario: 14 #Verifying global House CTA
 
     Given   User is at the Home Page of single user account
@@ -198,7 +198,7 @@ Feature: Home Page Part 1
     Then    Verify new tab with WhatsApp link should get opened
 
 
-  @Regression @Leaderboard @Referral
+  @Regression1 @Leaderboard @Referral
   Scenario: 19 #Verifying Leaderboard section on referral modal
 
     Given   User is at the Home Page of single user account

@@ -894,7 +894,7 @@ public class StudentTitlePage extends BaseUtil {
         driver.navigate().refresh();
 
         //Waiting for the page to load and navigating to the Book_Free_Trial CTA
-        Thread.sleep(1500);
+        Thread.sleep(2500);
         _search_throughout_webpage("LeaderBoard_link");
 
     }
