@@ -49,7 +49,7 @@ public class Completed_Class_Section extends BaseUtil {
 
         //Switching to each opened tab and validating the opened link
 
-        for(int i = 1 ; i<ElementsCount ; i++)
+        for(int i = 1 ; i<ElementsCount-1 ; i++)
         {
             driver.switchTo().window(tab.get(i));
             Assert.assertTrue(driver.getCurrentUrl().contains("docs.google.com"));
