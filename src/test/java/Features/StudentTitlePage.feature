@@ -206,11 +206,12 @@ Feature: Home Page Part 1
     Then    Leaderboard section should gets opened
     And     Verify all the data on Leaderboard section
 
-
+  @Regression @UpcomingClassesCards
   Scenario: 20 #Verifying 'Check your schedule classes' expand button
 
     Given   User is at the Home Page of single user account
-    When    User clicks on Check your schedule classes expand button
-    Then    Upcoming classes should appear
-    When    User clicks on Hide your schedule class button
-    Then    Upcoming classes should disappear
+    Then    Verify Upcoming Schedule section on Home Page
+    When    User clicks on Right Arrow Button
+    Then    Upcoming classes crad should be scrolled to left
+    When    User clicks on Left Arrow Button
+    Then    Upcoming classes crad should be scrolled to Right

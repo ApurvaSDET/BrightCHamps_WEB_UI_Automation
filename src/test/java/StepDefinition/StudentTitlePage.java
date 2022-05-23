@@ -921,46 +921,50 @@ public class StudentTitlePage extends BaseUtil {
 
     //Scenario: 20 #Verifying 'Check your schedule classes' expand button
 
-    @When("User clicks on Check your schedule classes expand button")
-    public void user_clicks_on_check_your_schedule_classes_expand_button() {
+    @When("Verify Upcoming Schedule section on Home Page")
+    public void Verify_Upcoming_Schedule_section_on_Home_Page() {
 
-        //Waiting and Clicking on toggle to expand the view
-        _wait(valueForTheGivenKey("Schedule_Classes_Toggle"));
-        _click(valueForTheGivenKey("Schedule_Classes_Toggle"));
+        //Waiting till Upcoming Section gets loaded
+        _wait(valueForTheGivenKey("Upcoming_Classes"));
 
-    }
-
-    @Then("Upcoming classes should appear")
-    public void upcoming_classes_should_appear() {
-
-        //Storing List<Element> in UpcomingClasses to use in next method
-        UpcomingClasses = driver.findElements(By.xpath(valueForTheGivenKey("Upcoming_Classes")));
-
-        //Waiting and Validating if the view is expanded
-        _wait_forAllElements(valueForTheGivenKey("Upcoming_Classes"));
-        Assert.assertFalse(driver.findElements(By.xpath(valueForTheGivenKey("Upcoming_Classes"))).isEmpty());
+        //Validating Upcoming Schedule Section On Home Page
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Upcoming_Classes")));
 
     }
 
-    @When("User clicks on Hide your schedule class button")
-    public void user_clicks_on_hide_your_schedule_class_button() {
+    @Then("User clicks on Right Arrow Button")
+    public void User_clicks_on_Right_Arrow_Button() {
 
-        //Clicking on toggle to collapse the expanded view
-        _click(valueForTheGivenKey("Schedule_Classes_Toggle"));
+        //Click on Next Button
+        _click(valueForTheGivenKey("Next_Slide"));
+
     }
 
-    @Then("Upcoming classes should disappear")
-    public void upcoming_classes_should_disappear() {
+    @When("Upcoming classes crad should be scrolled to left")
+    public void upcoming_classes_scroll_left() {
 
-        //Waiting and Validating if the view is collapsed
-        try {
-            wait.until(ExpectedConditions.invisibilityOfAllElements(UpcomingClasses));
-            Assert.assertTrue(true);
-        }
-        catch (TimeoutException e)
-        {
-            Assert.fail();
-        }
+        _wait(valueForTheGivenKey("Previous_Slide"));
+
+        //Validating Previous buttom on Upcoming Schedule Section
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Previous_Slide")));
+
+    }
+
+    @Then("User clicks on Left Arrow Button")
+    public void User_clicks_on_Left_Arrow_Button() {
+
+        //Click on Previous Button
+        _click(valueForTheGivenKey("Previous_Slide"));
+
+    }
+
+    @When("Upcoming classes crad should be scrolled to Right")
+    public void upcoming_classes_scroll_right() {
+
+        _WaitAbsence(valueForTheGivenKey("Previous_Slide"));
+
+        //Validating Previous buttom on Upcoming Schedule Section
+        Assert.assertFalse(_is_displayed(valueForTheGivenKey("Previous_Slide")));
 
     }
 
