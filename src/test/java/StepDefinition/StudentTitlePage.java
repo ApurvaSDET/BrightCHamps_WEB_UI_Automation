@@ -887,14 +887,9 @@ public class StudentTitlePage extends BaseUtil {
     @When("User clicks on Leaderboard section of referral card")
     public void userClicksOnLeaderboardSectionOfReferralCard() throws InterruptedException {
 
-        //Setting Vertical of test a/c to 1 for BrightChamps User
-        _getResult(valueForTheGivenKey("UpdateVertical"), null, null);
-
-        //Reloading WebPage to reflect BrightChamps Vertical
-        driver.navigate().refresh();
-
         //Waiting for the page to load and navigating to the Book_Free_Trial CTA
-        Thread.sleep(2500);
+        DocumentInReadyState();
+        Thread.sleep(2000);
         _search_throughout_webpage("LeaderBoard_link");
 
     }

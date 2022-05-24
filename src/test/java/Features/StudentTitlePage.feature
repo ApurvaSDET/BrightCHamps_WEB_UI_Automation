@@ -89,9 +89,18 @@ Feature: Home Page Part 1
     Then   User should be able to successfully Reschedule the class
     And    User should be redirected to dashboard screen
 
+  @Regression @UpcomingClassesCards
+  Scenario: 8 #Verifying Upcoming Class Section
+
+    Given   User is at the Home Page of single user account
+    Then    Verify Upcoming Schedule section on Home Page
+    When    User clicks on Right Arrow Button
+    Then    Upcoming classes crad should be scrolled to left
+    When    User clicks on Left Arrow Button
+    Then    Upcoming classes crad should be scrolled to Right
 
   @Regression @Cancel
-  Scenario: 8 #Verifying No button on Cancel Class modal
+  Scenario: 9 #Verifying No button on Cancel Class modal
 
     When   User Clicks on three dots button
     Then   Dropdown should appear
@@ -102,7 +111,7 @@ Feature: Home Page Part 1
 
 
   @Regression @Cancel
-  Scenario: 9 #Verifying YES button on Cancel Class modal without accepting the student policy
+  Scenario: 10 #Verifying YES button on Cancel Class modal without accepting the student policy
 
     When   User Clicks on three dots button
     Then   Dropdown should appear
@@ -111,7 +120,7 @@ Feature: Home Page Part 1
     And    YES button should be disabled
 
   @Regression @Cancel
-  Scenario: 10 #Verifying student policy link on Cancel Class modal
+  Scenario: 11 #Verifying student policy link on Cancel Class modal
 
     When   User Clicks on three dots button
     Then   Dropdown should appear
@@ -121,7 +130,7 @@ Feature: Home Page Part 1
     Then   A web page with student policy should get opened
 
   @Regression @Cancel @SmokeTest
-  Scenario: 11 #Verifying YES button on Cancel Class modal after accepting the student policy
+  Scenario: 12 #Verifying YES button on Cancel Class modal after accepting the student policy
 
     When   User Clicks on three dots button
     Then   Dropdown should appear
@@ -137,7 +146,7 @@ Feature: Home Page Part 1
 
 
   @Regression @Cancel @SmokeTest
-  Scenario: 12 #Verifying Skip button of Successful cancel screen
+  Scenario: 13 #Verifying Skip button of Successful cancel screen
 
     Given  User is at cancel successful screen
     When   User clicks on Skip link of Cancel Modal
@@ -145,14 +154,14 @@ Feature: Home Page Part 1
 
 
   @Regression @Smoke
-  Scenario: 13 #Verifying disabled JOIN CTA logic
+  Scenario: 14 #Verifying disabled JOIN CTA logic
 
     Given   User is at the Home Page of single user account
     When    User has an Upcoming Appointment
     #Then    Verify JOIN CTA is enabled or disabled
 
-  @Regression1 @GlobalHouse @SmokeTest1
-  Scenario: 14 #Verifying global House CTA
+  @Regression1 @GlobalHouse
+  Scenario: 15 #Verifying global House CTA
 
     Given   User is at the Home Page of single user account
     When    User clicks on global house banner
@@ -164,7 +173,7 @@ Feature: Home Page Part 1
     And     Verify Congratulations! message on Global House Screen
 
   @Regression @Referral @SmokeTest
-  Scenario: 15 #Verifying referral modal on Home Page of paid user
+  Scenario: 16 #Verifying referral modal on Home Page of paid user
 
     Given   User is at the Home Page of single user account
     When    User clicks on Book Free Trial CTA of referral card
@@ -175,7 +184,7 @@ Feature: Home Page Part 1
     Then    Verify Same URL should be there which is associated with Book Free Trial CTA
 
   @Regression @KnowMore @Referral
-  Scenario: 16 #Verifying 'Know More' CTA on referral modal
+  Scenario: 17 #Verifying 'Know More' CTA on referral modal
 
     Given   User is at the Home Page of single user account
     When    User clicks on 'Know More' CTA of referral card
@@ -183,7 +192,7 @@ Feature: Home Page Part 1
 
 
   @Regression @Facebook @Referral
-  Scenario: 17 #Verifying 'Facebook' link on referral modal
+  Scenario: 18 #Verifying 'Facebook' link on referral modal
 
     Given   User is at the Home Page of single user account
     When    User clicks on Facebook link of referral card
@@ -191,27 +200,17 @@ Feature: Home Page Part 1
 
 
   @Regression @WhatsApp @Referral
-  Scenario: 18 #Verifying 'WhatsApp' link  on referral modal
+  Scenario: 19 #Verifying 'WhatsApp' link  on referral modal
 
     Given   User is at the Home Page of single user account
     When    User clicks on WhatsApp link of referral card
     Then    Verify new tab with WhatsApp link should get opened
 
 
-  @Regression1 @Leaderboard @Referral
-  Scenario: 19 #Verifying Leaderboard section on referral modal
+  @Regression @Leaderboard @Referral
+  Scenario: 20 #Verifying Leaderboard section on referral modal
 
     Given   User is at the Home Page of single user account
     When    User clicks on Leaderboard section of referral card
     Then    Leaderboard section should gets opened
     And     Verify all the data on Leaderboard section
-
-  @Regression @UpcomingClassesCards
-  Scenario: 20 #Verifying Upcoming Class Section
-
-    Given   User is at the Home Page of single user account
-    Then    Verify Upcoming Schedule section on Home Page
-    When    User clicks on Right Arrow Button
-    Then    Upcoming classes crad should be scrolled to left
-    When    User clicks on Left Arrow Button
-    Then    Upcoming classes crad should be scrolled to Right
