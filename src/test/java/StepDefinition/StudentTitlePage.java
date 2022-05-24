@@ -936,6 +936,7 @@ public class StudentTitlePage extends BaseUtil {
     public void User_clicks_on_Right_Arrow_Button() {
 
         //Click on Next Button
+        _wait(valueForTheGivenKey("Upcoming_Classes"));
         _click(valueForTheGivenKey("Next_Slide"));
 
     }
