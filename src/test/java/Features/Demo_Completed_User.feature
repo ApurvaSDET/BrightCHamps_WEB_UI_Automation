@@ -92,7 +92,7 @@ Feature: Demo Completed User
     When    User clicks on Facebook banner card
     Then    Verify new tab with facebook link should get opened
 
-  @Regression @DemoCompleted
+  @Regression1 @DemoCompleted
   Scenario: 13 #Verifying ‘Our Students love us’ section on the Demo Dashboard
 
     When    User clicks on Right Arrow

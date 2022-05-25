@@ -60,21 +60,21 @@ Feature: Demo User
     Then    User should be redirected to Our-Curriculum Page
 
 
-  @Regression @Demo
+  @Regression1 @Demo1
   Scenario: 7 #Verifying ‘Apple App Store’ CTA on Demo Home Page
 
     Given   User is at the Home Page of Demo account
     When    User clicks on Apple AppStore CTA
     Then    User should be redirected to the Apple AppStore Screen
 
-  @Regression @Demo
+  @Regression1 @Demo1
   Scenario: 8 #Verifying ‘Google PlayStore’ CTA on Demo Home Page
 
     Given   User is at the Home Page of Demo account
     When    User clicks on Google PlayStore CTA
     Then    User should be redirected to the Google PlayStore Screen
 
-  @Regression1 @Demo
+  @Regression1 @Demo1
   Scenario: 9 #Verifying ‘Grab Your Seat’ CTA on Demo User
 
     Given   User is at the Home Page of Demo account

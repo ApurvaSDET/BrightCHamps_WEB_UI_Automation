@@ -180,9 +180,10 @@ public class Demo_Completed_User extends BaseUtil {
     //Scenario: 14 #Verifying 'Code-O-Fiesta' banner on the Dashboard
 
     @When("User clicks on Contest Now CTA of Code-O-Fiesta banner")
-    public void userClicksOnCodeOFiestaBannerCard() {
+    public void userClicksOnCodeOFiestaBannerCard() throws InterruptedException {
 
         //Scrolling till Code-O-Fiesta banner card is in view and clicking on Contest Now CTA
+        Thread.sleep(1500);
         _search_throughout_webpage("Contest_Now_CTA");
 
     }
