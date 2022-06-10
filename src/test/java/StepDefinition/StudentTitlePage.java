@@ -338,6 +338,9 @@ public class StudentTitlePage extends BaseUtil {
     @Then("By default three class per week should be shown")
     public void by_default_three_class_per_week_should_be_shown() {
 
+     //Waiting for Slots
+     _wait(valueForTheGivenKey("class_per_week_count"));
+
     //Assertion for showing 3 class slots
     Assert.assertEquals(6, (_get_WebElements_size(valueForTheGivenKey("class_per_week_count"))));
 
