@@ -48,7 +48,7 @@ Feature: Demo Completed User
     When    User clicks on Buy This Plan CTA of Champion Plan
     #Then    User should be redirected to Payment Gateway
 
-  @Regression @DemoCompleted
+  @Regression1 @DemoCompleted
   Scenario: 7 #Verifying referral modal on Home Page of paid user
 
     When    User clicks on Book Free Trial CTA of referral card

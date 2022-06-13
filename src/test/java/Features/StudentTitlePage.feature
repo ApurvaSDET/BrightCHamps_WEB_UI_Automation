@@ -172,7 +172,7 @@ Feature: Home Page Part 1
     Then    Success alert message should appear
     And     Verify Congratulations! message on Global House Screen
 
-  @Regression @Referral @SmokeTest
+  @Regression1 @Referral @SmokeTest
   Scenario: 16 #Verifying referral modal on Home Page of paid user
 
     Given   User is at the Home Page of single user account
