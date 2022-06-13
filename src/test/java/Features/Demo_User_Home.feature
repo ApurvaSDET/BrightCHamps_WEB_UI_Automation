@@ -7,7 +7,7 @@ Feature: Demo User
     When   User enters valid Phone no and password
 
       |Phone     |Password|
-      |5310000003|hr26ec2 |
+      |5310000004|hr26ec2 |
 
 
     And    User clicks on SUBMIT CTA
@@ -90,7 +90,7 @@ Feature: Demo User
     When    User clicks logout button
     Then    User is at Student Portal Title Page
 
-  @Regression @LockedCertificate
+  @Regression @LockedCertificate @Demo
   Scenario: 11 #Verifying locked Certificate for Demo User
 
     Given   User is at the Home Page of Demo account
