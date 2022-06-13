@@ -818,7 +818,7 @@ public class StudentTitlePage extends BaseUtil {
         Parent_Window = driver.getWindowHandle();
 
         //Waiting for the page to load and navigating to the Book_Free_Trial CTA
-        Thread.sleep(1500);
+        Thread.sleep(2500);
         _search_throughout_webpage("Know_More_CTA");
 
     }

@@ -62,7 +62,7 @@ Feature: Paid and Demo Users Certificates
     Then   Verify Unlocked Certifiates should be available under Certificates Earned Section
     And    Unlocked Certificate can be downloaded
 
-  @Regression @PaidCertificate
+  @Regression1 @PaidCertificate
   Scenario: 5 #Verifying Locked Certificates on Certificate Screen
 
     When   User enters valid Phone no and password
@@ -77,7 +77,7 @@ Feature: Paid and Demo Users Certificates
     And    Verify lock icon on all the locked Certificates
 
 
-  @Regression @PaidCertificate
+  @Regression1 @PaidCertificate
   Scenario: 6 #Verifying Upgrade Now on Certificate Screen
 
     When   User enters valid Phone no and password
