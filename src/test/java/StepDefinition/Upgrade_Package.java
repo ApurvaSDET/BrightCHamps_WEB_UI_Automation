@@ -140,8 +140,9 @@ public class Upgrade_Package extends BaseUtil {
     //Scenario: 3 #Verifying Upgrade Package Card in case no classes are left
 
     @Then("User is at the Home Page of completed account")
-    public void user_is_redirected_to_the_home_page_completed_account() {
+    public void user_is_redirected_to_the_home_page_completed_account() throws InterruptedException {
 
+        Thread.sleep(5000);
         //Pressing Escape Key to close the Hackathon Modal
         new Actions(driver).sendKeys(Keys.ESCAPE).perform();
 
