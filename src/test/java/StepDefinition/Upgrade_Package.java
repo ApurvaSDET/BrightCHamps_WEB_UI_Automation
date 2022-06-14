@@ -94,7 +94,7 @@ public class Upgrade_Package extends BaseUtil {
         Parent_Window = driver.getWindowHandle();
 
         //Scrolling till Upgrade CTA and clicking on it
-        Thread.sleep(1500);
+        _wait(valueForTheGivenKey("CHAMPION_CARD"));
         _search_throughout_webpage("Upgrade_To_CTA");
 
     }
