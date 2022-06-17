@@ -70,22 +70,23 @@ Feature: Home Page Part 4 - Upgrade Package Scenarios and Demo Certificates
     When   User enters valid Phone no and password
 
       |Phone     |Password|
-      |503670250|hr26ec2 |
+      |8433918423|hr26ec2 |
       #This is prod user
 
     And    User clicks on SUBMIT CTA
-    Then   User is at the Home Page of completed account
+    Then   User is at the Select Your Account Screen
+    When   User clicks on paid account
+    Then   User is at the Home Page of penalized account
     When   User is left with below classes in his account to be completed
 
       |ClassesLeft|
-      |     0     |
+      |     5     |
 
-    Then   Navigate back to the Home Page
-    And    Verify there is an Upgrade Now Card at the top of Home Page
-    When   User clicks on Upgrade Now Card at the top of Home Page
+    Then   Verify there is an Upgrade Package Card shown for Non-Champion User
+    When   User clicks on Upgrade CTA
     Then   User is redirected to the Curriculum selection Page
     When   User clicks on back button of Curriculum Page
-    Then   User is at the Home Page of completed account
+    Then   User is at the Home Page of penalized account
 
   @Regression @SchedulingFromDashboard @SmokeTest
   Scenario: 5 #Verifying Class Schedule from Dashboard Screen
