@@ -52,7 +52,8 @@ public class Completed_Class_Section extends BaseUtil {
         for(int i = 1 ; i<ElementsCount-1 ; i++)
         {
             driver.switchTo().window(tab.get(i));
-            Assert.assertTrue(driver.getCurrentUrl().contains("docs.google.com"));
+            Assert.assertTrue(driver.getCurrentUrl().contains("docs.google.com") |
+                    driver.getCurrentUrl().contains("drive.google.com"));
         }
 
 

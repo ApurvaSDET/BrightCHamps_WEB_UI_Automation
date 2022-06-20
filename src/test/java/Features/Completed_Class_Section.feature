@@ -14,14 +14,14 @@ Feature: Home Page Part 2 - Completed Class Section
 
     And    User clicks on Sign-in CTA
 
-  @Regression1 @CompletedClassCard
+  @Regression @CompletedClassCard
   Scenario: 1 #Verifying SESSION BOOKLET links on Completed Class Section
 
     Then   User is at the Home Page of single user account
     When   User clicks on SESSION BOOKLET link of all the completed class cards
     Then   Link should get opened in the new tab
 
-  @Regression1 @CompletedClassCard
+  @Regression @CompletedClassCard
   Scenario: 2 #Verifying ASSIGNMENT links on Completed Class Section
 
     Then   User is at the Home Page of single user account
