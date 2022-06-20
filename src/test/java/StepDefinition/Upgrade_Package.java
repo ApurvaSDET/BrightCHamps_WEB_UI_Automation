@@ -6,10 +6,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -140,11 +137,20 @@ public class Upgrade_Package extends BaseUtil {
     //Scenario: 3 #Verifying Upgrade Package Card in case no classes are left
 
     @Then("User is at the Home Page of completed account")
-    public void user_is_redirected_to_the_home_page_completed_account() throws InterruptedException {
+    public void user_is_redirected_to_the_home_page_completed_account() {
 
-        Thread.sleep(5000);
-        //Pressing Escape Key to close the Hackathon Modal
-        new Actions(driver).sendKeys(Keys.ESCAPE).perform();
+        //Waiting for YouTube Hackathon Modal
+        _wait(valueForTheGivenKey("YouTube_Hackathon_Modal"));
+
+        //Handling WebDriverException
+        try {
+            //Pressing Escape Key to close the Hackathon Modal
+            new Actions(driver).sendKeys(Keys.ESCAPE).perform();
+        }
+        catch (WebDriverException e)
+        {
+            e.getMessage();
+        }
 
         //waiting for home page to load
         _wait(valueForTheGivenKey("Upgrade_Now_CTA_Home_Page"));
@@ -163,7 +169,8 @@ public class Upgrade_Package extends BaseUtil {
     @And("Verify there is an Upgrade Now Card at the top of Home Page")
     public void Verify_Upgrade_Now_Card_at_the_top_of_Home_Page() {
 
-        _wait(valueForTheGivenKey("Upgrade_Now_CTA_Home_Page"));
+        //Reusing above method for Assertion of Upgrade Now Card
+        user_is_redirected_to_the_home_page_completed_account();
 
     }
 
