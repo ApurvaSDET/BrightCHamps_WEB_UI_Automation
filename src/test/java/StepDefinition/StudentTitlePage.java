@@ -18,10 +18,6 @@ import java.util.concurrent.TimeUnit;
 
 public class StudentTitlePage extends BaseUtil {
 
-    public static String Referral_URL_from_CTA;
-    public static String Referral_URL_from_Paste;
-    public List<WebElement> UpcomingClasses;
-
     //Background: User is Logged In
 
     @Given("User is at Student portal title Page")
@@ -701,223 +697,7 @@ public class StudentTitlePage extends BaseUtil {
 
     }
 
-    //Scenario: 15 #Verifying referral modal on Home Page of paid user
-
-    @When("User clicks on Book Free Trial CTA of referral card")
-    public void user_clicks_on_book_free_trial_cta_of_referral_card() throws InterruptedException {
-
-        //Making page to stop loading referral webpage and throw exception, since it's loading infinitely
-        driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
-
-        //Storing Current Window Handle in Static String Variable 'Parent_Window'
-        Parent_Window = driver.getWindowHandle();
-
-        //Waiting for the page to load and navigating to the Book_Free_Trial CTA
-        Thread.sleep(2000);
-        _search_throughout_webpage("Book_Free_Trial_CTA");
-
-    }
-
-    @Then("User should be navigated to the new tab with referral link in it")
-    public void user_should_be_navigated_to_the_new_tab_with_referral_link_in_it() {
-
-        // Executing rest of the logic in try catch block after exception is thrown
-        try {
-            //Switching driver focus to next Window
-            Switch_to_next_tab(Parent_Window);
-            Referral_URL_from_CTA = driver.getCurrentUrl();
-
-        } catch (TimeoutException e) {
-
-            Referral_URL_from_CTA = driver.getCurrentUrl();
-        }
-
-        //Validating if new tab is opened with referral URL
-        Assert.assertTrue(Referral_URL_from_CTA.contains("utm_source=referral"));
-
-    }
-
-    @When("User click on COPY LINK")
-    public void user_click_on_copy_link() {
-
-        //Switching to the default window
-        driver.close();
-        driver.switchTo().window(Parent_Window);
-
-        //Click on COPY LINK CTA on referral modal
-        _search_throughout_webpage("COPY_LINK_CTA");
-
-
-    }
-
-    @Then("Text on CTA should be changed to COPIED")
-    public void text_on_cta_should_be_changed_to_copied() {
-
-        //Validating COPIED CTA
-        _wait(valueForTheGivenKey("COPIED_CTA"));
-        Assert.assertTrue(_is_displayed(valueForTheGivenKey("COPIED_CTA")));
-
-    }
-
-    @When("User opens a new tab and paste copied link in it")
-    public void user_opens_a_new_tab_and_paste_copied_link_in_it() throws InterruptedException {
-
-        //*************Copying the Copied text on Email field and getting the copied text****************
-
-        //Reusing methods to navigate to Email field and pasting the copied link on Email text input
-        Clicks_on_Profile_button();
-        user_clicks_logout_button();
-        user_is_at_student_portal();
-        user_clicks_on_login_with_password_cta();
-        user_is_at_login_with_password_screen();
-
-        // Pasting the Copied link using Cmd/Ctrl +V depending upon system
-        if(System.getProperty("os.name").contains("Mac"))
-            driver.findElement(By.xpath(valueForTheGivenKey("Email_field"))).sendKeys(Keys.COMMAND + "v");
-
-        else
-            driver.findElement(By.xpath(valueForTheGivenKey("Email_field"))).sendKeys(Keys.CONTROL + "v");
-
-
-        //Storing the String value in a local variable
-        String PastedURL = driver.findElement(By.xpath(valueForTheGivenKey("Email_field"))).getAttribute("value");
-
-        //Opening a new tab
-        openNewTab();
-
-        //Switching driver focus to next Window and navigating to the copied URL from ClipBoard
-        Switch_to_next_tab(Parent_Window);
-
-        // Executing rest of the logic in try catch block after exception is thrown
-        try {
-            driver.get(PastedURL);
-        } catch (TimeoutException e) {
-            // Ignore the exception.
-        }
-
-        //Validating if new tab is opened with referral URL
-        Thread.sleep(3000);
-        Referral_URL_from_Paste = driver.getCurrentUrl();
-        Assert.assertTrue(Referral_URL_from_Paste.contains("utm_source=referral"));
-    }
-
-    @Then("Verify Same URL should be there which is associated with Book Free Trial CTA")
-    public void verify_same_url_should_be_there_which_is_associated_with_book_free_trial_cta() {
-
-        //Validating if both CTAs are fulfilling same purpose
-        Assert.assertEquals(Referral_URL_from_CTA, Referral_URL_from_Paste);
-
-    }
-
-    //Scenario: 16 #Verifying 'Know More' CTA on referral modal
-
-    @When("User clicks on 'Know More' CTA of referral card")
-    public void User_clicks_on_Know_More_CTA_of_referral_card() throws InterruptedException {
-
-        //Storing Current Window Handle in Static String Variable 'Parent_Window'
-        Parent_Window = driver.getWindowHandle();
-
-        //Waiting for the page to load and navigating to the Book_Free_Trial CTA
-        Thread.sleep(2500);
-        _search_throughout_webpage("Know_More_CTA");
-
-    }
-
-    @Then("User should be navigated to the new policy tab")
-    public void User_should_be_navigated_to_the_new_policy_tab() {
-
-        //Switching driver focus to next Window
-        Switch_to_next_tab(Parent_Window);
-
-        //Validating if new tab is opened with Policy URL
-        Assert.assertTrue(driver.getCurrentUrl().contains("policy.brightchamps.com"));
-
-    }
-
-    //Scenario: 17 #Verifying 'Facebook' link on referral modal
-
-    @When("User clicks on Facebook link of referral card")
-    public void userClicksOnFacebookLinkOfReferralCard() throws InterruptedException {
-
-        //Storing Current Window Handle in Static String Variable 'Parent_Window'
-        Parent_Window = driver.getWindowHandle();
-
-        //Waiting for the page to load and navigating to the Book_Free_Trial CTA
-        Thread.sleep(1500);
-        _search_throughout_webpage("Facebook_Share_icon");
-
-    }
-
-    @Then("Verify new tab with facebook link should get opened")
-    public void verifyNewTabWithFacebookLinkShouldGetOpened() {
-
-        //Switching driver focus to next Window
-        Switch_to_next_tab(Parent_Window);
-
-        //Validating if new tab is opened with Policy URL
-        Assert.assertTrue(driver.getCurrentUrl().contains("www.facebook.com"));
-
-    }
-
-
-    //Scenario: 18 #Verifying 'WhatsApp' link  on referral modal
-
-    @When("User clicks on WhatsApp link of referral card")
-    public void userClicksOnWhatsAppLinkOfReferralCard() throws InterruptedException {
-
-        //Storing Current Window Handle in Static String Variable 'Parent_Window'
-        Parent_Window = driver.getWindowHandle();
-
-        //Waiting for the page to load and navigating to the Book_Free_Trial CTA
-        Thread.sleep(1500);
-        _search_throughout_webpage("WhatsApp_Share_icon");
-
-    }
-
-    @Then("Verify new tab with WhatsApp link should get opened")
-    public void verifyNewTabWithWhatsAppLinkShouldGetOpened() {
-
-        //Switching driver focus to next Window
-        Switch_to_next_tab(Parent_Window);
-
-        //Validating if new tab is opened with Policy URL
-        Assert.assertTrue(driver.getCurrentUrl().contains("web.whatsapp.com"));
-
-    }
-
-    //Scenario: 19 #Verifying Leaderboard section on referral modal
-
-    @When("User clicks on Leaderboard section of referral card")
-    public void userClicksOnLeaderboardSectionOfReferralCard() throws InterruptedException {
-
-        //Waiting for the page to load and navigating to the Book_Free_Trial CTA
-        DocumentInReadyState();
-        Thread.sleep(2000);
-        _search_throughout_webpage("LeaderBoard_link");
-
-    }
-
-    @Then("Leaderboard section should gets opened")
-    public void leaderboardSectionShouldGetsOpened() {
-
-        //Validating if Correct Data appears on Leaderboard
-        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Your_Referrals"))
-                &&
-                _is_displayed(valueForTheGivenKey("Your_Rank")));
-
-
-    }
-
-    @And("Verify all the data on Leaderboard section")
-    public void verifyAllTheDataOnLeaderboardSection() {
-
-        //Validating if Correct number of Rows and Coloumns appear on Leaderboard
-        Assert.assertEquals(4, _get_WebElements_size(valueForTheGivenKey("LeaderBoard_Coloumn_Count")));
-        Assert.assertEquals(10, _get_WebElements_size(valueForTheGivenKey("LeaderBoard_Rows_Count")));
-
-    }
-
-    //Scenario: 20 #Verifying 'Check your schedule classes' expand button
+    //Scenario: 8 #Verifying 'Check your schedule classes' expand button
 
     @When("Verify Upcoming Schedule section on Home Page")
     public void Verify_Upcoming_Schedule_section_on_Home_Page() {
@@ -967,5 +747,14 @@ public class StudentTitlePage extends BaseUtil {
 
     }
 
+    //Scenario: 16 #Verifying MacBook CTA on Home Page
+    @When("User clicks on Give Me MacBook CTA")
+    public void userClicksOnGiveMeMacBookCTA() throws InterruptedException {
+
+        //Waiting for the page to load and navigating to the Book_Free_Trial CTA
+        Thread.sleep(2000);
+        _search_throughout_webpage("MacBook_CTA");
+
+    }
 }
 

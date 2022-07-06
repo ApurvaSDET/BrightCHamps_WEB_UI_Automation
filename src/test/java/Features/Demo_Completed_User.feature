@@ -48,9 +48,11 @@ Feature: Demo Completed User
     When    User clicks on Buy This Plan CTA of Champion Plan
     #Then    User should be redirected to Payment Gateway
 
-  @Regression1 @DemoCompleted
-  Scenario: 7 #Verifying referral modal on Home Page of paid user
+  @Regression @DemoCompleted
+  Scenario: 7 #Verifying Copy Link on Refer & Earn Page
 
+    When    User Clicks on Refer & Earn tab
+    Then    User is at the Refer & Earn Screen
     When    User clicks on Book Free Trial CTA of referral card
     Then    User should be navigated to the new tab with referral link in it
     When    User click on COPY LINK
@@ -58,33 +60,40 @@ Feature: Demo Completed User
     When    User opens a new tab and paste copied link in it
     Then    Verify Same URL should be there which is associated with Book Free Trial CTA
 
-  @Regression1 @DemoCompleted
-  Scenario: 8 #Verifying 'Know More' CTA on referral modal
+  @Regression @DemoCompleted
+  Scenario: 8 #Verifying 'T&C' link on Refer & Earn Page
 
-    When    User clicks on 'Know More' CTA of referral card
+    When    User Clicks on Refer & Earn tab
+    Then    User is at the Refer & Earn Screen
+    When    User clicks on T&C link on Refer & Earn Page
     Then    User should be navigated to the new policy tab
 
 
-  @Regression1 @DemoCompleted
-  Scenario: 9 #Verifying 'Facebook' link on referral modal
+  @Regression @DemoCompleted
+  Scenario: 9 #Verifying 'Facebook' CTA on Refer & Earn Page
 
+    When    User Clicks on Refer & Earn tab
+    Then    User is at the Refer & Earn Screen
     When    User clicks on Facebook link of referral card
     Then    Verify new tab with facebook link should get opened
 
 
-  @Regression1 @DemoCompleted
-  Scenario: 10 #Verifying 'WhatsApp' link  on referral modal
+  @Regression @DemoCompleted
+  Scenario: 10 #Verifying 'WhatsApp' CTA on Refer & Earn Page
 
+    When    User Clicks on Refer & Earn tab
+    Then    User is at the Refer & Earn Screen
     When    User clicks on WhatsApp link of referral card
     Then    Verify new tab with WhatsApp link should get opened
 
 
-  @Regression1 @DemoCompleted
-  Scenario: 11 #Verifying Leaderboard section on referral modal
+  @Regression @DemoCompleted
+  Scenario: 11 #Verifying Leaderboard section on Refer & Earn Page
 
-    When    User clicks on Leaderboard section of referral card
-    Then    Leaderboard section should gets opened
-    And     Verify all the data on Leaderboard section
+    When    User Clicks on Refer & Earn tab
+    Then    User is at the Refer & Earn Screen
+    When    User scrolls down till Leaderboard section of referral page
+    Then    Verify all the data on Leaderboard section
 
   @Regression @DemoCompleted
   Scenario: 12 #Verifying 'Join our community on Facebook' banner on the Dashboard
@@ -105,3 +114,9 @@ Feature: Demo Completed User
 
     When    User clicks on Contest Now CTA of Code-O-Fiesta banner
     Then    Verify user is redirected to the Code-O-Fiesta WebPage
+
+  @Regression @Referral @SmokeTest
+  Scenario: 15 #Verifying MacBook CTA on Home Page
+
+    When    User clicks on Give Me MacBook CTA
+    Then    User is at the Refer & Earn Screen

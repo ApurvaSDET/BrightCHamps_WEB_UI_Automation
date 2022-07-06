@@ -172,45 +172,11 @@ Feature: Home Page Part 1
     Then    Success alert message should appear
     And     Verify Congratulations! message on Global House Screen
 
-  @Regression1 @Referral @SmokeTest
-  Scenario: 16 #Verifying referral modal on Home Page of paid user
+  @Regression @Referral @SmokeTest
+  Scenario: 16 #Verifying MacBook CTA on Home Page
 
     Given   User is at the Home Page of single user account
-    When    User clicks on Book Free Trial CTA of referral card
-    Then    User should be navigated to the new tab with referral link in it
-    When    User click on COPY LINK
-    Then    Text on CTA should be changed to COPIED
-    When    User opens a new tab and paste copied link in it
-    Then    Verify Same URL should be there which is associated with Book Free Trial CTA
-
-  @Regression1 @KnowMore @Referral
-  Scenario: 17 #Verifying 'Know More' CTA on referral modal
-
-    Given   User is at the Home Page of single user account
-    When    User clicks on 'Know More' CTA of referral card
-    Then    User should be navigated to the new policy tab
+    When    User clicks on Give Me MacBook CTA
+    Then    User is at the Refer & Earn Screen
 
 
-  @Regression1 @Facebook @Referral
-  Scenario: 18 #Verifying 'Facebook' link on referral modal
-
-    Given   User is at the Home Page of single user account
-    When    User clicks on Facebook link of referral card
-    Then    Verify new tab with facebook link should get opened
-
-
-  @Regression1 @WhatsApp @Referral
-  Scenario: 19 #Verifying 'WhatsApp' link  on referral modal
-
-    Given   User is at the Home Page of single user account
-    When    User clicks on WhatsApp link of referral card
-    Then    Verify new tab with WhatsApp link should get opened
-
-
-  @Regression1 @Leaderboard @Referral
-  Scenario: 20 #Verifying Leaderboard section on referral modal
-
-    Given   User is at the Home Page of single user account
-    When    User clicks on Leaderboard section of referral card
-    Then    Leaderboard section should gets opened
-    And     Verify all the data on Leaderboard section
