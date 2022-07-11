@@ -17,8 +17,11 @@ Feature: Paid and Demo Users Certificates
 
     And    User clicks on SUBMIT CTA
     Then   User is at the Home Page of Demo Completed account
-    When   User Scrolls down till Certificate section
-    Then   Verify Certificate Should be unlocked
+    When   User Scrolls down till Goodies section
+    And    User Click on View Certificate button
+    Then   Verify Certificate Should be enlarged
+    When   User clicks on X button
+    Then   Certificate Modal should be closed
 
   @Regression @DemoCertificate
   Scenario: 2 #Verifying Unlocked Certificate can be downloaded
@@ -31,7 +34,9 @@ Feature: Paid and Demo Users Certificates
 
     And    User clicks on SUBMIT CTA
     Then   User is at the Home Page of Demo Completed account
-    When   User Scrolls down till Certificate section
+    When   User Scrolls down till Goodies section
+    And    User Click on View Certificate button
+    Then   Verify Certificate Should be enlarged
     Then   Verify Certificate Should be able to Download
 
   @Regression @PaidCertificate

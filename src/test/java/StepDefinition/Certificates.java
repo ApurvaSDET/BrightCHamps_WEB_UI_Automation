@@ -1,6 +1,7 @@
 package StepDefinition;
 
 import Base.BaseUtil;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -15,21 +16,54 @@ public class Certificates extends BaseUtil {
 
     //Scenario: 1 #Verifying Unlocked Certificate
 
-    @When("User Scrolls down till Certificate section")
-    public void user_scrolls_down_till_certificate_section() {
+    @When("User Scrolls down till Goodies section")
+    public void user_scrolls_down_till_goodies_section() throws InterruptedException {
+
+        //Scrolling till locked certificate is visible on the screen
+        Thread.sleep(1500);
 
         //Scrolling till Download_Certificate_Link is visible on the screen
-        _Scrolling_throughout_the_WebPage("Download_Certificate_Link");
+        _Scrolling_throughout_the_WebPage("View_Certificate_button");
 
     }
 
-    @Then("Verify Certificate Should be unlocked")
-    public void verify_certificate_should_be_unlocked() {
+    @And("User Click on View Certificate button")
+    public void User_Click_on_View_Certificate_button() {
+
+        //Clicking on View Certificate button
+        _click(valueForTheGivenKey("View_Certificate_button"));
+
+    }
+
+    @Then("Verify Certificate Should be enlarged")
+    public void verify_certificate_should_be_enlarged() throws InterruptedException {
+
+        //Waiting for the Modal to Open
+        _wait(valueForTheGivenKey("Close_Certificate_Modal"));
+        Thread.sleep(1500);
 
         //Validating Unlocked Demo Certificate Title and Download Link
-        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Unlocked_Demo_Certificate")));
-        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Download_Certificate_Link")));
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Close_Certificate_Modal")));
 
+    }
+
+
+    @When("User clicks on X button")
+    public void userClicksOnXButton() {
+
+        //Clicking on X button
+        _click(valueForTheGivenKey("Close_Certificate_Modal"));
+
+    }
+
+    @Then("Certificate Modal should be closed")
+    public void certificateModalShouldBeClosed() {
+
+        //Waiting for the Modal to close
+        _WaitAbsence(valueForTheGivenKey("Download_Certificate_button"));
+
+        //Validating Modal Closure
+        Assert.assertFalse(_is_displayed(valueForTheGivenKey("Download_Certificate_button")));
     }
 
 
@@ -39,7 +73,7 @@ public class Certificates extends BaseUtil {
     public void verify_certificate_should_be_able_to_download() {
 
         //Clicking on Download Certificate Link
-        _click(valueForTheGivenKey("Download_Certificate_Link"));
+        _click(valueForTheGivenKey("Download_Certificate_button"));
 
         //Validating if the certificate was actually downloaded
         Assert.assertTrue(filepresent(System.getProperty("user.dir")+valueForTheGivenKey("Downloaded_File_Path")));
@@ -154,6 +188,5 @@ public class Certificates extends BaseUtil {
         _search_throughout_webpage("Upgrade_Plan_CTA");
 
     }
-
 
 }

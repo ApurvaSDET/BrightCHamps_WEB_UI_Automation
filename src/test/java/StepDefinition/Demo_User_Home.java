@@ -398,22 +398,23 @@ public class Demo_User_Home extends BaseUtil {
     //Scenario: 11 #Verifying locked Certificate for Demo User
 
 
-    @When("User Scrolls till Certificate section")
-    public void userScrollsTillCertificateSection() throws InterruptedException {
-
-        //Scrolling till locked certificate is visible on the screen
-        Thread.sleep(1500);
-        _Scrolling_throughout_the_WebPage("Locked_Certificate");
-
-    }
-
-    @Then("Verify Certificate Should be locked for non completed users")
-    public void verifyCertificateShouldBeLockedForNonCompletedUsers() {
+    @And("Complete Demo Class button should be displayed on the Modal")
+    public void completeDemoClassButtonShouldBeDisplayedOnTheModal() {
 
         //Validating Unlocked Demo Certificate Title and Download Link
-        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Locked_Certificate")));
-        Assert.assertFalse(_is_displayed(valueForTheGivenKey("Download_Certificate_Link")));
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Complete_Demo_Class_button")));
 
     }
+
+    @When("User Click on Complete Class butoon")
+    public void userClickOnCompleteClassButoon() {
+
+        //Clicking on the Modal
+        _click(valueForTheGivenKey("Complete_Demo_Class_button"));
+
+    }
+
+
+
 }
 

@@ -94,5 +94,9 @@ Feature: Demo User
   Scenario: 11 #Verifying locked Certificate for Demo User
 
     Given   User is at the Home Page of Demo account
-    When    User Scrolls till Certificate section
-    Then    Verify Certificate Should be locked for non completed users
+    When    User Scrolls down till Goodies section
+    And     User Click on View Certificate button
+    Then    Verify Certificate Should be enlarged
+    And     Complete Demo Class button should be displayed on the Modal
+    When    User Click on Complete Class butoon
+    Then    User is at the Home Page of Demo account
