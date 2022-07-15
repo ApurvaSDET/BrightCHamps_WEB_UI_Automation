@@ -85,7 +85,7 @@ public class Upgrade_Package extends BaseUtil {
     }
 
     @When("User selects curriculum")
-    public void user_selects_any_curriculum() throws InterruptedException {
+    public void user_selects_any_curriculum() {
 
         //Storing Current Window Handle in Static String Variable 'Parent_Window'
         Parent_Window = driver.getWindowHandle();
@@ -138,19 +138,6 @@ public class Upgrade_Package extends BaseUtil {
 
     @Then("User is at the Home Page of completed account")
     public void user_is_redirected_to_the_home_page_completed_account() {
-
-        //Waiting for YouTube Hackathon Modal
-        _wait(valueForTheGivenKey("YouTube_Hackathon_Modal"));
-
-        //Handling WebDriverException
-        try {
-            //Pressing Escape Key to close the Hackathon Modal
-            new Actions(driver).sendKeys(Keys.ESCAPE).perform();
-        }
-        catch (WebDriverException e)
-        {
-            e.getMessage();
-        }
 
         //waiting for home page to load
         _wait(valueForTheGivenKey("Upgrade_Now_CTA_Home_Page"));

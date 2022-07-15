@@ -16,6 +16,12 @@ public class Demo_Completed_User extends BaseUtil {
     @Then("User is at the Home Page of Demo Completed account")
     public void user_is_at_the_home_page_of_demo_completed_account() {
 
+        //Waiting for YouTube Hackathon Modal
+        _wait(valueForTheGivenKey("Profile_Completion_Modal"));
+
+        //Clicking on the Modal to Close
+        _click(valueForTheGivenKey("Profile_Completion_Modal"));
+
         _wait(valueForTheGivenKey("Congrats_Banner"));
         Assert.assertTrue(_is_displayed(valueForTheGivenKey("Congrats_Banner")));
 

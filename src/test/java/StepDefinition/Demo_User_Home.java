@@ -8,6 +8,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.text.ParseException;
@@ -60,6 +61,12 @@ public class Demo_User_Home extends BaseUtil {
 
     @Then("User is at the Home Page of Demo account")
     public void User_is_at_the_Home_Page_of_Demo_account() {
+
+        //Waiting for YouTube Hackathon Modal
+        _wait(valueForTheGivenKey("Profile_Completion_Modal"));
+
+        //Clicking on the Modal to Close
+        _click(valueForTheGivenKey("Profile_Completion_Modal"));
 
         //waiting for home page to load
         _wait(valueForTheGivenKey("Home_button"));
