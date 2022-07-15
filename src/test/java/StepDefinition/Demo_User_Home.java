@@ -422,6 +422,15 @@ public class Demo_User_Home extends BaseUtil {
     }
 
 
+    @Then("User is at the Demo Dashboard")
+    public void userIsAtTheDemoDashboard() {
 
+        //waiting for home page to load
+        _wait(valueForTheGivenKey("Title_Heading"));
+
+        //Asserting the Student Home Page
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Title_Heading")));
+
+    }
 }
 

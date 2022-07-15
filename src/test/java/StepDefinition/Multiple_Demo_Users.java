@@ -112,8 +112,14 @@ public class Multiple_Demo_Users extends BaseUtil {
     @Then("User lands on Home Page")
     public void user_lands_on_home_page() {
 
+        //Waiting for YouTube Hackathon Modal
+        _wait(valueForTheGivenKey("Profile_Completion_Modal"));
+
+        //Clicking on the Modal to Close
+        _click(valueForTheGivenKey("Profile_Completion_Modal"));
+
         _wait(valueForTheGivenKey("Title_Heading"));
-        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Video_Container_Title")));
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Title_Heading")));
 
     }
 

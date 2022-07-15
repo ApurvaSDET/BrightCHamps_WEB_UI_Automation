@@ -99,4 +99,4 @@ Feature: Demo User
     Then    Verify Certificate Should be enlarged
     And     Complete Demo Class button should be displayed on the Modal
     When    User Click on Complete Class butoon
-    Then    User is at the Home Page of Demo account
+    Then    User is at the Demo Dashboard
