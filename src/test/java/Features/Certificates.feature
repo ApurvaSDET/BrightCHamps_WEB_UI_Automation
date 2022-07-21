@@ -65,7 +65,10 @@ Feature: Paid and Demo Users Certificates
     Then   User is at the Home Page of single user account
     When   User is at Certificates Screen
     Then   Verify Unlocked Certifiates should be available under Certificates Earned Section
-    And    Unlocked Certificate can be downloaded
+    When   User Click on Certificate image
+    Then   Pop-up Should Open
+    When   User Click on Download on APP CTA on Modal
+    Then   User should be redirected to APP Promotion link
 
   @Regression1 @PaidCertificate
   Scenario: 5 #Verifying Locked Certificates on Certificate Screen

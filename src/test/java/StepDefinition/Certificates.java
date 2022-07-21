@@ -134,11 +134,45 @@ public class Certificates extends BaseUtil {
     public void verify_unlocked_certifiates_should_be_available_under_certificates_earned_section() {
 
         //Waiting for all the certificates to load
-        _wait_forAllElements(valueForTheGivenKey("Download_icons"));
+        _wait_forAllElements(valueForTheGivenKey("Certificate_image"));
 
         //Asserting if Certificates are downloadable
-        Assert.assertTrue(_get_WebElements_size(valueForTheGivenKey("Download_icons")) >= 2);
+        Assert.assertTrue(_get_WebElements_size(valueForTheGivenKey("Certificate_image")) >= 2);
 
+
+    }
+
+    @When("User Click on Certificate image")
+    public void userClickOnCertificateImage() {
+
+        _click(valueForTheGivenKey("Certificate_image"));
+
+    }
+
+    @Then("Pop-up Should Open")
+    public void popUpShouldOpen() {
+
+        //Waiting for the Modal
+        _wait(valueForTheGivenKey("Download_App_Now_CTA"));
+
+        //Validating the Pop-up Modal
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("Download_App_Now_CTA")));
+
+    }
+
+    @When("User Click on Download on APP CTA on Modal")
+    public void userClickOnDownloadOnAPPCTAOnModal() {
+
+        _click(valueForTheGivenKey("Download_App_Now_CTA"));
+
+    }
+
+    @Then("User should be redirected to APP Promotion link")
+    public void userShouldBeRedirectedToAPPPromotionLink() {
+
+        _wait(valueForTheGivenKey("App_Promotion_Page"));
+
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("App_Promotion_Page")));
 
     }
 
