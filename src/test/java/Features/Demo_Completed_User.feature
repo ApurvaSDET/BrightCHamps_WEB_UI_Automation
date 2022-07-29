@@ -101,8 +101,8 @@ Feature: Demo Completed User
     When    User clicks on Facebook banner card
     Then    Verify new tab with facebook link should get opened
 
-  @Regression1 @DemoCompleted
-  Scenario: 13 #Verifying ‘Our Students love us’ section on the Demo Dashboard
+  @Regression1 @Demo
+  Scenario: 13 #Verifying Student Testimonial section on the Demo Dashboard
 
     When    User clicks on Right Arrow
     Then    Testimonial Cards should Scroll to Left
@@ -120,3 +120,24 @@ Feature: Demo Completed User
 
     When    User clicks on Give Me MacBook CTA
     Then    User is at the Refer & Earn Screen
+
+  @Regression @Demo @NewsArticle
+  Scenario: 16 #Verifying News Article section on the Demo Dashboard
+
+    When   User Scrolls down till News section
+    And    User clicks on Read article link of all the completed class cards
+    Then   News Link should get opened in the new tab
+
+  @Regression @Demo @NewsArticle
+  Scenario: 17 #Verifying Know More CTA under News Article section
+
+    When   User Scrolls down till News section
+    And    User clicks on Know More CTA
+    Then   News Link should get opened in the new tab
+
+  @Regression @Demo @Projects
+  Scenario: 18 #Verifying Games under Project section
+
+    When   User Scrolls down till Project section
+    And    User clicks on Play CTA of all the Project cards
+    Then   Projects Link should get opened in the new tab

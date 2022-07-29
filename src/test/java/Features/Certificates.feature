@@ -85,16 +85,17 @@ Feature: Paid and Demo Users Certificates
     And    Verify lock icon on all the locked Certificates
 
 
-  @Regression1 @PaidCertificate
-  Scenario: 6 #Verifying Upgrade Now on Certificate Screen
+  @Regression @UnLockedBETReport
+  Scenario: 6 #Verifying Unlocked Certificate
 
     When   User enters valid Phone no and password
 
-      |Phone     |Password|
-      |8130865152 |hr26ec2 |
+      |Phone      |Password|
+      |1069568075|hr26ec2 |
+      #This is a prod User
 
     And    User clicks on SUBMIT CTA
-    Then   User is at the Home Page of single user account
-    When   User is at Certificates Screen
-    When   User Clicks on Update this Plan CTA
-    Then   User is redirected to the Curriculum selection Page
+    Then   User is at the Home Page of Demo Completed account
+    When   User Scrolls down till Goodies section
+    And    User Click on View BET Report button
+    Then   Verify User should be at BET Report Screen

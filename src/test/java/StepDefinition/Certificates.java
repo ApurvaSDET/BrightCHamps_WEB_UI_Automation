@@ -7,6 +7,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.java.sl.In;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.io.File;
 import java.util.Arrays;
@@ -36,7 +37,7 @@ public class Certificates extends BaseUtil {
     }
 
     @Then("Verify Certificate Should be enlarged")
-    public void verify_certificate_should_be_enlarged() throws InterruptedException {
+    public static void verify_certificate_should_be_enlarged() throws InterruptedException {
 
         //Waiting for the Modal to Open
         _wait(valueForTheGivenKey("Close_Certificate_Modal"));
@@ -216,11 +217,15 @@ public class Certificates extends BaseUtil {
 
     //Scenario: 6 #Verifying Upgrade Now on Certificate Screen
 
-    @When("User Clicks on Update this Plan CTA")
-    public void user_clicks_on_update_this_plan_cta() {
+    @Then("Verify User should be at BET Report Screen")
+    public void verifyUserShouldBeAtBETReportScreen() {
 
-        _search_throughout_webpage("Upgrade_Plan_CTA");
+        //Waiting till BET screen is loaded
+        wait.until(ExpectedConditions.urlContains("DiagnosticReport"));
+
+        //Validating if user is at BET Screen
+        _wait(valueForTheGivenKey("BET_Detail_Report"));
+        Assert.assertTrue(_is_displayed(valueForTheGivenKey("BET_Detail_Report")));
 
     }
-
 }

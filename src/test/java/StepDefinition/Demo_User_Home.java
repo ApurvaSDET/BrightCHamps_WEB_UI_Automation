@@ -432,5 +432,22 @@ public class Demo_User_Home extends BaseUtil {
         Assert.assertTrue(_is_displayed(valueForTheGivenKey("Title_Heading")));
 
     }
+
+    //Scenario: 12 #Verifying locked BET report for Demo User
+
+    @And("User Click on View BET Report button")
+    public void userClickOnViewBETReportButton() {
+
+        //Clicking on View Certificate button
+        _click(valueForTheGivenKey("View_BET_button"));
+
+    }
+
+    @Then("Verify BET Should be enlarged")
+    public void verifyBETShouldBeEnlarged() throws InterruptedException {
+
+        Certificates.verify_certificate_should_be_enlarged();
+
+    }
 }
 

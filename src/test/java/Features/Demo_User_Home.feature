@@ -100,3 +100,14 @@ Feature: Demo User
     And     Complete Demo Class button should be displayed on the Modal
     When    User Click on Complete Class butoon
     Then    User is at the Demo Dashboard
+
+  @Regression @LockedBETReport @Demo
+  Scenario: 12 #Verifying locked BET report for Demo User
+
+    Given   User is at the Home Page of Demo account
+    When    User Scrolls down till Goodies section
+    And     User Click on View BET Report button
+    Then    Verify BET Should be enlarged
+    And     Complete Demo Class button should be displayed on the Modal
+    When    User Click on Complete Class butoon
+    Then    User is at the Demo Dashboard

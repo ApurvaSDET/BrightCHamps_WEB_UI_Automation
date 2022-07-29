@@ -1,15 +1,21 @@
 package StepDefinition;
 
 import Base.BaseUtil;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 public class Demo_Completed_User extends BaseUtil {
 
+
+    int ElementsCount;
 
     //Background Conditions
 
@@ -202,6 +208,129 @@ public class Demo_Completed_User extends BaseUtil {
 
         //Asseting Code-O-Fiesta WebPage
         Assert.assertTrue(driver.getCurrentUrl().contains("book.brightchamps.com"));
+
+    }
+
+    //Scenario: 16 #Verifying News Article section on the Demo Dashboard
+
+    @When("User Scrolls down till News section")
+    public void userScrollsDownTillNewsSection() throws InterruptedException {
+
+        //Scrolling till locked certificate is visible on the screen
+        Thread.sleep(1500);
+
+        //Scrolling till Download_Certificate_Link is visible on the screen
+        _Scrolling_throughout_the_WebPage("Know_More_CTA");
+
+    }
+
+    @And("User clicks on Read article link of all the completed class cards")
+    public void userClicksOnReadArticleLinkOfAllTheCompletedClassCards() {
+
+        //Waiting for Elements to be present
+        _wait_forAllElements(valueForTheGivenKey("List_of_News_Article"));
+
+
+        //Using method to click on each link one by one
+        _selecting_one_by_one_from_dropdown(valueForTheGivenKey("List_of_News_Article"));
+
+        //Getting size of Session Booklet
+        ElementsCount = driver.findElements(By.xpath(valueForTheGivenKey("List_of_News_Article"))).size();
+
+    }
+
+    @Then("News Link should get opened in the new tab")
+    public void newsLinkShouldGetOpenedInTheNewTab() throws InterruptedException {
+
+        //Waiting to open multiple tabs
+        Thread.sleep(1500);
+
+        //Storing Window Handle into Set of String
+        Set<String> multipleTabs = driver.getWindowHandles();
+
+        //Converting this Set into ArrayList
+        ArrayList<String> tab = new ArrayList<>(multipleTabs);
+
+        //Switching to each opened tab and validating the opened link
+
+        for(int i = 1 ; i<ElementsCount-1 ; i++)
+        {
+            driver.switchTo().window(tab.get(i));
+            Assert.assertTrue(driver.getCurrentUrl().contains("brightchamps.com/blog"));
+        }
+
+    }
+
+    //Scenario: 17 #Verifying Know More CTA under News Article section
+
+    @And("User clicks on Know More CTA")
+    public void userClicksOnKnowMoreCTA() {
+
+        _search_throughout_webpage("Know_More_CTA");
+
+    }
+
+    //Scenario: 18 #Verifying Games under Project section
+
+    @When("User Scrolls down till Project section")
+    public void userScrollsDownTillProjectSection() throws InterruptedException {
+
+        //Scrolling till locked certificate is visible on the screen
+        Thread.sleep(1500);
+
+        //Scrolling till Download_Certificate_Link is visible on the screen
+        _Scrolling_throughout_the_WebPage("Next_Button_Project");
+
+    }
+
+    @And("User clicks on Play CTA of all the Project cards")
+    public void userClicksOnPlayCTAOfAllTheProjectCards() {
+
+        //Waiting for Elements to be present
+        _wait_forAllElements(valueForTheGivenKey("Projects"));
+
+
+        //Fetching list of WebElements
+        List<WebElement> dropdown_menu = driver.findElements(By.xpath(valueForTheGivenKey("Projects")));
+
+
+        //Using enhanced for loop to get the elements
+        for (WebElement ele : dropdown_menu)
+
+        {
+
+            try {
+                ele.click();
+            }
+            catch (StaleElementReferenceException | ElementNotInteractableException e)
+            {
+                e.getMessage();
+            }
+
+        }
+
+    }
+
+    @Then("Projects Link should get opened in the new tab")
+    public void projectsLinkShouldGetOpenedInTheNewTab() throws InterruptedException {
+
+        //Waiting to open multiple tabs
+        Thread.sleep(1500);
+
+        //Storing Window Handle into Set of String
+        Set<String> multipleTabs = driver.getWindowHandles();
+
+        //Converting this Set into ArrayList
+        ArrayList<String> tab = new ArrayList<>(multipleTabs);
+
+        //Switching to each opened tab and validating the opened link
+
+        for(int i = 1 ; i<4 ; i++)
+        {
+            driver.switchTo().window(tab.get(i));
+            Assert.assertTrue(driver.getCurrentUrl().contains("joining.brightchamps.com/student_projects"));
+        }
+
 
     }
 }
