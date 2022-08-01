@@ -86,12 +86,12 @@ Feature: Paid and Demo Users Certificates
 
 
   @Regression @UnLockedBETReport
-  Scenario: 6 #Verifying Unlocked Certificate
+  Scenario: 6 #Verifying Unlocked BET Report
 
     When   User enters valid Phone no and password
 
       |Phone      |Password|
-      |1069568075|hr26ec2 |
+      |1127690222|hr26ec2 |
       #This is a prod User
 
     And    User clicks on SUBMIT CTA

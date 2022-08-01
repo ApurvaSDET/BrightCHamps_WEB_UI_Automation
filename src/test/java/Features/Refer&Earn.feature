@@ -32,7 +32,7 @@ Feature: Paid Users Refer & Earn Page
     Then    User should be navigated to the new policy tab
 
 
-  @Regression @Facebook @Referral
+  @Regression1 @Facebook @Referral
   Scenario: 3 #Verifying 'Facebook' CTA on Refer & Earn Page
 
     When    User clicks on Facebook link of referral card

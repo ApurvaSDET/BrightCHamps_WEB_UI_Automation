@@ -69,7 +69,7 @@ Feature: Demo Completed User
     Then    User should be navigated to the new policy tab
 
 
-  @Regression @DemoCompleted
+  @Regression1 @DemoCompleted1
   Scenario: 9 #Verifying 'Facebook' CTA on Refer & Earn Page
 
     When    User Clicks on Refer & Earn tab
