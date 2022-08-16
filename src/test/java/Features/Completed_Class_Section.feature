@@ -18,7 +18,7 @@ Feature: Home Page Part 2 - Completed Class Section
   Scenario: 1 #Verifying SESSION BOOKLET links on Completed Class Section
 
     Then   User is at the Home Page of single user account
-    When   User clicks on SESSION BOOKLET link of all the completed class cards
+    When   User clicks on Project link of all the completed class cards
     Then   Link should get opened in the new tab
 
   @Regression @CompletedClassCard

@@ -16,22 +16,22 @@ public class Completed_Class_Section extends BaseUtil {
 
     //Scenario: 1 #Verifying SESSION BOOKLET links on Completed Class Section
 
-    @When("User clicks on SESSION BOOKLET link of all the completed class cards")
-    public void user_clicks_on_session_booklet_link_of_all_the_completed_class_cards() {
+    @When("User clicks on Project link of all the completed class cards")
+    public void user_clicks_on_Project_link_of_all_the_completed_class_cards() {
 
         //Waiting for Elements to be present
         try {
-            wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(valueForTheGivenKey("Session_booklet_link"))));
+            wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(valueForTheGivenKey("Project_link"))));
         }
         catch (TimeoutException e)
         {
             Assert.fail();
         }
         //Using method to click on each link one by one
-        _selecting_one_by_one_from_dropdown(valueForTheGivenKey("Session_booklet_link"));
+        _selecting_one_by_one_from_dropdown(valueForTheGivenKey("Project_link"));
 
         //Getting size of Session Booklet
-        ElementsCount = driver.findElements(By.xpath(valueForTheGivenKey("Session_booklet_link"))).size();
+        ElementsCount = driver.findElements(By.xpath(valueForTheGivenKey("Project_link"))).size();
 
     }
 

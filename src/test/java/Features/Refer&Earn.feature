@@ -18,12 +18,13 @@ Feature: Paid Users Refer & Earn Page
   @Regression @Referral @SmokeTest
   Scenario: 1 #Verifying Copy Link on Refer & Earn Page
 
-    When    User clicks on Book Free Trial CTA of referral card
-    Then    User should be navigated to the new tab with referral link in it
+    #When    User clicks on Book Free Trial CTA of referral card
+    #Then    User should be navigated to the new tab with referral link in it
     When    User click on COPY LINK
     Then    Text on CTA should be changed to COPIED
     When    User opens a new tab and paste copied link in it
-    Then    Verify Same URL should be there which is associated with Book Free Trial CTA
+    Then    Copied link should get opened in new tab
+    #Then    Verify Same URL should be there which is associated with Book Free Trial CTA
 
   @Regression @T&C @Referral
   Scenario: 2 #Verifying 'T&C' link on Refer & Earn Page

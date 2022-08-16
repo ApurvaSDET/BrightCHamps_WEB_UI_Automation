@@ -83,8 +83,8 @@ public class Refer_Earn extends BaseUtil {
     public void user_click_on_copy_link() {
 
         //Switching to the default window
-        driver.close();
-        driver.switchTo().window(Parent_Window);
+       // driver.close();
+        //driver.switchTo().window(Parent_Window);
 
         //Click on COPY LINK CTA on referral modal
         _search_throughout_webpage("COPY_LINK_CTA");
@@ -143,6 +143,13 @@ public class Refer_Earn extends BaseUtil {
         //Validating if new tab is opened with referral URL
         Thread.sleep(3000);
         Referral_URL_from_Paste = driver.getCurrentUrl();
+        //Assert.assertTrue(Referral_URL_from_Paste.contains("utm_source=referral"));
+    }
+
+    @Then("Copied link should get opened in new tab")
+    public void copiedLinkShouldGetOpenedInNewTab() {
+
+        //Validating if link get opened in new tab
         Assert.assertTrue(Referral_URL_from_Paste.contains("utm_source=referral"));
     }
 

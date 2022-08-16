@@ -325,7 +325,7 @@ public class Demo_Completed_User extends BaseUtil {
 
         //Switching to each opened tab and validating the opened link
 
-        for(int i = 1 ; i<4 ; i++)
+        for(int i = 1 ; i<3 ; i++)
         {
             driver.switchTo().window(tab.get(i));
             Assert.assertTrue(driver.getCurrentUrl().contains("joining.brightchamps.com/student_projects"));
