@@ -91,8 +91,7 @@ Feature: Paid and Demo Users Certificates
     When   User enters valid Phone no and password
 
       |Phone      |Password|
-      |1127690222|hr26ec2 |
-      #This is a prod User
+      |9145371845 |hr26ec2 |
 
     And    User clicks on SUBMIT CTA
     Then   User is at the Home Page of Demo Completed account
