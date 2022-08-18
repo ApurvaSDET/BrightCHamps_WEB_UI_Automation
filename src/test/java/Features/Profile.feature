@@ -35,7 +35,7 @@ Feature: Validating Profile Page
     And New hobbies should be updated on Profile Page
 
 
-  @Regression @Profile
+  @Regression1 @Profile
   Scenario Outline: 3 #Validating invalid input for Update Password
 
     When User clicks on Change Password
